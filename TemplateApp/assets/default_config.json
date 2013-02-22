@@ -1,0 +1,20 @@
+{       "name": "example",
+        "version":1,
+        "configUpdateUrl":"http:\/\/www.samplewebsite.com\/funfconfig",
+        "configUpdatePeriod":10800,
+        "dataArchivePeriod":3600,
+        "dataUploadUrl":"http:\/\/www.samplewebsite.com\/uploadurl",
+        "dataUploadPeriod":43200,
+        "dataRequests":{
+                "edu.mit.media.funf.probe.builtin.LocationProbe": [
+            { "PERIOD": 900, "DURATION": 30 },
+            { "PERIOD": 3600, "DURATION": 120 }
+        ],
+        "edu.mit.media.funf.probe.builtin.HardwareInfoProbe": [
+            { "PERIOD": 604800 }
+        ],
+        "edu.mit.media.funf.probe.builtin.BatteryProbe": [
+            {}
+        ]
+        }
+}
