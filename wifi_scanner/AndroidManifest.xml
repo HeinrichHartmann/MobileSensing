@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+ * Funf: Open Sensing Framework
+ * Copyright (C) 2010-2011 Nadav Aharony, Wei Pan, Alex Pentland. 
+ * Acknowledgments: Alan Gardner
+ * Contact: nadav@media.mit.edu
+ * 
+ * This file is part of Funf.
+ * 
+ * Funf is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as 
+ * published by the Free Software Foundation, either version 3 of 
+ * the License, or (at your option) any later version. 
+ * 
+ * Funf is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+ * See the GNU Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public 
+ * License along with Funf. If not, see <http://www.gnu.org/licenses/>.
+ -->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="edu.mit.media.funf.wifiscanner"
+      android:versionCode="1"
+      android:versionName="1.0">
+    <uses-sdk  
+        android:minSdkVersion="7" 
+        android:targetSdkVersion="17" />
+    <application android:label="@string/app_name" android:icon="@drawable/icon" >
+    	
+        <!-- Probe Services -->
+        <service android:name="edu.mit.media.funf.probe.builtin.LocationProbe"></service>
+        <service android:name="edu.mit.media.funf.probe.builtin.WifiProbe"></service>
+        
+        <!-- Framework services -->
+        <service android:name=".MainPipeline"></service>
+        <service android:name="edu.mit.media.funf.storage.NameValueDatabaseService"></service>
+        <service android:name="edu.mit.media.funf.storage.HttpUploadService"></service>
+        
+        <receiver android:name="edu.mit.media.funf.wifiscanner.LauncherReceiver" android:enabled="true">
+        	<intent-filter>
+        		<action android:name="android.intent.action.BATTERY_CHANGED" />
+        		<action android:name="android.intent.action.BOOT_COMPLETED" />
+        		<action android:name="android.intent.action.DOCK_EVENT" />
+        		<action android:name="android.intent.action.ACTION_SCREEN_ON" />
+        		<action android:name="android.intent.action.USER_PRESENT" />
+        	</intent-filter>
+        </receiver>
+    
+    <activity android:name=".MainActivity">
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+    
+</activity>
+        
+        
+        </application>
+    
+    
+    <!-- Battery Probe and launching -->
+    <uses-permission android:name="android.permission.BATTERY_STATS" />
+    
+
+    <!-- All probes -->
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    
+    <!-- Location probe, Cell probe -->
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/> 
+    
+    <!-- Location probe -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>   
+        
+    <!-- Wifi and Hardware Info probes -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/> 
+    
+     <!-- Wifi probe -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/> 
+        
+    <!-- Backing up database to SD card -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/> 
+    
+    <!-- Backing up to the web -->
+    <uses-permission android:name="android.permission.INTERNET" />
+        
+    <!-- DatabaseService, Archive service (unique ids) -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    
+</manifest>

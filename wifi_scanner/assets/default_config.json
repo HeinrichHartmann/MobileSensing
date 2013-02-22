@@ -1,0 +1,13 @@
+{       
+        "name": "WifiScanner",
+    "version":1,
+    "dataArchivePeriod":3600,
+    "dataRequests":{
+        "edu.mit.media.funf.probe.builtin.LocationProbe": [
+            { "PERIOD": 900, "DURATION": 30 }
+        ],
+        "edu.mit.media.funf.probe.builtin.WifiProbe": [
+            { "PERIOD": 900 }
+        ]
+    }
+}
