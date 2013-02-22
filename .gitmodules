@@ -1,0 +1,3 @@
+[submodule "funf-open-sensing-framework"]
+	path = funf-open-sensing-framework
+	url = https://code.google.com/p/funf-open-sensing-framework/
