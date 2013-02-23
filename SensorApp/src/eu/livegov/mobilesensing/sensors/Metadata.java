@@ -1,9 +1,13 @@
 package eu.livegov.mobilesensing.sensors;
 
-/*
- * ContainerClass for Sensor Metadata
+/**
+ * interface for metadata of sensors
  */
 public interface Metadata {
-	// Name of sensor
+	
+	/**
+	 * returns name of sensor
+	 * @return sensor name
+	 */
 	public String getName();
 }
