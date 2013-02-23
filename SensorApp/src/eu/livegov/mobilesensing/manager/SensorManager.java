@@ -16,7 +16,7 @@ import android.os.IBinder;
 import android.util.Log;
 
 public class SensorManager extends Service {
-
+	
 	private static final String LOG_TAG = "SensorManager";
 
 	private LinkedList<SensorService> services = new LinkedList<SensorService>();
@@ -67,4 +67,13 @@ public class SensorManager extends Service {
 		return new SensorManagerBinder();
 	}
 
+	public void statusAll() {
+		for ( SensorService mService : services ){
+			Log.i(LOG_TAG, 
+					"Service " + mService.getMetadata().getName() + "\n" + 
+					"Status "  + mService.getStatus()
+					);  
+		}
+	}
+	
 }
