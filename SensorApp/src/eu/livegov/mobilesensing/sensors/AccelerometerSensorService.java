@@ -6,7 +6,6 @@ import java.util.List;
 public class AccelerometerSensorService extends SensorService {
 
 	public class AccelerometerMetadata implements Metadata {
-		
 	}
 	
 	public class AccelerometerSensorValue implements SensorValue {
