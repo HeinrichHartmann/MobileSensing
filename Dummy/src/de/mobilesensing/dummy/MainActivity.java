@@ -6,10 +6,15 @@ import java.io.Serializable;
 
 import com.google.gson.Gson;
 
+import de.mobilesensing.dummy.BinderService.LocalBinder;
+
 import android.os.Bundle;
+import android.os.IBinder;
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -29,16 +34,14 @@ public class MainActivity extends Activity {
         Log.i(Constants.LOG_TAG,"Main: context:" + context.toString() );
         Log.i(Constants.LOG_TAG,"Main: resources:" + resources.toString() );
 
-        // Launch "AnotherAcivity"
-        Trans t = new Trans("Hello fom TransferObject");
-        String tS = (new Gson()).toJson(t);
-        
-        Intent intent = new Intent(context, AnotherActicity.class);
-        intent.putExtra("TO",tS);
-        intent.putExtra(MSG, "Hello from Main!");
-        startActivity(intent);
     }
 
+    @Override
+    protected void onResume() {
+    	Log.i(Constants.LOG_TAG,"Main: resume");
+    	super.onResume();
+    }
+    
     public class Trans implements Serializable {
     	public Trans() {
 		}
@@ -72,11 +75,44 @@ public class MainActivity extends Activity {
     }
     
     public void clickB1(View view){
-    	Intent i = new Intent(MY_ACTION);
-    	
-    }
-   public void clickB2(View view){
-    	
+    	// startService(new Intent(this, FirstService.class));
+
+    	// Launch "AnotherAcivity"
+        Trans t = new Trans("Hello fom TransferObject");
+        String tS = (new Gson()).toJson(t);
+        Intent intent = new Intent(getApplicationContext(), AnotherActicity.class);
+        intent.putExtra("TO",tS);
+        intent.putExtra(MSG, "Hello from Main!");
+        startActivity(intent);
     }
     
+    
+    BinderService mService;
+    boolean mBound = false;
+    
+    /** Defines callbacks for service binding, passed to bindService() */
+    private ServiceConnection mConnection = new ServiceConnection() {
+
+        @Override
+        public void onServiceConnected(ComponentName className,
+                IBinder service) {
+            // We've bound to LocalService, cast the IBinder and get LocalService instance
+            LocalBinder binder = (LocalBinder) service;
+            mService = binder.getService();
+            mBound = true;
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName arg0) {
+            mBound = false;
+        }
+    };
+
+    public void clickB2(View view){
+       // Bind to BinderService
+       Intent intent = new Intent(getApplicationContext(), BinderService.class);
+       bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
+   }
+
+   
 }

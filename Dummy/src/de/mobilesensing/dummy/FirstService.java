@@ -24,5 +24,5 @@ public class FirstService extends Service {
 		Log.i(Constants.LOG_TAG, "Destroyed Service");
 		super.onDestroy();
 	}
-	
+		
 }

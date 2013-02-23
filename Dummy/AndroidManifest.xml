@@ -26,8 +26,9 @@
             android:name="de.mobilesensing.dummy.AnotherActicity"
             android:label="@string/title_activity_another_acticity" >
         </activity>
-
-        <sercice android:name=".FirstService" />
+        
+        <service android:name="FirstService"/>
+        <service android:name="BinderService"/>
         
         </application>
 
