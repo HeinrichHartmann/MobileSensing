@@ -12,23 +12,22 @@ import android.hardware.SensorManager;
 import android.util.Log;
 
 public class AccelerometerSensorService extends SensorService {
+	public String SENSOR_NAME = "Accelerometer";
+	public String LOG_TAG ="Accelerometer Service";
 
-
-	private String LOG_TAG ="Accelerometer Service";
 	Sensor Sensor;
 	SensorManager sensorManager;
-	boolean present;
+	boolean sensorPresent;
+	
 	//initialize AccelerometerSensorValue
 	AccelerometerSensorValue lastValue = new AccelerometerSensorValue(-1,-1,-1,-1);
 	
 	//Queue with accelerometer sensor data (timestamp,x,y,z)
 	private LinkedBlockingQueue<AccelerometerSensorValue> accQueue = new LinkedBlockingQueue<AccelerometerSensorValue>();
 	
-	
-	
 	public class AccelerometerMetadata implements Metadata {
-
-		String name;
+		private String name;
+		private String hardwareSensorName;
 
 		public AccelerometerMetadata(String name) {
 			this.name = name;
@@ -36,48 +35,51 @@ public class AccelerometerSensorService extends SensorService {
 
 		@Override
 		public String getName() {
+			return this.name;
+		}
+
+		public void setHardwareSensorName(String name2) {
 			// TODO Auto-generated method stub
-			AccelerometerMetadata name = (AccelerometerMetadata) getMetadata();
-			String accName = name.name;
-			return accName;
+			this.hardwareSensorName = name2;
 		}
 	}
 
-	public static class AccelerometerSensorValue implements SensorValue {
-		
-	//Constructor	
-	public AccelerometerSensorValue(long timestamp, float x, float y, float z){
-	this.timestamp = timestamp;
-	this.x = x;
-	this.y = y;
-	this.z = z;
-	}
-	
-	long timestamp;
-	float x;
-	float y;
-	float z;
-	
+	/**
+	 * Returns Object containing basic information about the sensor
+	 */
+	@Override
+	public Metadata getMetadata() {
+		// TODO Move to constructor
+		AccelerometerMetadata meta = new AccelerometerMetadata(SENSOR_NAME);
+		if (sensorPresent) meta.setHardwareSensorName(Sensor.getName());
+		return meta;
+		}
 
+	
+	/**
+	 * Stores SensorValues from Accelerometer
+	 */
+	public static class AccelerometerSensorValue implements SensorValue {
+		long timestamp;
+		float x;
+		float y;
+		float z;
+		
+		// Constructor
+		public AccelerometerSensorValue(long timestamp, float x, float y,
+				float z) {
+			this.timestamp = timestamp;
+			this.x = x;
+			this.y = y;
+			this.z = z;
+		}
+		
 		@Override
 		public long getTimestamp() {
-			// TODO Auto-generated method stub
-		
 			return 0;
 		}
 	}
 
-	@Override
-	public Metadata getMetadata() {
-		// Returns Object containing basic information about the sensor
-		String accName;
-		if (present)
-			accName = Sensor.getName();
-		else
-			accName = "kein Sensor vorhanden";
-		AccelerometerMetadata m = new AccelerometerMetadata(accName);
-		return m;
-	}
 
 	@Override
 	public SensorValue getLastValue() {
@@ -112,18 +114,18 @@ public class AccelerometerSensorService extends SensorService {
 		List<Sensor> sensorList = sensorManager.getSensorList(Sensor.TYPE_ACCELEROMETER);
 
 		if (sensorList.size() > 0) {
-			present = true;
+			sensorPresent = true;
 			Sensor = sensorList.get(0);
 
 		} else {
-			present = false;
+			sensorPresent = false;
 		}
 	}
 
 	@Override
 	public void start() {
 		// Start service
-		if (present)
+		if (sensorPresent)
 			sensorManager.registerListener(Listener, Sensor,
 					SensorManager.SENSOR_DELAY_FASTEST);
 
@@ -157,7 +159,6 @@ public class AccelerometerSensorService extends SensorService {
 		// TODO Auto-generated method stub
 
 	}
-
 
 	public void writeLog(){
 		Log.i(LOG_TAG, "Value X: " + Float.toString(lastValue.x));

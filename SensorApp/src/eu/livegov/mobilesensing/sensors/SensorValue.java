@@ -6,6 +6,6 @@ package eu.livegov.mobilesensing.sensors;
  * * value
  */
 public interface SensorValue {
-	// time of recording
+	// time of recording, required for testing
 	public long getTimestamp();
 }
