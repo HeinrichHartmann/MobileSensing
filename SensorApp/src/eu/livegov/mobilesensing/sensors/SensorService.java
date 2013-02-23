@@ -8,9 +8,13 @@ import android.os.Binder;
 import android.os.IBinder;
 
 public abstract class SensorService extends Service {
-
+	/*
+	 * Methods to be implemented by Sensor Services 
+	 */
 	public abstract Metadata getMetadata();
 	public abstract SensorValue getLastValue();
+	public abstract putSensorValue(SensorValue value);
+	
 	public abstract List<SensorValue> pullData();
 	
 	/**
