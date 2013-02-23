@@ -15,7 +15,8 @@ public abstract class SensorService extends Service {
 	public abstract Metadata getMetadata();
 	public abstract SensorValue getLastValue();
 	public abstract void putSensorValue(SensorValue value);
-	
+
+	// nice hack
 	public abstract List<? extends SensorValue> pullData();
 	
 	/**
