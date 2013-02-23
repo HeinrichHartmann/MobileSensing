@@ -1,10 +1,12 @@
 package eu.livegov.mobilesensing.manager;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 import eu.livegov.mobilesensing.sensors.SensorService;
 import eu.livegov.mobilesensing.sensors.SensorService.SensorServiceBinder;
+import eu.livegov.mobilesensing.sensors.SensorValue;
 import eu.livegov.mobilesensing.sensors.accelerometer.AccelerometerSensorService;
 
 import android.app.Service;
@@ -35,17 +37,14 @@ import android.util.Log;
  * @author hartmann
  *
  */
-public class SensorManager extends Service {
+public class SensorManager extends Service implements SensorManagerInterface {
 	private static final String LOG_TAG = "SensorManager";
-
+	
 	// List of bound SensorServices
 	private LinkedList<SensorService> services = new LinkedList<SensorService>();
-	// List of Sensors which are bound onCreate
 	private LinkedList<Intent> servicesToBind = new LinkedList<Intent>();
 
-	
-	
-	private ServiceConnection connection = new ServiceConnection() {
+	ServiceConnection connection = new ServiceConnection() {
 		@Override
 		public void onServiceConnected(ComponentName className, IBinder service) {
 			Log.i(LOG_TAG, className + " connected");
@@ -55,25 +54,23 @@ public class SensorManager extends Service {
 
 		@Override
 		public void onServiceDisconnected(ComponentName arg0) {
+			Log.i(LOG_TAG, "Bind Failed");
 		}
 	};
-
-	private void bindSensorServices(List<Intent> servicesToBind,
-			ServiceConnection connection) {
+		
+	
+	public void bindSensorServices() {
+		Log.i(LOG_TAG,"Binding Services " + servicesToBind.size());
 		for (Intent intent : servicesToBind) {
-			bindService(intent, connection, BIND_AUTO_CREATE);
+			bindService(intent, connection, BIND_AUTO_CREATE);	
 		}
 	}
 
-	private void determineServicesToBind() {
+	public void setServicesToBind() {
+		Log.i(LOG_TAG,"Set Services to Bind");
 		// static AccelerometerSensorService for testing purposes; generate from
 		// config later
-		servicesToBind.add(new Intent(this, AccelerometerSensorService.class));
-	}
-
-	public void test() {
-		determineServicesToBind();
-		bindSensorServices(servicesToBind, connection);
+		servicesToBind.add(new Intent(getApplicationContext(), AccelerometerSensorService.class));
 	}
 
 	public class SensorManagerBinder extends Binder {
@@ -84,16 +81,57 @@ public class SensorManager extends Service {
 
 	@Override
 	public IBinder onBind(Intent intent) {
+		Log.i(LOG_TAG,"Sensor Manager onBind");
 		return new SensorManagerBinder();
 	}
 
-	public void statusAll() {
+	
+	@Override
+	public List<String> statusAll() {
+		Log.i(LOG_TAG,"Status All: " + services.size());
+
+		List<String> sensorStatusList = new ArrayList<String>();
+		
 		for ( SensorService mService : services ){
+			String status = mService.getStatus();
 			Log.i(LOG_TAG, 
-					"Service " + mService.getMetadata().getServiceName() + "\n" + 
-					"Status "  + mService.getStatus()
-					);
+					"Service " + mService.getMetadata().getServiceName() + "\n " +  
+					status );
+			
+			sensorStatusList.add(status);
 		}
+		
+		return sensorStatusList;
+	}
+	
+	@Override
+	public void setConfig(SensorManagerConfig config) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void startRecording() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void stopRecording() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void storeData() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<SensorValue> getLastValues() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

@@ -76,5 +76,11 @@ public class AccelerometerSensorServiceTest extends ServiceTestCase<Acceleromete
 		assertTrue(data.get(1).equals(dummyValue1));
 		assertTrue(data.get(2).equals(dummyValue2));
 		assertTrue(data.get(3).equals(dummyValue3));
+		
+		// Pull again should be empty
+		data = mService.pullData();
+		data = mService.pullData();
+		assertTrue(data.isEmpty());
+		
 	}
 }

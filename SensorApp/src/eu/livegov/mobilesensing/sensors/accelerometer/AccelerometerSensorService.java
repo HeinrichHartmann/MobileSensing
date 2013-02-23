@@ -20,57 +20,57 @@ public class AccelerometerSensorService extends SensorService {
 	public static final String SENSOR_NAME = "Accelerometer";
 	public static final String LOG_TAG = Constants.LOG_TAG;
 	
-	Sensor Sensor;
-	SensorManager sensorManager;
+	// Metadata about sensor
 	Metadata  meta;
 	
-	//initialize AccelerometerSensorValue
+	// initialize AccelerometerSensorValue
 	AccelerometerSensorValue lastValue = new AccelerometerSensorValue(-1,-1,-1,-1);
 	
-	//Queue with accelerometer sensor data
-	private LinkedBlockingQueue<AccelerometerSensorValue> sensorValueQueue = new LinkedBlockingQueue<AccelerometerSensorValue>();
+	// Queue with accelerometer sensor data
+	private LinkedBlockingQueue<AccelerometerSensorValue> valueQueue = new LinkedBlockingQueue<AccelerometerSensorValue>();
+
+	// native Android Sensor classes
+	Sensor androidSensor;
+	SensorManager androidSensorManager;
+
+	//////// Startup/Shutdown Service and Recording /////////
 	
-	@Override
-	public Metadata getMetadata() {
-		return meta;
-		}
-	
-	@Override
-	public SensorValue getLastValue() {
-		return lastValue;
-	}
-	
-	@SuppressWarnings("static-access")
 	public void onCreate() {
-		Log.i(LOG_TAG, "Accelerometer created");
-		
+		// Called when service start
+
 		// Check for Accelerometer Sensor
-		sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);		
-		List<Sensor> sensorList = sensorManager.getSensorList(Sensor.TYPE_ACCELEROMETER);
+		androidSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);		
+
+		@SuppressWarnings("static-access")
+		List<Sensor> sensorList = androidSensorManager.getSensorList(androidSensor.TYPE_ACCELEROMETER);
 
 		if (sensorList.size() > 0) {
-			Sensor = sensorList.get(0);
+			androidSensor = sensorList.get(0);
 		} else {
 			Log.e(LOG_TAG, "Seonsor not found!");
 			// Stop Service Throw Exception!
+			stopSelf();
 		}
 		
+		// set meta info
 		meta = new Metadata(SENSOR_NAME);
-		meta.autoSetSensorInfo(Sensor);
+		meta.autoSetSensorInfo(androidSensor);
+		
+		Log.i(LOG_TAG, "Accelerometer service started");
 	}
 	
 	@Override
 	public void startRecording() {
-		// Start service
 		Log.i(LOG_TAG, "Accelerometer RECORDING!");
-		
-		sensorManager.registerListener(
+
+		androidSensorManager.registerListener(
 				Listener, 
-				Sensor,
+				androidSensor,
 				SensorManager.SENSOR_DELAY_FASTEST
 				);
 	}
-
+	
+	// Event listener for recording
 	SensorEventListener Listener = new SensorEventListener() {
 		@Override
 		public void onAccuracyChanged(Sensor arg0, int arg1) {
@@ -86,43 +86,56 @@ public class AccelerometerSensorService extends SensorService {
 					arg0.values[2]
 					);
 			
-			sensorValueQueue.add(lastValue);		
-//			writeLog();
+			valueQueue.add(lastValue);		
 		}
 	};
+	
 
 	@Override
 	public void stopRecording() {
 		// Stop Service
-		sensorManager.unregisterListener(Listener);
+		androidSensorManager.unregisterListener(Listener);
 		Log.i(LOG_TAG, "Accelerometer stopped Recording.");
 	}
-
 	
+	//////// Method Implementation /////////
+	
+	@Override
+	public Metadata getMetadata() {
+		return meta;
+		}
+	
+	@Override
+	public SensorValue getLastValue() {
+		return lastValue;
+	}
 
 	
 	@Override
 	public List<? extends SensorValue> pullData() {
+		int queueSize = valueQueue.size();
+
 		// Returns all SensorValues
-		// Clears the internal data queue
-		int queueSize = sensorValueQueue.size();
 		List<AccelerometerSensorValue> values = new ArrayList<AccelerometerSensorValue>(
 				queueSize);
 
-		Iterator<AccelerometerSensorValue> iterator = sensorValueQueue.iterator();
+		Iterator<AccelerometerSensorValue> iterator = valueQueue.iterator();
 		while (iterator.hasNext()) {
 			AccelerometerSensorValue iteratorValue = (AccelerometerSensorValue) iterator
 					.next();
 			values.add(iteratorValue);
 		}
 
+		// Clears the internal data queue
+		valueQueue.clear();
+		
 		return values;
 	}
 
 	@Override
 	public void putSensorValue(SensorValue value) {
 		lastValue = (AccelerometerSensorValue) value;
-		sensorValueQueue.add(lastValue);
+		valueQueue.add(lastValue);
 	}
 
 	public void writeLog(){

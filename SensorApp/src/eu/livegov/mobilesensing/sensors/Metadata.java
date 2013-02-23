@@ -10,7 +10,7 @@ import android.hardware.Sensor;
  */
 public class Metadata {
 	public String serviceName;
-	public HashMap<String,Object> sensorInfo = new HashMap<String,Object>();
+	public Map<String,Object> sensorInfo = new HashMap<String,Object>();
 	
 	public Metadata(String serviceName) {
 		this.serviceName = serviceName;
