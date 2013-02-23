@@ -47,7 +47,7 @@ public class AccelerometerSensorServiceTest extends ServiceTestCase<Acceleromete
 	}
 	
 	public void testPullData() {
-		List<SensorValue> data = mService.pullData();
+		List<? extends SensorValue> data = mService.pullData();
 		assertFalse(data.isEmpty());
 		assertTrue(data.get(0).equals(dummyValues.get(0)));
 	}
