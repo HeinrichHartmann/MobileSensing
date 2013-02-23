@@ -12,8 +12,8 @@ import android.hardware.SensorManager;
 import android.util.Log;
 
 public class AccelerometerSensorService extends SensorService {
-	public String SENSOR_NAME = "Accelerometer";
-	public String LOG_TAG ="Accelerometer Service";
+	public static final String SENSOR_NAME = "Accelerometer";
+	public static final String LOG_TAG ="Accelerometer Service";
 
 	Sensor Sensor;
 	SensorManager sensorManager;

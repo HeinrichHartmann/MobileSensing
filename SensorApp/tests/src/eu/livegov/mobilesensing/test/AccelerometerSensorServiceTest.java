@@ -8,51 +8,72 @@ import eu.livegov.mobilesensing.sensors.AccelerometerSensorService;
 import eu.livegov.mobilesensing.sensors.AccelerometerSensorService.AccelerometerSensorValue;
 import eu.livegov.mobilesensing.sensors.SensorValue;
 import android.app.Service;
+import android.content.Intent;
 import android.test.AndroidTestCase;
 import android.test.ServiceTestCase;
 import android.util.Log;
 
 public class AccelerometerSensorServiceTest extends ServiceTestCase<AccelerometerSensorService> {
+
 	public AccelerometerSensorServiceTest() {
 		super(AccelerometerSensorService.class);
 	}
-	
+ 	
 	AccelerometerSensorService mService;
-	
-	ArrayList<AccelerometerSensorValue> dummyValues = new ArrayList<AccelerometerSensorValue>();
-	
+    	
 	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
-	    mService = getService();
 
-	    // fill in dummy values
-	    dummyValues.add(new AccelerometerSensorValue(1,111F,222F,333F));
-	    dummyValues.add(new AccelerometerSensorValue(2,111F,222F,333F));
-	    dummyValues.add(new AccelerometerSensorValue(3,111F,222F,333F));
-	    
-	    for (AccelerometerSensorValue v: dummyValues){
-	    	mService.putSensorValue(v);
-	    }	
+        startService(
+        		new Intent(getContext(),  
+        		AccelerometerSensorService.class));
+
+        mService = getService();
 	}
 
+	@Override
+	protected void tearDown() throws Exception {
+		super.tearDown();
+
+		// Stop Service
+		getContext().stopService(
+				new Intent(	getContext(),
+				AccelerometerSensorService.class
+				));
+	}
+	
+
+	public void testStartable(){
+	}
+	
+	
 	public void testMetaData() {
-		//Log.i("TEST",mService.getMetadata().getName());
-		//assertTrue(mService.getMetadata().getName() == null);
-		assertTrue(true);
+		assertTrue(mService != null);
+		assertTrue(mService.getMetadata().getName() == AccelerometerSensorService.SENSOR_NAME);
 	}
 	
 	public void testLastValue(){
-		assertTrue(
-				mService.getLastValue().equals(
-						dummyValues.get( dummyValues.size() -1 )
-						));
+		assertTrue(mService != null);
+		
+		// Fill in Dummy Value
+		AccelerometerSensorValue dummyValue = new AccelerometerSensorValue(0, 1, 2, 3);
+		mService.putSensorValue(dummyValue);
+		
+		assertTrue(mService.getLastValue().equals(dummyValue));
 	}
 	
 	public void testPullData() {
+		assertTrue(mService != null);
+
+		AccelerometerSensorValue dummyValue = new AccelerometerSensorValue(0, 1, 2, 3);	
+		mService.putSensorValue(dummyValue);
+		mService.putSensorValue(dummyValue);
+		mService.putSensorValue(dummyValue);
+
 		List<? extends SensorValue> data = mService.pullData();
 		assertFalse(data.isEmpty());
-		assertTrue(data.get(0).equals(dummyValues.get(0)));
+		assertTrue(data.get(0).equals(dummyValue));
 	}
 
 }
