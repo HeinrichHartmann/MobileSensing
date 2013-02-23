@@ -44,9 +44,9 @@ public class AccelerometerSensorService extends SensorService {
 			// TODO Auto-generated method stub
 				
 		AccelerometerMetadata name = (AccelerometerMetadata) getMetadata();
-		String Accname =name.name;
+		String accName =name.name;
 	
-		return Accname;
+		return accName;
 		}
 	}
 	
@@ -72,7 +72,7 @@ public class AccelerometerSensorService extends SensorService {
 		public long getTimestamp() {
 			// TODO Auto-generated method stub
 			
-		return 0;
+		return timestamp;
 		}
 	}
 
