@@ -11,12 +11,12 @@ import android.annotation.SuppressLint;
 
 
 public class Accelerometer {
-	//DatabaseAccess und Sensorname als Attribut eingefügt (Malte, WP1)
+
 	float[] values = new float[3];
 	float x_value = -1;
 	float y_value = -1;
 	float z_value = -1;
-	float timestamp = -1;
+	long timestamp = -1;
 	String sensorname = "Accelerometer";
 	Sensor Sensor;
 
@@ -33,10 +33,10 @@ public class Accelerometer {
 			x_value = arg0.values[0];
 			y_value = arg0.values[1];
 			z_value = arg0.values[2];
-			values[0] = x_value;
-			values[1] = y_value;
-			values[2] = z_value;
 			timestamp = arg0.timestamp;
+			
+
+			
 		}
 	};
 	
@@ -53,7 +53,7 @@ public class Accelerometer {
 	}
 	
 
-	public float getTimestamp(){
+	public long getTimestamp(){
 		return timestamp;
 	}
 	

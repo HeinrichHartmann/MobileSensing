@@ -2,7 +2,10 @@ package eu.livegov.mobilesensing;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
+import android.view.View;
+import android.content.Context;
 
 public class MainActivity extends Activity {
 
@@ -11,6 +14,28 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 	}
+	
+	
+	public void startButton(View view){
+		Context context = getApplicationContext();
+		Intent service = new Intent(context, AccService.class);
+		context.startService(service);
+	}
+	
+	public void stopButton(View view){
+		Context context = getApplicationContext();
+		Intent service = new Intent(context, AccService.class);
+		stopService(service);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
