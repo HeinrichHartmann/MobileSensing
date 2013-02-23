@@ -1,5 +1,6 @@
 package eu.livegov.mobilesensing;
 
+import eu.livegov.mobilesensing.sensors.AccelerometerSensorService;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -18,13 +19,13 @@ public class MainActivity extends Activity {
 	
 	public void startButton(View view){
 		Context context = getApplicationContext();
-		Intent service = new Intent(context, AccService.class);
+		Intent service = new Intent(context, AccelerometerSensorService.class);
 		context.startService(service);
 	}
 	
 	public void stopButton(View view){
 		Context context = getApplicationContext();
-		Intent service = new Intent(context, AccService.class);
+		Intent service = new Intent(context, AccelerometerSensorService.class);
 		stopService(service);
 	}
 	
