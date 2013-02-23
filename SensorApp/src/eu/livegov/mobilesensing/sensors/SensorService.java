@@ -6,6 +6,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
+import android.util.Log;
 
 public abstract class SensorService extends Service {
 	/*
@@ -36,12 +37,14 @@ public abstract class SensorService extends Service {
 
 	@Override
 	public IBinder onBind(Intent intent) {
+		Log.i(getClass().getName(), "binding request");
 		start();
 		return new SensorServiceBinder();
 	}
 	
 	@Override
 	public boolean onUnbind(Intent intent) {
+		Log.i(getClass().getName(), "unbinding");
 		stop();
 		return false;
 	}
