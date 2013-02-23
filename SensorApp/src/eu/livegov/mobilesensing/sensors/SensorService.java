@@ -9,9 +9,19 @@ import android.os.IBinder;
 
 public abstract class SensorService extends Service {
 
-	public abstract Metadata getMetaData();
+	public abstract Metadata getMetadata();
 	public abstract SensorValue getLastValue();
 	public abstract List<SensorValue> pullData();
+	
+	/**
+	 * starts recording of sensor values; is called by onBind()
+	 */
+	public abstract void start();
+	
+	/**
+	 * stops recording of sensor values; is called by onUnBind()
+	 */
+	public abstract void stop();
 	
 	public class SensorServiceBinder extends Binder {
 
@@ -22,7 +32,14 @@ public abstract class SensorService extends Service {
 
 	@Override
 	public IBinder onBind(Intent intent) {
+		start();
 		return new SensorServiceBinder();
+	}
+	
+	@Override
+	public boolean onUnbind(Intent intent) {
+		stop();
+		return false;
 	}
 
 }
