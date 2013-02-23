@@ -13,7 +13,7 @@ public abstract class SensorService extends Service {
 	 */
 	public abstract Metadata getMetadata();
 	public abstract SensorValue getLastValue();
-	public abstract putSensorValue(SensorValue value);
+	public abstract void putSensorValue(SensorValue value);
 	
 	public abstract List<SensorValue> pullData();
 	
