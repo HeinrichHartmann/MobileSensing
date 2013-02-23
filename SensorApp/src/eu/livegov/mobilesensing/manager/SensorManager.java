@@ -3,9 +3,9 @@ package eu.livegov.mobilesensing.manager;
 import java.util.LinkedList;
 import java.util.List;
 
-import eu.livegov.mobilesensing.sensors.AccelerometerSensorService;
 import eu.livegov.mobilesensing.sensors.SensorService;
 import eu.livegov.mobilesensing.sensors.SensorService.SensorServiceBinder;
+import eu.livegov.mobilesensing.sensors.accelerometer.AccelerometerSensorService;
 
 import android.app.Service;
 import android.content.ComponentName;
@@ -90,7 +90,7 @@ public class SensorManager extends Service {
 	public void statusAll() {
 		for ( SensorService mService : services ){
 			Log.i(LOG_TAG, 
-					"Service " + mService.getMetadata().getName() + "\n" + 
+					"Service " + mService.getMetadata().getServiceName() + "\n" + 
 					"Status "  + mService.getStatus()
 					);
 		}

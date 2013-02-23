@@ -6,6 +6,16 @@ package eu.livegov.mobilesensing.sensors;
  * * value
  */
 public interface SensorValue {
-	// time of recording, required for testing
+
+	/**
+	 * String representation of SensorValue as String
+	 * @return sensorValueString
+	 */
+	public String toString();
+
+	/** 
+	 * Time of recording, required for testing
+	 * @return timestamp
+	 */
 	public long getTimestamp();
 }

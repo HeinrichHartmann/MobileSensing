@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="9"
         android:targetSdkVersion="17" />
 
     <application
@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <service android:name=".manager.SensorManager"></service>
-        <service android:name=".sensors.AccelerometerSensorService"></service>
+        <service android:name="eu.livegov.mobilesensing.sensors.accelerometer.AccelerometerSensorService"></service>
     </application>
 
 </manifest>

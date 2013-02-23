@@ -2,6 +2,9 @@ package eu.livegov.mobilesensing.sensors;
 
 import java.util.List;
 
+import eu.livegov.mobilesensing.Constants;
+
+
 import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
@@ -24,6 +27,7 @@ import android.util.Log;
  *
  */
 public abstract class SensorService extends Service {
+	public static String LOG_TAG = Constants.LOG_TAG;
 	// Service status flag
 	public boolean running = false;
 	
@@ -50,12 +54,12 @@ public abstract class SensorService extends Service {
 	/**
 	 * starts recording of sensor values; is called by onBind()
 	 */
-	public abstract void start();
+	public abstract void startRecording();
 	
 	/**
 	 * stops recording of sensor values; is called by onUnBind()
 	 */
-	public abstract void stop();
+	public abstract void stopRecording();
 	
 	/**
 	 * Returns "running" if service is bound. "stopped" otherwis
@@ -75,16 +79,16 @@ public abstract class SensorService extends Service {
 
 	@Override
 	public IBinder onBind(Intent intent) {
-		Log.i(getClass().getName(), "binding request");
-		start();
+		Log.i(LOG_TAG, "binding request");
+		startRecording();
 		running = true;
 		return new SensorServiceBinder();
 	}
 	
 	@Override
 	public boolean onUnbind(Intent intent) {
-		Log.i(getClass().getName(), "unbinding");
-		stop();
+		Log.i(LOG_TAG, "unbinding");
+		stopRecording();
 		running = false;
 		return false;
 	}
