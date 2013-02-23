@@ -26,6 +26,9 @@
             android:name="de.mobilesensing.dummy.AnotherActicity"
             android:label="@string/title_activity_another_acticity" >
         </activity>
-    </application>
+
+        <sercice android:name=".FirstService" />
+        
+        </application>
 
 </manifest>
