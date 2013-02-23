@@ -37,7 +37,9 @@ public class AccelerometerSensorService extends SensorService {
 		@Override
 		public String getName() {
 			// TODO Auto-generated method stub
-			return name;
+			AccelerometerMetadata name = (AccelerometerMetadata) getMetadata();
+			String accName = name.name;
+			return accName;
 		}
 	}
 
