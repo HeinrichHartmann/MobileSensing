@@ -8,14 +8,44 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
 
+/**
+ * Abstract class describing SensorServices
+ *
+ * SensorServices are bound to the SensorManager
+ * When .start() is called the sensor starts recording
+ * data into an intenal queue.
+ * When .stop() is called the recording is stoppen
+ * 
+ * Data is transfered via:
+ * * getLastValue
+ * * pullData
+ * 
+ * @author hartmann
+ *
+ */
 public abstract class SensorService extends Service {
-	/*
-	 * Methods to be implemented by Sensor Services 
+	// Service status flag
+	public boolean running = false;
+	
+	/**
+	 *  Returns Metadata object containing information about the sensor 
 	 */
 	public abstract Metadata getMetadata();
+	
+	/**
+	 * Returns last recorded sensor value as SensorValue object.
+	 */
 	public abstract SensorValue getLastValue();
-	public abstract void putSensorValue(SensorValue value);
+	
+	/**
+	 * Returns cached SensorValues and clears the cache
+	 */
 	public abstract List<? extends SensorValue> pullData();
+
+	/**
+	 * Add sensor values to the cache. Needed for testing.
+	 */
+	public abstract void putSensorValue(SensorValue value);
 	
 	/**
 	 * starts recording of sensor values; is called by onBind()
@@ -27,7 +57,16 @@ public abstract class SensorService extends Service {
 	 */
 	public abstract void stop();
 	
+	/**
+	 * Returns "running" if service is bound. "stopped" otherwis
+	 */	
+	public String getStatus(){
+		return running ? "tunning" : "stopped";
+	}
 	
+	/*
+	 * Sensor Binding Classes
+	 */
 	public class SensorServiceBinder extends Binder {
 		public SensorService getService() {
 			return SensorService.this;
@@ -49,11 +88,6 @@ public abstract class SensorService extends Service {
 		running = false;
 		return false;
 	}
-	
-	private Boolean running = false;
-	
-	public String getStatus(){
-		return running ? "Running" : "Stopped";
-	}
+
 
 }
