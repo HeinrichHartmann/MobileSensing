@@ -22,7 +22,7 @@ public class AccelerometerSensorService extends SensorService {
 	
 	@Override
 	public Metadata getMetadata() {
-		// Returns Object containg basic infromation about the sensor
+		// Returns Object containing basic information about the sensor
 		return null;
 	}
 
