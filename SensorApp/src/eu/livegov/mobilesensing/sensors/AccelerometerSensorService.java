@@ -12,8 +12,12 @@ public class AccelerometerSensorService extends SensorService {
 	}
 	}
 	
-	public class AccelerometerSensorValue implements SensorValue {
-	@Override
+	public static class AccelerometerSensorValue implements SensorValue {
+		public AccelerometerSensorValue(long timestamp, float x, float y, float z) {
+			// TODO Auto-generated constructor stub
+		}
+		
+		@Override
 		public long getTimestamp() {
 			// TODO Auto-generated method stub
 			return 0;
@@ -47,6 +51,12 @@ public class AccelerometerSensorService extends SensorService {
 	@Override
 	public void stop() {
 		// Stop Service
+		
+	}
+
+	@Override
+	public void putSensorValue(SensorValue value) {
+		// TODO Auto-generated method stub
 		
 	}
 
