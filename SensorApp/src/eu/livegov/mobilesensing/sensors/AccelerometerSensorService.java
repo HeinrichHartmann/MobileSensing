@@ -45,16 +45,17 @@ public class AccelerometerSensorService extends SensorService {
 			return name;
 	}
 	}
-	//Constructor
+	
 	public static class AccelerometerSensorValue implements SensorValue {
 		
-		
+	//Constructor	
 	public AccelerometerSensorValue(long timestamp, float x, float y, float z){
 	this.timestamp = timestamp;
 	this.x = x;
 	this.y = y;
 	this.z = z;
 	}
+	
 	long timestamp;
 	float x;
 	float y;
@@ -65,7 +66,7 @@ public class AccelerometerSensorService extends SensorService {
 	@Override
 		public long getTimestamp() {
 			// TODO Auto-generated method stub
-
+		
 			return 0;
 		}	
 	}
