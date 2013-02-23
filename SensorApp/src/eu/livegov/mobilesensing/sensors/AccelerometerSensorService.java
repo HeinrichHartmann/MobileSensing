@@ -21,8 +21,13 @@ public class AccelerometerSensorService extends SensorService {
 	Sensor Sensor;
 	SensorManager sensorManager;
 	boolean present;
+	//initialize AccelerometerSensorValue
 	AccelerometerSensorValue lastValue = new AccelerometerSensorValue(-1,-1,-1,-1);
+	
+	//Queue with accelerometer sensor data (timestamp,x,y,z)
 	private LinkedBlockingQueue<AccelerometerSensorValue> accQueue = new LinkedBlockingQueue<AccelerometerSensorValue>();
+	
+	
 	
 	public class AccelerometerMetadata implements Metadata {
 		
@@ -42,12 +47,15 @@ public class AccelerometerSensorService extends SensorService {
 	}
 	
 	public static class AccelerometerSensorValue implements SensorValue {
+		
+	//Constructor	
 	public AccelerometerSensorValue(long timestamp, float x, float y, float z){
 	this.timestamp = timestamp;
 	this.x = x;
 	this.y = y;
 	this.z = z;
 	}
+	
 	long timestamp;
 	float x;
 	float y;
@@ -58,7 +66,7 @@ public class AccelerometerSensorService extends SensorService {
 	@Override
 		public long getTimestamp() {
 			// TODO Auto-generated method stub
-
+		
 			return 0;
 		}	
 	}
