@@ -15,7 +15,6 @@ public abstract class SensorService extends Service {
 	public abstract Metadata getMetadata();
 	public abstract SensorValue getLastValue();
 	public abstract void putSensorValue(SensorValue value);
-
 	public abstract List<? extends SensorValue> pullData();
 	
 	/**
@@ -28,8 +27,8 @@ public abstract class SensorService extends Service {
 	 */
 	public abstract void stop();
 	
+	
 	public class SensorServiceBinder extends Binder {
-
 		public SensorService getService() {
 			return SensorService.this;
 		}
@@ -39,6 +38,7 @@ public abstract class SensorService extends Service {
 	public IBinder onBind(Intent intent) {
 		Log.i(getClass().getName(), "binding request");
 		start();
+		running = true;
 		return new SensorServiceBinder();
 	}
 	
@@ -46,7 +46,14 @@ public abstract class SensorService extends Service {
 	public boolean onUnbind(Intent intent) {
 		Log.i(getClass().getName(), "unbinding");
 		stop();
+		running = false;
 		return false;
+	}
+	
+	private Boolean running = false;
+	
+	public String getStatus(){
+		return running ? "Running" : "Stopped";
 	}
 
 }

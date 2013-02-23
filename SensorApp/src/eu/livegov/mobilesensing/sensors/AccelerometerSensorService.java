@@ -17,7 +17,7 @@ import android.util.Log;
 
 public class AccelerometerSensorService extends SensorService {
 
-	private String TAG ="Accelerometer Service";
+	private String LOG_TAG ="Accelerometer Service";
 	Sensor Sensor;
 	SensorManager sensorManager;
 	boolean present;
@@ -106,7 +106,7 @@ public class AccelerometerSensorService extends SensorService {
 	public void onCreate(){
 		//Check for Accelerometer Sensor
 		sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-		Log.i(TAG, "Service started");
+		Log.i(LOG_TAG, "Service started");
 		List<Sensor> sensorList = sensorManager.getSensorList(Sensor.TYPE_ACCELEROMETER);
 		if (sensorList.size() > 0) {
 			present = true;
@@ -146,7 +146,7 @@ public class AccelerometerSensorService extends SensorService {
 	public void stop() {
 		// Stop Service
 		sensorManager.unregisterListener(Listener);
-		Log.i(TAG, "Service stopped");
+		Log.i(LOG_TAG, "Service stopped");
 	}
 	
 	@Override
@@ -156,9 +156,9 @@ public class AccelerometerSensorService extends SensorService {
 	}
 
 	public void writeLog(){
-		Log.i(TAG, "Value X: " + Float.toString(lastValue.x));
-		Log.i(TAG, "Value Y: " + Float.toString(lastValue.y));
-		Log.i(TAG, "Value Z: " + Float.toString(lastValue.z));
-		Log.i(TAG, "Value Timestamp: " + Long.toString(lastValue.timestamp));
+		Log.i(LOG_TAG, "Value X: " + Float.toString(lastValue.x));
+		Log.i(LOG_TAG, "Value Y: " + Float.toString(lastValue.y));
+		Log.i(LOG_TAG, "Value Z: " + Float.toString(lastValue.z));
+		Log.i(LOG_TAG, "Value Timestamp: " + Long.toString(lastValue.timestamp));
 	}
 }
