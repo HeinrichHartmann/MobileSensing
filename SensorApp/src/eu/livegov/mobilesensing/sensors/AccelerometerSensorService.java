@@ -14,22 +14,27 @@ import android.util.Log;
 public class AccelerometerSensorService extends SensorService {
 	public static final String SENSOR_NAME = "Accelerometer";
 	public static final String LOG_TAG ="Accelerometer Service";
-
 	Sensor Sensor;
 	SensorManager sensorManager;
 	boolean sensorPresent;
-	
+
 	//initialize AccelerometerSensorValue
 	AccelerometerSensorValue lastValue = new AccelerometerSensorValue(-1,-1,-1,-1);
 	
 	//Queue with accelerometer sensor data (timestamp,x,y,z)
 	private LinkedBlockingQueue<AccelerometerSensorValue> accQueue = new LinkedBlockingQueue<AccelerometerSensorValue>();
 	
+	
 	public class AccelerometerMetadata implements Metadata {
+
 		private String name;
 		private String hardwareSensorName;
 
-		public AccelerometerMetadata(String name) {
+		public AccelerometerMetadata(String name){
+			this.name=name;
+		}
+		
+		public void setName(String name) {
 			this.name = name;
 		}
 
@@ -41,6 +46,7 @@ public class AccelerometerSensorService extends SensorService {
 		public void setHardwareSensorName(String name2) {
 			// TODO Auto-generated method stub
 			this.hardwareSensorName = name2;
+
 		}
 	}
 
@@ -56,9 +62,7 @@ public class AccelerometerSensorService extends SensorService {
 		}
 
 	
-	/**
-	 * Stores SensorValues from Accelerometer
-	 */
+
 	public static class AccelerometerSensorValue implements SensorValue {
 		long timestamp;
 		float x;
@@ -68,17 +72,22 @@ public class AccelerometerSensorService extends SensorService {
 		// Constructor
 		public AccelerometerSensorValue(long timestamp, float x, float y,
 				float z) {
+
 			this.timestamp = timestamp;
 			this.x = x;
 			this.y = y;
 			this.z = z;
 		}
-		
+
+
 		@Override
 		public long getTimestamp() {
-			return 0;
+			// TODO Auto-generated method stub	
+		return timestamp;
 		}
 	}
+
+
 
 
 	@Override
@@ -109,7 +118,6 @@ public class AccelerometerSensorService extends SensorService {
 	public void onCreate() {
 		// Check for Accelerometer Sensor
 		sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-
 		Log.i(LOG_TAG, "Service started");
 		List<Sensor> sensorList = sensorManager.getSensorList(Sensor.TYPE_ACCELEROMETER);
 
@@ -125,7 +133,9 @@ public class AccelerometerSensorService extends SensorService {
 	@Override
 	public void start() {
 		// Start service
+
 		if (sensorPresent)
+
 			sensorManager.registerListener(Listener, Sensor,
 					SensorManager.SENSOR_DELAY_FASTEST);
 
@@ -165,6 +175,7 @@ public class AccelerometerSensorService extends SensorService {
 		Log.i(LOG_TAG, "Value Y: " + Float.toString(lastValue.y));
 		Log.i(LOG_TAG, "Value Z: " + Float.toString(lastValue.z));
 		Log.i(LOG_TAG, "Value Timestamp: " + Long.toString(lastValue.timestamp));
+
 
 	}
 }
