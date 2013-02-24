@@ -28,7 +28,7 @@ public class AccelerometerSensorService extends SensorService {
 	Metadata  meta;
 	
 	// initialize AccelerometerSensorValue
-	AccelerometerSensorValue lastValue = new AccelerometerSensorValue(-1,-1,-1,-1);
+	public AccelerometerSensorValue lastValue = new AccelerometerSensorValue(-1,-1,-1,-1);
 	
 	// Queue with accelerometer sensor data
 	private LinkedBlockingQueue<AccelerometerSensorValue> valueQueue = new LinkedBlockingQueue<AccelerometerSensorValue>();
