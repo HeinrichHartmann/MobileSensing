@@ -40,11 +40,12 @@ import android.util.Log;
  */
 public class SensorManager extends Service implements SensorManagerInterface {
 	private static final String LOG_TAG = Constants.LOG_TAG;
-		
+
 	// List of bound SensorServices
 	private LinkedList<SensorService> services = new LinkedList<SensorService>();
 	private LinkedList<Intent> servicesToBind = new LinkedList<Intent>();
 
+	public static boolean running = false;
 
 	/**
 	 * Required for service classes
@@ -54,15 +55,19 @@ public class SensorManager extends Service implements SensorManagerInterface {
 		Log.i(LOG_TAG,"Sensor Manager onBind");
 		return null;
 	}
-
 	
-	/**
-	 * Called when SensorManager start ist triggered by Intent
-	 */
 	@Override
-	public int onStartCommand(Intent intent, int flags, int startId) {
-		Log.i(LOG_TAG,"Called SensorManager Start");
-		return super.onStartCommand(intent, flags, startId);		
+	public void onCreate() {
+		super.onCreate();	
+		Log.i(LOG_TAG,"Sensor Manager started");
+		running = true;
+	}
+
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		Log.i(LOG_TAG,"Sensor Manager stopped");
+		running = false;
 	}
 
 	/**
@@ -152,5 +157,16 @@ public class SensorManager extends Service implements SensorManagerInterface {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
+	/**
+	 * Called when SensorManager start ist triggered by Intent
+	 */
+	@Override
+	public int onStartCommand(Intent intent, int flags, int startId) {
+		Log.i(LOG_TAG,"Called SensorManager Start");
+		return super.onStartCommand(intent, flags, startId);		
+	}
+
 	
 }
