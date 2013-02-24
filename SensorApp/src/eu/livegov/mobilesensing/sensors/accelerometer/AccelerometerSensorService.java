@@ -52,7 +52,7 @@ public class AccelerometerSensorService extends SensorService {
 		if (sensorList.size() > 0) {
 			androidSensor = sensorList.get(0);
 		} else {
-			Log.e(LOG_TAG, "Seonsor not found!");
+			Log.e(LOG_TAG, "Sensor not found!");
 			// Stop Service Throw Exception!
 			stopSelf();
 		}
