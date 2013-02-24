@@ -39,15 +39,15 @@ public class Export {
 	
 	
 	JSONObject output = new JSONObject();
-	//output.put("Sensorname", value)
+	output.put("Sensorname", value)
 		
 		
-	//object.put("Sensorname", AccelerometerSensorService.getSensorName());
+	object.put("Sensorname", AccelerometerSensorService.getSensorName());
 	
 	try {
 		 
 		FileWriter file = new FileWriter("c:\\test.json"); //test
-		//file.write(object.toJSONString());
+		file.write(object.toJSONString());
 		file.flush();
 		file.close();
  
