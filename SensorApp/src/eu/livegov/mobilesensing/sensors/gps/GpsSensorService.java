@@ -24,7 +24,7 @@ import eu.livegov.mobilesensing.sensors.SensorValue;
 public class GpsSensorService extends SensorService{
 	public static final String SENSOR_NAME = "GPS";
 	public static final String LOG_TAG = Constants.LOG_TAG;
-	
+		
 	// Metadata about sensor
 	Metadata  meta;
 	
