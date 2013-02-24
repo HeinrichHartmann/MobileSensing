@@ -39,7 +39,12 @@ import android.util.Log;
  *
  */
 public class SensorManager extends Service implements SensorManagerInterface {
-	private static final String LOG_TAG = Constants.LOG_TAG;
+
+	public static final String LOG_TAG = Constants.LOG_TAG;
+
+	public static final String ACTION_BIND = "BIND";
+	public static final String ACTION_START_RECORDING = "START_RECORDING";
+	public static final String ACTION_STOP_RECORDING = "STOP_RECORDING";
 
 	// List of bound SensorServices
 	private LinkedList<SensorService> services = new LinkedList<SensorService>();
@@ -52,7 +57,7 @@ public class SensorManager extends Service implements SensorManagerInterface {
 	 */
 	@Override
 	public IBinder onBind(Intent intent) {
-		Log.i(LOG_TAG,"Sensor Manager onBind");
+		// Sensor Manager cannot be bound.
 		return null;
 	}
 	
@@ -71,11 +76,34 @@ public class SensorManager extends Service implements SensorManagerInterface {
 	}
 
 	/**
+	 * Called when SensorManager start is triggered by Intent
+	 */
+	@Override
+	public int onStartCommand(Intent intent, int flags, int startId) {
+		String action = intent.getAction();
+
+		if (action == null){
+			Log.i(LOG_TAG, "Called SensorManager without action");
+			return super.onStartCommand(intent, flags, startId);
+		} 
+		
+
+		// Handle action requests
+		if (action.equals(ACTION_BIND)) {
+			setServicesToBind();
+			bindSensorServices();
+		}
+		
+		return super.onStartCommand(intent, flags, startId);
+	}
+	
+	
+	/**
 	 * Fill List of services which should be binded
 	 * TODO: Read from config 
 	 */
 	public void setServicesToBind() {
-		Log.i(LOG_TAG,"Set Services to Bind");
+		Log.i(LOG_TAG, "Set Services to Bind");
 		// static AccelerometerSensorService for testing purposes; generate from
 		// config later
 		servicesToBind.add(new Intent(this, AccelerometerSensorService.class));
@@ -159,14 +187,5 @@ public class SensorManager extends Service implements SensorManagerInterface {
 	}
 
 	
-	/**
-	 * Called when SensorManager start ist triggered by Intent
-	 */
-	@Override
-	public int onStartCommand(Intent intent, int flags, int startId) {
-		Log.i(LOG_TAG,"Called SensorManager Start");
-		return super.onStartCommand(intent, flags, startId);		
-	}
-
 	
 }
