@@ -1,53 +1,63 @@
 package eu.livegov.mobilesensing.manager;
 
-import android.content.ComponentName;
+import android.content.Context;
 import android.content.ServiceConnection;
-import android.os.IBinder;
-import android.util.Log;
 import eu.livegov.mobilesensing.sensors.SensorService;
-import eu.livegov.mobilesensing.sensors.SensorService.SensorServiceBinder;
 
 public class SensorDescription {
-
-	private Class<?> cls;
-	private boolean connected = false;
-	private SensorService service;
-	private static final String LOG_TAG = "SensorDescription";
-
-	private ServiceConnection connection = new ServiceConnection() {
-		@Override
-		public void onServiceConnected(ComponentName className, IBinder service) {
-			Log.i(LOG_TAG, className + " connected");
-			SensorServiceBinder binder = (SensorServiceBinder) service;
-			SensorDescription.this.service = binder.getService();
-			connected = true;
-		}
-
-		@Override
-		public void onServiceDisconnected(ComponentName className) {
-			Log.i(LOG_TAG, "Binding " + className + " Failed");
-			connected = false;
-		}
-	};
-
-	public SensorDescription(Class<?> cls) {
-		this.cls = cls;
+	private String sensorName;
+	private Class<? extends SensorService> serviceClass;
+	private SensorService serviceObject;
+	private ServiceConnection serviceConnection;
+	
+	public SensorDescription(Class<? extends SensorService> serviceClass) {
+		this.serviceClass = serviceClass;
+		this.sensorName = serviceClass.getSimpleName(); 
+	}
+	
+	public boolean isBound() {
+		return (serviceObject != null);
 	}
 
-	public Class<?> getCls() {
-		return cls;
+	public boolean isRunning() {
+		if (! isBound() ) return false;
+		return serviceObject.running;
+	}
+	
+	public boolean isRecording() {
+		if (!isRunning()) return false;
+		return serviceObject.recording;
 	}
 
-	public ServiceConnection getConnection() {
-		return connection;
+	public void unbind(Context context){
+		context.unbindService(serviceConnection);
+		serviceConnection = null;
+		serviceObject     = null;
+	}
+	
+	///// SETTERS/GETTERS ////
+	public String getSensorName() {
+		return sensorName;
+	}
+	
+	public Class<? extends SensorService> getServiceClass() {
+		return serviceClass;
 	}
 
-	public SensorService getService() {
-		return service;
+	public SensorService getServiceObject() {
+		return serviceObject;
 	}
 
-	public boolean isConnected() {
-		return connected;
+	public void setServiceObject(SensorService serviceObject) {
+		this.serviceObject = serviceObject;
 	}
 
+	public void setServiceConnection(ServiceConnection serviceConnection) {
+		this.serviceConnection = serviceConnection;
+	}
+
+	public ServiceConnection getServiceConnection() {
+		return serviceConnection;
+	}
+	
 }

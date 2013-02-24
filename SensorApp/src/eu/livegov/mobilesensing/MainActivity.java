@@ -1,6 +1,7 @@
 package eu.livegov.mobilesensing;
 
 import eu.livegov.mobilesensing.manager.SensorManager;
+import eu.livegov.mobilesensing.sensors.gps.GpsSensorService;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -48,7 +49,7 @@ public class MainActivity extends Activity {
 		Log.i(Constants.LOG_TAG, "Clicked Button");
 		Context context = getApplicationContext();
 		Intent service = new Intent(context, SensorManager.class);
-		service.setAction(SensorManager.ACTION_BIND);
+		service.setAction(SensorManager.ACTION_START_RECORDING);
 		context.startService(service);
 	}
 	

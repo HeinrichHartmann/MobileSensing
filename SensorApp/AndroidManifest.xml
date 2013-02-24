@@ -28,6 +28,7 @@
         <service android:name=".manager.SensorManager"></service>
         <service android:name="eu.livegov.mobilesensing.sensors.accelerometer.AccelerometerSensorService"></service>
         <service android:name="eu.livegov.mobilesensing.sensors.gps.GpsSensorService"></service>
+        <service android:name="eu.livegov.mobilesensing.sensors.gyroscope.GyroscopeSensorService"></service>
     </application>
 
 </manifest>
