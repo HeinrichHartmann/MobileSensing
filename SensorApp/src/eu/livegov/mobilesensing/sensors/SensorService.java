@@ -106,14 +106,12 @@ public abstract class SensorService extends Service {
 	@Override
 	public IBinder onBind(Intent intent) {
 		Log.i(LOG_TAG, "SensorService binding request");
-		startRecording();
 		return new SensorServiceBinder();
 	}
 	
 	@Override
 	public boolean onUnbind(Intent intent) {
 		Log.i(LOG_TAG, "SensorService unbinding");
-		stopRecording();
 		return false;
 	}
 

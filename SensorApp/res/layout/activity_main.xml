@@ -11,7 +11,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:onClick="managerStart"
-        android:text="START" />
+        android:text="start SensorManager" />
 
     <Button
         android:id="@+id/buttonstop"
@@ -20,25 +20,56 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/buttonstart"
         android:onClick="managerStop"
-        android:text="STOP" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/buttonstop"
-        android:layout_centerHorizontal="true"
-        android:onClick="managerBind"
-        android:text="Bind Sensors" />
+        android:text="stop SensorManager" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/button1"
-        android:layout_centerHorizontal="true"
-        android:text="Button" 
-        android:onClick="buttonClick"
-        />
+        android:onClick="startRecording"
+        android:text="startRecording" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/buttonstop"
+        android:onClick="managerBind"
+        android:text="Bind Sensors" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/button2"
+        android:onClick="stopRecording"
+        android:text="StopRecording" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:onClick="statusAll"
+        android:text="StatusAll" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/button3"
+        android:onClick="writeData"
+        android:text="WriteData" />
 
 </RelativeLayout>
