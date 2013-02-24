@@ -2,6 +2,7 @@ package eu.livegov.mobilesensing;
 
 import eu.livegov.mobilesensing.sensors.SensorValue;
 import eu.livegov.mobilesensing.sensors.accelerometer.AccelerometerSensorService;
+import eu.livegov.mobilesensing.sensors.gps.GpsSensorService;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,7 @@ public class SimpleCapture extends  Activity{
 	
 	TextView gps, accelerometer;
 	AccelerometerSensorService accelerometerService = new AccelerometerSensorService();
+	GpsSensorService gpsService = new GpsSensorService();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -23,7 +25,9 @@ public class SimpleCapture extends  Activity{
 	}
 	public void startRecording(View view){
 	
-		gps.setText(String.valueOf(accelerometerService.getLastValue()));
+		accelerometer.setText(String.valueOf(accelerometerService.getLastValue()));
+		gps.setText(String.valueOf(gpsService.getLastValue()));
+		
 	
 	}
 	public void stopRecording(View view){
