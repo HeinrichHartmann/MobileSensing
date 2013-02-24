@@ -27,8 +27,17 @@ public class Export {
 
 	
 	public void storeData(){
-		
-	List<SensorValue> sv = new ArrayList<SensorValue>();	
+	//dummie values
+	AccelerometerSensorValue asva = new AccelerometerSensorValue(1,3,6,7);
+	AccelerometerSensorValue asvb = new AccelerometerSensorValue(2,9,7,4);
+	GyroscopeSensorValue
+	
+	
+	List <SensorValue> accList = new ArrayList<SensorValue>();
+	accList.add(asva); 
+	accList.add(asva);
+	
+	
 	JSONObject output = new JSONObject();
 	output.put("Sensorname", value)
 		
