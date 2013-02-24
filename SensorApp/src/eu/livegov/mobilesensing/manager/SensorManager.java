@@ -9,11 +9,14 @@ import java.util.Map;
 import eu.livegov.mobilesensing.Constants;
 import eu.livegov.mobilesensing.sensors.SensorService;
 import eu.livegov.mobilesensing.sensors.SensorValue;
+import eu.livegov.mobilesensing.sensors.SensorService.SensorServiceBinder;
 import eu.livegov.mobilesensing.sensors.accelerometer.AccelerometerSensorService;
 import eu.livegov.mobilesensing.sensors.gps.GpsSensorService;
 
 import android.app.Service;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.util.Log;
 
@@ -53,30 +56,24 @@ public class SensorManager extends Service implements SensorManagerInterface {
 	private static List<SensorDescription> availableSensors = new LinkedList<SensorDescription>();
 	public  static Map<String,SensorDescription> getSensorDescription = new HashMap<String,SensorDescription>();
 	
-	// VARIABLES
-	private List<SensorDescription> usedSensors;
-	
-	/**
-	 * Constructor
-	 * Adds available sensors to sensor list
+	/*
+	 * Static Initialization
+	 * Add available sensors to sensor list
 	 */
-	public SensorManager() {
-		Log.i(LOG_TAG,"Constructor Called");
-		
+	static {
 		// Generate list of available sensors
-		
 		addAvailableSensor(AccelerometerSensorService.class);
 		addAvailableSensor(GpsSensorService.class);
 	}
 
-	private void addAvailableSensor(Class<? extends SensorService> sensorClass){
-		SensorDescription sensor = new SensorDescription(sensorClass);
-		String name = sensorClass.getSimpleName();
+	private static void addAvailableSensor(Class<? extends SensorService> sensorClass){
 		
-		availableSensors.add(sensor);
-		getSensorDescription.put(name, sensor);
+		SensorDescription desc = new SensorDescription(sensorClass);
 		
-		Log.i(LOG_TAG,"Added sensor "+name+" to availableSensors");
+		availableSensors.add(desc);
+		getSensorDescription.put(desc.sensorName, desc);
+		
+		Log.i(LOG_TAG,"Added sensor "+desc.sensorName+" to availableSensors");
 	}
 	
 	/**
@@ -114,50 +111,76 @@ public class SensorManager extends Service implements SensorManagerInterface {
 			Log.i(LOG_TAG, "Called SensorManager without action");
 			return super.onStartCommand(intent, flags, startId);
 		}
+		Log.i(LOG_TAG, "Called SensorManager with action " + action);
 
 		// Handle action requests
 		if (action.equals(ACTION_BIND)) {
-			setServicesToBind();
-			bindSensorServices();
+			bindAllSensorSerives();
 		}
 
 		return super.onStartCommand(intent, flags, startId);
 	}
 
-	/**
-	 * Fill List of services which should be binded TODO: Read from config
-	 */
-	public void setServicesToBind() {
-		Log.i(LOG_TAG, "Set Services to Bind");
-		// static AccelerometerSensorService for testing purposes; generate from
-		// config later
-		usedSensors
-				.add(new SensorDescription(AccelerometerSensorService.class));
-	}
 
-	private void bindSensorServices() {
-		for (SensorDescription desc : usedSensors) {
-			bindService(new Intent(this, desc.getClass()),
-					desc.getConnection(), BIND_AUTO_CREATE);
+	private void bindSensorService(SensorDescription desc) {
+		Log.i(LOG_TAG, "Binding sensor " + desc.sensorName );
+		
+		String sensorName = desc.sensorName;
+
+		bindService(
+				new Intent(this, desc.serviceClass),
+				
+				new ServiceConnection() {
+
+					@Override
+					public void onServiceConnected(ComponentName name,
+							IBinder service) {
+						SensorServiceBinder binder = (SensorServiceBinder) service;
+						SensorService sensorService = binder.getService();
+						registerSensorServiceObject(sensorService);
+					}
+
+					@Override
+					public void onServiceDisconnected(ComponentName name) {
+						Log.i(LOG_TAG,"Disconnected Sensor " + name);
+					}				
+				},
+				BIND_AUTO_CREATE);
+	}
+	
+	private void registerSensorServiceObject(SensorService sensorService){	
+		String sensorName = sensorService.getClass().getSimpleName();
+		SensorDescription desc = getSensorDescription.get(sensorName);
+		if (desc != null) {
+			desc.serviceObject = sensorService;
+			Log.i(LOG_TAG,"Sensor " + sensorName + " registered");
+		} else {
+			Log.i(LOG_TAG,"Sensor " + sensorName + " not found");
 		}
 	}
 
+	private void bindAllSensorSerives(){
+		for (SensorDescription desc : availableSensors){
+			bindSensorService(desc);
+		}
+	}
+	
 	// ////////////// METHODS FOR SENSOR HANDLING ///////////////////
 
 	@Override
 	public List<String> statusAll() {
-		Log.i(LOG_TAG, "Status All: " + usedSensors.size());
+		Log.i(LOG_TAG, "Status All: " + availableSensors.size());
 
 		List<String> sensorStatusList = new ArrayList<String>();
 
-		for (SensorDescription desc : usedSensors) {
-			String status = desc.getService().getStatus();
-			Log.i(LOG_TAG, "Service "
-					+ desc.getService().getMetadata().getServiceName() + "\n "
-					+ status);
-
-			sensorStatusList.add(status);
-		}
+//		for (SensorDescription desc : availableSensors) {
+//			String status = desc.getService().getStatus();
+//			Log.i(LOG_TAG, "Service "
+//					+ desc.getService().getMetadata().getServiceName() + "\n "
+//					+ status);
+//
+//			sensorStatusList.add(status);
+//		}
 
 		return sensorStatusList;
 	}
@@ -170,15 +193,17 @@ public class SensorManager extends Service implements SensorManagerInterface {
 
 	@Override
 	public void startRecording() {
-		for (SensorDescription desc : usedSensors) {
-			desc.getService().startRecording();
+		for (SensorDescription desc : availableSensors) {
+			// is bound?
+//			desc.getService().startRecording();
 		}
 	}
 
 	@Override
 	public void stopRecording() {
-		for (SensorDescription desc : usedSensors) {
-			desc.getService().stopRecording();
+		for (SensorDescription desc : availableSensors) {
+			// is bound?
+//			desc.getService().stopRecording();
 		}
 	}
 

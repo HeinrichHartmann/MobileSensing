@@ -57,13 +57,11 @@ public class AccelerometerSensorService extends SensorService {
 			stopSelf();
 		}
 		
-		/* set meta info
+		//set meta info
 		meta = new Metadata(SENSOR_NAME);
 		meta.autoSetSensorInfo(androidSensor);
-		*/
 		
 		Log.i(LOG_TAG, "Accelerometer service started");
-		startRecording();
 	}
 	
 	@Override
