@@ -20,7 +20,7 @@ public class GpsSensorValue implements SensorValue {
 	}
 
 	public String toString() {
-		return "AccelerometerValue at " + 
+		return "GPS Value at " + 
 				String.valueOf(timestamp) + ":" +
 				String.valueOf(latitude) + "," + 
 				String.valueOf(longitude) + "," + 
