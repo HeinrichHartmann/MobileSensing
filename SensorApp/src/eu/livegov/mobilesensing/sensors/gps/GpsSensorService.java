@@ -13,6 +13,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import eu.livegov.mobilesensing.Constants;
 import eu.livegov.mobilesensing.sensors.Metadata;
@@ -49,18 +50,20 @@ public class GpsSensorService extends SensorService{
 
 		List<String> sensorList = androidLocationManager.getProviders(true);
 		if (sensorList.size() > 0) {
+			Log.i(LOG_TAG, "Sensor found!");
 			//androidSensor = sensorList.get(0);
 		} else {
-			Log.e(LOG_TAG, "Seonsor not found!");
+			Log.e(LOG_TAG, "Sensor not found!");
 			// Stop Service Throw Exception!
 			stopSelf();
 		}
 		
 		// set meta info
 		meta = new Metadata(SENSOR_NAME);
-		meta.autoSetSensorInfo(androidSensor);
+		//meta.autoSetSensorInfo(androidSensor);
 		
 		Log.i(LOG_TAG, "GPS service started");
+
 	}
 	
 	@Override
@@ -80,6 +83,7 @@ public class GpsSensorService extends SensorService{
 	 LocationListener Listener = new LocationListener(){
 		    @Override
 		    public void onLocationChanged(Location location) {
+		    
 		        if (location != null) {
 		        	lastValue = new GpsSensorValue(
 		        			location.getTime(),
@@ -88,26 +92,29 @@ public class GpsSensorService extends SensorService{
 		        			(float) location.getAltitude()
 							);
 					valueQueue.add(lastValue);
+					writeLog();
 		        }
 		    }
 
 			@Override
 			public void onProviderDisabled(String provider) {
 				// TODO Auto-generated method stub
-				
+				Log.i(LOG_TAG, "Provider disabled");
+
 			}
 
 			@Override
 			public void onProviderEnabled(String provider) {
 				// TODO Auto-generated method stub
-				
+				Log.i(LOG_TAG, "Provider enabled");
 			}
 
 			@Override
 			public void onStatusChanged(String provider, int status,
 					Bundle extras) {
 				// TODO Auto-generated method stub
-				
+				Log.i(LOG_TAG, "Status changed");
+
 			}
 
 		
@@ -165,7 +172,9 @@ public class GpsSensorService extends SensorService{
 		Log.i(LOG_TAG, lastValue.toString() );
 	}
 
-
+	public void onDestroy(){
+		stopRecording();
+	}
 
 
 
