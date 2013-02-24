@@ -40,7 +40,7 @@ public class SimpleCapture extends Activity {
 	public void storeData(View view) {
 		Log.i(LOG_TAG, "sending ACTION_WRITE_DATA");
 		Intent service = new Intent(this, SensorManager.class);
-		service.setAction(SensorManager.ACTION_WRITE_DATA);
+		service.setAction(SensorManager.ACTION_STORE_DATA);
 		startService(service);
 	}
 

@@ -11,7 +11,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:onClick="managerStart"
-        android:text="start SensorManager" />
+        android:text="Start SensorManager" />
 
     <Button
         android:id="@+id/buttonstop"
@@ -20,17 +20,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/buttonstart"
         android:onClick="managerStop"
-        android:text="stop SensorManager" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/button1"
-        android:onClick="startRecording"
-        android:text="startRecording" />
+        android:text="Stop SensorManager" />
 
     <Button
         android:id="@+id/button1"
@@ -43,24 +33,34 @@
         android:text="Bind Sensors" />
 
     <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/button1"
+        android:onClick="managerUnbind"
+        android:text="Unbind Sensors" />
+    
+    <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/button2"
-        android:onClick="stopRecording"
-        android:text="StopRecording" />
-
+        android:onClick="startRecording"
+        android:text="Start Recording" />
+    
     <Button
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:onClick="statusAll"
-        android:text="StatusAll" />
+        android:layout_below="@+id/button3"
+        android:onClick="stopRecording"
+        android:text="Stop Recording" />
 
     <Button
         android:id="@+id/button5"
@@ -68,8 +68,28 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/button3"
+        android:layout_below="@+id/button4"
+        android:onClick="lastValues"
+        android:text="Send lastValues" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/button5"
         android:onClick="writeData"
-        android:text="WriteData" />
+        android:text="Write Data" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:onClick="statusAll"
+        android:text="StatusAll" />
 
 </RelativeLayout>

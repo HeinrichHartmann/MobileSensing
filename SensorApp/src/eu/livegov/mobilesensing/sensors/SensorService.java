@@ -29,23 +29,30 @@ import android.util.Log;
  */
 public abstract class SensorService extends Service {
 	public static String LOG_TAG = Constants.LOG_TAG;
-
 	
 	/**
 	 * Check if service is running.
 	 * Set onCerate/onDestroy
 	 * https://groups.google.com/forum/?fromgroups=#!topic/android-developers/jEvXMWgbgzE
 	 */
-	public static boolean running = false;
+	public boolean running = false;
 
 	/**
 	 * Check if serice is recording.
 	 */
-	public static boolean recording = false;
+	public boolean recording = false;
 
+	/**
+	 * Returns name of Sensor
+	 * @return sensorName
+	 */
+	public String getSensorName() {
+		return this.getClass().getSimpleName();
+	}
 	
 	/**
-	 *  Returns Metadata object containing information about the sensor 
+	 *  Returns Metadata object containing information about the sensor
+	 *  @return meta 
 	 */
 	public abstract Metadata getMetadata();
 	
@@ -93,7 +100,7 @@ public abstract class SensorService extends Service {
 	 * started/stopped/recording
 	 */	
 	public String getStatus(){
-		if (running){
+		if (running) {
 			if (recording) {
 				return "recording";
 			} else {
@@ -108,6 +115,9 @@ public abstract class SensorService extends Service {
 	 * Sensor Binding Classes
 	 */
 	public class SensorServiceBinder extends Binder {
+		// Flag for startup
+		public boolean startupSuccess = false;
+		
 		public SensorService getService() {
 			return SensorService.this;
 		}
@@ -117,38 +127,30 @@ public abstract class SensorService extends Service {
 	public IBinder onBind(Intent intent) {
 		Log.i(LOG_TAG, "SensorService binding request");
 		
-		// Call Startup
-		if (! startupSensor()) {
-			// Startup failed, e.g. no sensor found
-			return null; 
-		} else {
-			// Startup successfull
-			return new SensorServiceBinder();
-		}
+		SensorServiceBinder binder = new SensorServiceBinder();
+		
+		// Call startupSensor() on bind and set Flag
+		binder.startupSuccess = startupSensor(); 
+
+		return binder;
 	}
 	
 	@Override
 	public boolean onUnbind(Intent intent) {
-		Log.i(LOG_TAG, "SensorService unbinding");
+		Log.i(LOG_TAG, getSensorName() + " unbinded.");
 		return false;
 	}
 
 	@Override
 	public void onCreate() {
-		Log.i(LOG_TAG, "Created Sensor service");
-		super.onCreate();
+		Log.i(LOG_TAG, getSensorName() + " created.");
 		running = true;
 	}
 	
 	@Override
 	public void onDestroy() {
-		Log.i(LOG_TAG, "Destroyed Sensor service");
-		super.onDestroy();
+		Log.i(LOG_TAG, getSensorName() + "destroyed." );
 		running = false;
-	}
-	
-	public void unbindSelf() {
-		stopSelf();
 	}
 	
 }

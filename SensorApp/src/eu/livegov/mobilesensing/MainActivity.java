@@ -6,7 +6,9 @@ import eu.livegov.mobilesensing.sensors.gyroscope.GyroscopeSensorService;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -14,13 +16,19 @@ import android.content.Context;
 import eu.livegov.mobilesensing.Constants;
 
 public class MainActivity extends Activity {
+	public static String LOG_TAG = Constants.LOG_TAG; 
 	
-	
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		getApplicationContext().registerReceiver(new BroadcastReceiver(){
+			@Override
+			public void onReceive(Context context, Intent intent) {
+				Log.i(LOG_TAG,"Recieved Data");
+			}}, 
+			new IntentFilter(SensorManager.INTENT_SENSOR_VALUES));
 	}
 	
 	public void managerStart(View view){
@@ -44,7 +52,14 @@ public class MainActivity extends Activity {
 		service.setAction(SensorManager.ACTION_BIND);
 		context.startService(service);
 	}
-	
+
+	public void managerUnbind(View view){
+		Log.i(Constants.LOG_TAG, "Clicked ManagerBind");
+		Context context = getApplicationContext();
+		Intent service = new Intent(context, SensorManager.class);
+		service.setAction(SensorManager.ACTION_UNBIND);
+		context.startService(service);
+	}
 
 	public void startRecording(View view){
 		Context context = getApplicationContext();
@@ -59,10 +74,18 @@ public class MainActivity extends Activity {
 		service.setAction(SensorManager.ACTION_STOP_RECORDING);
 		context.startService(service);
 	}
+
+	public void lastValues(View view){
+		Context context = getApplicationContext();
+		Intent service = new Intent(context, SensorManager.class);
+		service.setAction(SensorManager.ACTION_SEND_SENSOR_VALUES);
+		context.startService(service);
+	}
+
 	public void writeData(View view){
 		Context context = getApplicationContext();
 		Intent service = new Intent(context, SensorManager.class);
-		service.setAction(SensorManager.ACTION_WRITE_DATA);
+		service.setAction(SensorManager.ACTION_STORE_DATA);
 		context.startService(service);
 	}
 

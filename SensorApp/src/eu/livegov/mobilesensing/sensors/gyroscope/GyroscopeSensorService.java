@@ -19,11 +19,7 @@ import eu.livegov.mobilesensing.sensors.SensorValue;
 public class GyroscopeSensorService extends SensorService{
 	public static final String SENSOR_NAME = "Gyroscope";
 	public static final String LOG_TAG = Constants.LOG_TAG;
-	
-	public static String getSensorName() {
-		return SENSOR_NAME;
-	};
-	
+		
 	// Metadata about sensor
 	Metadata  meta;
 	
@@ -50,9 +46,8 @@ public class GyroscopeSensorService extends SensorService{
 		if (sensorList.size() > 0) {
 			androidSensor = sensorList.get(0);
 		} else {
-			// Stop Service Throw Exception!
+			// STARTUP FAILED
 			Log.e(LOG_TAG, "Sensor not found!");
-			unbindSelf();
 			return false;
 		}
 		

@@ -1,5 +1,6 @@
 package eu.livegov.mobilesensing.manager;
 
+import java.security.acl.LastOwnerException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -19,6 +20,7 @@ import android.app.Service;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
 
@@ -46,10 +48,13 @@ public class SensorManager extends Service implements SensorManagerInterface {
 	// CONSTANTS
 	public static final String LOG_TAG = Constants.LOG_TAG;
 	public static final String ACTION_BIND = "BIND";
+	public static final String ACTION_UNBIND = "UNBIND";
 	public static final String ACTION_START_RECORDING = "START_RECORDING";
 	public static final String ACTION_STOP_RECORDING = "STOP_RECORDING";
-	public static final String ACTION_WRITE_DATA = "WRITE_DATA";
+	public static final String ACTION_STORE_DATA = "WRITE_DATA";
+	public static final String ACTION_SEND_SENSOR_VALUES = "SEND_VALUES";
 	public static final String ACTION_STATUS = "STATUS";
+	public static final String INTENT_SENSOR_VALUES = "eu.livegov.mobilesensor.SENSOR_VALUE_INTENT";
 
 	// STATICS
 	public static boolean running = false;
@@ -102,7 +107,7 @@ public class SensorManager extends Service implements SensorManagerInterface {
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
-		unbindAllSensorServices();		
+		unbindAllSensorServices();
 		Log.i(LOG_TAG, "Sensor Manager stopped");
 		running = false;
 	}
@@ -123,16 +128,22 @@ public class SensorManager extends Service implements SensorManagerInterface {
 		// Handle action requests
 		if (action.equals(ACTION_BIND)) {
 			bindAllSensorSerives();
+		} else if (action.equals(ACTION_UNBIND)){
+			unbindAllSensorServices();
 		} else if (action.equals(ACTION_START_RECORDING)){
 			startRecording();
 		} else if (action.equals(ACTION_STOP_RECORDING)) {
 			stopRecording();
 		} else if (action.equals(ACTION_STATUS)) {
 			statusAll();
-		} else if (action.equals(ACTION_WRITE_DATA)){
-			getLastValues();
+		} else if (action.equals(ACTION_STORE_DATA)){
+			storeData();
+		} else if (action.equals(ACTION_SEND_SENSOR_VALUES)) {
+			sendLastValues();
+		} else {
+			Log.e(LOG_TAG,"Unimplemented Action " + action);
 		}
-
+		
 		return super.onStartCommand(intent, flags, startId);
 	}
 
@@ -140,7 +151,6 @@ public class SensorManager extends Service implements SensorManagerInterface {
 	 * Manage Sensor Bindings
 	 */
 
-	
 	private void bindSensorService(SensorDescription desc) {
 		if (desc.isBound()) return;
 		
@@ -149,23 +159,22 @@ public class SensorManager extends Service implements SensorManagerInterface {
 		ServiceConnection serviceConnection = new ServiceConnection() {
 			@Override
 			public void onServiceConnected(ComponentName name,
-					IBinder service) {
-				SensorServiceBinder binder = (SensorServiceBinder) service;
-				SensorService sensorService = binder.getService();
-				registerSensorServiceObject(sensorService);
+					IBinder binder) {
+						registerSensorServiceObject(this, name, binder);
 			}
 
 			@Override
 			public void onServiceDisconnected(ComponentName name) {
+				// SensorService crashed hard
 				String fullName = name.getClassName();
 				String sensorName = fullName.substring(fullName.lastIndexOf('.') + 1);
-				Log.i(LOG_TAG,"Service crashed" + sensorName );
+				Log.i(LOG_TAG,"Service crashed" + sensorName);
 				getSensorDescription.get(sensorName).crashed();
 			}
 		};
-		
-		desc.setServiceConnection(serviceConnection);
 
+		Log.i(LOG_TAG,"Binding " + desc.getSensorName() + " with " + serviceConnection);
+		
 		bindService(
 				new Intent(this, desc.getServiceClass()),
 				serviceConnection,
@@ -173,14 +182,31 @@ public class SensorManager extends Service implements SensorManagerInterface {
 				);
 	}
 	
-	private void registerSensorServiceObject(SensorService sensorService){	
+	
+	private void registerSensorServiceObject(
+			ServiceConnection serviceConnection,
+			ComponentName name,
+			IBinder iBinder){
+				
+		SensorServiceBinder binder = (SensorServiceBinder) iBinder;
+		SensorService sensorService = binder.getService();
 		String sensorName = sensorService.getClass().getSimpleName();
+		
+		if (!binder.startupSuccess) {
+			Log.i(LOG_TAG,"SensorStartup " + sensorName + " unusccesfull. Unbinding.");
+			unbindService(serviceConnection);
+			return;
+		}
+		
+		// Lookup and Update description update
 		SensorDescription desc = getSensorDescription.get(sensorName);
 		if (desc != null) {
 			desc.setServiceObject(sensorService);
-			Log.i(LOG_TAG,"Sensor " + sensorName + " registered");
+			desc.setServiceConnection(serviceConnection);
+			Log.i(LOG_TAG,"Sensor " + sensorName + " registered.");			
 		} else {
-			Log.i(LOG_TAG,"Sensor " + sensorName + " not found");
+			Log.i(LOG_TAG,"Sensor " + sensorName + " not found in LookupMap. Unbinding.");
+			unbindService(serviceConnection);
 		}
 	}
 
@@ -191,7 +217,10 @@ public class SensorManager extends Service implements SensorManagerInterface {
 	}
 	
 	private void unbindSensorService(SensorDescription desc) {
-		if (desc.isBound())	desc.unbind(this);
+		if (desc.isBound())	{
+			Log.i(LOG_TAG,"Unbindung "+desc.getSensorName());
+			desc.unbind(this);
+		}
 	}
 	
 	private void unbindAllSensorServices(){
@@ -245,6 +274,17 @@ public class SensorManager extends Service implements SensorManagerInterface {
 	public void storeData() {
 		// TODO Auto-generated method stub
 	}	
+	
+	/**
+	 * Broadcast Last received SensorValues
+	 * used for display in GUI 
+	 */
+	private void sendLastValues() {
+		Log.i(LOG_TAG,"Broadcasting last values");
+		Intent valueIntent = new Intent(INTENT_SENSOR_VALUES);
+		valueIntent.putExtra("Value", "Data");
+		sendBroadcast(valueIntent);
+	}
 	
 	@Override
 	public List<SensorValue> getLastValues() {
