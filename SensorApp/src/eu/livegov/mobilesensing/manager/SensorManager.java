@@ -96,6 +96,7 @@ public class SensorManager extends Service implements SensorManagerInterface {
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
+		unbindAllSensorServices();		
 		Log.i(LOG_TAG, "Sensor Manager stopped");
 		running = false;
 	}
@@ -127,28 +128,32 @@ public class SensorManager extends Service implements SensorManagerInterface {
 
 
 	private void bindSensorService(SensorDescription desc) {
+		if (desc.isBound()) return;
+		
 		Log.i(LOG_TAG, "Binding sensor " + desc.getSensorName() );
 		
 		String sensorName = desc.getSensorName();
 
+		ServiceConnection serviceConnection = new ServiceConnection() {
+			@Override
+			public void onServiceConnected(ComponentName name,
+					IBinder service) {
+				SensorServiceBinder binder = (SensorServiceBinder) service;
+				SensorService sensorService = binder.getService();
+				registerSensorServiceObject(sensorService);
+			}
+
+			@Override
+			public void onServiceDisconnected(ComponentName name) {
+				Log.i(LOG_TAG,"Disconnected Sensor " + name);
+			}
+		};
+		
+		desc.setServiceConnection(serviceConnection);
+
 		bindService(
 				new Intent(this, desc.getServiceClass()),
-				
-				new ServiceConnection() {
-
-					@Override
-					public void onServiceConnected(ComponentName name,
-							IBinder service) {
-						SensorServiceBinder binder = (SensorServiceBinder) service;
-						SensorService sensorService = binder.getService();
-						registerSensorServiceObject(sensorService);
-					}
-
-					@Override
-					public void onServiceDisconnected(ComponentName name) {
-						Log.i(LOG_TAG,"Disconnected Sensor " + name);
-					}
-				},
+				serviceConnection,
 				BIND_AUTO_CREATE);
 	}
 	
@@ -166,6 +171,16 @@ public class SensorManager extends Service implements SensorManagerInterface {
 	private void bindAllSensorSerives(){
 		for (SensorDescription desc : availableSensors){
 			bindSensorService(desc);
+		}
+	}
+	
+	private void unbindSensorService(SensorDescription desc) {
+		if (desc.isBound())	desc.unbind(this);
+	}
+	
+	private void unbindAllSensorServices(){
+		for (SensorDescription desc : availableSensors){
+			unbindSensorService(desc);
 		}
 	}
 	

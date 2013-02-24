@@ -1,11 +1,14 @@
 package eu.livegov.mobilesensing.manager;
 
+import android.content.Context;
+import android.content.ServiceConnection;
 import eu.livegov.mobilesensing.sensors.SensorService;
 
 public class SensorDescription {
 	private String sensorName;
 	private Class<? extends SensorService> serviceClass;
 	private SensorService serviceObject;
+	private ServiceConnection serviceConnection;
 	
 	public SensorDescription(Class<? extends SensorService> serviceClass) {
 		this.serviceClass = serviceClass;
@@ -13,7 +16,7 @@ public class SensorDescription {
 	}
 	
 	public boolean isBound() {
-		return (serviceObject != null);		
+		return (serviceObject != null);
 	}
 
 	public boolean isRunning() {
@@ -26,6 +29,12 @@ public class SensorDescription {
 		return serviceObject.recording;
 	}
 
+	public void unbind(Context context){
+		context.unbindService(serviceConnection);
+		serviceConnection = null;
+		serviceObject     = null;
+	}
+	
 	///// SETTERS/GETTERS ////
 	public String getSensorName() {
 		return sensorName;
@@ -42,6 +51,13 @@ public class SensorDescription {
 	public void setServiceObject(SensorService serviceObject) {
 		this.serviceObject = serviceObject;
 	}
-		
+
+	public void setServiceConnection(ServiceConnection serviceConnection) {
+		this.serviceConnection = serviceConnection;
+	}
+
+	public ServiceConnection getServiceConnection() {
+		return serviceConnection;
+	}
 	
 }
