@@ -169,7 +169,8 @@ public class SensorManager extends Service implements SensorManagerInterface {
 		bindService(
 				new Intent(this, desc.getServiceClass()),
 				serviceConnection,
-				BIND_AUTO_CREATE);
+				BIND_AUTO_CREATE
+				);
 	}
 	
 	private void registerSensorServiceObject(SensorService sensorService){	

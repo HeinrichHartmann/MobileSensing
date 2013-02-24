@@ -38,9 +38,7 @@ public class GyroscopeSensorService extends SensorService{
 	SensorManager androidSensorManager;
 
 	//////// Startup/Shutdown Service and Recording /////////
-	
-	public void onCreate() {
-		super.onCreate();
+	public boolean startupSensor() {
 		// Called when service start
 
 		// Check for Gyroscope Sensor
@@ -54,14 +52,17 @@ public class GyroscopeSensorService extends SensorService{
 		} else {
 			// Stop Service Throw Exception!
 			Log.e(LOG_TAG, "Sensor not found!");
-			stopSelf();
+			unbindSelf();
+			return false;
 		}
 		
 		meta = new Metadata(SENSOR_NAME);
 		meta.autoSetSensorInfo(androidSensor);
 				
 		Log.i(LOG_TAG, "Gyroscope service started");
+		return true;
 	}
+	
 	@Override
 	public void startRecording() {
 		super.startRecording();

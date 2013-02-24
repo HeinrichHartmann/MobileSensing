@@ -64,6 +64,16 @@ public abstract class SensorService extends Service {
 	 */
 	public abstract void putSensorValue(SensorValue value);
 	
+	
+	/**
+	 * Called onBind
+	 * Returns true if startup went ok 
+	 * Returns false if there were errors in the starup process (sensor not found)
+	 * 
+	 * @return success
+	 */
+	public abstract boolean startupSensor();
+	
 	/**
 	 * starts recording of sensor values; is called by onBind()
 	 */
@@ -106,7 +116,15 @@ public abstract class SensorService extends Service {
 	@Override
 	public IBinder onBind(Intent intent) {
 		Log.i(LOG_TAG, "SensorService binding request");
-		return new SensorServiceBinder();
+		
+		// Call Startup
+		if (! startupSensor()) {
+			// Startup failed, e.g. no sensor found
+			return null; 
+		} else {
+			// Startup successfull
+			return new SensorServiceBinder();
+		}
 	}
 	
 	@Override
@@ -128,4 +146,9 @@ public abstract class SensorService extends Service {
 		super.onDestroy();
 		running = false;
 	}
+	
+	public void unbindSelf() {
+		stopSelf();
+	}
+	
 }

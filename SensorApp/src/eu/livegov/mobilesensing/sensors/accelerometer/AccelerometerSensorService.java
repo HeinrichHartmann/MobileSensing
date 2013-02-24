@@ -39,8 +39,7 @@ public class AccelerometerSensorService extends SensorService {
 
 	//////// Startup/Shutdown Service and Recording /////////
 	
-	public void onCreate() {
-		super.onCreate();
+	public boolean startupSensor() {
 		// Called when service start
 
 		// Check for Accelerometer Sensor
@@ -54,7 +53,7 @@ public class AccelerometerSensorService extends SensorService {
 		} else {
 			Log.e(LOG_TAG, "Sensor not found!");
 			// Stop Service Throw Exception!
-			stopSelf();
+			return false;
 		}
 		
 		//set meta info
@@ -62,6 +61,7 @@ public class AccelerometerSensorService extends SensorService {
 		meta.autoSetSensorInfo(androidSensor);
 		
 		Log.i(LOG_TAG, "Accelerometer service started");
+		return true;
 	}
 	
 	@Override

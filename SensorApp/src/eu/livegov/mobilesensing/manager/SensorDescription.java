@@ -16,7 +16,7 @@ public class SensorDescription {
 	}
 	
 	public boolean isBound() {
-		return (serviceObject != null);
+		return ((serviceObject != null) && (serviceConnection != null));
 	}
 
 	public boolean isRunning() {

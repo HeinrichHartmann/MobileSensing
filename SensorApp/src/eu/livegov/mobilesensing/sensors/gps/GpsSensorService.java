@@ -46,7 +46,7 @@ public class GpsSensorService extends SensorService{
 
 	//////// Startup/Shutdown Service and Recording /////////
 	
-	public void onCreate() {
+	public boolean startupSensor() {
 		// Called when service start
 
 		// Check for Gps Sensor
@@ -59,7 +59,7 @@ public class GpsSensorService extends SensorService{
 		} else {
 			Log.e(LOG_TAG, "Sensor not found!");
 			// Stop Service Throw Exception!
-			stopSelf();
+			return false;
 		}
 		
 		// set meta info
@@ -67,7 +67,7 @@ public class GpsSensorService extends SensorService{
 		//meta.autoSetSensorInfo(androidSensor);
 		
 		Log.i(LOG_TAG, "GPS service started");
-
+		return true;
 	}
 	
 	@Override
