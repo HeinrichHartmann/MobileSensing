@@ -1,7 +1,6 @@
 package eu.livegov.mobilesensing;
 
 import eu.livegov.mobilesensing.manager.SensorManager;
-import eu.livegov.mobilesensing.sensors.accelerometer.AccelerometerSensorService;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -12,6 +11,8 @@ import android.content.Context;
 import eu.livegov.mobilesensing.Constants;
 
 public class MainActivity extends Activity {
+	
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,7 @@ public class MainActivity extends Activity {
 		context.startService(service);
 	}
 	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
