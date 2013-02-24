@@ -24,7 +24,7 @@
         android:layout_alignBottom="@+id/button1"
         android:layout_alignParentRight="true"
         android:layout_marginRight="62dp"
-        android:onClick="startRecording"
+        android:onClick="stopRecording"
         android:text="@string/Stop" />
     
     <Button
@@ -35,7 +35,7 @@
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="150dp"
         android:layout_marginLeft="63dp"
-        android:onClick="stopRecording"
+        android:onClick="startRecording"
         android:text="@string/Start" />
 
     <CheckBox
@@ -60,19 +60,18 @@
         android:id="@+id/textAccelerometer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/checkBox1"
-        android:layout_alignBottom="@+id/checkBox1"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="28dp"
+        android:layout_below="@+id/checkBox2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="39dp"
         android:text="TextAcc" />
 
     <TextView
         android:id="@+id/textGPS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/checkBox2"
-        android:layout_alignBottom="@+id/checkBox2"
-        android:layout_alignRight="@+id/textAccelerometer"
+        android:layout_alignLeft="@+id/textAccelerometer"
+        android:layout_below="@+id/textAccelerometer"
+        android:layout_marginTop="14dp"
         android:text="TextGPS" />
 
 </RelativeLayout>

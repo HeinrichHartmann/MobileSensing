@@ -20,6 +20,10 @@ public class AccelerometerSensorService extends SensorService {
 	public static final String SENSOR_NAME = "Accelerometer";
 	public static final String LOG_TAG = Constants.LOG_TAG;
 	
+	public static String getSensorName() {
+		return SENSOR_NAME;
+	};
+	
 	// Metadata about sensor
 	Metadata  meta;
 	
@@ -36,6 +40,7 @@ public class AccelerometerSensorService extends SensorService {
 	//////// Startup/Shutdown Service and Recording /////////
 	
 	public void onCreate() {
+		super.onCreate();
 		// Called when service start
 
 		// Check for Accelerometer Sensor
@@ -52,11 +57,13 @@ public class AccelerometerSensorService extends SensorService {
 			stopSelf();
 		}
 		
-		// set meta info
+		/* set meta info
 		meta = new Metadata(SENSOR_NAME);
 		meta.autoSetSensorInfo(androidSensor);
+		*/
 		
 		Log.i(LOG_TAG, "Accelerometer service started");
+		startRecording();
 	}
 	
 	@Override
