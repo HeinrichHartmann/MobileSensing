@@ -24,6 +24,7 @@
         </activity>
         <service android:name=".manager.SensorManager"></service>
         <service android:name="eu.livegov.mobilesensing.sensors.accelerometer.AccelerometerSensorService"></service>
+        <service android:name="eu.livegov.mobilesensing.sensors.accelerometer.GpsSensorService"></service>
     </application>
 
 </manifest>

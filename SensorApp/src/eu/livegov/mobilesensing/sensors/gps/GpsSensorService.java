@@ -60,7 +60,7 @@ public class GpsSensorService extends SensorService{
 		meta = new Metadata(SENSOR_NAME);
 		meta.autoSetSensorInfo(androidSensor);
 		
-		Log.i(LOG_TAG, "Accelerometer service started");
+		Log.i(LOG_TAG, "GPS service started");
 	}
 	
 	@Override
