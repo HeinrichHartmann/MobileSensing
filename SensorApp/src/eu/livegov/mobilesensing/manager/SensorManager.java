@@ -1,12 +1,16 @@
 package eu.livegov.mobilesensing.manager;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import eu.livegov.mobilesensing.Constants;
+import eu.livegov.mobilesensing.sensors.SensorService;
 import eu.livegov.mobilesensing.sensors.SensorValue;
 import eu.livegov.mobilesensing.sensors.accelerometer.AccelerometerSensorService;
+import eu.livegov.mobilesensing.sensors.gps.GpsSensorService;
 
 import android.app.Service;
 import android.content.Intent;
@@ -34,17 +38,47 @@ import android.util.Log;
  * 
  */
 public class SensorManager extends Service implements SensorManagerInterface {
-
+	// CONSTANTS
 	public static final String LOG_TAG = Constants.LOG_TAG;
-
 	public static final String ACTION_BIND = "BIND";
 	public static final String ACTION_START_RECORDING = "START_RECORDING";
 	public static final String ACTION_STOP_RECORDING = "STOP_RECORDING";
 
-	private LinkedList<SensorDescription> usedSensors;
-
+	// STATICS
 	public static boolean running = false;
+	
+	/**
+	 * List of sensors available in the Framework
+	 */	
+	private static List<SensorDescription> availableSensors = new LinkedList<SensorDescription>();
+	public  static Map<String,SensorDescription> getSensorDescription = new HashMap<String,SensorDescription>();
+	
+	// VARIABLES
+	private List<SensorDescription> usedSensors;
+	
+	/**
+	 * Constructor
+	 * Adds available sensors to sensor list
+	 */
+	public SensorManager() {
+		Log.i(LOG_TAG,"Constructor Called");
+		
+		// Generate list of available sensors
+		
+		addAvailableSensor(AccelerometerSensorService.class);
+		addAvailableSensor(GpsSensorService.class);
+	}
 
+	private void addAvailableSensor(Class<? extends SensorService> sensorClass){
+		SensorDescription sensor = new SensorDescription(sensorClass);
+		String name = sensorClass.getSimpleName();
+		
+		availableSensors.add(sensor);
+		getSensorDescription.put(name, sensor);
+		
+		Log.i(LOG_TAG,"Added sensor "+name+" to availableSensors");
+	}
+	
 	/**
 	 * Required for service classes
 	 */
@@ -59,6 +93,7 @@ public class SensorManager extends Service implements SensorManagerInterface {
 		super.onCreate();
 		Log.i(LOG_TAG, "Sensor Manager started");
 		running = true;
+		
 	}
 
 	@Override

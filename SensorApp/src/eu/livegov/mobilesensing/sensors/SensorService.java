@@ -30,6 +30,7 @@ import android.util.Log;
 public abstract class SensorService extends Service {
 	public static String LOG_TAG = Constants.LOG_TAG;
 
+	
 	/**
 	 * Check if service is running.
 	 * Set onCerate/onDestroy
