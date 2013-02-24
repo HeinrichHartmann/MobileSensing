@@ -1,6 +1,7 @@
 package eu.livegov.mobilesensing;
 
 import eu.livegov.mobilesensing.manager.SensorManager;
+import eu.livegov.mobilesensing.sensors.gps.GpsSensorService;
 
 import android.os.Bundle;
 import android.app.Activity;
