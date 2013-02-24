@@ -25,7 +25,7 @@ public class GpsSensorServiceTest extends ServiceTestCase<GpsSensorService> {
 
         startService(
         		new Intent(getContext(),  
-        		AccelerometerSensorService.class));
+        				GpsSensorService.class));
 
         mService = getService();
 	}
@@ -37,20 +37,20 @@ public class GpsSensorServiceTest extends ServiceTestCase<GpsSensorService> {
 		// Stop Service
 		getContext().stopService(
 				new Intent(	getContext(),
-				AccelerometerSensorService.class
+				GpsSensorService.class
 				));
 	}
 		
 	public void testMetaData() {
 		assertTrue(mService != null);
-		assertTrue(mService.getMetadata().getServiceName() == AccelerometerSensorService.SENSOR_NAME);
+		assertTrue(mService.getMetadata().getServiceName() == GpsSensorService.SENSOR_NAME);
 	}
 	
 	public void testLastValue(){
 		assertTrue(mService != null);
 		
 		// Fill in Dummy Value
-		AccelerometerSensorValue dummyValue = new AccelerometerSensorValue(0, 1, 2, 3);
+		GpsSensorValue dummyValue = new GpsSensorValue(0, 1, 2, 3);
 		mService.putSensorValue(dummyValue);
 
 		Log.i("TEST",dummyValue.toString());

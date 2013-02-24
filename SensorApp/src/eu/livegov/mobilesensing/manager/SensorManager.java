@@ -10,6 +10,7 @@ import eu.livegov.mobilesensing.Constants;
 import eu.livegov.mobilesensing.sensors.SensorService;
 import eu.livegov.mobilesensing.sensors.SensorValue;
 import eu.livegov.mobilesensing.sensors.SensorService.SensorServiceBinder;
+import eu.livegov.mobilesensing.sensors.SensorValueBatch;
 import eu.livegov.mobilesensing.sensors.accelerometer.AccelerometerSensorService;
 import eu.livegov.mobilesensing.sensors.gps.GpsSensorService;
 
@@ -192,15 +193,14 @@ public class SensorManager extends Service implements SensorManagerInterface {
 
 		List<String> sensorStatusList = new ArrayList<String>();
 
-//		for (SensorDescription desc : availableSensors) {
-//			String status = desc.getService().getStatus();
-//			Log.i(LOG_TAG, "Service "
-//					+ desc.getService().getMetadata().getServiceName() + "\n "
-//					+ status);
-//
-//			sensorStatusList.add(status);
-//		}
-
+		for (SensorDescription desc : availableSensors) {
+			if (!desc.isRunning()) continue;
+			String status = desc.getServiceObject().getStatus();
+			Log.i(LOG_TAG, "Service "
+				+ desc.getServiceObject().getMetadata().getServiceName() + "\n "
+				+ status);
+			sensorStatusList.add(status);
+		}
 		return sensorStatusList;
 	}
 
@@ -231,13 +231,30 @@ public class SensorManager extends Service implements SensorManagerInterface {
 	@Override
 	public void storeData() {
 		// TODO Auto-generated method stub
-
-	}
-
+	}	
+	
 	@Override
 	public List<SensorValue> getLastValues() {
-		// TODO Auto-generated method stub
-		return null;
+		LinkedList<SensorValue> Values = new LinkedList<SensorValue>();
+		for (SensorDescription desc : availableSensors) {
+			if (desc.isRecording()) {
+				Values.add(desc.getServiceObject().getLastValue());
+			}
+		}
+		return Values;
 	}
 
+	public List<SensorValueBatch> pullAllValues() {
+		LinkedList<SensorValueBatch> Batches = new LinkedList<SensorValueBatch>();
+		for (SensorDescription desc : availableSensors) {
+			if (desc.isRecording()) {
+				SensorValueBatch batch = new SensorValueBatch();
+				batch.values = (List<SensorValue>) desc.getServiceObject().pullData();
+				batch.meta   = desc.getServiceObject().getMetadata();				
+			}
+		}
+		return Batches;
+	}
+
+	
 }
