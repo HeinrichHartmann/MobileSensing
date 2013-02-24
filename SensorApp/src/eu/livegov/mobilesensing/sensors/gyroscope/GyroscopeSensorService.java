@@ -57,10 +57,10 @@ public class GyroscopeSensorService extends SensorService{
 			stopSelf();
 		}
 		
-		/* set meta info
+		
 		meta = new Metadata(SENSOR_NAME);
 		meta.autoSetSensorInfo(androidSensor);
-		*/
+		
 		
 		Log.i(LOG_TAG, "Gyroscope service started");
 

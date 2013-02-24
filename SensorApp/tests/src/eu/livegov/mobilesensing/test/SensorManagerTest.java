@@ -30,9 +30,9 @@ public class SensorManagerTest extends ServiceTestCase<SensorManager> {
 	public void testAll(){
 		assertTrue(mService != null);
 		
-		mService.setServicesToBind();
+		//mService.setServicesToBind();
 		
-		mService.bindSensorServices();
+		//mService.bindSensorServices();
 		
 		mService.statusAll();
 		
