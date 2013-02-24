@@ -49,7 +49,7 @@ public class MainActivity extends Activity {
 		Log.i(Constants.LOG_TAG, "Clicked Button");
 		Context context = getApplicationContext();
 		Intent service = new Intent(context, SensorManager.class);
-		service.setAction(SensorManager.ACTION_BIND);
+		service.setAction(SensorManager.ACTION_START_RECORDING);
 		context.startService(service);
 	}
 	

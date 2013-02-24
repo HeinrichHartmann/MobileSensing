@@ -71,9 +71,9 @@ public class SensorManager extends Service implements SensorManagerInterface {
 		SensorDescription desc = new SensorDescription(sensorClass);
 		
 		availableSensors.add(desc);
-		getSensorDescription.put(desc.sensorName, desc);
+		getSensorDescription.put(desc.getSensorName(), desc);
 		
-		Log.i(LOG_TAG,"Added sensor "+desc.sensorName+" to availableSensors");
+		Log.i(LOG_TAG,"Added sensor "+desc.getSensorName()+" to availableSensors");
 	}
 	
 	/**
@@ -116,6 +116,10 @@ public class SensorManager extends Service implements SensorManagerInterface {
 		// Handle action requests
 		if (action.equals(ACTION_BIND)) {
 			bindAllSensorSerives();
+		} else if (action.equals(ACTION_START_RECORDING)){
+			startRecording();
+		} else if (action.equals(ACTION_STOP_RECORDING)) {
+			stopRecording();
 		}
 
 		return super.onStartCommand(intent, flags, startId);
@@ -123,12 +127,12 @@ public class SensorManager extends Service implements SensorManagerInterface {
 
 
 	private void bindSensorService(SensorDescription desc) {
-		Log.i(LOG_TAG, "Binding sensor " + desc.sensorName );
+		Log.i(LOG_TAG, "Binding sensor " + desc.getSensorName() );
 		
-		String sensorName = desc.sensorName;
+		String sensorName = desc.getSensorName();
 
 		bindService(
-				new Intent(this, desc.serviceClass),
+				new Intent(this, desc.getServiceClass()),
 				
 				new ServiceConnection() {
 
@@ -143,7 +147,7 @@ public class SensorManager extends Service implements SensorManagerInterface {
 					@Override
 					public void onServiceDisconnected(ComponentName name) {
 						Log.i(LOG_TAG,"Disconnected Sensor " + name);
-					}				
+					}
 				},
 				BIND_AUTO_CREATE);
 	}
@@ -152,7 +156,7 @@ public class SensorManager extends Service implements SensorManagerInterface {
 		String sensorName = sensorService.getClass().getSimpleName();
 		SensorDescription desc = getSensorDescription.get(sensorName);
 		if (desc != null) {
-			desc.serviceObject = sensorService;
+			desc.setServiceObject(sensorService);
 			Log.i(LOG_TAG,"Sensor " + sensorName + " registered");
 		} else {
 			Log.i(LOG_TAG,"Sensor " + sensorName + " not found");
@@ -194,16 +198,18 @@ public class SensorManager extends Service implements SensorManagerInterface {
 	@Override
 	public void startRecording() {
 		for (SensorDescription desc : availableSensors) {
-			// is bound?
-//			desc.getService().startRecording();
+			if (desc.isBound()) {
+				desc.getServiceObject().startRecording();
+			}
 		}
 	}
 
 	@Override
 	public void stopRecording() {
 		for (SensorDescription desc : availableSensors) {
-			// is bound?
-//			desc.getService().stopRecording();
+			if (desc.isBound()){
+				desc.getServiceObject().stopRecording();
+			}
 		}
 	}
 

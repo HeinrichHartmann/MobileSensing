@@ -98,9 +98,7 @@ public class GpsSensorService extends SensorService{
 
 			@Override
 			public void onProviderDisabled(String provider) {
-				// TODO Auto-generated method stub
-				Log.i(LOG_TAG, "Provider disabled");
-
+				Log.i(LOG_TAG, "GPS Provider disabled");
 			}
 
 			@Override
