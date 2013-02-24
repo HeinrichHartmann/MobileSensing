@@ -37,6 +37,14 @@ public class MainActivity extends Activity {
 		context.startService(service);
 	}
 	
+	public void managerBind(View view){
+		Log.i(Constants.LOG_TAG, "Clicked ManagerBind");
+		Context context = getApplicationContext();
+		Intent service = new Intent(context, SensorManager.class);
+		context.startService(service);
+	}
+	
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

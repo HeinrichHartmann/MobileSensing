@@ -45,6 +45,48 @@ public class SensorManager extends Service implements SensorManagerInterface {
 	private LinkedList<SensorService> services = new LinkedList<SensorService>();
 	private LinkedList<Intent> servicesToBind = new LinkedList<Intent>();
 
+
+	/**
+	 * Required for service classes
+	 */
+	@Override
+	public IBinder onBind(Intent intent) {
+		Log.i(LOG_TAG,"Sensor Manager onBind");
+		return null;
+	}
+
+	
+	/**
+	 * Called when SensorManager start ist triggered by Intent
+	 */
+	@Override
+	public int onStartCommand(Intent intent, int flags, int startId) {
+		Log.i(LOG_TAG,"Called SensorManager Start");
+		return super.onStartCommand(intent, flags, startId);		
+	}
+
+	/**
+	 * Fill List of services which should be binded
+	 * TODO: Read from config 
+	 */
+	public void setServicesToBind() {
+		Log.i(LOG_TAG,"Set Services to Bind");
+		// static AccelerometerSensorService for testing purposes; generate from
+		// config later
+		servicesToBind.add(new Intent(this, AccelerometerSensorService.class));
+	}
+
+	
+	/**
+	 * Bind all Sensors to SensorManager
+	 */
+	public void bindSensorServices() {
+		Log.i(LOG_TAG,"Binding Services " + servicesToBind.size());
+		for (Intent intent : servicesToBind) {
+			bindService(intent, connection, BIND_AUTO_CREATE);	
+		}
+	}
+
 	ServiceConnection connection = new ServiceConnection() {
 		@Override
 		public void onServiceConnected(ComponentName className, IBinder service) {
@@ -54,44 +96,14 @@ public class SensorManager extends Service implements SensorManagerInterface {
 		}
 
 		@Override
-		public void onServiceDisconnected(ComponentName arg0) {
-			Log.i(LOG_TAG, "Bind Failed");
+		public void onServiceDisconnected(ComponentName className) {
+			Log.i(LOG_TAG, "Binding " + className + " Failed");
 		}
 	};
-
-	@Override
-	public int onStartCommand(Intent intent, int flags, int startId) {
-		Log.i(LOG_TAG,"Called SensorManager Start");
-		return super.onStartCommand(intent, flags, startId);		
-	}
-
 	
-	public void bindSensorServices() {
-		Log.i(LOG_TAG,"Binding Services " + servicesToBind.size());
-		for (Intent intent : servicesToBind) {
-			bindService(intent, connection, BIND_AUTO_CREATE);	
-		}
-	}
-
-	public void setServicesToBind() {
-		Log.i(LOG_TAG,"Set Services to Bind");
-		// static AccelerometerSensorService for testing purposes; generate from
-		// config later
-		servicesToBind.add(new Intent(this, AccelerometerSensorService.class));
-	}
-
-	public class SensorManagerBinder extends Binder {
-		public SensorManager getService() {
-			return SensorManager.this;
-		}
-	}
-
-	@Override
-	public IBinder onBind(Intent intent) {
-		Log.i(LOG_TAG,"Sensor Manager onBind");
-		return new SensorManagerBinder();
-	}
-
+	
+	//////////////// METHODS FOR SENSOR HANDLING ///////////////////
+	
 	
 	@Override
 	public List<String> statusAll() {
