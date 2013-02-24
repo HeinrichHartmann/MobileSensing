@@ -18,7 +18,4 @@ public interface SensorValue {
 	 * @return timestamp
 	 */
 	public long getTimestamp();
-	public float getX();
-	public float getY();
-	public float getZ();
 }
