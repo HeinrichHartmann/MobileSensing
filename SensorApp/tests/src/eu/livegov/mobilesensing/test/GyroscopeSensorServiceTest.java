@@ -3,31 +3,29 @@ package eu.livegov.mobilesensing.test;
 import java.util.List;
 
 import eu.livegov.mobilesensing.sensors.SensorValue;
-import eu.livegov.mobilesensing.sensors.accelerometer.AccelerometerSensorService;
-import eu.livegov.mobilesensing.sensors.accelerometer.AccelerometerSensorValue;
-import eu.livegov.mobilesensing.sensors.gps.GpsSensorService;
-import eu.livegov.mobilesensing.sensors.gps.GpsSensorValue;
+import eu.livegov.mobilesensing.sensors.gyroscope.GyroscopeSensorService;
+import eu.livegov.mobilesensing.sensors.gyroscope.GyroscopeSensorValue;
 import android.content.Intent;
 import android.test.ServiceTestCase;
 import android.util.Log;
 
-public class GpsSensorServiceTest extends ServiceTestCase<GpsSensorService> {
+public class GyroscopeSensorServiceTest extends
+		ServiceTestCase<GyroscopeSensorService> {
 
-	public GpsSensorServiceTest() {
-		super(GpsSensorService.class);
+	public GyroscopeSensorServiceTest() {
+		super(GyroscopeSensorService.class);
+
 	}
- 	
-	GpsSensorService mService;
-    	
+
+	GyroscopeSensorService mService;
+
 	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
 
-        startService(
-        		new Intent(getContext(),  
-        		AccelerometerSensorService.class));
+		startService(new Intent(getContext(), GyroscopeSensorService.class));
 
-        mService = getService();
+		mService = getService();
 	}
 
 	@Override
@@ -36,36 +34,34 @@ public class GpsSensorServiceTest extends ServiceTestCase<GpsSensorService> {
 
 		// Stop Service
 		getContext().stopService(
-				new Intent(	getContext(),
-				AccelerometerSensorService.class
-				));
+				new Intent(getContext(), GyroscopeSensorService.class));
 	}
-		
+
 	public void testMetaData() {
 		assertTrue(mService != null);
-		assertTrue(mService.getMetadata().getServiceName() == AccelerometerSensorService.SENSOR_NAME);
+		assertTrue(mService.getMetadata().getServiceName() == GyroscopeSensorService.SENSOR_NAME);
 	}
-	
-	public void testLastValue(){
+
+	public void testLastValue() {
 		assertTrue(mService != null);
-		
+
 		// Fill in Dummy Value
-		AccelerometerSensorValue dummyValue = new AccelerometerSensorValue(0, 1, 2, 3);
+		GyroscopeSensorValue dummyValue = new GyroscopeSensorValue(0, 1, 2, 3);
 		mService.putSensorValue(dummyValue);
 
-		Log.i("TEST",dummyValue.toString());
-		Log.i("TEST",mService.getLastValue().toString());
+		Log.i("TEST", dummyValue.toString());
+		Log.i("TEST", mService.getLastValue().toString());
 		assertTrue(mService.getLastValue().equals(dummyValue));
 	}
-	
+
 	public void testPullData() {
 		assertTrue(mService != null);
 
 		// Fill in Dummy Value
-		GpsSensorValue dummyValue0 = new GpsSensorValue(0, 1, 2, 3);
-		GpsSensorValue dummyValue1 = new GpsSensorValue(0, 1, 2, 4);
-		GpsSensorValue dummyValue2 = new GpsSensorValue(0, 1, 2, 5);
-		GpsSensorValue dummyValue3 = new GpsSensorValue(0, 1, 2, 6);
+		GyroscopeSensorValue dummyValue0 = new GyroscopeSensorValue(0, 1, 2, 3);
+		GyroscopeSensorValue dummyValue1 = new GyroscopeSensorValue(0, 1, 2, 4);
+		GyroscopeSensorValue dummyValue2 = new GyroscopeSensorValue(0, 1, 2, 5);
+		GyroscopeSensorValue dummyValue3 = new GyroscopeSensorValue(0, 1, 2, 6);
 
 		mService.putSensorValue(dummyValue0);
 		mService.putSensorValue(dummyValue1);
@@ -78,11 +74,11 @@ public class GpsSensorServiceTest extends ServiceTestCase<GpsSensorService> {
 		assertTrue(data.get(1).equals(dummyValue1));
 		assertTrue(data.get(2).equals(dummyValue2));
 		assertTrue(data.get(3).equals(dummyValue3));
-		
+
 		// Pull again should be empty
 		data = mService.pullData();
 		data = mService.pullData();
 		assertTrue(data.isEmpty());
-		
+
 	}
 }
