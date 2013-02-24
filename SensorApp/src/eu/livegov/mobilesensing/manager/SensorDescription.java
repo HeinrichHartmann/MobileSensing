@@ -25,7 +25,7 @@ public class SensorDescription {
 	}
 	
 	public boolean isRecording() {
-		if (!isRunning()) return false;
+		if (! isRunning()) return false;
 		return serviceObject.recording;
 	}
 
@@ -58,6 +58,19 @@ public class SensorDescription {
 
 	public ServiceConnection getServiceConnection() {
 		return serviceConnection;
+	}
+
+	public String getStatus() {
+		if (!isBound()) {
+			return "unbound";
+		} else {
+			return serviceObject.getStatus();
+		}
+	}
+
+	public void crashed() {
+		serviceObject = null;
+		serviceConnection = null;
 	}
 	
 }

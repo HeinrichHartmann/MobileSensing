@@ -9,5 +9,6 @@ package eu.livegov.mobilesensing.sensors;
  *
  */
 public class SensorConfig {
-
+	public boolean enabled;
+	public String sensorName;
 }

@@ -52,18 +52,15 @@ public class GyroscopeSensorService extends SensorService{
 		if (sensorList.size() > 0) {
 			androidSensor = sensorList.get(0);
 		} else {
-			Log.e(LOG_TAG, "Sensor not found!");
 			// Stop Service Throw Exception!
+			Log.e(LOG_TAG, "Sensor not found!");
 			stopSelf();
 		}
 		
-		
 		meta = new Metadata(SENSOR_NAME);
 		meta.autoSetSensorInfo(androidSensor);
-		
-		
+				
 		Log.i(LOG_TAG, "Gyroscope service started");
-
 	}
 	@Override
 	public void startRecording() {
@@ -140,6 +137,7 @@ public class GyroscopeSensorService extends SensorService{
 		
 		return values;
 	}
+
 
 	@Override
 	public void putSensorValue(SensorValue value) {

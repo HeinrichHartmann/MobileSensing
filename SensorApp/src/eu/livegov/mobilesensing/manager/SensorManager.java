@@ -13,6 +13,7 @@ import eu.livegov.mobilesensing.sensors.SensorService.SensorServiceBinder;
 import eu.livegov.mobilesensing.sensors.SensorValueBatch;
 import eu.livegov.mobilesensing.sensors.accelerometer.AccelerometerSensorService;
 import eu.livegov.mobilesensing.sensors.gps.GpsSensorService;
+import eu.livegov.mobilesensing.sensors.gyroscope.GyroscopeSensorService;
 
 import android.app.Service;
 import android.content.ComponentName;
@@ -47,6 +48,8 @@ public class SensorManager extends Service implements SensorManagerInterface {
 	public static final String ACTION_BIND = "BIND";
 	public static final String ACTION_START_RECORDING = "START_RECORDING";
 	public static final String ACTION_STOP_RECORDING = "STOP_RECORDING";
+	public static final String ACTION_WRITE_DATA = "WRITE_DATA";
+	public static final String ACTION_STATUS = "STATUS";
 
 	// STATICS
 	public static boolean running = false;
@@ -59,12 +62,14 @@ public class SensorManager extends Service implements SensorManagerInterface {
 	
 	/*
 	 * Static Initialization
+	 * 
 	 * Add available sensors to sensor list
 	 */
 	static {
 		// Generate list of available sensors
 		addAvailableSensor(AccelerometerSensorService.class);
 		addAvailableSensor(GpsSensorService.class);
+		addAvailableSensor(GyroscopeSensorService.class);
 	}
 
 	private static void addAvailableSensor(Class<? extends SensorService> sensorClass){
@@ -77,9 +82,10 @@ public class SensorManager extends Service implements SensorManagerInterface {
 		Log.i(LOG_TAG,"Added sensor "+desc.getSensorName()+" to availableSensors");
 	}
 	
-	/**
-	 * Required for service classes
+	/*
+	 * SensorManager Startup
 	 */
+
 	@Override
 	public IBinder onBind(Intent intent) {
 		// Sensor Manager cannot be bound.
@@ -91,7 +97,6 @@ public class SensorManager extends Service implements SensorManagerInterface {
 		super.onCreate();
 		Log.i(LOG_TAG, "Sensor Manager started");
 		running = true;
-		
 	}
 
 	@Override
@@ -103,7 +108,7 @@ public class SensorManager extends Service implements SensorManagerInterface {
 	}
 
 	/**
-	 * Called when SensorManager start is triggered by Intent
+	 *  Intent Handling
 	 */
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
@@ -122,19 +127,25 @@ public class SensorManager extends Service implements SensorManagerInterface {
 			startRecording();
 		} else if (action.equals(ACTION_STOP_RECORDING)) {
 			stopRecording();
+		} else if (action.equals(ACTION_STATUS)) {
+			statusAll();
+		} else if (action.equals(ACTION_WRITE_DATA)){
+			getLastValues();
 		}
 
 		return super.onStartCommand(intent, flags, startId);
 	}
 
+	/*
+	 * Manage Sensor Bindings
+	 */
 
+	
 	private void bindSensorService(SensorDescription desc) {
 		if (desc.isBound()) return;
 		
 		Log.i(LOG_TAG, "Binding sensor " + desc.getSensorName() );
 		
-		String sensorName = desc.getSensorName();
-
 		ServiceConnection serviceConnection = new ServiceConnection() {
 			@Override
 			public void onServiceConnected(ComponentName name,
@@ -146,7 +157,10 @@ public class SensorManager extends Service implements SensorManagerInterface {
 
 			@Override
 			public void onServiceDisconnected(ComponentName name) {
-				Log.i(LOG_TAG,"Disconnected Sensor " + name);
+				String fullName = name.getClassName();
+				String sensorName = fullName.substring(fullName.lastIndexOf('.') + 1);
+				Log.i(LOG_TAG,"Service crashed" + sensorName );
+				getSensorDescription.get(sensorName).crashed();
 			}
 		};
 		
@@ -194,12 +208,10 @@ public class SensorManager extends Service implements SensorManagerInterface {
 		List<String> sensorStatusList = new ArrayList<String>();
 
 		for (SensorDescription desc : availableSensors) {
-			if (!desc.isRunning()) continue;
-			String status = desc.getServiceObject().getStatus();
-			Log.i(LOG_TAG, "Service "
-				+ desc.getServiceObject().getMetadata().getServiceName() + "\n "
-				+ status);
-			sensorStatusList.add(status);
+			Log.i(LOG_TAG, 
+			  "Service " + desc.getSensorName() 
+			+ "Status " + desc.getStatus()
+		);
 		}
 		return sensorStatusList;
 	}
@@ -239,6 +251,7 @@ public class SensorManager extends Service implements SensorManagerInterface {
 		for (SensorDescription desc : availableSensors) {
 			if (desc.isRecording()) {
 				Values.add(desc.getServiceObject().getLastValue());
+				Log.i(LOG_TAG, "lastValue " + desc.getServiceObject().getLastValue().toString());
 			}
 		}
 		return Values;

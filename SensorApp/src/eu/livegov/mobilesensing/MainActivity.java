@@ -2,6 +2,7 @@ package eu.livegov.mobilesensing;
 
 import eu.livegov.mobilesensing.manager.SensorManager;
 import eu.livegov.mobilesensing.sensors.gps.GpsSensorService;
+import eu.livegov.mobilesensing.sensors.gyroscope.GyroscopeSensorService;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -45,28 +46,32 @@ public class MainActivity extends Activity {
 	}
 	
 
-	public void buttonClick(View view){
-		Log.i(Constants.LOG_TAG, "Clicked Button");
+	public void startRecording(View view){
 		Context context = getApplicationContext();
 		Intent service = new Intent(context, SensorManager.class);
 		service.setAction(SensorManager.ACTION_START_RECORDING);
 		context.startService(service);
 	}
 	
-	public void buttongps (View view){
-
+	public void stopRecording(View view){
 		Context context = getApplicationContext();
-		Intent service = new Intent(context, GpsSensorService.class);
+		Intent service = new Intent(context, SensorManager.class);
+		service.setAction(SensorManager.ACTION_STOP_RECORDING);
 		context.startService(service);
-		Log.i(Constants.LOG_TAG, "Clicked GPS");
 	}
-	
-	public void buttongpsstop (View view){
-
+	public void writeData(View view){
 		Context context = getApplicationContext();
-		Intent service = new Intent(context, GpsSensorService.class);
-		context.stopService(service);
-		Log.i(Constants.LOG_TAG, "Clicked GPS STOP");
+		Intent service = new Intent(context, SensorManager.class);
+		service.setAction(SensorManager.ACTION_WRITE_DATA);
+		context.startService(service);
+	}
+
+	public void statusAll(View view){
+		Log.i(Constants.LOG_TAG, "Clicked Button");
+		Context context = getApplicationContext();
+		Intent service = new Intent(context, SensorManager.class);
+		service.setAction(SensorManager.ACTION_STATUS);
+		context.startService(service);
 	}
 	
 
