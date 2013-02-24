@@ -1,5 +1,6 @@
 package eu.livegov.mobilesensing;
 
+import eu.livegov.mobilesensing.manager.SensorManager;
 import eu.livegov.mobilesensing.sensors.accelerometer.AccelerometerSensorService;
 import android.os.Bundle;
 import android.app.Activity;
@@ -36,8 +37,7 @@ public class MainActivity extends Activity {
 		stopService(service);
 	}
 	
-<<<<<<< HEAD
-=======
+
 	public void managerStart(View view){
 		Log.i(Constants.LOG_TAG, "Clicked ManagerStart");
 		Context context = getApplicationContext();
@@ -45,7 +45,7 @@ public class MainActivity extends Activity {
 		context.startService(service);
 	}
 	
->>>>>>> 0f9a5af19f4d002b522db79e2f646b25e07fa684
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

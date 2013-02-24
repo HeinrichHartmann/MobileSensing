@@ -1,5 +1,8 @@
 package eu.livegov.mobilesensing;
 
+import eu.livegov.mobilesensing.R;
+import eu.livegov.mobilesensing.R.id;
+import eu.livegov.mobilesensing.R.layout;
 import eu.livegov.mobilesensing.sensors.SensorValue;
 import eu.livegov.mobilesensing.sensors.accelerometer.AccelerometerSensorService;
 import eu.livegov.mobilesensing.sensors.gps.GpsSensorService;
@@ -19,6 +22,8 @@ public class SimpleCapture extends  Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.simple_capture);
+		
+		
 		
 		accelerometer = (TextView) findViewById(R.id.textAccelerometer);
 		gps = (TextView) findViewById(R.id.textGPS);
