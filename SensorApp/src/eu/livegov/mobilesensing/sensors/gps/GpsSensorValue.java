@@ -29,7 +29,6 @@ public class GpsSensorValue implements SensorValue {
 	
 	@Override
 	public long getTimestamp() {
-
 		return timestamp;
 	}
 

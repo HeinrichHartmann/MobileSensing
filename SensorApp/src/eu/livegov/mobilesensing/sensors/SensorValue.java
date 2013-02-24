@@ -6,7 +6,6 @@ package eu.livegov.mobilesensing.sensors;
  * * value
  */
 public interface SensorValue {
-
 	/**
 	 * String representation of SensorValue as String
 	 * @return sensorValueString

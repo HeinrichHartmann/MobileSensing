@@ -139,6 +139,7 @@ public class SensorManager extends Service implements SensorManagerInterface {
 		} else if (action.equals(ACTION_STORE_DATA)){
 			storeData();
 		} else if (action.equals(ACTION_SEND_SENSOR_VALUES)) {
+			getLastValues();
 			sendLastValues();
 		} else {
 			Log.e(LOG_TAG,"Unimplemented Action " + action);
@@ -281,8 +282,14 @@ public class SensorManager extends Service implements SensorManagerInterface {
 	 */
 	private void sendLastValues() {
 		Log.i(LOG_TAG,"Broadcasting last values");
+		
+		String out = "";
+		for (SensorValue v: getLastValues()){
+			out += v.toString() + "\n";
+		}
+		
 		Intent valueIntent = new Intent(INTENT_SENSOR_VALUES);
-		valueIntent.putExtra("Value", "Data");
+		valueIntent.putExtra("Value", out);
 		sendBroadcast(valueIntent);
 	}
 	

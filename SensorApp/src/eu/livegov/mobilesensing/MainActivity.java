@@ -12,6 +12,7 @@ import android.content.IntentFilter;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.TextView;
 import android.content.Context;
 import eu.livegov.mobilesensing.Constants;
 
@@ -26,7 +27,11 @@ public class MainActivity extends Activity {
 		getApplicationContext().registerReceiver(new BroadcastReceiver(){
 			@Override
 			public void onReceive(Context context, Intent intent) {
-				Log.i(LOG_TAG,"Recieved Data");
+				Bundle data = intent.getExtras();
+				Log.i(LOG_TAG,"Recieved " + data.get("Value"));
+				
+				TextView text = (TextView)findViewById(R.id.text);
+				text.setText((CharSequence) data.get("Value"));
 			}}, 
 			new IntentFilter(SensorManager.INTENT_SENSOR_VALUES));
 	}
