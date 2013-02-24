@@ -16,14 +16,24 @@
         android:text="STOP" />
 
     <Button
-        android:id="@+id/buttonstart"
+
+        android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/buttonstop"
-        android:layout_alignBottom="@+id/buttonstop"
-        android:layout_marginRight="50dp"
-        android:layout_toLeftOf="@+id/buttonstop"
-        android:onClick="startButton"
-        android:text="START" />
+        android:layout_below="@+id/buttonstop"
+        android:layout_centerHorizontal="true"
+        android:onClick="managerStart"
+        android:text="StartManager" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button1"
+        android:layout_centerHorizontal="true"
+        android:text="BindServices"
+        android:onClick="managerBind"
+        />
+
 
 </RelativeLayout>

@@ -1,5 +1,6 @@
 package eu.livegov.mobilesensing;
 
+import eu.livegov.mobilesensing.manager.SensorManager;
 import eu.livegov.mobilesensing.sensors.accelerometer.AccelerometerSensorService;
 import android.os.Bundle;
 import android.app.Activity;
@@ -28,6 +29,21 @@ public class MainActivity extends Activity {
 		Log.i(Constants.LOG_TAG, "Clicked Stop");
 
 	}
+	
+	public void managerStart(View view){
+		Log.i(Constants.LOG_TAG, "Clicked ManagerStart");
+		Context context = getApplicationContext();
+		Intent service = new Intent(context, SensorManager.class);
+		context.startService(service);
+	}
+	
+	public void managerBind(View view){
+		Log.i(Constants.LOG_TAG, "Clicked ManagerBind");
+		Context context = getApplicationContext();
+		Intent service = new Intent(context, SensorManager.class);
+		context.startService(service);
+	}
+	
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
