@@ -36,6 +36,7 @@ public class AccelerometerSensorService extends SensorService {
 	//////// Startup/Shutdown Service and Recording /////////
 	
 	public void onCreate() {
+		super.onCreate();
 		// Called when service start
 
 		// Check for Accelerometer Sensor
