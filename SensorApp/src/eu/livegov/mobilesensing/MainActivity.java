@@ -2,6 +2,7 @@ package eu.livegov.mobilesensing;
 
 import eu.livegov.mobilesensing.manager.SensorManager;
 import eu.livegov.mobilesensing.sensors.gps.GpsSensorService;
+import eu.livegov.mobilesensing.sensors.gyroscope.GyroscopeSensorService;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -72,7 +73,6 @@ public class MainActivity extends Activity {
 		service.setAction(SensorManager.ACTION_STATUS);
 		context.startService(service);
 	}
-	
 	
 
 	@Override

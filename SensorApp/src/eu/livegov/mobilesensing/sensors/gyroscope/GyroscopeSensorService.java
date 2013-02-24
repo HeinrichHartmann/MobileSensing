@@ -138,6 +138,7 @@ public class GyroscopeSensorService extends SensorService{
 		return values;
 	}
 
+
 	@Override
 	public void putSensorValue(SensorValue value) {
 		lastValue = (GyroscopeSensorValue) value;
