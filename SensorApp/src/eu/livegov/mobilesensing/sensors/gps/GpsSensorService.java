@@ -26,6 +26,10 @@ public class GpsSensorService extends SensorService{
 	public static final String SENSOR_NAME = "GPS";
 	public static final String LOG_TAG = Constants.LOG_TAG;
 		
+	public static String getSensorName() {
+		return SENSOR_NAME;
+	};
+	
 	// Metadata about sensor
 	Metadata  meta;
 	
