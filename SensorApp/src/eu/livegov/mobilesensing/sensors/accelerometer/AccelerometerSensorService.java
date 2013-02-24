@@ -61,6 +61,8 @@ public class AccelerometerSensorService extends SensorService {
 	
 	@Override
 	public void startRecording() {
+		super.startRecording();
+
 		Log.i(LOG_TAG, "Accelerometer RECORDING!");
 
 		androidSensorManager.registerListener(
@@ -93,6 +95,8 @@ public class AccelerometerSensorService extends SensorService {
 
 	@Override
 	public void stopRecording() {
+		super.stopRecording();
+		
 		// Stop Service
 		androidSensorManager.unregisterListener(Listener);
 		Log.i(LOG_TAG, "Accelerometer stopped Recording.");

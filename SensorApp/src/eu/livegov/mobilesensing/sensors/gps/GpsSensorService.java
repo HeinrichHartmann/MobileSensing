@@ -65,6 +65,8 @@ public class GpsSensorService extends SensorService{
 	
 	@Override
 	public void startRecording() {
+		super.startRecording();
+		
 		Log.i(LOG_TAG, "GPS RECORDING!");
 		
 		androidLocationManager.requestLocationUpdates(
@@ -113,6 +115,8 @@ public class GpsSensorService extends SensorService{
 		    
 	@Override
 	public void stopRecording() {
+		super.stopRecording();
+		
 		// Stop Service
 		androidLocationManager.removeUpdates(Listener);
 		Log.i(LOG_TAG, "GPS stopped Recording.");		
