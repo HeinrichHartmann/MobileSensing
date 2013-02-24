@@ -2,6 +2,7 @@ package eu.livegov.mobilesensing;
 
 import eu.livegov.mobilesensing.manager.SensorManager;
 import eu.livegov.mobilesensing.sensors.gps.GpsSensorService;
+import eu.livegov.mobilesensing.sensors.gyroscope.GyroscopeSensorService;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -52,23 +53,9 @@ public class MainActivity extends Activity {
 		service.setAction(SensorManager.ACTION_START_RECORDING);
 		context.startService(service);
 	}
-	
-	public void buttongps (View view){
 
-		Context context = getApplicationContext();
-		Intent service = new Intent(context, GpsSensorService.class);
-		context.startService(service);
-		Log.i(Constants.LOG_TAG, "Clicked GPS");
-	}
 	
-	public void buttongpsstop (View view){
 
-		Context context = getApplicationContext();
-		Intent service = new Intent(context, GpsSensorService.class);
-		context.stopService(service);
-		Log.i(Constants.LOG_TAG, "Clicked GPS STOP");
-	}
-	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

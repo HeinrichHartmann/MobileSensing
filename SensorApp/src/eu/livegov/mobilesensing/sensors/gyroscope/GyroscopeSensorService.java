@@ -63,7 +63,7 @@ public class GyroscopeSensorService extends SensorService{
 		
 		
 		Log.i(LOG_TAG, "Gyroscope service started");
-
+		//startRecording();
 	}
 	@Override
 	public void startRecording() {
@@ -140,6 +140,7 @@ public class GyroscopeSensorService extends SensorService{
 		
 		return values;
 	}
+
 
 	@Override
 	public void putSensorValue(SensorValue value) {
