@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import eu.livegov.mobilesensing.Constants;
 import eu.livegov.mobilesensing.sensors.SensorService;
 import eu.livegov.mobilesensing.sensors.SensorService.SensorServiceBinder;
 import eu.livegov.mobilesensing.sensors.SensorValue;
@@ -38,8 +39,8 @@ import android.util.Log;
  *
  */
 public class SensorManager extends Service implements SensorManagerInterface {
-	private static final String LOG_TAG = "SensorManager";
-	
+	private static final String LOG_TAG = Constants.LOG_TAG;
+		
 	// List of bound SensorServices
 	private LinkedList<SensorService> services = new LinkedList<SensorService>();
 	private LinkedList<Intent> servicesToBind = new LinkedList<Intent>();
@@ -57,7 +58,13 @@ public class SensorManager extends Service implements SensorManagerInterface {
 			Log.i(LOG_TAG, "Bind Failed");
 		}
 	};
-		
+
+	@Override
+	public int onStartCommand(Intent intent, int flags, int startId) {
+		Log.i(LOG_TAG,"Called SensorManager Start");
+		return super.onStartCommand(intent, flags, startId);		
+	}
+
 	
 	public void bindSensorServices() {
 		Log.i(LOG_TAG,"Binding Services " + servicesToBind.size());
@@ -70,7 +77,7 @@ public class SensorManager extends Service implements SensorManagerInterface {
 		Log.i(LOG_TAG,"Set Services to Bind");
 		// static AccelerometerSensorService for testing purposes; generate from
 		// config later
-		servicesToBind.add(new Intent(getApplicationContext(), AccelerometerSensorService.class));
+		servicesToBind.add(new Intent(this, AccelerometerSensorService.class));
 	}
 
 	public class SensorManagerBinder extends Binder {
