@@ -34,7 +34,7 @@ public class AccelerometerSensorValue implements SensorValue {
 
 	@Override
 	public long getTimestamp() {
-		// TODO Auto-generated method stub	
+
 	return timestamp;
 	}
 }
