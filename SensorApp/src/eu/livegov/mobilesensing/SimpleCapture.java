@@ -80,6 +80,8 @@ public class SimpleCapture extends  Activity{
 			@Override
 			public void onTick(long arg0) {
 				// TODO Auto-generated method stub
+				
+				
 				accelerometer.setText(String.valueOf(accelerometerService.getLastValue()));
 				gps.setText(String.valueOf(gpsService.getLastValue()));
 			}
@@ -87,9 +89,7 @@ public class SimpleCapture extends  Activity{
 			
 		};
 	
-		while (recording==true)
-		{ timer.start();
-		}
+	
 
 	}
 	public void stopRecording(View view){
@@ -99,7 +99,7 @@ public class SimpleCapture extends  Activity{
 		
 	}
 	
-	//Timer timer = new Timer();
+	
 	
 	
 	
