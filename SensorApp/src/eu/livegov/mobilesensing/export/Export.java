@@ -24,21 +24,20 @@ import org.json.JSONObject;
  */
 
 public class Export {
+
 	
 	public void storeData(){
-	
-	JSONObject object = new JSONObject();
-	AccelerometerSensorService.getSensorName();
-	GpsSensorService.
-	
-	
-	
-	
+		
+	List<SensorValue> sv = new ArrayList<SensorValue>();	
+	JSONObject output = new JSONObject();
+	output.put("Sensorname", value)
+		
+		
 	object.put("Sensorname", AccelerometerSensorService.getSensorName());
 	
 	try {
 		 
-		FileWriter file = new FileWriter("c:\\test.json");
+		FileWriter file = new FileWriter("c:\\test.json"); //test
 		file.write(object.toJSONString());
 		file.flush();
 		file.close();
