@@ -7,6 +7,7 @@ import eu.livegov.mobilesensing.Constants;
 
 import android.app.Service;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
@@ -28,8 +29,19 @@ import android.util.Log;
  */
 public abstract class SensorService extends Service {
 	public static String LOG_TAG = Constants.LOG_TAG;
-	// Service status flag
-	public boolean running = false;
+
+	/**
+	 * Check if service is running.
+	 * Set onCerate/onDestroy
+	 * https://groups.google.com/forum/?fromgroups=#!topic/android-developers/jEvXMWgbgzE
+	 */
+	public static boolean running = false;
+
+	/**
+	 * Check if serice is recording.
+	 */
+	public static boolean recording = false;
+
 	
 	/**
 	 *  Returns Metadata object containing information about the sensor 
@@ -54,18 +66,31 @@ public abstract class SensorService extends Service {
 	/**
 	 * starts recording of sensor values; is called by onBind()
 	 */
-	public abstract void startRecording();
+	public void startRecording() {
+		recording = true;
+	}
 	
 	/**
 	 * stops recording of sensor values; is called by onUnBind()
 	 */
-	public abstract void stopRecording();
+	public void stopRecording() {
+		recording = false;
+	}
 	
 	/**
-	 * Returns "running" if service is bound. "stopped" otherwis
+	 * Returns status:
+	 * started/stopped/recording
 	 */	
 	public String getStatus(){
-		return running ? "tunning" : "stopped";
+		if (running){
+			if (recording) {
+				return "recording";
+			} else {
+				return "started";
+			} 
+		} else {
+			return "stopped";
+		}
 	}
 	
 	/*
@@ -79,19 +104,27 @@ public abstract class SensorService extends Service {
 
 	@Override
 	public IBinder onBind(Intent intent) {
-		Log.i(LOG_TAG, "binding request");
+		Log.i(LOG_TAG, "SensorService binding request");
 		startRecording();
-		running = true;
 		return new SensorServiceBinder();
 	}
 	
 	@Override
 	public boolean onUnbind(Intent intent) {
-		Log.i(LOG_TAG, "unbinding");
+		Log.i(LOG_TAG, "SensorService unbinding");
 		stopRecording();
-		running = false;
 		return false;
 	}
 
-
+	@Override
+	public void onCreate() {
+		super.onCreate();
+		running = true;
+	}
+	
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		running = false;
+	}
 }
