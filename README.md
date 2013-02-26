@@ -13,7 +13,7 @@ The Mobile Sensing framework addresses the following tasks:
 Architecture Overview
 =====================
 
-[Architecture](Architecture.jpg "Mobile Sensing Architecture")
+![Architecture](Architecture.jpg "Mobile Sensing Architecture")
 
 The App constist of the following parts:
 
