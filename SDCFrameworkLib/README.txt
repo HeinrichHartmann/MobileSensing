@@ -9,8 +9,7 @@ Hints for developers:
 =====================
 1. 
 This project was developed and tested with the Eclipse Versions 3.6.2 (Helios) 
-and Version 3.5.1 (Galileo) for the Android Api Level 7 ( Revision 2.1 ).
-The related Android SDK version is 15.
+and Version 3.5.1 (Galileo) for the Android Api Level 7 ( Revision 2.1 ) and Target Level 8 ( Revision 2.1 ).
 
 2. 
 The framework documentation with UML diagrams is created by the "javadoc.xml" ant script

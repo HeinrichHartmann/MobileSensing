@@ -762,6 +762,10 @@ public final class ServiceManagerImpl
     // create and attach event observers for configuration changes
     attachEventObserversForConfigurationChanges();
     
+    // update the time provider synchronization error strategy
+    updateTimeSyncErrorStrategy( getPreferenceManager().getTimeProviderConfiguration(
+        applicationContext ) );
+    
     setCreated( true );
     super.onCreate( applicationContext );
   }
@@ -856,14 +860,16 @@ public final class ServiceManagerImpl
     }
     
     // do only resume the internal services if time is available
-    if ( TimeProvider.getInstance().isSynced() )
+    if ( TimeProvider.getInstance().isSynced() ||
+        TimeProviderErrorStrategyDescription.IgnoreAndObserveSyncStates.equals( 
+            getPreferenceManager().getTimeProviderConfiguration(
+          applicationContext ).getErrorStrategyDescription() ) )
     {
       // clear broadcast enabled counter
       broadcastsEnabledCounter.set( 0 );
       
       // start configuration change listening
-      getPreferenceManager().startListening(
-          applicationContext );
+      getPreferenceManager().startListening( applicationContext );
       
       // configure components with the current configuration
       updateSampleBroadcastService( serviceConfig );
@@ -874,10 +880,6 @@ public final class ServiceManagerImpl
       
       // resume maintained framework components
       getSensorDeviceManager().onResume( applicationContext );
-      
-      // update the time provider synchronization error strategy
-      updateTimeSyncErrorStrategy( getPreferenceManager().getTimeProviderConfiguration(
-          applicationContext ) );
       
       // resume the battery low state observer
       getBatteryLowObserver().onResume( applicationContext );
