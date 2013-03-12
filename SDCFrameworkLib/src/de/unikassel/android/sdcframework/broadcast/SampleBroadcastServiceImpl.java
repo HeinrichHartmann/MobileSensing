@@ -84,6 +84,7 @@ public class SampleBroadcastServiceImpl
    * 
    * @see de.unikassel.android.sdcframework.util.AbstractWorkerThread#doWork()
    */
+  @SuppressWarnings( "static-access" )
   @Override
   protected void doWork()
   {
@@ -92,7 +93,7 @@ public class SampleBroadcastServiceImpl
       // take sample from queue and broadcast it
       Sample sample = collector.dequeue();
       applicationContext.sendBroadcast( sample.getIntent() );
-      
+      Logger.getInstance().info( this, sample.SampleData);
     }
     catch ( InterruptedException e )
     {}

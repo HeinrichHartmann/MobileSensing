@@ -26,5 +26,6 @@
 	<uses-sdk android:minSdkVersion="7" android:targetSdkVersion="8" />
 	<application android:description="@string/sdc_description"
 		android:icon="@drawable/ic_launcher" android:label="@string/sdc_app_name">
+	
 	</application>
 </manifest>

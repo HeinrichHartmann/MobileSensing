@@ -69,6 +69,7 @@ public final class SampleListener
     if ( Sample.ACTION.equals( intent.getAction() ) )
     {
       notify( new Sample( intent ) );
+      
     }
   }
   

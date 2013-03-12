@@ -22,8 +22,8 @@
  */
 -->
 <resources>
-    <color name="info_color">#ff00ff00</color>
+    <color name="info_color">#2E2E2E</color>
     <color name="error_color">#ffff7777</color>
-    <color name="warning_color">#ffff00ff</color>
-    <color name="debug_color">#ff00ffff</color>
+    <color name="warning_color">#FF8000</color>
+    <color name="debug_color">#848484</color>
 </resources>

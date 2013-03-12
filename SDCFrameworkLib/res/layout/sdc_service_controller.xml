@@ -21,34 +21,77 @@
  * along with the SDCFramework.  If not, see <http://www.gnu.org/licenses/>.
  */
 -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_height="wrap_content"
     android:gravity="center_horizontal"
     android:orientation="vertical" >
 
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:adjustViewBounds="true"
+        android:cropToPadding="true"
+        android:maxHeight="60dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/logo_links_oben" />
+
     <Button
-        android:id="@+id/start_button"
+        android:id="@+id/button1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/sdc_start_button_text" >
-
-        <requestFocus />
-    </Button>
-
-    <Button
-        android:id="@+id/stop_button"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/sdc_stop_button_text" >
-    </Button>
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="Sync" />
 
     <TextView
         android:id="@+id/sdc_logview"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
+        android:layout_above="@+id/button1"
+        android:layout_below="@+id/But"
+        android:layout_centerHorizontal="true"
         android:singleLine="false"
-        android:typeface="monospace" >
-    </TextView>
+        android:typeface="monospace" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView1"
+        android:layout_alignParentRight="true"
+        android:text="powered by SDCF" />
+
+    <LinearLayout
+        android:id="@+id/But"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/imageView1"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/start_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView1"
+            android:text="@string/sdc_start_button_text" />
+
+        <Button
+            android:id="@+id/stop_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/start_button"
+            android:layout_alignTop="@+id/start_button"
+            android:layout_toRightOf="@+id/start_button"
+            android:text="@string/sdc_stop_button_text" />
+    </LinearLayout>
+
+</RelativeLayout>
