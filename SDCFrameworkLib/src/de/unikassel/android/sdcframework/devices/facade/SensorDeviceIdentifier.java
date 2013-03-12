@@ -42,11 +42,11 @@ public enum SensorDeviceIdentifier
    * gyroscope sensor.
    */
   Gyroscope,
-  
+
   /**
    * light sensor.
    */
-  Light,
+  Light, 
   
   /**
    * magnetic field sensor.
@@ -128,4 +128,5 @@ public enum SensorDeviceIdentifier
    * unknown device
    */
   Unknown
+
 }

@@ -22,7 +22,7 @@
  */
 -->
 <resources>
-    <string name="sdc_app_name">SDC Service</string>
+    <string name="sdc_app_name">Live+Gov</string>
     <string name="pref_key_version_screen">pref_key_version</string>
     <string name="title_version">Version</string>
     <string name="sdc_description">Sensor Data Collection and Transmission Service</string>

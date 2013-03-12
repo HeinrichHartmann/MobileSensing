@@ -123,7 +123,7 @@ public class SntpClient
             mRoundTripTime = roundTripTime;
         } catch (Exception e) {
             if (Config.LOGD) Log.d(TAG, "request time failed: " + e);
-            return false;
+            //return false;
         } finally {
             if (socket != null) {
                 socket.close();
