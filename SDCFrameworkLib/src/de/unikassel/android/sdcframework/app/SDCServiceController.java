@@ -31,7 +31,9 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.IBinder;
 import android.os.Message;
+import android.os.RemoteException;
 import android.text.Selection;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -52,8 +54,10 @@ import de.unikassel.android.sdcframework.preferences.ApplicationPreferenceManage
 import de.unikassel.android.sdcframework.preferences.facade.ApplicationPreferenceManager;
 import de.unikassel.android.sdcframework.provider.AudioProviderData;
 import de.unikassel.android.sdcframework.provider.TwitterProviderData;
+import de.unikassel.android.sdcframework.service.SDCServiceConnectionHolder;
 import de.unikassel.android.sdcframework.service.ServiceRunningStateListener;
 import de.unikassel.android.sdcframework.service.ServiceUtils;
+import de.unikassel.android.sdcframework.service.SDCServiceConnectionHolder.ServiceConnectionEventReceiver;
 import de.unikassel.android.sdcframework.util.FileUtils;
 import de.unikassel.android.sdcframework.util.LogEvent;
 import de.unikassel.android.sdcframework.util.LogfileManager;
@@ -132,7 +136,8 @@ public final class SDCServiceController
    * the stop service button listener
    */
   private final OnClickListener stopListener;
-  
+
+ 
   /**
    * The text color map
    */
@@ -147,6 +152,18 @@ public final class SDCServiceController
    * The service running state listener
    */
   private final ServiceRunningStateListener serviceRunningStateListner;
+ 
+  /**
+   * the stop service button listener
+   */
+  private final OnClickListener broadcastListener;
+
+
+  private SDCServiceConnectionHolder connectionHolder;
+
+  private ISDCService sdcService;
+  
+  private static boolean toggle;
   
   /**
    * Constructor
@@ -209,6 +226,7 @@ public final class SDCServiceController
       }
     };
     
+        
     this.serviceRunningStateListner = new ServiceRunningStateListener( action )
     {
       /*
@@ -231,6 +249,78 @@ public final class SDCServiceController
     };
     
     this.textColorMap = new SparseIntArray();
+    
+    
+    ServiceConnectionEventReceiver reciever = new ServiceConnectionEventReceiver(){
+
+      @Override
+      public void onConnectionEstablished( ISDCService newSdcService )
+      {
+        Logger.getInstance().info(this, "Connection established");
+        sdcService = newSdcService;
+      }
+
+      @Override
+      public void onAboutToDisconnect( ISDCService sdcService )
+      {
+        // TODO Auto-generated method stub
+        
+      }
+
+      @Override
+      public void onConnectionLost()
+      {
+        // TODO Auto-generated method stub
+        {
+          sdcService = null;
+        }
+      }
+
+      @Override
+      public void onBindingFailed()
+      {
+        // TODO Auto-generated method stub
+        
+      }
+
+      @Override
+      public void onServiceUnavailable()
+      {
+        // TODO Auto-generated method stub
+        
+      }
+      
+    };
+
+    this.connectionHolder = new SDCServiceConnectionHolder( reciever , serviceClass );
+
+    this.broadcastListener = new OnClickListener()
+    { 
+      @Override
+      public void onClick( View v )
+      {
+          Logger.getInstance().info( this , "Set Broadcasting " + toggle );
+
+          if ( sdcService != null){
+            try
+            {
+              sdcService.doEnableSampleBroadCasting( toggle );
+              toggle = ! toggle; 
+            }
+            catch ( RemoteException e )
+            {
+              Logger.getInstance().info( this , "Broadcasting failed" );
+            }
+          } else {
+            Logger.getInstance().info( this , "sdcService is Null" );
+          }
+          
+          
+      }
+    };
+
+
+    
   }
   
   /*
@@ -260,6 +350,11 @@ public final class SDCServiceController
     button.setOnClickListener( startListener );
     button = (Button) findViewById( R.id.stop_button );
     button.setOnClickListener( stopListener );
+    
+    button = (Button) findViewById( R.id.broadcast_button );
+    button.setOnClickListener( broadcastListener );
+    
+    connectionHolder.onCreate( this );
     
     // configure log view
     getLogView();

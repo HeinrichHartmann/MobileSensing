@@ -42,18 +42,18 @@
         android:src="@drawable/logo_links_oben" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/broadcast_button"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:text="Sync" />
+        android:text="Show Samples" />
 
     <TextView
         android:id="@+id/sdc_logview"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
-        android:layout_above="@+id/button1"
+        android:layout_above="@+id/broadcast_button"
         android:layout_below="@+id/But"
         android:layout_centerHorizontal="true"
         android:singleLine="false"
