@@ -131,8 +131,8 @@ public class SDCTabActivity
     connectionHolder.onCreate( this );
     setContentView( R.layout.tabbed_view );
     
-    createTab( SampleCategory.WIFI );
-    createTab( SampleCategory.BT );
+//    createTab( SampleCategory.WIFI );
+//    createTab( SampleCategory.BT );
     createTab( SampleCategory.OTHER );
   }
   

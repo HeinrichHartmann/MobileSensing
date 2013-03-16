@@ -27,9 +27,11 @@
     <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="8" tools:ignore="OldTargetApi"/>
 
 	<application android:icon="@drawable/icon" android:label="@string/app_name" android:allowBackup="true">
-		<activity android:label="@string/app_name"
+		<activity 
+		    android:name=".app.SDCTabActivity"
+			android:launchMode="singleTask"
+		    android:label="@string/app_name"
 			android:configChanges="mcc|mnc|locale|keyboard|keyboardHidden|orientation|screenLayout|fontScale"
-			android:name=".app.SDCTabActivity" android:launchMode="singleTask"
 			android:theme="@android:style/Theme.Light"	>		
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
@@ -42,6 +44,6 @@
 				<action android:name="de.unikassel.android.sdcframework.intent.action.SAMPLE"></action>
 			</intent-filter>
 		</receiver>
-		
+				
 	</application>
 </manifest>
