@@ -163,7 +163,7 @@ public final class SDCServiceController
 
   private ISDCService sdcService;
   
-  private static boolean toggle;
+  private static boolean broadcastStatus = false;
   
   /**
    * Constructor
@@ -250,16 +250,24 @@ public final class SDCServiceController
     
     this.textColorMap = new SparseIntArray();
     
-    
     ServiceConnectionEventReceiver reciever = new ServiceConnectionEventReceiver(){
-
       @Override
       public void onConnectionEstablished( ISDCService newSdcService )
       {
         Logger.getInstance().info(this, "Connection established");
         sdcService = newSdcService;
-      }
 
+        try
+        {
+          sdcService.doEnableSampleBroadCasting( false );
+        }
+        catch ( RemoteException e )
+        {
+          // TODO Auto-generated catch block
+          e.printStackTrace();
+        }
+      }
+      
       @Override
       public void onAboutToDisconnect( ISDCService sdcService )
       {
@@ -298,13 +306,14 @@ public final class SDCServiceController
       @Override
       public void onClick( View v )
       {
-          Logger.getInstance().info( this , "Set Broadcasting " + toggle );
+          Logger.getInstance().info( this , "Set Broadcasting " + broadcastStatus );
 
           if ( sdcService != null){
             try
             {
-              sdcService.doEnableSampleBroadCasting( toggle );
-              toggle = ! toggle; 
+              sdcService.doEnableSampleBroadCasting( !broadcastStatus );
+              updateBroadcastButton( !broadcastStatus );
+              broadcastStatus = !broadcastStatus;
             }
             catch ( RemoteException e )
             {
@@ -313,8 +322,6 @@ public final class SDCServiceController
           } else {
             Logger.getInstance().info( this , "sdcService is Null" );
           }
-          
-          
       }
     };
 
@@ -371,6 +378,11 @@ public final class SDCServiceController
     button.setEnabled( !serviceIsRunning );
     button = (Button) findViewById( R.id.stop_button );
     button.setEnabled( serviceIsRunning );
+  }
+
+  private void updateBroadcastButton( boolean broadcastStatus ) {
+    Button button = (Button) findViewById( R.id.broadcast_button );
+    button.setText( broadcastStatus ? "Hide Samples" :  "Show Samples" );
   }
   
   /*
