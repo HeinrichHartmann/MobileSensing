@@ -119,4 +119,10 @@ public final class TextSampleData
   {
     return text;
   }
+  
+  @Override
+  public String getValues()
+  {
+    return "Text " + text;
+  }
 }

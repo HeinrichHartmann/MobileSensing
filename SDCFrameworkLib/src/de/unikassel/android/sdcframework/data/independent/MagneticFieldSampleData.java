@@ -165,4 +165,12 @@ public final class MagneticFieldSampleData
     this.magneticFieldZ = magneticFieldZ;
   }
   
+  @Override
+  public String getValues()
+  {
+    return "Mag. " + 
+    magneticFieldX + " " +
+    magneticFieldY + " " +
+    magneticFieldZ;
+  }
 }

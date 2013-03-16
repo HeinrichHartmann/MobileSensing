@@ -112,5 +112,10 @@ public final class ProximitySampleData
   {
     return proximityDistance;
   }
+  @Override
+  public String getValues()
+  {
+    return "Prox. " + proximityDistance;
+  }
   
 }

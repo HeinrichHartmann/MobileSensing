@@ -201,4 +201,11 @@ extends AbstractSampleData
   {
     this.bluetoothClass = bluetoothClass;
   }
+  
+  @Override
+  public String getValues()
+  {
+    // TODO Auto-generated method stub
+    return "Bluetooth: " + name;
+  }
 }

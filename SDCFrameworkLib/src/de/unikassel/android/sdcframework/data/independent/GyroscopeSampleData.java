@@ -168,4 +168,14 @@ public final class GyroscopeSampleData
   {
     this.angularSpeedZ = angularSpeedZ;
   }
+  @Override
+  public String getValues()
+  {
+    // TODO Auto-generated method stub
+    return "Gyro. " + 
+    angularSpeedX + " " +
+    angularSpeedY + " " +
+    angularSpeedZ;
+  }
+  
 }

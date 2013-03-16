@@ -110,5 +110,10 @@ extends AbstractSampleData
   {
     return lightLevel;
   }
-  
+  @Override
+  public String getValues()
+  {
+    // TODO Auto-generated method stub
+    return "Light " + lightLevel;
+  }
 }

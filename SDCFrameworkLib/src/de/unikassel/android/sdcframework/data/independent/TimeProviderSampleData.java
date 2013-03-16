@@ -105,4 +105,10 @@ extends AbstractSampleData
   {
     return synced;
   }
+  
+  @Override
+  public String getValues()
+  {
+    return "Time sync " + synced; 
+  }
 }

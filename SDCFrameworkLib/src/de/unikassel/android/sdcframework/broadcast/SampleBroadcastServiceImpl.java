@@ -23,6 +23,8 @@ package de.unikassel.android.sdcframework.broadcast;
 import android.content.Context;
 import de.unikassel.android.sdcframework.broadcast.facade.SampleBroadcastService;
 import de.unikassel.android.sdcframework.data.Sample;
+import de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData;
+import de.unikassel.android.sdcframework.data.independent.SampleData;
 import de.unikassel.android.sdcframework.util.AbstractAsynchrounousSampleObserver;
 import de.unikassel.android.sdcframework.util.Logger;
 
@@ -93,7 +95,8 @@ public class SampleBroadcastServiceImpl
       // take sample from queue and broadcast it
       Sample sample = collector.dequeue();
       applicationContext.sendBroadcast( sample.getIntent() );
-      Logger.getInstance().info( this, sample.SampleData);
+      SampleData data = sample.getData();
+      Logger.getInstance().info( this, sample.getData().getValues() );
     }
     catch ( InterruptedException e )
     {}

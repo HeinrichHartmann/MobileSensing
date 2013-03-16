@@ -50,4 +50,10 @@ public interface SampleData extends SerializableData
    *          the new filename
    */
   public abstract void updateRelatedData( String fileName );
+  
+  /**
+   * Return String representation of data
+   * @return values
+   */
+  public String getValues();
 }

@@ -228,4 +228,11 @@ extends AbstractSampleData
     this.accuracy = accuracy;
   }
   
+  @Override
+  public String getValues()
+  {
+    // TODO Auto-generated method stub
+    return "Loc. " + longitude + " / " + latitude;
+  }
+  
 }

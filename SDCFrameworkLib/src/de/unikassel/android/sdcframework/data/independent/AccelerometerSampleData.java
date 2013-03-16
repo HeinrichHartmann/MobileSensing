@@ -171,4 +171,13 @@ extends AbstractSampleData
   {
     this.accelerationZ = accelerationZ;
   }
+  
+  @Override
+  public String getValues()
+  {
+    return   "Acc. " + 
+      accelerationX +  " " +
+      accelerationY + " "  +
+      accelerationZ;
+  }
 }

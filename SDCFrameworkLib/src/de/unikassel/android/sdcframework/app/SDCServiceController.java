@@ -272,7 +272,6 @@ public final class SDCServiceController
       {
         // TODO Auto-generated method stub
         {
-          sdcService = null;
         }
       }
 
@@ -681,4 +680,5 @@ public final class SDCServiceController
       }
     }
   }
+  
 }

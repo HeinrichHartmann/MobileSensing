@@ -258,4 +258,10 @@ extends AbstractSampleData
   {
     this.connected = connected;
   }
+  
+  @Override
+  public String getValues()
+  {
+    return "Wifi " + SSID;
+  }
 }

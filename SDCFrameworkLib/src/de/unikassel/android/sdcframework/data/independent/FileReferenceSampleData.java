@@ -125,4 +125,11 @@ extends AbstractSampleData
     setFile( fileName );
   }
   
+  @Override
+  public String getValues()
+  {
+    // TODO Auto-generated method stub
+    return "FileRef. " + file;
+  }
+  
 }

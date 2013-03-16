@@ -105,5 +105,10 @@ extends AbstractSampleData
   {
     return temperature;
   }
-  
+  @Override
+  public String getValues()
+  {
+   
+    return "Temp. " + temperature;
+  }
 }

@@ -43,6 +43,7 @@ public final class GSMSampleData
 extends AbstractSampleData
 {
   
+  
   /**
    * The operator name if available ( null if unknown )
    */
@@ -237,4 +238,12 @@ extends AbstractSampleData
   {
     this.signalStrength = signalStrength;
   }
+  
+  @Override
+  public String getValues()
+  {
+    // TODO Auto-generated method stub
+    return "GSM " + cellId;
+  }
+
 }

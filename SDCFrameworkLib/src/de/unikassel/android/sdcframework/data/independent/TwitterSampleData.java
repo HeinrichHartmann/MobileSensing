@@ -118,4 +118,10 @@ extends AbstractSampleData
   {
     return message;
   }
+  
+  @Override
+  public String getValues()
+  {
+    return "Twitter " + message;
+  }
 }

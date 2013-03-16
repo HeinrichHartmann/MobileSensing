@@ -169,4 +169,9 @@ public final class OrientationSampleData
     this.roll = roll;
   }
   
+  @Override
+  public String getValues()
+  {
+    return "Orient. " + roll + " " + pitch;
+  }
 }

@@ -105,5 +105,9 @@ extends AbstractSampleData
   {
     return pressure;
   }
-  
+  @Override
+  public String getValues()
+  {
+    return "Pres. " + pressure;
+  }
 }
