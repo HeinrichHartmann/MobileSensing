@@ -95,6 +95,8 @@ public class SampleBroadcastServiceImpl
       // take sample from queue and broadcast it
       Sample sample = collector.dequeue();
       applicationContext.sendBroadcast( sample.getIntent() );
+      
+      // send data to Logger
       SampleData data = sample.getData();
       Logger.getInstance().info( this, sample.getData().getValues() );
     }

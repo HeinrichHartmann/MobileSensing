@@ -91,6 +91,7 @@
                 </action>
             </intent-filter>
         </receiver>
+        
         <receiver
             android:name=".broadcast.TimeChangeListener"
             android:enabled="true" >

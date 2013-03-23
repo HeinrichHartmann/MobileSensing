@@ -13,12 +13,16 @@ Contents
   Activity for Sensor Data collection
 * SDCFrameworkLib  
   Modified android library.
-* uploadservlet  
-  Server side code.
-  
 * SDCFrameworkDemo  
-  obsolete
+  Modified demo app.
+* SDCFSimpleServerEndpoint  
+  Serverside code.
+
+* Prototype
+  Standalone Android Project using SDCF  
+  
+* uploadservlet  
+  Minimal Server side code.
+  
 * SensorApp  
-  obsolete
-* Prototype  
-  obsolete
+  Manually coded Sensor Data Collection App.
