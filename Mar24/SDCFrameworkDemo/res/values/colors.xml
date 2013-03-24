@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="hint_color">#E6E6E6</color>
+	 <color name="dark_green">#a1c07b</color>
+    <color name="green">#c1e09b</color>
+    <color name="light_green">#e1ffBb</color>
+    <color name="orange">#daa520</color>
+    <color name="light_gray">#e0e0e0</color>
+    <color name="dark_gray">#303030</color>
+    <color name="gray">#909090</color>
+    <color name="black">#000000</color>
+</resources>

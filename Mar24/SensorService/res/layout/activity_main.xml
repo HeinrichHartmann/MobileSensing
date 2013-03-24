@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <ToggleButton
+        android:id="@+id/serviceButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="serviceButtonClick"
+        android:textOff="@string/service_button_off"
+        android:textOn="@string/service_button_on" />
+
+    <TextView
+        android:id="@+id/configLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/config_label"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Spinner
+        android:id="@+id/configDropdown"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/config_array" 
+        />
+
+    <ToggleButton
+        android:id="@+id/recordingButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textOff="@string/recording_button_off"
+        android:textOn="@string/recording_button_on" 
+        android:onClick="recordingButtonClick"
+        />
+
+    <Button
+        android:id="@+id/transferButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/transfer_button" 
+        android:onClick="transferButtonClick"
+        />
+
+</LinearLayout>

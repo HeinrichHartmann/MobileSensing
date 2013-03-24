@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SensorService</string>
+    <string name="menu_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="service_button_on">Stop Sensor Service</string>
+    <string name="service_button_off">Start Sensor Service</string>
+    <string name="recording_button_on">Stop Recording</string>
+    <string name="recording_button_off">Start Recording</string>
+    <string name="config_label">Sensor Configuration:</string>
+    <string-array name="config_array">
+        <item>Physical Sensors</item>
+        <item>Network Sensors</item>
+        <item>Everything</item>
+    </string-array>
+        <string name="transfer_button">Transfoer Samples</string>
+    
+</resources>
