@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.sdcf.embedded"
+    android:versionCode="1"
+    android:versionName="1.0"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-sdk
+        android:minSdkVersion="7"
+        android:targetSdkVersion="8" tools:ignore="OldTargetApi"/>
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.WAKE_LOCK" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.BLUETOOTH" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.VIBRATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.BATTERY_STATS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.sdcf.embedded.SDCControlActivity"
+            android:label="@string/app_name" android:screenOrientation="portrait"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.example.sdcf.embedded.SDCServiceImpl"
+            android:description="@string/sdc_service_description"
+            android:exported="true"
+            android:icon="@drawable/serviceicon"
+            android:label="@string/sdc_service_label" >
+            <intent-filter>
+                <action android:name="de.unikassel.android.sdcframework.app.facade.ISDCService" >
+                </action>
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="de.unikassel.android.sdcframework.broadcast.SampleListener"
+            android:enabled="true" android:exported="true">
+            <intent-filter>
+                <action android:name="de.unikassel.android.sdcframework.intent.action.SAMPLE" />
+                <action android:name="de.unikassel.android.sdcframework.intent.action.SAMPLECOLLECTION" />
+            </intent-filter>
+        </receiver>
+        
+        <receiver
+            android:name="de.unikassel.android.sdcframework.broadcast.TimeChangeListener"
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET" >
+                </action>
+                <action android:name="android.intent.action.DATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="de.unikassel.android.sdcframework.app.SDCPreferenceActivity"
+            android:configChanges="mcc|mnc|locale|keyboard|keyboardHidden|navigation|orientation|screenLayout|fontScale"
+            android:description="@string/sdc_preference_activity_label"
+            android:icon="@drawable/serviceicon"
+            android:label="@string/sdc_preference_activity_label" >
+        </activity>
+
+        <activity
+            android:name="de.unikassel.android.sdcframework.app.SDCFileBrowserActivity"
+            android:configChanges="mcc|mnc|locale|keyboard|keyboardHidden|navigation|orientation|screenLayout|fontScale"
+            android:description="@string/sdc_file_browser_activity_label"
+            android:icon="@drawable/serviceicon"
+            android:label="@string/sdc_file_browser_activity_label" >
+        </activity>
+ 		
+        <provider
+            android:name="de.unikassel.android.sdcframework.provider.TwitterProvider"
+            android:authorities="de.unikassel.android.sdcframework.provider.twitterprovider"
+            android:enabled="true"
+            android:exported="true" >
+        </provider>
+        
+        <provider
+            android:name="de.unikassel.android.sdcframework.provider.AudioProvider"
+            android:authorities="de.unikassel.android.sdcframework.provider.sndrecordlocprovider"
+            android:enabled="true"
+            android:exported="true" >
+        </provider>
+        
+        <provider
+            android:name="de.unikassel.android.sdcframework.provider.TagProvider"
+            android:authorities="de.unikassel.android.sdcframework.provider.tagsprovider"
+            android:enabled="true"
+            android:exported="true" >
+        </provider>        
+        
+    </application>
+
+</manifest>

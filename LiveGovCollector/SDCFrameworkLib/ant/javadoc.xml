@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+/*
+ * Copyright (C) 2012, Katy Hilgenberg.
+ * Special acknowledgments to: Knowledge & Data Engineering Group, University of Kassel (http://www.kde.cs.uni-kassel.de).
+ * Contact: sdcf@cs.uni-kassel.de
+ *
+ * This file is part of the SDCFramework (Sensor Data Collection Framework) project.
+ *
+ * The SDCFramework is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * The SDCFramework is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with the SDCFramework.  If not, see <http://www.gnu.org/licenses/>.
+ */
+-->
+<project
+    basedir=".."
+    default="javadoc-build" >
+
+<!-- 		Necessary property files  -->
+
+    <property file="${basedir}/local.properties" />
+
+    <property file="${basedir}/ant.properties" />
+
+<!-- 		path properties -->
+
+    <property
+        name="doc.dir"
+        value="${basedir}/doc" />
+
+    <property
+        name="javadoc.dir"
+        value="${doc.dir}/javadoc" />
+
+    <path id="project.class.path" >
+
+        <pathelement path="${jar.libs.dir}/simple-xml-2.6.9.jar" />
+
+        <pathelement path="${sdk.dir}/platforms/android-7/android.jar" />
+
+        <pathelement path="${sdk.dir}/tools/support/annotations.jar" />
+
+        <pathelement path="${java.class.path}/" />
+
+        <pathelement path="${additional.path}" />
+    </path>
+
+<!-- 		The javadoc target -->
+
+    <target name="javadoc-build" >
+
+        <fail
+            message="sdk.dir is missing. Make sure to generate local.properties using &apos;android update project&apos; or to inject it through an env var"
+            unless="sdk.dir" />
+
+        <javadoc
+            access="private"
+            author="true"
+            destdir="${javadoc.dir}"
+            doctitle="Sensor Data Collection Framework"
+            failonerror="true"
+            nodeprecated="false"
+            nodeprecatedlist="false"
+            noindex="false"
+            nonavbar="false"
+            notree="false"
+            packagenames="de.unikassel.android.sdcframework,de.unikassel.android.sdcframework.*"
+            source="1.6"
+            sourcepath="${source.dir};${gen.absolute.dir}"
+            splitindex="true"
+            use="true"
+            verbose="off"
+            version="true" >
+
+            <classpath refid="project.class.path" />
+
+            <link
+                href="http://d.android.com/reference/"
+                offline="true"
+                packagelistLoc="${doc.dir}/android_package_list/" />
+
+            <link href="http://java.sun.com/javase/6/docs/api/" />
+
+            <doclet
+                name="org.umlgraph.doclet.UmlGraphDoc"
+                path="${doc.dir}/UmlGraph.jar" >
+
+                <!--
+                <param name="-attributes" />
+				<param name="-operations" />
+				<param name="-collapsible" />
+                <param name="-nodefontsize" value="9"/>
+                <param name="-nodefontpackagesize" value="7"/>
+                <param name="-inferdep"/>
+				<param name="-inferreltype" value="has"/>
+				<param name="-inferreltype" value="composed"/>
+                -->
+
+                <param name="-postfixpackage" />
+
+                <param name="-enumerations" />
+
+                <param name="-types" />
+
+                <param name="-visibility" />
+
+                <param name="-inferrel" />
+
+                <param
+                    name="-inferreltype"
+                    value="implements" />
+
+                <param
+                    name="-inferreltype"
+                    value="extends" />
+
+                <param
+                    name="-hide"
+                    value="java.*" />
+
+                <param
+                    name="-hide"
+                    value="android.*" />
+
+                <param
+                    name="-hide"
+                    value="R" />
+
+                <param name="-qualify" />
+
+                <param
+                    name="-outputencoding"
+                    value="UTF-8" />
+            </doclet>
+        </javadoc>
+
+        <apply
+            dest="${javadoc.dir}"
+            executable="dot"
+            parallel="false" >
+
+            <arg value="-Tpng" />
+
+            <arg value="-o" />
+
+            <targetfile />
+
+            <srcfile />
+
+            <fileset
+                dir="${javadoc.dir}"
+                includes="*.dot" />
+
+            <mapper
+                from="*.dot"
+                to="*.png"
+                type="glob" />
+        </apply>
+    </target>
+
+</project>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+/*
+ * Copyright (C) 2012, Katy Hilgenberg.
+ * Special acknowledgments to: Knowledge & Data Engineering Group, University of Kassel (http://www.kde.cs.uni-kassel.de).
+ * Contact: sdcf@cs.uni-kassel.de
+ *
+ * This file is part of the SDCFramework (Sensor Data Collection Framework) project.
+ *
+ * The SDCFramework is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * The SDCFramework is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with the SDCFramework.  If not, see <http://www.gnu.org/licenses/>.
+ */
+-->
+<project default="jar-build" basedir="..">
+	<!--
+		 Necessary property files 
+	-->
+	<property file="${basedir}/local.properties" />
+	<property file="${basedir}/ant.properties" />
+	
+	<fail
+        message="sdk.dir is missing. Make sure to generate local.properties using 'android update project' or to inject it through an env var"
+        unless="sdk.dir"
+	/>
+
+
+	<!--
+		Version code and name extracted from manifest file 
+	-->
+	<path id="android.antlibs">
+		<pathelement path="${sdk.dir}/tools/lib/anttasks.jar" />
+	</path>
+	<taskdef name="xpath" classname="com.android.ant.XPathTask" classpathref="android.antlibs" />
+	<xpath input="AndroidManifest.xml" expression="/manifest/@android:versionName" output="version.name" />
+	<xpath input="AndroidManifest.xml" expression="/manifest/@android:versionCode" output="version.code" />
+
+	<!--
+		file name properties
+	-->
+	<property name="jar.name" value="${jar.libs.dir.sdcf}/${build.name}-${version.name}.jar" />
+	<property name="jar.name.independent" value="${jar.libs.dir.sdcf}/${build.name}-${version.name}-independent.jar" />
+
+
+	<!--  The default external jar build target -->
+	<target name="jar-build" depends="-jar-build" description="Builds the framework and does create the libraries.">
+	</target>
+
+	<!--  The jar clean target -->
+	<target name="-jar-clean">
+		<delete file="${jar.name}" verbose="${verbose}" />
+		<delete file="${jar.name.independent}" verbose="${verbose}" />
+	</target>
+
+	<!--  The jar build target -->
+	<target name="-jar-build" depends="-jar-clean">
+
+		<mkdir dir="${jar.libs.dir.sdcf}" />
+
+		<!-- The android archive -->
+		<jar destfile="${jar.name}" update="true" whenmanifestonly="skip" duplicate="fail" index="true">
+
+			<fileset dir="${source.dir}" includes="de/unikassel/android/sdcframework/data/**/*.java,
+    				de/unikassel/android/sdcframework/util/**/*.java,
+				  	de/unikassel/android/sdcframework/broadcast/LogListener.java,
+			  		de/unikassel/android/sdcframework/broadcast/SampleListener.java,
+			  		de/unikassel/android/sdcframework/service/ServiceUtils.java,
+    				de/unikassel/android/sdcframework/service/SDCServiceConnectionHolder.java,
+					de/unikassel/android/sdcframework/service/ServiceRunningStateListener.java,
+    				de/unikassel/android/sdcframework/provider/*ProviderData.java,
+					de/unikassel/android/sdcframework/provider/facade/*.java,
+					de/unikassel/android/sdcframework/app/SDCServiceImpl.java,
+					de/unikassel/android/sdcframework/app/facade/*.java,
+			  		de/unikassel/android/sdcframework/devices/facade/SensorDeviceIdentifier.java" excludes="**/*.java.d" />
+			<fileset dir="${gen.absolute.dir}" includes="**/*" excludes="**/*.java.d" />
+			<fileset dir="${out.classes.absolute.dir}" includes="de/unikassel/android/sdcframework/data/**/*.class,
+    				de/unikassel/android/sdcframework/util/**/*.class,
+			  		de/unikassel/android/sdcframework/broadcast/LogListener*.class,
+		  			de/unikassel/android/sdcframework/broadcast/SampleListener*.class,
+			  		de/unikassel/android/sdcframework/service/ServiceUtils*.class,
+    				de/unikassel/android/sdcframework/service/SDCServiceConnectionHolder*.class,
+					de/unikassel/android/sdcframework/service/ServiceRunningStateListener*.class,
+					de/unikassel/android/sdcframework/provider/*ProviderData*.class,
+					de/unikassel/android/sdcframework/provider/facade/*.class,
+					de/unikassel/android/sdcframework/app/SDCServiceImpl.class,
+					de/unikassel/android/sdcframework/app/facade/*SDCService*,
+		  			de/unikassel/android/sdcframework/devices/facade/SensorDeviceIdentifier*.class" />
+		</jar>
+
+		<!-- The android independent archive -->
+		<jar destfile="${jar.name.independent}" update="true" whenmanifestonly="skip" duplicate="fail" index="true">
+
+			<fileset dir="${source.dir}" includes="de/unikassel/android/sdcframework/data/independent/*.java,
+    				de/unikassel/android/sdcframework/util/facade/Encryption.java,
+				  	de/unikassel/android/sdcframework/devices/facade/SensorDeviceIdentifier.java,
+			  		de/unikassel/android/sdcframework/util/FileUtils.java" />
+			<fileset dir="${out.classes.absolute.dir}" includes="de/unikassel/android/sdcframework/data/independent/*.class,
+    				de/unikassel/android/sdcframework/util/facade/Encryption*.class,
+				  	de/unikassel/android/sdcframework/devices/facade/SensorDeviceIdentifier*.class,
+			  		de/unikassel/android/sdcframework/util/FileUtils*.class" />
+		</jar>
+	</target>
+</project>

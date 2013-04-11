@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Live+Gov Collector</string>
+    <string name="action_force_transmission">Force Sample Transmission</string>
+    <string name="action_disable_transfer_manager">Disable Transfer Manager</string>
+    <string name="toggleBtnStartText">Start SDCF Service</string>
+    <string name="toggleBtnStopText">Stop SDCF Service</string>
+    <string name="toggleRecStartText">Start Annotated Recording</string>
+    <string name="toggleRecStopText">Stop Recording and Transfer Data</string>
+    <string name="lbl_annotation_text_field">Current Recording Annotation</string>
+
+</resources>
