@@ -379,6 +379,7 @@ public class SDCControlActivity
         return;
       }
       sendAnnotationToSDCF( annotation );
+      Toast.makeText( this, "Annotation added", Toast.LENGTH_LONG ).show();
   }
   
   /**
