@@ -77,7 +77,7 @@ public class SDCControlActivity
   /**
    * annotation text field.
    */
-  private EditText editAnnotation;
+//  private EditText editAnnotation;
   
   private Button buttonAnnotate;
   private EditText editAnnotation2;
@@ -134,9 +134,9 @@ public class SDCControlActivity
       }
     } );
     
-    editAnnotation = (EditText) findViewById( R.id.editAnnotation );
+//    editAnnotation = (EditText) findViewById( R.id.editAnnotation );
     editAnnotation2 = (EditText) findViewById( R.id.EditText01 );
-    editAnnotation2.setEnabled(false);
+//    editAnnotation2.setEnabled(false);
     buttonAnnotate = (Button) findViewById ( R.id.button1 );
     buttonAnnotate.setEnabled(false);
     spinnerAnnotation = (Spinner) findViewById( R.id.spinner1 );
@@ -327,8 +327,12 @@ public class SDCControlActivity
   {
     if ( toggleRecordingStateBtn.isChecked() )
     {
+    	
+      String annotation = spinnerAnnotation.getSelectedItem().toString();
+      sendAnnotationToSDCF("Activity: " + annotation );	
+    	
       // start recording for the given annotation
-      String annotation = editAnnotation.getText().toString();
+      annotation = editAnnotation2.getText().toString();
 //      if ( annotation == null || annotation.length() == 0 )
 //      {
 //        toggleRecordingStateBtn.setChecked( false );
@@ -341,19 +345,16 @@ public class SDCControlActivity
           // store annotation text as tag sensor information
           sendAnnotationToSDCF( annotation );
       }
-      
-      annotation = spinnerAnnotation.getSelectedItem().toString();
-      sendAnnotationToSDCF("Activity: " + annotation );
-      
+            
       // stop the transfer service and enable sampling
       enableSampleTransfer( false );
       enableSampling( true );
 
       isRecording.set( true );
       buttonAnnotate.setEnabled( true );
-      editAnnotation.setEnabled( false );
-      editAnnotation2.setEnabled( true );
-      spinnerAnnotation.setEnabled( false );
+//      editAnnotation.setEnabled( false );
+//      editAnnotation2.setEnabled( true );
+//      spinnerAnnotation.setEnabled( false );
       toggleServiceStateBtn.setEnabled( false );
     }
     else if ( isRecording.get() )
@@ -361,9 +362,9 @@ public class SDCControlActivity
       // stop recording
       isRecording.set( false );
       buttonAnnotate.setEnabled( false );
-      editAnnotation.setEnabled( true );
-      editAnnotation2.setEnabled( false );
-      spinnerAnnotation.setEnabled( true );
+//      editAnnotation.setEnabled( true );
+//      editAnnotation2.setEnabled( false );
+//      spinnerAnnotation.setEnabled( true );
       toggleServiceStateBtn.setEnabled( true );
       enableSampling( false );      
       // the next statement will reactivate sample transfer and forces a transmission of the stored samples.
@@ -372,10 +373,12 @@ public class SDCControlActivity
   }
   
   public void onAnnotateClick(View view) {
-	  String annotation = editAnnotation2.getText().toString();
+      String annotation = spinnerAnnotation.getSelectedItem().toString();
+      sendAnnotationToSDCF("Activity: " + annotation );
+	  annotation = editAnnotation2.getText().toString();
       if ( annotation == null || annotation.length() == 0 )
       {
-        Toast.makeText( this, "No annotation entered", Toast.LENGTH_LONG ).show();
+        Toast.makeText( this, "No annotation entered, just resending activity", Toast.LENGTH_LONG ).show();
         return;
       }
       sendAnnotationToSDCF( annotation );
