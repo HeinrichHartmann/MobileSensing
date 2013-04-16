@@ -41,7 +41,7 @@ public class ShowData extends HttpServlet {
 
 		writer.println("</head>");
 		writer.println("<body>");
-		writer.println("<img src=\"static/livGovLogo.png\"/>");
+		writer.println("<a href=\"Welcome\"><img src=\"static/livGovLogo.png\"/></a>");
 		
 		 Pattern p = Pattern.compile("^[a-zA-Z0-9-]+$");
 		 Matcher m = p.matcher(request.getParameter("uuid"));

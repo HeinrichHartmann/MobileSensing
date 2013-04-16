@@ -7,7 +7,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -106,19 +105,18 @@ public class JsonApi extends HttpServlet {
 				+ "       AND ts BETWEEN ? AND ? "
 				+ "ORDER  BY a "
 				+ "LIMIT  1";
-		
-		String allInOne = ""
-				+ "SELECT s1.ts AS ts1, "
-				+ "       s1.data, "
-				+ "       (SELECT data "
-				+ "        FROM   samples "
-				+ "        WHERE  sensorid = 'GPS' "
-				+ "        ORDER  BY Abs(ts1 - ts) "
-				+ "        LIMIT  1) "
-				+ "FROM   samples s1 "
-				+ "WHERE  s1.sensorid = 'Tags'"
-				+ "       AND uuid = ? "
-				+ "       AND ts BETWEEN ? AND ? ";
+//		String allInOne = ""
+//				+ "SELECT s1.ts AS ts1, "
+//				+ "       s1.data, "
+//				+ "       (SELECT data "
+//				+ "        FROM   samples "
+//				+ "        WHERE  sensorid = 'GPS' "
+//				+ "        ORDER  BY Abs(ts1 - ts) "
+//				+ "        LIMIT  1) "
+//				+ "FROM   samples s1 "
+//				+ "WHERE  s1.sensorid = 'Tags'"
+//				+ "       AND uuid = ? "
+//				+ "       AND ts BETWEEN ? AND ? ";
 		try {
 			PreparedStatement pstmtAllTags = connection.prepareStatement(selectAllTags);
 			pstmtAllTags.setString(1, request.getParameter("uuid"));

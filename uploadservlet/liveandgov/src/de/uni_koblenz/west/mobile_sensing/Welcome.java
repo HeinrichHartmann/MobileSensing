@@ -32,12 +32,15 @@ public class Welcome extends HttpServlet {
 		writer.println("<html>");
 		writer.println("<head><title>Welcome</title></head>");
 		writer.println("<body>");
-		writer.println("<img src=\"static/livGovLogo.png\"/>");
-		writer.println("Please input your device ID:<br/>");
+		writer.println("<img src=\"static/livGovLogo.png\"/><br/>");
+		writer.println("<a href=\"static/liveandgov.apk\">Download liveandgov.apk</a><br/>");
+		writer.println("To retrieve your collected data, please input your device ID:<br/>");
 		writer.println("<form action=\"ShowData\" method=\"get\">");
 		writer.println("<input type=\"text\" name=\"uuid\">");
 		writer.println("<input type=\"submit\" value=\"Submit\">");
 		writer.println("</form>");
+		writer.println("You find your device ID in the live+gov app by pressing the menu button -&gt; Preferences -&gt; Device Information -&gt; Generated Unique Identifier<br/>");
+		writer.println("i.e. ca723492-29ea-4974-b5e0-28c443cc529c");
 		writer.println("<body>");
 		writer.println("</html>");
 			
