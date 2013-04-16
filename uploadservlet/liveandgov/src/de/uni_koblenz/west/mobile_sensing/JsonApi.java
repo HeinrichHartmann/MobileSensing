@@ -80,14 +80,103 @@ public class JsonApi extends HttpServlet {
 		if(sensorid.equals("GPS")) {
 			writeGPSData(request,response);
 		}
+		else if(sensorid.equals("Tags")) {
+			writeTagsData(request,response);
+		}
 		// TODO
+	}
+
+	private void writeTagsData(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String selectAllTags = ""
+				+ "SELECT ts, "
+				+ "       data "
+				+ "FROM   samples "
+				+ "WHERE  sensorid = 'Tags' "
+				+ "       AND uuid = ? "
+				+ "       AND ts BETWEEN ? AND ? "
+				+ "ORDER  BY ts "
+				+ "LIMIT  1000";
+
+		String selectNearestCoord = ""
+				+ "SELECT Abs(ts - ?) AS a, "
+				+ "       data "
+				+ "FROM   samples "
+				+ "WHERE  sensorid = 'GPS' "
+				+ "       AND uuid = ? "
+				+ "       AND ts BETWEEN ? AND ? "
+				+ "ORDER  BY a "
+				+ "LIMIT  1";
+		
+		String allInOne = ""
+				+ "SELECT s1.ts AS ts1, "
+				+ "       s1.data, "
+				+ "       (SELECT data "
+				+ "        FROM   samples "
+				+ "        WHERE  sensorid = 'GPS' "
+				+ "        ORDER  BY Abs(ts1 - ts) "
+				+ "        LIMIT  1) "
+				+ "FROM   samples s1 "
+				+ "WHERE  s1.sensorid = 'Tags'"
+				+ "       AND uuid = ? "
+				+ "       AND ts BETWEEN ? AND ? ";
+		try {
+			PreparedStatement pstmtAllTags = connection.prepareStatement(selectAllTags);
+			pstmtAllTags.setString(1, request.getParameter("uuid"));
+			pstmtAllTags.setLong(2, Long.parseLong(request.getParameter("tsFrom")));
+			pstmtAllTags.setLong(3, Long.parseLong(request.getParameter("tsTo")));
+	
+			PreparedStatement pstmtNearestCoord = connection.prepareStatement(selectNearestCoord);
+			
+			ResultSet rs = pstmtAllTags.executeQuery();
+			PrintWriter writer = response.getWriter();
+			boolean firstPair = true;
+			writer.print("{\"data\":[");
+			while (rs.next()) {
+				if(firstPair) {
+					firstPair = false;
+				}
+				else {
+					writer.print(",");
+				}
+				writer.print("{\"tag\":\"" + tagXmlToJson(rs.getString("data")) + "\"");
+				writer.print(",\"ts\":" + rs.getLong("ts"));
+				
+				// find the nearest GPS coordinate to localize the tag
+				pstmtNearestCoord.setLong(1, rs.getLong("ts"));
+				pstmtNearestCoord.setString(2, request.getParameter("uuid"));
+				pstmtNearestCoord.setLong(3, Long.parseLong(request.getParameter("tsFrom")));
+				pstmtNearestCoord.setLong(4, Long.parseLong(request.getParameter("tsTo")));
+				ResultSet rs2 = pstmtNearestCoord.executeQuery();
+				while (rs2.next()) {
+					writer.print(",\"latlon\":" + latLonXmlToJson(rs2.getString("data")) + "}");
+				}				
+			}
+			writer.print("]}");
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	private String tagXmlToJson(String xml){
+		// data looks like <txt>37GD</txt>
+		int tagLength = xml.length();
+		return xml.substring(5,tagLength-6);
 	}
 
 	private void writeGPSData(HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
 		
 		try {
-			String selectSQL = "SELECT DISTINCT data FROM samples WHERE sensorid = 'GPS' AND uuid = ? AND ts BETWEEN ? AND ? ORDER BY ts LIMIT 1000";
+			String selectSQL = ""
+					+ "SELECT DISTINCT data "
+					+ "FROM   samples "
+					+ "WHERE  sensorid = 'GPS' "
+					+ "       AND uuid = ? "
+					+ "       AND ts BETWEEN ? AND ? "
+					+ "ORDER  BY ts "
+					+ "LIMIT  1000 ";
 			PreparedStatement pstmtGPS = connection.prepareStatement(selectSQL);
 			pstmtGPS.setString(1, request.getParameter("uuid"));
 			pstmtGPS.setLong(2, Long.parseLong(request.getParameter("tsFrom")));
@@ -99,23 +188,12 @@ public class JsonApi extends HttpServlet {
 			writer.print("{\"data\":[");
 			while (rs.next()) {
 				String data = rs.getString("data");
-				Pattern regexLat = Pattern.compile("<lat>(.*?)</lat>", Pattern.DOTALL);
-				Pattern regexLon = Pattern.compile("<lon>(.*?)</lon>", Pattern.DOTALL);
-				Matcher matcher = regexLat.matcher(data);	
-				if (matcher.find()) {
-				    String lat = matcher.group(1);
-				    if(firstPair) {
-					    writer.print("[" + lat + ",");
-					    firstPair = false;
-				    }
-				    else {
-				    	writer.print(",[" + lat + ",");				    	
-				    }
+				if(firstPair) {
+					writer.print(latLonXmlToJson(data));
+					firstPair = false;
 				}
-				matcher = regexLon.matcher(data);				
-				if (matcher.find()) {
-				    String lon = matcher.group(1);
-				    writer.print(lon + "]");
+				else {
+					writer.print("," + latLonXmlToJson(data));
 				}
 			}
 			writer.print("]}");
@@ -124,6 +202,29 @@ public class JsonApi extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	private String latLonXmlToJson(String data) {
+		Pattern regexLat = Pattern.compile("<lat>(.*?)</lat>", Pattern.DOTALL);
+		Pattern regexLon = Pattern.compile("<lon>(.*?)</lon>", Pattern.DOTALL);
+		Matcher matcher = regexLat.matcher(data);	
+		String result = "";
+		if (matcher.find()) {
+		    String lat = matcher.group(1);
+			result += ("[" + lat + ",");
+		}
+		else {
+			return "";
+		}
+		matcher = regexLon.matcher(data);				
+		if (matcher.find()) {
+		    String lon = matcher.group(1);
+		    result += (lon + "]");
+		}
+		else {
+			return "";
+		}
+		return result;
 	}
 
 	/**

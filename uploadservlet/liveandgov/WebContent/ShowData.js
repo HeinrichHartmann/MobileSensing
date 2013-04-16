@@ -16,6 +16,20 @@ function updateMap() {
     },
     error: function(a,c) { alert("ajax: " + c);}
   });
+  $.ajax({
+	    url: "JsonApi",
+	    type: 'GET',
+	    dataType: 'json',
+	    data: {uuid: this.uuid, sensorid: 'Tags', tsFrom: 0, tsTo: 2363771562598},
+	    success: function(data, status){
+	    	for(var i = 0; i < data["data"].length; i++) {
+	    		var date = new Date(data["data"][i]["ts"]);
+		    	L.marker(data["data"][i]["latlon"]).addTo(map)
+		        .bindPopup(data["data"][i]["tag"] + "<br/>" + date.toString());	
+	    	}
+	    },
+	    error: function(a,c) { alert("ajax: " + c);}
+	  });
 }
 
 
