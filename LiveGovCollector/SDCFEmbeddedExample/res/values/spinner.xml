@@ -3,9 +3,12 @@
       <string-array name="movements_array">
         <item>Walking</item>
         <item>Bus</item>
+        <item>Tram</item>
+        <item>Metro</item>
+        <item>Train</item>
+        <item>Ferry</item>
         <item>Bicycle</item>
         <item>Car</item>
-        <item>Train</item>
         <item>Other</item>
      </string-array>
 </resources>
