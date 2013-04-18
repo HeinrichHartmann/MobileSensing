@@ -14,8 +14,8 @@
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
+        android:layout_height="wrap_content" >        
+				
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -34,12 +34,37 @@
                 android:background="@android:color/white" />
 
             <ToggleButton
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:id="@+id/startStopServiceButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
                 android:textOff="@string/toggleBtnStartText"
                 android:textOn="@string/toggleBtnStopText" />
+
+            <android.widget.GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <ToggleButton
+                    android:id="@+id/toggleRecordingButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:layout_weight="0.36"
+                    android:textOff="@string/toggleRecStartText"
+                    android:textOn="@string/toggleRecStopText" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
 
             <View
                 android:layout_width="fill_parent"
@@ -90,7 +115,7 @@
 
                     <Button
                         android:id="@+id/button1"
-                        android:layout_width="wrap_content"
+                        android:layout_width="69dp"
                         android:layout_height="wrap_content"
                         android:onClick="onAnnotateClick"
                         android:text="Send" />
@@ -102,14 +127,6 @@
                 android:layout_height="1dp"
                 android:layout_margin="10dp"
                 android:background="@android:color/white" />
-
-            <ToggleButton
-                android:id="@+id/toggleRecordingButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:textOff="@string/toggleRecStartText"
-                android:textOn="@string/toggleRecStopText" />
         </LinearLayout>
 
     </ScrollView>

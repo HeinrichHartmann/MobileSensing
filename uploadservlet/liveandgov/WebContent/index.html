@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Live+Gov Data Collection App</title></head>
+<body>
+<h1>Live+Gov Data Collection App</h1>
+<img src="static/livGovLogo.png"/><br/>
+<h2>Installation Instructions</h2>
+To install the mobile app on your android device please:
+<ol>
+<li>Enable Software installation from Unknown Sources <br>
+Settings &gt; Security &gt; Check: Unknown Sources [x]</li>
+<li>
+Open the following link on your with your phone browser:<br>
+<a href="static/liveandgov.apk">Download liveandgov.apk</a><br/>
+</li>
+</ol>
+
+<h2>Usage</h2>
+Please record sensor data from your journeys e.g. way to work.
+<ul>
+<li>Start the SDCF service and Sample Recordning when you start your journey</li>
+<li>Use the dropdown menu to specify your means of travel (whenever possible)</li>
+<li>Use the free text to add further specification e.g. service line (whenever possible)</li>
+<li>Stop recording when you arrive at work.</li>
+</ul>
+Leave the service running for a few more minutes after the recording is finished. 
+The App will upload the recorded samples as soon as a wifi connection is available. <br>
+You can inspect the recorded using the tools below.
+
+<h2>Bug Tracker</h2>
+Please do report any problems to our <a href="https://github.com/HeinrichHartmann/MobileSensing/issues">bug tracker</a> on github. <br>
+If you do not have an github account you can report issues by <a href="mailto:hartmann@uni-koblenz.de">email</a>.
+
+<h2>Data Inspection</h2>
+To retrieve your collected data, please input your device ID:<br/>
+<form action="ShowData" method="get">
+<input type="text" name="uuid">
+<input type="submit" value="Submit">
+</form>
+You find your device ID in the live+gov app by pressing the menu button &gt; Preferences &gt; Device Information &gt; Generated Unique Identifier<br/>
+i.e. ca723492-29ea-4974-b5e0-28c443cc529c<br>
+<body>
+</html>

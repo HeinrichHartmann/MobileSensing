@@ -35,7 +35,7 @@ import javax.xml.stream.events.XMLEvent;
 /**
  * Servlet implementation class LivegovServlet
  */
-@WebServlet("/upload")
+@WebServlet("/Upload")
 public class Upload extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	Connection connection;

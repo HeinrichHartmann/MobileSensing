@@ -1,5 +1,6 @@
 <sdcconfig>
 	<timeProviders>
+	  <provider>ntphost.uni-koblenz.de</provider>
 		<provider>ntps1-1.cs.tu-berlin.de</provider>
 		<provider>ptbtime1.ptb.de</provider>
 		<provider>ptbtime2.ptb.de</provider>
@@ -8,17 +9,17 @@
 	</timeProviders>
 	
 	<sensors>
-		<sensor id="Accelerometer" enabled="true" frequency="500" prio="Level2" />
-		<sensor id="Gyroscope" enabled="true" frequency="1000" prio="Level2" />
-		<sensor id="MagneticField" enabled="true" frequency="2000" prio="Level2" />
-		<sensor id="Orientation" enabled="false" frequency="2000" prio="Level2" />
+		<sensor id="Accelerometer" enabled="true" frequency="20" prio="Level2" />
+		<sensor id="Gyroscope" enabled="true" frequency="20" prio="Level2" />
+		<sensor id="MagneticField" enabled="true" frequency="100" prio="Level2" />
+		<sensor id="Orientation" enabled="false" frequency="100" prio="Level2" />
 		<sensor id="Pressure" enabled="false" frequency="1000" prio="Level2" />
 		<sensor id="Proximity" enabled="false" prio="Level2" />
 		<sensor id="Temperature" enabled="false" prio="Level2" />
 		<sensor id="Wifi" enabled="true" frequency="5000" prio="Level2" />
 		<sensor id="GSM" enabled="true" frequency="5000" prio="Level2" />
 		<sensor id="Bluetooth" enabled="true" frequency="30000" prio="Level2" />
-		<sensor id="GPS" enabled="true" frequency="30000" prio="Level2" />
+		<sensor id="GPS" enabled="true" frequency="10000" prio="Level2" />
 		<sensor id="NetworkLocation" enabled="true" frequency="5000" prio="Level2" />
 		<sensor id="Twitter" enabled="false" prio="Level2" />
 		<sensor id="Audio" enabled="false" prio="Level3" />
@@ -35,7 +36,7 @@
 	<transferSamples>false</transferSamples>
 
 	<dbConfig>
-		<maxSize>1048576</maxSize>
+		<maxSize>104857600</maxSize>
 		<delStrategyUsePrio>true</delStrategyUsePrio>
 		<delStrategyRecordCount>5000</delStrategyRecordCount>
 		<waitStrategyMillis>60000</waitStrategyMillis>
@@ -44,13 +45,13 @@
 
 	<transferConfig>
 		<minSampleCount>1</minSampleCount>
-		<maxSampleCount>100000</maxSampleCount>
-		<minTransferFrequency>0</minTransferFrequency>
+		<maxSampleCount>1000000</maxSampleCount>
+		<minTransferFrequency>600</minTransferFrequency>
 		<protocolConfig>
-			<url>http://mobile-sensing.west.uni-koblenz.de:8080/liveandgov/upload</url>
+			<url>http://mobile-sensing.west.uni-koblenz.de:8080/liveandgov/Upload</url>
 			<authName></authName>
 			<authPassword></authPassword>
-			<transferStrategy>wlan_else_mobile</transferStrategy>
+			<transferStrategy>wlan</transferStrategy>
 		</protocolConfig>
 		<archiveType>zip</archiveType>
 		<encrypt>false</encrypt>

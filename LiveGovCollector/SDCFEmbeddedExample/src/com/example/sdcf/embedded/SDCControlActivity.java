@@ -40,9 +40,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -82,6 +85,7 @@ public class SDCControlActivity
   private Button buttonAnnotate;
   private EditText editAnnotation2;
   private Spinner spinnerAnnotation;
+  private ProgressBar progressBar1;
   
   /**
    * Recording state flag.
@@ -134,9 +138,12 @@ public class SDCControlActivity
       }
     } );
     
+    progressBar1 = (ProgressBar) findViewById( R.id.progressBar1 );
+    progressBar1.setVisibility(View.INVISIBLE);
+    
 //    editAnnotation = (EditText) findViewById( R.id.editAnnotation );
     editAnnotation2 = (EditText) findViewById( R.id.EditText01 );
-//    editAnnotation2.setEnabled(false);
+    editAnnotation2.setEnabled(false);
     buttonAnnotate = (Button) findViewById ( R.id.button1 );
     buttonAnnotate.setEnabled(false);
     spinnerAnnotation = (Spinner) findViewById( R.id.spinner1 );
@@ -144,7 +151,23 @@ public class SDCControlActivity
     ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.movements_array, android.R.layout.simple_spinner_item);
     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
     spinnerAnnotation.setAdapter(adapter);
-    
+    spinnerAnnotation.setOnItemSelectedListener(new OnItemSelectedListener() {
+    	@Override
+    	public void onItemSelected(AdapterView<?> parent, View view, int position,long id) {
+
+    		if(buttonAnnotate.isEnabled()) {
+	            String annotation = spinnerAnnotation.getSelectedItem().toString();
+	            sendAnnotationToSDCF("Activity: " + annotation );	
+	            Toast.makeText( parent.getContext(), "Annotation added", Toast.LENGTH_LONG ).show();
+    		}
+        }
+        @Override
+		public void onNothingSelected(AdapterView<?> parent) {
+		
+		}
+
+    });
+    spinnerAnnotation.setEnabled(false);
     toggleServiceStateBtn.setOnClickListener( new OnClickListener()
     {
       @Override
@@ -315,6 +338,8 @@ public class SDCControlActivity
   {
     toggleServiceStateBtn.setChecked( isRunning );
     toggleRecordingStateBtn.setEnabled( isRunning );
+    spinnerAnnotation.setEnabled( isRunning );
+    editAnnotation2.setEnabled( isRunning );
   }
   
   /**
@@ -326,8 +351,18 @@ public class SDCControlActivity
   protected void onToggleRecordingState()
   {
     if ( toggleRecordingStateBtn.isChecked() )
-    {
-    	
+    {            
+      // stop the transfer service and enable sampling
+      enableSampleTransfer( false );
+      enableSampling( true );
+
+      isRecording.set( true );
+      buttonAnnotate.setEnabled( true );
+//      editAnnotation.setEnabled( false );
+//      editAnnotation2.setEnabled( true );
+//      spinnerAnnotation.setEnabled( false );
+      toggleServiceStateBtn.setEnabled( false );
+      progressBar1.setVisibility(View.VISIBLE);
       String annotation = spinnerAnnotation.getSelectedItem().toString();
       sendAnnotationToSDCF("Activity: " + annotation );	
     	
@@ -345,17 +380,6 @@ public class SDCControlActivity
           // store annotation text as tag sensor information
           sendAnnotationToSDCF( annotation );
       }
-            
-      // stop the transfer service and enable sampling
-      enableSampleTransfer( false );
-      enableSampling( true );
-
-      isRecording.set( true );
-      buttonAnnotate.setEnabled( true );
-//      editAnnotation.setEnabled( false );
-//      editAnnotation2.setEnabled( true );
-//      spinnerAnnotation.setEnabled( false );
-      toggleServiceStateBtn.setEnabled( false );
     }
     else if ( isRecording.get() )
     {
@@ -366,7 +390,8 @@ public class SDCControlActivity
 //      editAnnotation2.setEnabled( false );
 //      spinnerAnnotation.setEnabled( true );
       toggleServiceStateBtn.setEnabled( true );
-      enableSampling( false );      
+      enableSampling( false );
+      progressBar1.setVisibility(View.INVISIBLE);
       // the next statement will reactivate sample transfer and forces a transmission of the stored samples.
       triggerSampleTransfer();
     }
