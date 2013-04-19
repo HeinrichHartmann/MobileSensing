@@ -24,17 +24,31 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import com.example.sdcf.embedded.R;
 import de.unikassel.android.sdcframework.app.AbstractServiceControlActivity;
+import de.unikassel.android.sdcframework.app.SDCServiceController;
 import de.unikassel.android.sdcframework.app.facade.ISDCService;
 import de.unikassel.android.sdcframework.provider.TagProviderData;
 import de.unikassel.android.sdcframework.provider.facade.ContentProviderData;
 import de.unikassel.android.sdcframework.service.SDCServiceConnectionHolder;
 import de.unikassel.android.sdcframework.service.ServiceUtils;
+import de.unikassel.android.sdcframework.util.LogEvent;
+import de.unikassel.android.sdcframework.util.Logger;
 import de.unikassel.android.sdcframework.util.TimeProvider;
+import de.unikassel.android.sdcframework.util.facade.BroadcastableEvent;
+import de.unikassel.android.sdcframework.util.facade.EventObserver;
+import de.unikassel.android.sdcframework.util.facade.LogLevel;
+import de.unikassel.android.sdcframework.util.facade.ObservableEventSource;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.os.RemoteException;
 import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
+import android.text.Selection;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.method.ScrollingMovementMethod;
+import android.text.style.ForegroundColorSpan;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -47,6 +61,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -60,7 +75,7 @@ import android.widget.ToggleButton;
  */
 public class SDCControlActivity
     extends AbstractServiceControlActivity
-    implements SDCServiceConnectionHolder.ServiceConnectionEventReceiver
+    implements SDCServiceConnectionHolder.ServiceConnectionEventReceiver, EventObserver< LogEvent >
 {    
   /**
    * The SDC service connection holder
@@ -77,6 +92,7 @@ public class SDCControlActivity
    */
   private ToggleButton toggleRecordingStateBtn;
   
+  
   /**
    * annotation text field.
    */
@@ -86,6 +102,11 @@ public class SDCControlActivity
   private EditText editAnnotation2;
   private Spinner spinnerAnnotation;
   private ProgressBar progressBar1;
+  
+  // for Loging events
+  private final Handler eventHandler;
+  private TextView logView;
+  
   
   /**
    * Recording state flag.
@@ -106,6 +127,29 @@ public class SDCControlActivity
     this.connectionHolder =
         new SDCServiceConnectionHolder( this, ActivityConstants.serviceClass );
     this.isRecording = new AtomicBoolean( false );
+    
+
+    eventHandler = new Handler()
+    {
+      public void handleMessage( Message msg )
+      {
+        try
+        {
+          if ( msg.obj instanceof BroadcastableEvent )
+          {
+            LogEvent event = (LogEvent) msg.obj;
+            handleLogEvent( event );
+          }
+        }
+        catch ( Exception e )
+        {
+          Logger.getInstance().error( SDCControlActivity.this,
+              "Exception in handleMessage" );
+          e.printStackTrace();
+        }
+      }
+    };
+  
   }
   
   protected synchronized void setService( ISDCService service )
@@ -158,7 +202,7 @@ public class SDCControlActivity
     		if(buttonAnnotate.isEnabled()) {
 	            String annotation = spinnerAnnotation.getSelectedItem().toString();
 	            sendAnnotationToSDCF("Activity: " + annotation );	
-	            Toast.makeText( parent.getContext(), "Annotation added", Toast.LENGTH_LONG ).show();
+//	            Toast.makeText( parent.getContext(), "Annotation added", Toast.LENGTH_LONG ).show();
     		}
         }
         @Override
@@ -166,6 +210,7 @@ public class SDCControlActivity
 		
 		}
 
+        
     });
     spinnerAnnotation.setEnabled(false);
     toggleServiceStateBtn.setOnClickListener( new OnClickListener()
@@ -184,6 +229,10 @@ public class SDCControlActivity
         }
       }
     } );
+
+    
+    Logger.getInstance().registerEventObserver( this );
+    getLogView();
   }
   
   /*
@@ -403,11 +452,12 @@ public class SDCControlActivity
 	  annotation = editAnnotation2.getText().toString();
       if ( annotation == null || annotation.length() == 0 )
       {
-        Toast.makeText( this, "No annotation entered, just resending activity", Toast.LENGTH_LONG ).show();
+//        Toast.makeText( this, "No annotation entered, just resending activity", Toast.LENGTH_LONG ).show();
+    	  Logger.getInstance().info(this, "No annotation entered, just resending activity");
         return;
       }
-      sendAnnotationToSDCF( annotation );
-      Toast.makeText( this, "Annotation added", Toast.LENGTH_LONG ).show();
+      sendAnnotationToSDCF( annotation );      
+//      Toast.makeText( this, "Annotation added", Toast.LENGTH_LONG ).show();
   }
   
   /**
@@ -428,6 +478,9 @@ public class SDCControlActivity
     values.put( TagProviderData.TEXT, tag );
     getContentResolver().insert(
         TagProviderData.getInstance().getContentUri(), values );
+
+    Logger.getInstance().info(this, "Annotaion Added: " + tag);
+
   }
   
   /*
@@ -585,6 +638,8 @@ public class SDCControlActivity
    */
   public boolean triggerSampleTransfer()
   {
+	 
+	  Logger.getInstance().info(this, "Starting sample transfer.");
     try
     {
       getService().doTriggerSampleTransfer();
@@ -596,4 +651,64 @@ public class SDCControlActivity
     {}
     return false;
   }
+  
+  
+  /**
+   * Getter for the text view
+   * 
+   * @return the text view for logging
+   */
+  private TextView getLogView()
+  {
+	if ( logView == null )
+    {
+      logView = (TextView) findViewById( R.id.sdc_logview );
+      logView.setSingleLine( false );
+      logView.setMovementMethod( new ScrollingMovementMethod() );
+    }
+    return logView;
+  }
+  
+  /**
+   * Method to handle for log events
+   * 
+   * @param logEvent
+   *          the log Event
+   */
+  private void handleLogEvent( LogEvent logEvent )
+  {
+    TextView logView = getLogView();
+    
+    logView.append( logEvent.getMessage() );
+    logView.append( "\n" );
+    
+    // scroll to end
+    logView.setSelected( true );
+    Spannable textDisplayed = (Spannable) logView.getText();
+    Selection.setSelection( textDisplayed, textDisplayed.length() );
+  }
+
+
+/*
+ * (non-Javadoc)
+ * 
+ * @see
+ * de.unikassel.android.sdcframework.util.facade.EventObserver#onEvent(de.
+ * unikassel.android.sdcframework.util.facade.ObservableEventSource,
+ * de.unikassel.android.sdcframework.util.facade.ObservableEvent)
+ */
+@Override
+public void onEvent( ObservableEventSource< ? extends LogEvent > eventSource,
+    LogEvent observedEvent )
+{
+  Message msg = Message.obtain();
+  msg.obj = observedEvent;
+  msg.setTarget( eventHandler );
+  msg.sendToTarget();
+
+}
+  
+  
+  
+  
 }

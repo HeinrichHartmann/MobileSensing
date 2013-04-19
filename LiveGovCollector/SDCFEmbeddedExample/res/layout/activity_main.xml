@@ -18,7 +18,7 @@
 				
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="674dp"
             android:orientation="vertical" >
 
             <ImageView
@@ -34,15 +34,14 @@
                 android:background="@android:color/white" />
 
             <ToggleButton
-                android:focusable="true"
-                android:focusableInTouchMode="true"
                 android:id="@+id/startStopServiceButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:textOff="@string/toggleBtnStartText"
                 android:textOn="@string/toggleBtnStopText" />
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -74,19 +73,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-<!--             <TextView -->
-<!--                 android:id="@+id/textView1" -->
-<!--                 android:layout_width="wrap_content" -->
-<!--                 android:layout_height="wrap_content" -->
-<!--                 android:text="Initial Recording Annotation" -->
-<!--                 android:textAppearance="?android:attr/textAppearanceMedium" /> -->
+            <!-- <TextView -->
+            <!-- android:id="@+id/textView1" -->
+            <!-- android:layout_width="wrap_content" -->
+            <!-- android:layout_height="wrap_content" -->
+            <!-- android:text="Initial Recording Annotation" -->
+            <!-- android:textAppearance="?android:attr/textAppearanceMedium" /> -->
 
-<!--             <EditText -->
-<!--                 android:id="@+id/editAnnotation" -->
-<!--                 android:layout_width="fill_parent" -->
-<!--                 android:layout_height="wrap_content" -->
-<!--                 android:ems="10" -->
-<!--                 android:inputType="text" /> -->
+
+            <!-- <EditText -->
+            <!-- android:id="@+id/editAnnotation" -->
+            <!-- android:layout_width="fill_parent" -->
+            <!-- android:layout_height="wrap_content" -->
+            <!-- android:ems="10" -->
+            <!-- android:inputType="text" /> -->
 
             <TextView
                 android:id="@+id/TextView01"
@@ -118,12 +118,23 @@
                         android:text="Send" />
                 </LinearLayout>
             </LinearLayout>
-
+            
             <View
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:layout_margin="10dp"
                 android:background="@android:color/white" />
+            
+            <TextView
+                android:id="@+id/sdc_logview"
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:layout_weight="5.58"
+                android:singleLine="false"
+                android:textColor="@android:color/white"
+                android:typeface="monospace" >
+
+            </TextView>
         </LinearLayout>
 
     </ScrollView>

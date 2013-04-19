@@ -1,7 +1,7 @@
 <sdcconfig>
 	<timeProviders>
-	  <provider>ntphost.uni-koblenz.de</provider>
 		<provider>ntps1-1.cs.tu-berlin.de</provider>
+		<provider>ntphost.uni-koblenz.de</provider>
 		<provider>ptbtime1.ptb.de</provider>
 		<provider>ptbtime2.ptb.de</provider>
 		<provider>atom.uhr.de</provider>
@@ -9,10 +9,10 @@
 	</timeProviders>
 	
 	<sensors>
-		<sensor id="Accelerometer" enabled="true" frequency="20" prio="Level2" />
-		<sensor id="Gyroscope" enabled="true" frequency="20" prio="Level2" />
-		<sensor id="MagneticField" enabled="true" frequency="100" prio="Level2" />
-		<sensor id="Orientation" enabled="false" frequency="100" prio="Level2" />
+		<sensor id="Accelerometer" enabled="true" frequency="1000" prio="Level3" />
+		<sensor id="Gyroscope" enabled="true" frequency="1000" prio="Level3" />
+		<sensor id="MagneticField" enabled="true" frequency="1000" prio="Level3" />
+		<sensor id="Orientation" enabled="false" frequency="1000" prio="Level3" />
 		<sensor id="Pressure" enabled="false" frequency="1000" prio="Level2" />
 		<sensor id="Proximity" enabled="false" prio="Level2" />
 		<sensor id="Temperature" enabled="false" prio="Level2" />
@@ -36,7 +36,7 @@
 	<transferSamples>false</transferSamples>
 
 	<dbConfig>
-		<maxSize>104857600</maxSize>
+		<maxSize>10485760</maxSize>
 		<delStrategyUsePrio>true</delStrategyUsePrio>
 		<delStrategyRecordCount>5000</delStrategyRecordCount>
 		<waitStrategyMillis>60000</waitStrategyMillis>
@@ -56,10 +56,9 @@
 		<archiveType>zip</archiveType>
 		<encrypt>false</encrypt>
 	</transferConfig>
-	
-	
+		
 	<logTransferConfig>
-		<url></url>
+		<url>http://mobile-sensing.west.uni-koblenz.de:8080/liveandgov/Upload?logfile=yes</url>
 		<authName></authName>
 		<authPassword></authPassword>
 	</logTransferConfig>
