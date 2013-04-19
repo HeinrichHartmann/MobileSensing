@@ -14,7 +14,7 @@ function updateMap() {
     	markers = L.polyline(data["data"]);
     	markers.addTo(map); 
     },
-    error: function(a,c) { alert("ajax: " + c);}
+    error: function(a,c) {/* alert("ajax: " + c);*/}
   });
   $.ajax({
 	    url: "JsonApi",
@@ -27,8 +27,9 @@ function updateMap() {
 		    	L.marker(data["data"][i]["latlon"]).addTo(map)
 		        .bindPopup(data["data"][i]["tag"] + "<br/>" + date.toString());	
 	    	}
+	    	showOverview();
 	    },
-	    error: function(a,c) { alert("ajax: " + c);}
+	    error: function(a,c) { /*alert("ajax: " + c);*/}
 	  });
 }
 
@@ -42,5 +43,33 @@ function initilize(uuid){
 		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>'
 	}).addTo(map);
 
-  updateMap();
+  updateMap();  
+}
+
+function showOverview() {
+	 $.ajax({
+	    url: "JsonApi",
+	    type: 'GET',
+	    dataType: 'json',
+	    data: {overview: 'yes'},
+	    success: function(data, status){
+	    	var table_obj = $("#overview").attr('border', '1');
+	    	table_obj.append($('<th>count(*)</th><th>sensor</th><th>uuid</th><th>device id</th><th>smartphone</th><th>min time</th><th>max time</th>'));
+		    $.each(data["data"], function(index, item){
+	    		var mindate = new Date(item.min);
+	    		var maxdate = new Date(item.max);
+		         table_obj.append($('<tr><td>'
+		        		 +item.count+'</td><td>'
+		        		 +((item.sensorid==='GPS')?'<a href="ShowData?uuid='+item.uuid+'">GPS (show on map)</a>':item.sensorid)+'</td><td>'
+		        		 +item.uuid+'</td><td>'
+		        		 +item.textuuid+'</td><td>'
+		        		 +item.model+'</td><td>'
+		        		 +mindate.toString()+'</td><td>'
+		        		 +maxdate.toString()+'</td></tr>'));
+		    });
+
+	    },
+	    error: function(a,c) { /*alert("ajax: " + c);*/}
+	  });
+	 
 }

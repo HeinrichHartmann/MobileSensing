@@ -9,6 +9,7 @@ import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DateFormat;
@@ -18,6 +19,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.UnavailableException;
@@ -25,6 +30,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
@@ -35,16 +41,38 @@ import javax.xml.stream.events.XMLEvent;
 /**
  * Servlet implementation class LivegovServlet
  */
-@WebServlet("/Upload")
+
 public class Upload extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	Connection connection;
+	DataSource database;
+
 	PreparedStatement pstmtInsertDeviceInfo;
-	PreparedStatement pstmtInsertSample;
-	long connected;
+
+	String insertSample = "INSERT INTO samples ("
+			+ "uuid, "
+			+ "sensorid, "
+			+ "ts, "
+			+ "prio, "
+			+ "synced, "
+			+ "loc, " // location can be null!
+			+ "data, "
+			+ "dataclass" 
+			+ ") VALUES (?,?,?,?,?,?,?,?)";
 	
-	public class Sample {		
-		public String uuid;
+	String insertDevice = "INSERT INTO devinfo (" 
+			+ "uuid, "
+			+ "textuuid, "
+			+ "device, "
+			+ "fingerprint, "
+			+ "id, "
+			+ "manufacturer, "
+			+ "model, "
+			+ "product, "
+			+ "androidVersion"
+			+ ") VALUES (?,?,?,?,?,?,?,?,?)";
+	
+	public class Sample {
+		public int uuid;
 		public String sensorid;
 		public long ts;
 		public int prio;
@@ -55,7 +83,8 @@ public class Upload extends HttpServlet {
 	}
 		
 	public class DeviceInfo {
-		public	String uuid;
+		public int uuid;
+		public	String textuuid;
 		public	String device;
 		public	String fingerprint;
 		public	String id;
@@ -67,88 +96,54 @@ public class Upload extends HttpServlet {
 
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
+		Connection connection = null;
+		Statement stmtLink = null;
+		Context envContext;
 		try {
-			// Load the JDBC driver 
-			String driverName = "com.mysql.jdbc.Driver"; // MySQL Connector 
-			Class.forName(driverName).newInstance(); 
-	
-		} catch (ClassNotFoundException e) {
-			throw new UnavailableException(
-					"DedicatedConnection.init() ClassNotFoundException: "
-							+ e.getMessage());
-		} catch (IllegalAccessException e) {
-			throw new UnavailableException(
-					"DedicatedConnection.init() IllegalAccessException: "
-							+ e.getMessage());
-		} catch (InstantiationException e) {
-			throw new UnavailableException(
-					"DedicatedConnection.init() InstantiationException: "
-							+ e.getMessage());
-		}
+			envContext = new InitialContext();
+			database = (DataSource)envContext.lookup("java:/comp/env/jdbc/liveandgov");
 
-		try {
-			// establish a connection
-			String url = "jdbc:mysql://localhost/liveandgov?useUnicode=yes&characterEncoding=UTF-8"; // a JDBC url 
-			connection = DriverManager.getConnection(url, "chrisschaefer", "00chrisschaefer00");
-//			String url = "jdbc:mysql://localhost/wiki?useUnicode=yes&characterEncoding=UTF-8"; // a JDBC url 
-//			connection = DriverManager.getConnection(url, "root", "123456");
-			connected = System.currentTimeMillis();
-			Statement stmtLink = connection.createStatement();
+			connection = database.getConnection();
+			stmtLink = connection.createStatement();
 
-			String createSampleTable =
-					"create table if not exists samples ( "
-							+ "uuid text not null, "
-							+ "sensorid text not null, "
-							+ "ts bigint not null, "
-							+ "prio integer not null, "
-							+ "synced integer default null, "
-							+ "loc text, " // location can be null!
-							+ "data text not null, "
-							+ "dataclass text not null )";
-
-			stmtLink.execute(createSampleTable);
-			
 			String createDevInfoTable =
 					"create table if not exists devinfo ( "
-							+ "uuid text not null, "
+							+ "uuid integer not null, "
+							+ "textuuid text not null, "
 							+ "device text, "
 							+ "fingerprint text, "
 							+ "id text, "
 							+ "manufacturer text, "
 							+ "model text, "
 							+ "product text, "
-							+ "androidVersion text)";
+							+ "androidVersion text, "
+							+ "PRIMARY KEY (uuid) )";
 
 			stmtLink.execute(createDevInfoTable);
 			
-			String insertSample = "INSERT INTO samples ("
-					+ "uuid, "
-					+ "sensorid, "
-					+ "ts, "
-					+ "prio, "
-					+ "synced, "
-					+ "loc, " // location can be null!
-					+ "data, "
-					+ "dataclass" 
-					+ ") VALUES (?,?,?,?,?,?,?,?)";
-			pstmtInsertSample = connection.prepareStatement(insertSample);
-			
-			String insertDevice = "INSERT INTO devinfo (" 
-					+ "uuid, "
-					+ "device, "
-					+ "fingerprint, "
-					+ "id, "
-					+ "manufacturer, "
-					+ "model, "
-					+ "product, "
-					+ "androidVersion"
-					+ ") VALUES (?,?,?,?,?,?,?,?)";
-			pstmtInsertDeviceInfo = connection.prepareStatement(insertDevice);
+			String createSampleTable =
+					"create table if not exists samples ( "
+					        + "uuid integer not null, "
+							+ "sensorid text not null, "
+							+ "ts bigint not null, "
+							+ "prio integer not null, "
+							+ "synced integer default null, "
+							+ "loc text, " // location can be null!
+							+ "data text not null, "
+							+ "dataclass text not null, "
+							+ "FOREIGN KEY (uuid) REFERENCES devinfo(uuid) )";
+
+			stmtLink.execute(createSampleTable);			
 
 		} catch (SQLException e) {
-			throw new UnavailableException(
-					"DedicatedConnection.init() SQLException: "
-							+ e.getMessage());
+			throw new UnavailableException(e.getMessage());
+		} catch (NamingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+
+		} finally {
+			try { if (stmtLink != null) stmtLink.close(); } catch (SQLException e) { e.printStackTrace(); }
+			try { if (connection != null) connection.close(); } catch (SQLException e) { e.printStackTrace(); }
 		}
 	}
 	/**
@@ -186,8 +181,9 @@ public class Upload extends HttpServlet {
 		copyStream(instream, outstream);
 		outstream.flush();
 		outstream.close();
-		
-		this.loadDataInDatabase(absoluteFilename);
+		if(request.getParameter("logfile") == null) {
+			this.loadDataInDatabase(absoluteFilename);
+		}
 	}
 
 	private void copyStream(InputStream input, OutputStream output)
@@ -207,11 +203,10 @@ public class Upload extends HttpServlet {
 			ZipEntry zipEntry = zipFile.getEntry("devinfo.xml");
 			if (zipEntry != null) {
 				DeviceInfo deviceInfo = this.readDevInfoXML( zipFile.getInputStream(zipEntry));
-				this.insertDeviceInfo(deviceInfo);
+				deviceInfo = this.insertDeviceInfo(deviceInfo);
 
 				zipEntry = zipFile.getEntry("samples.xml");
-				if (zipEntry != null) {
-					
+				if (zipEntry != null) {					
 					this.insertSamples(this.readSamplesXML(deviceInfo.uuid, zipFile.getInputStream(zipEntry)));
 				}
 			}
@@ -226,7 +221,7 @@ public class Upload extends HttpServlet {
 	}
 	
 
-	private List<Sample> readSamplesXML(String uuid, InputStream in) {
+	private List<Sample> readSamplesXML(int uuid, InputStream in) {
 		List<Sample> samples = new ArrayList<Sample>();
 		try {
 			// First create a new XMLInputFactory
@@ -360,7 +355,7 @@ public class Upload extends HttpServlet {
 		          if (event.asStartElement().getName().getLocalPart()
 			              .equals("uuid")) {
 			            event = eventReader.nextEvent();
-			            deviceInfo.uuid = event.asCharacters().getData();
+			            deviceInfo.textuuid = event.asCharacters().getData();
 			            continue;
 			          }
 		        }
@@ -371,9 +366,14 @@ public class Upload extends HttpServlet {
 			return deviceInfo;		
 	}
 	private void insertSamples(List<Sample> Samples) {
-		try {		  
-	        for (Sample sample : Samples) {	            
-	            pstmtInsertSample.setString(1, sample.uuid);
+		PreparedStatement pstmtInsertSample = null;
+		Connection connection = null;
+		try {
+			connection = database.getConnection();
+			pstmtInsertSample = connection.prepareStatement(insertSample);
+			
+	        for (Sample sample : Samples) {
+	        	pstmtInsertSample.setInt(1, sample.uuid);
 	            pstmtInsertSample.setString(2, sample.sensorid);
 	            pstmtInsertSample.setLong(3, sample.ts);
 	            pstmtInsertSample.setInt(4, sample.prio);
@@ -389,33 +389,68 @@ public class Upload extends HttpServlet {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			try { if (pstmtInsertSample != null) pstmtInsertSample.close(); } catch (SQLException e) { e.printStackTrace(); }
+			try { if (connection != null) connection.close(); } catch (SQLException e) { e.printStackTrace(); }
 		}
 		
 	}
-	private void insertDeviceInfo(DeviceInfo deviceInfo) {
-
-		try {		  
-			pstmtInsertDeviceInfo.setString(1, deviceInfo.uuid);
-			pstmtInsertDeviceInfo.setString(2, deviceInfo.device);
-			pstmtInsertDeviceInfo.setString(3, deviceInfo.fingerprint);
-			pstmtInsertDeviceInfo.setString(4, deviceInfo.id);
-			pstmtInsertDeviceInfo.setString(5, deviceInfo.manufacturer);
-			pstmtInsertDeviceInfo.setString(6, deviceInfo.model);
-			pstmtInsertDeviceInfo.setString(7, deviceInfo.product);
-			pstmtInsertDeviceInfo.setString(8, deviceInfo.androidVersion);
-			pstmtInsertDeviceInfo.execute();
+	private DeviceInfo insertDeviceInfo(DeviceInfo deviceInfo) {
+		PreparedStatement pstmtInsertDeviceInfo = null;
+		PreparedStatement pstmtCheckDeviceInfo = null;
+		PreparedStatement pstmtGetMaxIdDeviceInfo = null;
+		Connection connection = null;
+		ResultSet rs = null;
+		try {		
+			connection = database.getConnection();			
+						
+			pstmtCheckDeviceInfo = connection.prepareStatement(""
+					+ "SELECT uuid "
+					+ "FROM   devinfo "
+					+ "WHERE  textuuid = ?");			
+			pstmtCheckDeviceInfo.setString(1, deviceInfo.textuuid);
+			rs = pstmtCheckDeviceInfo.executeQuery();
+			
+			boolean deviceExists = false;
+			while (rs.next()) {
+				// the device exists
+				deviceInfo.uuid = rs.getInt(1);
+				deviceExists = true;
+				break;
+			}
+			
+			if(!deviceExists) {
+				pstmtGetMaxIdDeviceInfo	= connection.prepareStatement("SELECT Max(uuid) FROM devinfo");	
+				rs = pstmtGetMaxIdDeviceInfo.executeQuery();
+				while (rs.next()) {
+					deviceInfo.uuid = rs.getInt(1) + 1;
+					break;
+				}
+							
+				pstmtInsertDeviceInfo = connection.prepareStatement(insertDevice);
+				
+				pstmtInsertDeviceInfo.setInt(1, deviceInfo.uuid);
+				pstmtInsertDeviceInfo.setString(2, deviceInfo.textuuid);
+				pstmtInsertDeviceInfo.setString(3, deviceInfo.device);
+				pstmtInsertDeviceInfo.setString(4, deviceInfo.fingerprint);
+				pstmtInsertDeviceInfo.setString(5, deviceInfo.id);
+				pstmtInsertDeviceInfo.setString(6, deviceInfo.manufacturer);
+				pstmtInsertDeviceInfo.setString(7, deviceInfo.model);
+				pstmtInsertDeviceInfo.setString(8, deviceInfo.product);
+				pstmtInsertDeviceInfo.setString(9, deviceInfo.androidVersion);
+				pstmtInsertDeviceInfo.execute();
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			try { if (rs != null) rs.close(); } catch (SQLException e) { e.printStackTrace(); }
+			try { if (pstmtCheckDeviceInfo != null) pstmtCheckDeviceInfo.close(); } catch (SQLException e) { e.printStackTrace(); }
+			try { if (pstmtGetMaxIdDeviceInfo != null) pstmtGetMaxIdDeviceInfo.close(); } catch (SQLException e) { e.printStackTrace(); }
+			try { if (pstmtInsertDeviceInfo != null) pstmtInsertDeviceInfo.close(); } catch (SQLException e) { e.printStackTrace(); }
+			try { if (connection != null) connection.close(); } catch (SQLException e) { e.printStackTrace(); }
 		}
+		return deviceInfo;
 	}
 	
-	public void destroy() {
-		    // close the connection
-		    if (connection != null)
-		      try {
-		        connection.close();
-		      } catch (SQLException ignore) {
-		      }
-		  }
 }

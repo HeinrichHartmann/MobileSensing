@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ShowData
  */
-@WebServlet("/ShowData")
 public class ShowData extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -41,18 +40,18 @@ public class ShowData extends HttpServlet {
 
 		writer.println("</head>");
 		writer.println("<body>");
-		writer.println("<a href=\"Welcome\"><img src=\"static/livGovLogo.png\"/></a>");
+		writer.println("<a href=\"index.html\"><img src=\"static/livGovLogo.png\"/></a>");
 		
 		 Pattern p = Pattern.compile("^[a-zA-Z0-9-]+$");
 		 Matcher m = p.matcher(request.getParameter("uuid"));
 		 if(m.matches()) {
-				writer.println("<div id=\"map\" style=\"width: 1000px; height: 600px; position: relative;\"></div>");
+				writer.println("<div id=\"map\" style=\"width: 700px; height: 400px; position: relative;\"></div>");
 				writer.println("<script>initilize('" + request.getParameter("uuid") + "');</script>");
 		 }
 		 else {
 			 writer.println("Please enter a valid device ID!");
 		 }		
-
+		writer.println("<div><br/><table id=\"overview\"></table></div>");
 		writer.println("<body>");
 		writer.println("</html>");
 			
