@@ -46,13 +46,20 @@
         android:id="@+id/startStopServiceButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_below="@+id/hrule_1"
         android:layout_margin="2dp"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
         android:textOff="@string/toggleBtnStartText"
-        android:textOn="@string/toggleBtnStopText" />
+        android:textOn="@string/toggleBtnStopText" >
+        </ToggleButton>
+
+    <Button
+        android:id="@+id/transferSamplesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/toggleRecordingButton"
+        android:layout_below="@id/toggleRecordingButton"
+        android:text="Transfer samples" />
 
     <ProgressBar
         android:id="@+id/progressSpinner"
@@ -63,14 +70,6 @@
         android:minHeight="40dp"
         android:minWidth="40dp" />
 
-    <View
-        android:id="@+id/hrule_3"
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:layout_below="@id/toggleRecordingButton"
-        android:layout_margin="5dp"
-        android:background="@android:color/white" />
-
     <EditText
         android:id="@+id/annotationTextfield"
         android:layout_width="wrap_content"
@@ -79,9 +78,7 @@
         android:layout_below="@+id/dropdownAnnotation"
         android:layout_toLeftOf="@+id/sendAnnotationButton"
         android:ems="10"
-        android:inputType="text" >
-        <requestFocus />
-    </EditText>
+        android:inputType="text" />
 
     <Button
         android:id="@+id/sendAnnotationButton"
@@ -109,7 +106,9 @@
         android:layout_alignLeft="@+id/hrule_3"
         android:layout_below="@+id/hrule_3"
         android:text="Annotation"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium">
+                <requestFocus />
+    </TextView>
 
     <Spinner
         android:id="@+id/dropdownAnnotation"
@@ -117,5 +116,24 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/dummyTextField" />
+
+    <View
+        android:id="@+id/hrule_3"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/transferSamplesButton"
+        android:layout_margin="5dp"
+        android:layout_marginBottom="22dp"
+        android:background="@android:color/white" />
+
+    <ProgressBar
+        android:id="@+id/trasnferSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/startStopServiceButton"
+        android:layout_below="@+id/progressSpinner"
+        android:minHeight="40dp"
+        android:minWidth="40dp" />
 
 </RelativeLayout>
