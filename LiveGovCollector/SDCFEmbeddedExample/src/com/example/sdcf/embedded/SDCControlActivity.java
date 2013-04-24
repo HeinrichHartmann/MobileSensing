@@ -66,11 +66,16 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 /**
- * Main Activity of the embedded SDCF application example.
+ * 
+ * Live+Gov Sensor Collection Application
+ * 
+ * 
+ * Builds upon the embedded SDCF application example.
  * It does replace the internal SDCF controller activity by extending the type
  * AbstractServiceControlActivity.
  * 
- * @author Katy Hilgenberg
+ * 
+ * @author Katy Hilgenberg, Heinrich Hartmann, Richard Schütz
  * 
  */
 public class SDCControlActivity
@@ -182,15 +187,15 @@ public class SDCControlActivity
       }
     } );
     
-    progressBar1 = (ProgressBar) findViewById( R.id.progressBar1 );
+    progressBar1 = (ProgressBar) findViewById( R.id.progressSpinner );
     progressBar1.setVisibility(View.INVISIBLE);
     
 //    editAnnotation = (EditText) findViewById( R.id.editAnnotation );
-    editAnnotation2 = (EditText) findViewById( R.id.EditText01 );
+    editAnnotation2 = (EditText) findViewById( R.id.annotationTextfield );
     editAnnotation2.setEnabled(false);
-    buttonAnnotate = (Button) findViewById ( R.id.button1 );
+    buttonAnnotate = (Button) findViewById ( R.id.sendAnnotationButton );
     buttonAnnotate.setEnabled(false);
-    spinnerAnnotation = (Spinner) findViewById( R.id.spinner1 );
+    spinnerAnnotation = (Spinner) findViewById( R.id.dropdownAnnotation );
     
     ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.movements_array, android.R.layout.simple_spinner_item);
     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -662,7 +667,7 @@ public class SDCControlActivity
   {
 	if ( logView == null )
     {
-      logView = (TextView) findViewById( R.id.sdc_logview );
+      logView = (TextView) findViewById( R.id.sdcfLogview);
       logView.setSingleLine( false );
       logView.setMovementMethod( new ScrollingMovementMethod() );
     }
@@ -707,8 +712,6 @@ public void onEvent( ObservableEventSource< ? extends LogEvent > eventSource,
   msg.sendToTarget();
 
 }
-  
-  
-  
-  
+
+
 }
