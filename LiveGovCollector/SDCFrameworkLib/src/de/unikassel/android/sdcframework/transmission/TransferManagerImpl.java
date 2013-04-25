@@ -471,6 +471,8 @@ public class TransferManagerImpl
           
           if ( waitTime <= 0L )
           {
+            Logger.getInstance().info(this, "Preparing " + currentRecordCount + " samples.");
+            
             // collect available samples
             doPickSamplesFromDatabase();
             currentState.set( PREPARATION );
@@ -609,12 +611,15 @@ public class TransferManagerImpl
       String currentArchiveName = fileManager.getCurrentArchive();
       if ( uploadManager.uploadFile( currentArchiveName ) )
       {
+        Long fileSize = FileUtils.fileFromPath( currentArchiveName ).length() / 1024;
         fileManager.doCleanUp( true );
         Logger.getInstance().info(
             this,
             "Successful file ("
                 + FileUtils.fileNameFromPath( currentArchiveName )
-                + ") transfer!" );
+                + ", "
+                + fileSize
+                + "kb) transfer!" );
         return true;
       }
     }

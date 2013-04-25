@@ -177,7 +177,7 @@ public class SDCControlActivity extends AbstractServiceControlActivity
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
+		
 		/*********************************
 		 * Register UI Elements
 		 *********************************/
@@ -268,8 +268,8 @@ public class SDCControlActivity extends AbstractServiceControlActivity
 		logView.setSingleLine(false);
 		logView.setMovementMethod(new ScrollingMovementMethod());
 
-		Logger.getInstance().registerEventObserver(this);
-		
+		Logger.getInstance().setLogLevel(LogLevel.DEBUG);
+		Logger.getInstance().registerEventObserver(this);		
 	}
 
 	/**
@@ -354,6 +354,8 @@ public class SDCControlActivity extends AbstractServiceControlActivity
 		ServiceUtils.startService(getApplicationContext(),
 				ActivityConstants.serviceClass.getName());
 		connectionHolder.onCreate(this);
+		
+		Logger.getInstance().registerEventObserver(this);
 	}
 
 	/**
@@ -410,6 +412,11 @@ public class SDCControlActivity extends AbstractServiceControlActivity
 		sendAnnotation();
 	}
 
+
+	/*************************************************************
+	 * SDCF Connection 
+	 *************************************************************/
+	
 	/**
 	 * Method to send an annotation as tag sensor information to the SDC
 	 * service.
@@ -431,7 +438,7 @@ public class SDCControlActivity extends AbstractServiceControlActivity
 
 		Logger.getInstance().info(this, "Annotaion Added: " + tag);
 	}
-
+	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -446,8 +453,8 @@ public class SDCControlActivity extends AbstractServiceControlActivity
 		setService(sdcService);
 		// do initialization tasks when the binding is established
 		enableSampling(false);
-		enableSampleTransfer(false);
-		enableSampleBroadcasts(true);
+		//enableSampleTransfer(false);
+		//enableSampleBroadcasts(true);
 		enableSampleStorage(true);
 	}
 
@@ -604,7 +611,8 @@ public class SDCControlActivity extends AbstractServiceControlActivity
 		logView.append(logEvent.getMessage());
 		logView.append("\n");
 
-		if(logEvent.getMessage().equals("TransferManagerImpl: Successful file (sdcarchive.zip) transfer!")){
+		if(logEvent.getMessage().startsWith("TransferManagerImpl: Successful file") ||
+				logEvent.getMessage().startsWith("TransferManagerImpl: Upload failed!")){
 			isTransferingData = false;
 			updateButtons();
 		}
