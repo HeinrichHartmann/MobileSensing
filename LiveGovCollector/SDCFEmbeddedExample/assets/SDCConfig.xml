@@ -9,14 +9,14 @@
 	</timeProviders>
 	
 	<sensors>
-		<sensor id="Accelerometer" enabled="true" frequency="1000" prio="Level3" />
-		<sensor id="Gyroscope" enabled="true" frequency="1000" prio="Level3" />
-		<sensor id="MagneticField" enabled="true" frequency="1000" prio="Level3" />
+		<sensor id="Accelerometer" enabled="true" frequency="20" prio="Level3" />
+		<sensor id="Gyroscope" enabled="true" frequency="50" prio="Level3" />
+		<sensor id="MagneticField" enabled="true" frequency="100" prio="Level3" />
 		<sensor id="Orientation" enabled="false" frequency="1000" prio="Level3" />
 		<sensor id="Pressure" enabled="false" frequency="1000" prio="Level2" />
 		<sensor id="Proximity" enabled="false" prio="Level2" />
 		<sensor id="Temperature" enabled="false" prio="Level2" />
-		<sensor id="Wifi" enabled="true" frequency="5000" prio="Level2" />
+		<sensor id="Wifi" enabled="true" frequency="5000" prio="Level2" />		
 		<sensor id="GSM" enabled="true" frequency="5000" prio="Level2" />
 		<sensor id="Bluetooth" enabled="true" frequency="30000" prio="Level2" />
 		<sensor id="GPS" enabled="true" frequency="10000" prio="Level2" />
@@ -29,23 +29,23 @@
 	</sensors>
 
 	<broadcastSamples>false</broadcastSamples>
-	<broadcastFrequency>1000</broadcastFrequency>
+	<broadcastFrequency>1000</broadcastFrequency>	
 	<samlingEnabled>false</samlingEnabled>
 	<addSampleLocation>false</addSampleLocation>
-	<storeSamples>false</storeSamples>
-	<transferSamples>false</transferSamples>
+	<storeSamples>true</storeSamples>
+	<transferSamples>true</transferSamples>
 
 	<dbConfig>
-		<maxSize>10485760</maxSize>
-		<delStrategyUsePrio>true</delStrategyUsePrio>
+		<maxSize>1</maxSize>
+		<waitStrategyMillis>100</waitStrategyMillis>
+		<dbFullStrategy>wait_notify_stopservice</dbFullStrategy>
+		<delStrategyUsePrio>false</delStrategyUsePrio>
 		<delStrategyRecordCount>5000</delStrategyRecordCount>
-		<waitStrategyMillis>60000</waitStrategyMillis>
-		<dbFullStrategy>wait_delete_notify</dbFullStrategy>
 	</dbConfig>
 
 	<transferConfig>
 		<minSampleCount>1</minSampleCount>
-		<maxSampleCount>1000000</maxSampleCount>
+		<maxSampleCount>1000</maxSampleCount>
 		<minTransferFrequency>600</minTransferFrequency>
 		<protocolConfig>
 			<url>http://mobile-sensing.west.uni-koblenz.de:8080/liveandgov/Upload</url>

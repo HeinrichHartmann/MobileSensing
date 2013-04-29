@@ -31,6 +31,7 @@ import android.content.Context;
 import android.os.SystemClock;
 import de.unikassel.android.sdcframework.data.Sample;
 import de.unikassel.android.sdcframework.data.SampleCollection;
+import de.unikassel.android.sdcframework.persistence.DatabaseManagerImpl;
 import de.unikassel.android.sdcframework.persistence.RemoveSamplesCommand;
 import de.unikassel.android.sdcframework.persistence.facade.DatabaseManager;
 import de.unikassel.android.sdcframework.persistence.facade.DatabaseSample;
@@ -94,7 +95,7 @@ public class TransferManagerImpl
   /**
    * The internal lower limit of wait time in seconds
    */
-  public static final long MIN_FREQUENCY = 30L;
+  public static final long MIN_FREQUENCY = 10L;
   
   /**
    * The start delay after transfer manager is activated.
@@ -457,6 +458,8 @@ public class TransferManagerImpl
         }
         case COLLECTING:
         {
+          Logger.getInstance().info(this, "Found " + getCurrentRecordCount() + " samples in db.");
+
           // is there an old file to transmit from last run?
           if ( fileManager.hasArchive() )
           {
@@ -471,8 +474,6 @@ public class TransferManagerImpl
           
           if ( waitTime <= 0L )
           {
-            Logger.getInstance().info(this, "Preparing " + currentRecordCount + " samples.");
-            
             // collect available samples
             doPickSamplesFromDatabase();
             currentState.set( PREPARATION );
@@ -485,6 +486,8 @@ public class TransferManagerImpl
         }
         case PREPARATION:
         {
+          Logger.getInstance().info(this, "PREP: Found " + getCurrentRecordCount() + " samples in db.");
+
           // prepare archive for transmission
           if ( doPrepareArchive() )
           {
@@ -494,6 +497,9 @@ public class TransferManagerImpl
         }
         case TRANSMISSION:
         {
+          Logger.getInstance().info(this, "TRANS: Found " + getCurrentRecordCount() + " samples in db.");
+
+          
           // transfer archive
           if ( doTransferArchive() )
           {
