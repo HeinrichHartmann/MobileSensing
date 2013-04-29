@@ -66,7 +66,7 @@ public class TransferManagerImpl
    * The time to wait at maximum for configuration changes if transfer fails due
    * to invalid settings
    */
-  private static final int WAIT_TIME_FOR_CONFIG_CHANGES = 300000;
+  private static final int WAIT_TIME_FOR_CONFIG_CHANGES = 30000;
   
   /**
    * The internal COLLECTING state of the transfer service
@@ -95,17 +95,17 @@ public class TransferManagerImpl
   /**
    * The internal lower limit of wait time in seconds
    */
-  public static final long MIN_FREQUENCY = 10L;
+  public static final long MIN_FREQUENCY = 5L;
   
   /**
    * The start delay after transfer manager is activated.
    */
-  public static final long INITIAL_DELAY = 30000;
+  public static final long INITIAL_DELAY = 1000;
   
   /**
    * The internal wake up time in case of lost connection ( milli seconds )
    */
-  private static final long CONNECTION_WAKE_UP_TIME = 360000;
+  private static final long CONNECTION_WAKE_UP_TIME = 30000;
   
   /**
    * The database adapter used for DB access
@@ -458,8 +458,6 @@ public class TransferManagerImpl
         }
         case COLLECTING:
         {
-          Logger.getInstance().info(this, "Found " + getCurrentRecordCount() + " samples in db.");
-
           // is there an old file to transmit from last run?
           if ( fileManager.hasArchive() )
           {
@@ -475,6 +473,10 @@ public class TransferManagerImpl
           if ( waitTime <= 0L )
           {
             // collect available samples
+            Logger.getInstance().info(this, "Preparation started.\n"+
+                "Preparing samples: " + gatheringController.getAvailableSampleCount() + "\n" +
+                "Remaining samples: " + (dbManager.getRecordCountInDatabase() - gatheringController.getAvailableSampleCount()) 
+            );
             doPickSamplesFromDatabase();
             currentState.set( PREPARATION );
           }
@@ -486,8 +488,6 @@ public class TransferManagerImpl
         }
         case PREPARATION:
         {
-          Logger.getInstance().info(this, "PREP: Found " + getCurrentRecordCount() + " samples in db.");
-
           // prepare archive for transmission
           if ( doPrepareArchive() )
           {
@@ -497,19 +497,19 @@ public class TransferManagerImpl
         }
         case TRANSMISSION:
         {
-          Logger.getInstance().info(this, "TRANS: Found " + getCurrentRecordCount() + " samples in db.");
-
-          
+          Logger.getInstance().info(this, "Transmission started. File size: " + FileUtils.fileFromPath( fileManager.getCurrentArchive() ).length() / 1024 + "kb");
           // transfer archive
           if ( doTransferArchive() )
           {
             // prepare next transfer cycle
             currentState.set( INIT );
+            Logger.getInstance().info(this, "Transmission ended successfully.");
           }
           else
           {
             doReactOnUploadError();
           }
+
           break;
         }
       }
@@ -554,8 +554,8 @@ public class TransferManagerImpl
          context ) )
     {
       // no Internet connection available
-      Logger.getInstance().warning( this,
-          "Upload failed! Waiting for available connection." );
+      // Logger.getInstance().warning( this, "Upload failed! Waiting for available connection." );
+      Logger.getInstance().warning( this, "Transmission ended with error. Waiting for available connection +" + CONNECTION_WAKE_UP_TIME / 1000 + "s.");
       
       // wait for connectivity
       try
@@ -585,7 +585,8 @@ public class TransferManagerImpl
     }
     else
     {
-      Logger.getInstance().warning( this, "Upload failed! Protocol error." );
+      //Logger.getInstance().warning( this, "Upload failed! Protocol error." );
+      Logger.getInstance().warning( this, "Transmission ended with error. No internet connection. Retry in " + WAIT_TIME_FOR_CONFIG_CHANGES / 1000 + "s.");
       
       // wait URL setting changed
       synchronized ( protocolWaitLock )
@@ -619,13 +620,13 @@ public class TransferManagerImpl
       {
         Long fileSize = FileUtils.fileFromPath( currentArchiveName ).length() / 1024;
         fileManager.doCleanUp( true );
-        Logger.getInstance().info(
-            this,
-            "Successful file ("
-                + FileUtils.fileNameFromPath( currentArchiveName )
-                + ", "
-                + fileSize
-                + "kb) transfer!" );
+//        Logger.getInstance().info(
+//            this,
+//            "Successful file ("
+//                + FileUtils.fileNameFromPath( currentArchiveName )
+//                + ", "
+//                + fileSize
+//                + "kb) transfer!" );
         return true;
       }
     }

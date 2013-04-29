@@ -219,8 +219,7 @@ public class SDCControlActivity extends AbstractServiceControlActivity
 		transferButton.setOnClickListener(new OnClickListener() {			
 			@Override
 			public void onClick(View v) {
-				startSampleTransfer();
-				updateButtons();
+				triggerSampleTransfer();
 			}
 		});
 		transferSpinner = (ProgressBar) findViewById(R.id.trasnferSpinner);
@@ -402,7 +401,7 @@ public class SDCControlActivity extends AbstractServiceControlActivity
 			stopRecording();
 
 			// Transfer samples
-			startSampleTransfer();
+			triggerSampleTransfer();
 			
 			updateButtons();
 		}
@@ -608,11 +607,15 @@ public class SDCControlActivity extends AbstractServiceControlActivity
 	private void handleLogEvent(LogEvent logEvent) {
 		TextView logView = getLogView();
 
-		logView.append(logEvent.getMessage());
+		String message = logEvent.getMessage();
+		logView.append(message);
 		logView.append("\n");
 
-		if(logEvent.getMessage().startsWith("TransferManagerImpl: Successful file") ||
-				logEvent.getMessage().startsWith("TransferManagerImpl: Upload failed!")){
+		if(message.startsWith("TransferManagerImpl: Preparation started") ||
+				message.startsWith("TransferManagerImpl: Transmission started")){
+			isTransferingData = true;			
+			updateButtons();
+		} else if (message.startsWith("TransferManagerImpl: Transmission ended")){
 			isTransferingData = false;
 			updateButtons();
 		}
@@ -774,11 +777,5 @@ public class SDCControlActivity extends AbstractServiceControlActivity
 		enableSampling(false);
 		isRecording.set(false);
 	}
-
-	private void startSampleTransfer(){
-		triggerSampleTransfer();
-		isTransferingData = true;
-	}
-
 	
 }
