@@ -36,7 +36,7 @@
 	<transferSamples>true</transferSamples>
 	<storeSamples>true</storeSamples>
 	<dbConfig>
-		<maxSize>10000</maxSize>
+		<maxSize>100000</maxSize>
 		<waitStrategyMillis>100</waitStrategyMillis>
 		<dbFullStrategy>wait_notify_stopservice</dbFullStrategy>
 		<delStrategyUsePrio>false</delStrategyUsePrio>

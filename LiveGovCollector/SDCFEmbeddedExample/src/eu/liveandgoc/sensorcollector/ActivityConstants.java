@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with the SDCFramework.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.example.sdcf.embedded;
+package eu.liveandgoc.sensorcollector;
 
 import android.app.Activity;
 import de.unikassel.android.sdcframework.app.facade.ISDCService;
@@ -40,7 +40,7 @@ public class ActivityConstants
   /**
    * The control activity class name
    */
-  public static final Class< ? extends Activity > controlActivityClass = SDCControlActivity.class;
+  public static final Class< ? extends Activity > controlActivityClass = ControlActivity.class;
   
   /**
    * The service action name

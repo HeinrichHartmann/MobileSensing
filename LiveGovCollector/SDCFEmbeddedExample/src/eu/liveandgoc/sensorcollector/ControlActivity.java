@@ -18,11 +18,11 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with the SDCFramework.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.example.sdcf.embedded;
+package eu.liveandgoc.sensorcollector;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import com.example.sdcf.embedded.R;
+import eu.liveandgov.sensorcollector.R;
 import de.unikassel.android.sdcframework.app.AbstractServiceControlActivity;
 import de.unikassel.android.sdcframework.app.SDCFileBrowserActivity;
 import de.unikassel.android.sdcframework.app.SDCServiceController;
@@ -79,7 +79,7 @@ import android.widget.ToggleButton;
  * @author Katy Hilgenberg, Heinrich Hartmann, Richard Schütz
  * 
  */
-public class SDCControlActivity extends AbstractServiceControlActivity
+public class ControlActivity extends AbstractServiceControlActivity
 		implements SDCServiceConnectionHolder.ServiceConnectionEventReceiver,
 		EventObserver<LogEvent> {
 	/**
@@ -140,7 +140,7 @@ public class SDCControlActivity extends AbstractServiceControlActivity
 	/**
 	 * Constructor
 	 */
-	public SDCControlActivity() {
+	public ControlActivity() {
 		super(ActivityConstants.serviceClass);
 		this.connectionHolder = new SDCServiceConnectionHolder(this,
 				ActivityConstants.serviceClass);
@@ -161,7 +161,7 @@ public class SDCControlActivity extends AbstractServiceControlActivity
 						handleLogEvent(event);
 					}
 				} catch (Exception e) {
-					Logger.getInstance().error(SDCControlActivity.this,
+					Logger.getInstance().error(ControlActivity.this,
 							"Exception in handleMessage");
 					e.printStackTrace();
 				}
@@ -190,7 +190,7 @@ public class SDCControlActivity extends AbstractServiceControlActivity
 			@Override
 			public void onClick(View v) {
 				setRunningFlag();
-				if (SDCControlActivity.this.isRunning) {
+				if (ControlActivity.this.isRunning) {
 					doStopService();
 				} else {
 					doStartService();
@@ -244,7 +244,7 @@ public class SDCControlActivity extends AbstractServiceControlActivity
 					@Override
 					public void onItemSelected(AdapterView<?> parent,
 							View view, int position, long id) {
-						if (SDCControlActivity.this.isRecording.get()) {
+						if (ControlActivity.this.isRecording.get()) {
 							String annotation = annodationDropDown
 									.getSelectedItem().toString();
 							sendAnnotationToSDCF("Activity: " + annotation);
