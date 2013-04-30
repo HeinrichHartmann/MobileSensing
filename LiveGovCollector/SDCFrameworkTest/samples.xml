@@ -1,0 +1,4569 @@
+<sampleCollection>
+   <samples class="java.util.Vector">
+      <sample id="Wifi" ts="1310541707002" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-87</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310541707002" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310541707002" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>a2:05:43:79:bc:19</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WPA2-PSK-CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310541766742" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310541766742" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310541766742" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310541766742" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:22:3f:7c:ea:34</bssid>
+            <ssid>Maruel</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2437</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310541766742" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-94</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310541826742" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310541826742" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310541826742" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:22:3f:7c:ea:34</bssid>
+            <ssid>Maruel</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2437</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310541826742" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-95</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310541886757" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-84</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310541886757" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:22:3f:7c:ea:34</bssid>
+            <ssid>Maruel</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2437</freq>
+            <sigLevel>-92</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310541886757" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310541946758" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-92</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310541946758" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310541946758" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542006765" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:1d:19:b9:26:f8</bssid>
+            <ssid>Arcor-B92606</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2452</freq>
+            <sigLevel>-96</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542066772" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-82</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542066772" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-87</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542066772" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-94</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542066772" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-94</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542126779" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-82</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542126779" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:1d:19:b9:26:f8</bssid>
+            <ssid>Arcor-B92606</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2452</freq>
+            <sigLevel>-95</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542186777" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-84</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542186777" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-90</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542186777" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:22:3f:7c:ea:34</bssid>
+            <ssid>Maruel</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2437</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542186777" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542186777" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-94</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542186777" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:04:0e:85:e7:9a</bssid>
+            <ssid>FRITZ!Box Fon WLAN 7170</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-95</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542186777" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:1d:19:b9:26:f8</bssid>
+            <ssid>Arcor-B92606</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2452</freq>
+            <sigLevel>-95</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542246785" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-84</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542246785" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-90</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542246785" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542246785" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:22:3f:7c:ea:34</bssid>
+            <ssid>Maruel</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2437</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542246785" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542246785" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:04:0e:85:e7:9a</bssid>
+            <ssid>FRITZ!Box Fon WLAN 7170</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-95</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542246785" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:19:cb:86:8a:c0</bssid>
+            <ssid>Bodel779</ssid>
+            <cap>[WEP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-95</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542306786" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-81</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542306786" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-90</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542306786" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:04:0e:85:e7:9a</bssid>
+            <ssid>FRITZ!Box Fon WLAN 7170</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542306786" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-94</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542306786" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:1d:19:b9:26:f8</bssid>
+            <ssid>Arcor-B92606</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2452</freq>
+            <sigLevel>-95</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542306786" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-96</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542306786" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:19:cb:86:8a:c0</bssid>
+            <ssid>Bodel779</ssid>
+            <cap>[WEP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-96</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542366797" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-81</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542366797" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-90</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542366797" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542366797" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:04:0e:85:e7:9a</bssid>
+            <ssid>FRITZ!Box Fon WLAN 7170</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542366797" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-96</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542366797" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:19:cb:86:8a:c0</bssid>
+            <ssid>Bodel779</ssid>
+            <cap>[WEP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-96</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542426807" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-83</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542426807" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542426807" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542486837" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-83</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542486837" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542486837" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-92</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542486837" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>a2:05:43:79:bc:19</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WPA2-PSK-CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-95</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542486837" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-95</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542546816" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-83</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542546816" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-92</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542546816" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-92</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542606818" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542606818" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542666828" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-83</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542666828" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:22:3f:7c:ea:34</bssid>
+            <ssid>Maruel</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2437</freq>
+            <sigLevel>-92</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542666828" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-92</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542666828" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542666828" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>a2:05:43:79:bc:19</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WPA2-PSK-CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-95</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542666828" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-95</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542666828" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:04:0e:85:e7:9a</bssid>
+            <ssid>FRITZ!Box Fon WLAN 7170</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-96</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542666828" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:1d:19:b9:26:f8</bssid>
+            <ssid>Arcor-B92606</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2452</freq>
+            <sigLevel>-97</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542726839" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-83</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542726839" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542726839" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-95</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542726839" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>a2:05:43:79:bc:19</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WPA2-PSK-CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-96</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542726839" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:1d:19:b9:26:f8</bssid>
+            <ssid>Arcor-B92606</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2452</freq>
+            <sigLevel>-97</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542786828" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-82</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542786828" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542786828" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542786828" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:04:0e:85:e7:9a</bssid>
+            <ssid>FRITZ!Box Fon WLAN 7170</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-95</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542786828" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>a2:05:43:79:bc:19</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WPA2-PSK-CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-96</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542846840" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-83</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542846840" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542846840" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-92</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542846840" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542846840" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>a2:05:43:79:bc:19</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WPA2-PSK-CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-94</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542846840" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:1d:19:b9:26:f8</bssid>
+            <ssid>Arcor-B92606</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2452</freq>
+            <sigLevel>-95</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542906838" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-83</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542906838" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542906838" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-92</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542906838" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>a2:05:43:79:bc:19</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WPA2-PSK-CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-94</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542906838" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:1d:19:b9:26:f8</bssid>
+            <ssid>Arcor-B92606</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2452</freq>
+            <sigLevel>-95</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542966836" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-83</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542966836" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542966836" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310542966836" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-98</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543026840" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-81</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543026840" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-90</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543026840" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-92</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543026840" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543026840" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>a2:05:43:79:bc:19</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WPA2-PSK-CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543026840" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:1d:19:b9:26:f8</bssid>
+            <ssid>Arcor-B92606</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2452</freq>
+            <sigLevel>-96</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543086848" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-82</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543086848" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-89</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543086848" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:1d:19:b9:26:f8</bssid>
+            <ssid>Arcor-B92606</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2452</freq>
+            <sigLevel>-92</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543086848" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543146858" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-81</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543146858" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-90</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543146858" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543146858" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543206858" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-81</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543206858" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543206858" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:1d:19:b9:26:f8</bssid>
+            <ssid>Arcor-B92606</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2452</freq>
+            <sigLevel>-92</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543206858" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:04:0e:85:e7:9a</bssid>
+            <ssid>FRITZ!Box Fon WLAN 7170</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543266858" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-81</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543266858" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-90</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543266858" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-94</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543326862" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-82</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543326862" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-87</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543326862" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-88</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543326862" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-90</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543326862" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:04:0e:85:e7:9a</bssid>
+            <ssid>FRITZ!Box Fon WLAN 7170</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-94</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543326862" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:1d:19:b9:26:f8</bssid>
+            <ssid>Arcor-B92606</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2452</freq>
+            <sigLevel>-96</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543386878" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-82</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543386878" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-86</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543386878" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-88</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543386878" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543386878" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:22:3f:7c:ea:34</bssid>
+            <ssid>Maruel</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-92</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543386878" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:04:0e:85:e7:9a</bssid>
+            <ssid>FRITZ!Box Fon WLAN 7170</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543386878" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:1d:19:b9:26:f8</bssid>
+            <ssid>Arcor-B92606</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2452</freq>
+            <sigLevel>-95</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543446878" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-80</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543446878" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-86</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543446878" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-88</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543446878" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:22:3f:7c:ea:34</bssid>
+            <ssid>Maruel</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-92</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543446878" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-92</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543446878" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:04:0e:85:e7:9a</bssid>
+            <ssid>FRITZ!Box Fon WLAN 7170</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-92</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543446878" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:1a:2a:12:53:a6</bssid>
+            <ssid>uheidie</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2437</freq>
+            <sigLevel>-94</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543446878" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:1d:19:b9:26:f8</bssid>
+            <ssid>Arcor-B92606</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2452</freq>
+            <sigLevel>-95</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543506878" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-82</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543506878" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-87</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543506878" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-88</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543506878" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:22:3f:7d:8b:28</bssid>
+            <ssid>JoLiP</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2437</freq>
+            <sigLevel>-89</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543506878" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543506878" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:1d:19:b9:26:f8</bssid>
+            <ssid>Arcor-B92606</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2452</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543506878" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:1a:2a:12:53:a6</bssid>
+            <ssid>uheidie</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2437</freq>
+            <sigLevel>-94</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543566888" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-82</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543566888" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-86</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543566888" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-87</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543566888" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:22:3f:7d:8b:28</bssid>
+            <ssid>JoLiP</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2437</freq>
+            <sigLevel>-90</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543566888" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-90</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543566888" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:22:3f:7c:ea:34</bssid>
+            <ssid>Maruel</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-92</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543566888" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>a2:05:43:79:bc:19</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WPA2-PSK-CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-92</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543566888" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:1d:19:b9:26:f8</bssid>
+            <ssid>Arcor-B92606</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2452</freq>
+            <sigLevel>-94</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543626888" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-77</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543626888" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-87</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543626888" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:22:3f:7d:8b:28</bssid>
+            <ssid>JoLiP</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2437</freq>
+            <sigLevel>-90</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543626888" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543626888" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-92</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543626888" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:22:3f:7c:ea:34</bssid>
+            <ssid>Maruel</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-92</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543626888" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>a2:05:43:79:bc:19</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WPA2-PSK-CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-92</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543626888" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:1a:2a:12:53:a6</bssid>
+            <ssid>uheidie</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2437</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543626888" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:1d:19:b9:26:f8</bssid>
+            <ssid>Arcor-B92606</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2452</freq>
+            <sigLevel>-94</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543686891" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-78</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543686891" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-89</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543686891" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:22:3f:7c:ea:34</bssid>
+            <ssid>Maruel</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543686891" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-92</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543686891" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-92</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543746898" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-77</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543746898" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-89</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543746898" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:22:3f:7d:8b:28</bssid>
+            <ssid>JoLiP</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2437</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543746898" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:22:3f:7c:ea:34</bssid>
+            <ssid>Maruel</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543746898" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543746898" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543746898" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>a2:05:43:79:bc:19</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WPA2-PSK-CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-96</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543806908" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-77</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543806908" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-89</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543806908" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:22:3f:7c:ea:34</bssid>
+            <ssid>Maruel</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543806908" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:22:3f:7d:8b:28</bssid>
+            <ssid>JoLiP</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2437</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543806908" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-92</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543806908" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543806908" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>a2:05:43:79:bc:19</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WPA2-PSK-CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-96</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543866908" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-77</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543866908" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-89</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543866908" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:22:3f:7c:ea:34</bssid>
+            <ssid>Maruel</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-90</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543866908" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543866908" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543866908" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:22:3f:7d:8b:28</bssid>
+            <ssid>JoLiP</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2437</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543866908" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>a2:05:43:79:bc:19</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WPA2-PSK-CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-96</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543926908" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-89</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543926908" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-89</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543926908" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:22:3f:7c:ea:34</bssid>
+            <ssid>Maruel</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-90</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543926908" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-92</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543986918" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-89</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543986918" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-92</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543986918" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:04:0e:85:e7:9a</bssid>
+            <ssid>FRITZ!Box Fon WLAN 7170</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-94</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310543986918" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:1d:19:b9:26:f8</bssid>
+            <ssid>Arcor-B92606</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2452</freq>
+            <sigLevel>-95</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544046918" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-78</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544046918" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-89</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544046918" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544046918" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-92</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544046918" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:19:cb:86:8a:c0</bssid>
+            <ssid>Bodel779</ssid>
+            <cap>[WEP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-94</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544046918" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:1d:19:b9:26:f8</bssid>
+            <ssid>Arcor-B92606</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2452</freq>
+            <sigLevel>-95</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544106928" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-87</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544106928" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-87</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544106928" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:22:3f:7c:ea:34</bssid>
+            <ssid>Maruel</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-90</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544106928" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:1a:2a:12:53:a6</bssid>
+            <ssid>uheidie</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2437</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544106928" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-95</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544166926" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-84</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544166926" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-87</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544166926" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-88</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544166926" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-90</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544166926" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:22:3f:7c:ea:34</bssid>
+            <ssid>Maruel</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-90</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544166926" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:1a:2a:12:53:a6</bssid>
+            <ssid>uheidie</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2437</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544166926" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:22:3f:7d:8b:28</bssid>
+            <ssid>JoLiP</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2437</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544226932" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-84</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544226932" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-87</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544226932" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:22:3f:7c:ea:34</bssid>
+            <ssid>Maruel</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-90</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544226932" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:19:cb:86:8a:c0</bssid>
+            <ssid>Bodel779</ssid>
+            <cap>[WEP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544226932" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-94</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544286939" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-85</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544286939" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-87</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544286939" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544286939" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:19:cb:86:8a:c0</bssid>
+            <ssid>Bodel779</ssid>
+            <cap>[WEP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544346948" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-82</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544346948" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-86</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544346948" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:24:fe:ad:2e:f8</bssid>
+            <ssid>wanlan</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2417</freq>
+            <sigLevel>-87</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544346948" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544406948" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-83</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544406948" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-90</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544406948" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:04:0e:85:e7:9a</bssid>
+            <ssid>FRITZ!Box Fon WLAN 7170</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-96</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544466958" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-84</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544466958" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-90</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544466958" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-90</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544466958" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:22:3f:7d:8b:28</bssid>
+            <ssid>JoLiP</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2437</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544466958" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:22:3f:7c:ea:34</bssid>
+            <ssid>Maruel</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2437</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544466958" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:04:0e:85:e7:9a</bssid>
+            <ssid>FRITZ!Box Fon WLAN 7170</ssid>
+            <cap>[WPA-PSK-TKIP][WPA2-PSK-CCMP]</cap>
+            <freq>2412</freq>
+            <sigLevel>-96</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544526958" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:23:08:7e:24:57</bssid>
+            <ssid>EasyBox-7E2403</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP-preauth]</cap>
+            <freq>2412</freq>
+            <sigLevel>-84</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544526958" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:ab:ac:56</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WEP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-91</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544526958" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>1c:bd:b9:a9:f0:4a</bssid>
+            <ssid>Home</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-92</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544526958" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:22:3f:7d:8b:28</bssid>
+            <ssid>JoLiP</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2437</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544526958" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>00:22:3f:7c:ea:34</bssid>
+            <ssid>Maruel</ssid>
+            <cap>[WPA-PSK-TKIP+CCMP][WPA2-PSK-TKIP+CCMP]</cap>
+            <freq>2437</freq>
+            <sigLevel>-93</sigLevel>
+         </data>
+      </sample>
+      <sample id="Wifi" ts="1310544526958" prio="1">
+         <data class="de.unikassel.android.sdcframework.data.independent.WifiSampleData">
+            <bssid>a2:05:43:79:bc:19</bssid>
+            <ssid>dlink</ssid>
+            <cap>[WPA2-PSK-CCMP]</cap>
+            <freq>2462</freq>
+            <sigLevel>-94</sigLevel>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310541706905" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>768.0</accuracy>
+            <alt>200.0</alt>
+            <lat>51.3175892829895</lat>
+            <lon>9.468176364898682</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310541716846" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.32688835</accX>
+            <accY>0.84446156</accY>
+            <accZ>9.820271</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310541726846" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.3405087</accX>
+            <accY>0.8308412</accY>
+            <accZ>9.80665</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310541736846" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.3405087</accX>
+            <accY>5.1893525</accY>
+            <accZ>8.512717</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310541746846" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.313268</accX>
+            <accY>0.3949901</accY>
+            <accZ>9.874752</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310541756846" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.313268</accX>
+            <accY>0.38136974</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310541766846" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.095342435</accX>
+            <accY>6.810174</accY>
+            <accZ>7.3549876</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310541766905" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>512.0</accuracy>
+            <alt>269.0</alt>
+            <lat>51.3170850276947</lat>
+            <lon>9.469351172447205</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310541776882" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.32688835</accX>
+            <accY>7.409469</accY>
+            <accZ>6.851035</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310541786949" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.32688835</accX>
+            <accY>7.1915436</accY>
+            <accZ>7.082581</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310541796950" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>0.12258313</accX>
+            <accY>7.0689607</accY>
+            <accZ>6.905516</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310541806950" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.21792556</accX>
+            <accY>6.810174</accY>
+            <accZ>7.572913</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310541816953" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.32688835</accX>
+            <accY>0.8580819</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310541826916" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>384.0</accuracy>
+            <alt>260.0</alt>
+            <lat>51.31712257862091</lat>
+            <lon>9.469329714775085</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310541826956" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.32688835</accX>
+            <accY>0.84446156</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310541836957" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.3405087</accX>
+            <accY>0.87170225</accY>
+            <accZ>9.861132</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310541846957" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.3405087</accX>
+            <accY>0.81722087</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310541856957" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.3405087</accX>
+            <accY>0.84446156</accY>
+            <accZ>9.901993</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310541866957" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.3405087</accX>
+            <accY>0.84446156</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310541876958" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.3405087</accX>
+            <accY>0.81722087</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310541886910" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>768.0</accuracy>
+            <alt>260.0</alt>
+            <lat>51.31712257862091</lat>
+            <lon>9.469329714775085</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310541886958" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.3405087</accX>
+            <accY>0.84446156</accY>
+            <accZ>9.901993</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310541896959" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.3405087</accX>
+            <accY>0.87170225</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310541906960" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.3405087</accX>
+            <accY>0.84446156</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310541916961" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.3405087</accX>
+            <accY>0.84446156</accY>
+            <accZ>9.901993</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310541926961" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.3405087</accX>
+            <accY>0.84446156</accY>
+            <accZ>9.901993</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310541936961" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.3405087</accX>
+            <accY>0.81722087</accY>
+            <accZ>9.79303</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310541946911" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>1024.0</accuracy>
+            <alt>260.0</alt>
+            <lat>51.31712257862091</lat>
+            <lon>9.469329714775085</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310541946966" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.3405087</accX>
+            <accY>5.7886477</accY>
+            <accZ>8.19945</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310541956961" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.32688835</accX>
+            <accY>0.3677494</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310541966962" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.2860273</accX>
+            <accY>0.38136974</accY>
+            <accZ>9.80665</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310541976962" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.50395286</accX>
+            <accY>1.4165162</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310541986964" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.51757324</accX>
+            <accY>1.3211738</accY>
+            <accZ>9.752169</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310541996963" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.42223078</accX>
+            <accY>1.4165162</accY>
+            <accZ>9.79303</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310542006911" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>1024.0</accuracy>
+            <alt>260.0</alt>
+            <lat>51.31712257862091</lat>
+            <lon>9.469335079193115</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542006964" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.51757324</accX>
+            <accY>1.3756552</accY>
+            <accZ>9.738548</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542016965" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.40861043</accX>
+            <accY>1.4437568</accY>
+            <accZ>9.752169</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542026965" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.50395286</accX>
+            <accY>1.4301366</accY>
+            <accZ>9.80665</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542036966" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.44947147</accX>
+            <accY>1.4573772</accY>
+            <accZ>9.79303</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542046966" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.40861043</accX>
+            <accY>1.4573772</accY>
+            <accZ>9.697687</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542056966" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.44947147</accX>
+            <accY>1.3211738</accY>
+            <accZ>9.80665</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310542067176" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>1024.0</accuracy>
+            <alt>261.0</alt>
+            <lat>51.31712257862091</lat>
+            <lon>9.469335079193115</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542067177" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-6.183638</accX>
+            <accY>3.4323275</accY>
+            <accZ>1.9340894</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542077178" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.626536</accX>
+            <accY>4.576437</accY>
+            <accZ>8.812365</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542087179" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-1.3075534</accX>
+            <accY>4.2495484</accY>
+            <accZ>9.071152</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542097201" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.9670447</accX>
+            <accY>4.5628166</accY>
+            <accZ>8.539958</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542107197" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>0.23154591</accX>
+            <accY>2.2064962</accY>
+            <accZ>9.534244</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542117197" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>0.10896278</accX>
+            <accY>2.1792557</accY>
+            <accZ>9.697687</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310542127167" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>1536.0</accuracy>
+            <alt>246.0</alt>
+            <lat>51.31770730018616</lat>
+            <lon>9.46671724319458</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542127198" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>0.16344418</accX>
+            <accY>2.152015</accY>
+            <accZ>9.629586</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542137199" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>0.23154591</accX>
+            <accY>2.1656353</accY>
+            <accZ>9.643207</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542147200" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>0.16344418</accX>
+            <accY>2.233737</accY>
+            <accZ>9.697687</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542157200" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>0.16344418</accX>
+            <accY>2.233737</accY>
+            <accZ>9.684067</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542167200" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>0.16344418</accX>
+            <accY>2.1656353</accY>
+            <accZ>9.670447</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542177200" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>0.14982383</accX>
+            <accY>2.233737</accY>
+            <accZ>9.684067</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310542187168" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>1536.0</accuracy>
+            <alt>246.0</alt>
+            <lat>51.31770730018616</lat>
+            <lon>9.46671724319458</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542187200" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>0.32688835</accX>
+            <accY>2.1792557</accY>
+            <accZ>9.697687</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542197200" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>0.16344418</accX>
+            <accY>2.2064962</accY>
+            <accZ>9.643207</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542207200" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>0.23154591</accX>
+            <accY>2.1792557</accY>
+            <accZ>9.684067</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542217201" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>0.14982383</accX>
+            <accY>2.2473574</accY>
+            <accZ>9.684067</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542227201" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>0.21792556</accX>
+            <accY>2.1792557</accY>
+            <accZ>9.684067</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542237202" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>0.2860273</accX>
+            <accY>2.1656353</accY>
+            <accZ>9.670447</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310542247169" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>1536.0</accuracy>
+            <alt>245.0</alt>
+            <lat>51.31758391857147</lat>
+            <lon>9.467119574546814</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542247202" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>0.23154591</accX>
+            <accY>2.152015</accY>
+            <accZ>9.629586</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542257203" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>0.14982383</accX>
+            <accY>2.1383946</accY>
+            <accZ>9.615966</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542267203" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>0.21792556</accX>
+            <accY>2.1656353</accY>
+            <accZ>9.656827</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542277204" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>0.23154591</accX>
+            <accY>2.152015</accY>
+            <accZ>9.643207</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542287205" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>0.2860273</accX>
+            <accY>2.233737</accY>
+            <accZ>9.697687</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542297205" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>0.23154591</accX>
+            <accY>2.1792557</accY>
+            <accZ>9.684067</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310542307170" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>2048.0</accuracy>
+            <alt>245.0</alt>
+            <lat>51.317481994628906</lat>
+            <lon>9.467044472694397</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542307206" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>0.23154591</accX>
+            <accY>2.1792557</accY>
+            <accZ>9.684067</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542317208" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>0.2860273</accX>
+            <accY>2.1656353</accY>
+            <accZ>9.643207</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542327208" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>0.3405087</accX>
+            <accY>2.152015</accY>
+            <accZ>9.643207</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542337769" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.6810174</accX>
+            <accY>6.8782754</accY>
+            <accZ>7.246025</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542347769" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.44947147</accX>
+            <accY>7.137062</accY>
+            <accZ>6.973618</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542357770" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.50395286</accX>
+            <accY>6.4015636</accY>
+            <accZ>7.749978</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310542367214" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>128.0</accuracy>
+            <alt>257.0</alt>
+            <lat>51.31706357002258</lat>
+            <lon>9.469174146652222</lon>
+            <speed>0.0</speed>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542367770" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.6401563</accX>
+            <accY>7.04172</accY>
+            <accZ>7.177923</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542377770" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.3405087</accX>
+            <accY>1.0487667</accY>
+            <accZ>9.79303</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542387770" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.3949901</accX>
+            <accY>1.0351465</accY>
+            <accZ>9.738548</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542397771" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.43585113</accX>
+            <accY>0.9942854</accY>
+            <accZ>9.79303</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542407771" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.3949901</accX>
+            <accY>1.0760075</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542417771" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.44947147</accX>
+            <accY>1.0487667</accY>
+            <accZ>9.79303</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310542427209" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>128.0</accuracy>
+            <alt>257.0</alt>
+            <lat>51.31706357002258</lat>
+            <lon>9.469174146652222</lon>
+            <speed>0.0</speed>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542427771" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.50395286</accX>
+            <accY>1.0487667</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542437771" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.44947147</accX>
+            <accY>1.0487667</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542447771" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.44947147</accX>
+            <accY>1.0487667</accY>
+            <accZ>9.738548</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542457772" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.3405087</accX>
+            <accY>0.9670447</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542467772" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.3949901</accX>
+            <accY>1.0623871</accY>
+            <accZ>9.901993</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542477772" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.3949901</accX>
+            <accY>1.0215261</accY>
+            <accZ>9.901993</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310542487210" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>1536.0</accuracy>
+            <alt>255.0</alt>
+            <lat>51.3168865442276</lat>
+            <lon>9.469141960144043</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542487772" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.3949901</accX>
+            <accY>1.0487667</accY>
+            <accZ>9.738548</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542497773" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.46309182</accX>
+            <accY>1.0623871</accY>
+            <accZ>9.901993</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542507773" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.46309182</accX>
+            <accY>1.0487667</accY>
+            <accZ>9.79303</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542517773" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.40861043</accX>
+            <accY>1.0351465</accY>
+            <accZ>9.79303</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542527773" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.46309182</accX>
+            <accY>1.0487667</accY>
+            <accZ>9.901993</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542537774" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.46309182</accX>
+            <accY>1.0351465</accY>
+            <accZ>9.80665</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310542547211" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>3072.0</accuracy>
+            <alt>256.0</alt>
+            <lat>51.31689190864563</lat>
+            <lon>9.469131231307983</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542547774" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.46309182</accX>
+            <accY>1.0351465</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542557775" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.51757324</accX>
+            <accY>1.0487667</accY>
+            <accZ>9.901993</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542567776" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.46309182</accX>
+            <accY>1.0623871</accY>
+            <accZ>9.901993</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542577776" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.46309182</accX>
+            <accY>1.0623871</accY>
+            <accZ>9.79303</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542587776" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.46309182</accX>
+            <accY>1.0623871</accY>
+            <accZ>9.79303</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542597776" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.58567494</accX>
+            <accY>1.0623871</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310542607211" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>1536.0</accuracy>
+            <alt>255.0</alt>
+            <lat>51.31689190864563</lat>
+            <lon>9.469136595726013</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542607778" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.46309182</accX>
+            <accY>1.0351465</accY>
+            <accZ>9.79303</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542617778" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.58567494</accX>
+            <accY>1.0351465</accY>
+            <accZ>9.80665</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542627778" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.51757324</accX>
+            <accY>1.0623871</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542637779" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.35412905</accX>
+            <accY>1.0623871</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542647780" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.40861043</accX>
+            <accY>1.0351465</accY>
+            <accZ>9.861132</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542657780" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.46309182</accX>
+            <accY>1.0351465</accY>
+            <accZ>9.738548</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310542667216" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>1024.0</accuracy>
+            <alt>255.0</alt>
+            <lat>51.31689190864563</lat>
+            <lon>9.469141960144043</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542667781" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.40861043</accX>
+            <accY>1.0760075</accY>
+            <accZ>9.901993</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542677781" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.46309182</accX>
+            <accY>1.0351465</accY>
+            <accZ>9.861132</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542687781" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.46309182</accX>
+            <accY>0.9942854</accY>
+            <accZ>9.901993</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542697781" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.40861043</accX>
+            <accY>1.0487667</accY>
+            <accZ>9.861132</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542707781" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.51757324</accX>
+            <accY>1.0623871</accY>
+            <accZ>9.901993</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542717781" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.35412905</accX>
+            <accY>1.0623871</accY>
+            <accZ>9.915613</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310542727212" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>1024.0</accuracy>
+            <alt>255.0</alt>
+            <lat>51.31689727306366</lat>
+            <lon>9.469147324562073</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542727838" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.51757324</accX>
+            <accY>1.0623871</accY>
+            <accZ>9.79303</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542737836" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.3677494</accX>
+            <accY>0.9942854</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542747836" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.40861043</accX>
+            <accY>1.0623871</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542757836" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.46309182</accX>
+            <accY>1.0623871</accY>
+            <accZ>9.861132</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542767836" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.51757324</accX>
+            <accY>0.9942854</accY>
+            <accZ>9.80665</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542777837" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.46309182</accX>
+            <accY>1.0623871</accY>
+            <accZ>9.901993</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310542787213" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>768.0</accuracy>
+            <alt>257.0</alt>
+            <lat>51.31691873073578</lat>
+            <lon>9.469163417816162</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542787838" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.46309182</accX>
+            <accY>1.0623871</accY>
+            <accZ>9.738548</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542797838" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.51757324</accX>
+            <accY>1.0487667</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542807838" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.46309182</accX>
+            <accY>1.0351465</accY>
+            <accZ>9.79303</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542817838" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.40861043</accX>
+            <accY>1.0623871</accY>
+            <accZ>9.861132</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542827838" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.40861043</accX>
+            <accY>1.0351465</accY>
+            <accZ>9.861132</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542837839" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.40861043</accX>
+            <accY>1.0351465</accY>
+            <accZ>9.79303</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310542847213" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>1024.0</accuracy>
+            <alt>259.0</alt>
+            <lat>51.317004561424255</lat>
+            <lon>9.469254612922668</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542847839" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.46309182</accX>
+            <accY>0.939804</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542857840" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.46309182</accX>
+            <accY>1.0351465</accY>
+            <accZ>9.80665</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542867840" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.58567494</accX>
+            <accY>1.0623871</accY>
+            <accZ>9.901993</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542877841" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.40861043</accX>
+            <accY>1.0623871</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542887842" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.35412905</accX>
+            <accY>1.0351465</accY>
+            <accZ>9.79303</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542897843" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.42223078</accX>
+            <accY>1.0487667</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310542907214" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>1536.0</accuracy>
+            <alt>260.0</alt>
+            <lat>51.317036747932434</lat>
+            <lon>9.469292163848877</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542907843" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.40861043</accX>
+            <accY>0.9942854</accY>
+            <accZ>9.901993</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542917843" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.095342435</accX>
+            <accY>1.1168685</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542927843" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.095342435</accX>
+            <accY>1.2122109</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542937844" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.095342435</accX>
+            <accY>1.1577295</accY>
+            <accZ>9.79303</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542947844" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.095342435</accX>
+            <accY>1.2122109</accY>
+            <accZ>9.738548</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542957844" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>0.9942854</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310542967215" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>1536.0</accuracy>
+            <alt>258.0</alt>
+            <lat>51.31711721420288</lat>
+            <lon>9.469678401947021</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542967844" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.44947147</accX>
+            <accY>0.9942854</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542977844" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>0.95342433</accY>
+            <accZ>9.901993</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542987844" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>1.0487667</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310542997845" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.3405087</accX>
+            <accY>0.88532263</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543007846" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.3949901</accX>
+            <accY>0.81722087</accY>
+            <accZ>9.80665</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543017846" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.3949901</accX>
+            <accY>0.8580819</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310543027215" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>1536.0</accuracy>
+            <alt>258.0</alt>
+            <lat>51.31711721420288</lat>
+            <lon>9.469678401947021</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543027846" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.3405087</accX>
+            <accY>0.8308412</accY>
+            <accZ>9.79303</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543037846" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.3949901</accX>
+            <accY>0.9125633</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543047847" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-1.1849703</accX>
+            <accY>-0.14982383</accY>
+            <accZ>10.2152605</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543057848" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.46309182</accX>
+            <accY>0.980665</accY>
+            <accZ>9.874752</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543067848" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.50395286</accX>
+            <accY>0.9125633</accY>
+            <accZ>9.901993</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543077848" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.3949901</accX>
+            <accY>0.939804</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310543087216" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>1536.0</accuracy>
+            <alt>255.0</alt>
+            <lat>51.31717622280121</lat>
+            <lon>9.469056129455566</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543087849" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.44947147</accX>
+            <accY>0.939804</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543097848" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.44947147</accX>
+            <accY>0.92618364</accY>
+            <accZ>9.80665</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543107849" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.50395286</accX>
+            <accY>0.9942854</accY>
+            <accZ>9.738548</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543117849" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.50395286</accX>
+            <accY>0.88532263</accY>
+            <accZ>9.79303</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543127849" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.3949901</accX>
+            <accY>0.9125633</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543137850" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.40861043</accX>
+            <accY>0.95342433</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310543147218" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>1536.0</accuracy>
+            <alt>252.0</alt>
+            <lat>51.31731033325195</lat>
+            <lon>9.468412399291992</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543147850" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.50395286</accX>
+            <accY>1.0351465</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543157850" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.50395286</accX>
+            <accY>0.9942854</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543167851" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.50395286</accX>
+            <accY>1.0623871</accY>
+            <accZ>9.779409</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543177851" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.44947147</accX>
+            <accY>0.9125633</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543187851" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.44947147</accX>
+            <accY>0.980665</accY>
+            <accZ>9.901993</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543197851" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.44947147</accX>
+            <accY>0.87170225</accY>
+            <accZ>9.80665</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310543207218" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>2048.0</accuracy>
+            <alt>251.0</alt>
+            <lat>51.31733179092407</lat>
+            <lon>9.468283653259277</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543207851" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.44947147</accX>
+            <accY>1.0079057</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543217851" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.44947147</accX>
+            <accY>0.9942854</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543227851" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.3949901</accX>
+            <accY>0.980665</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543237852" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.44947147</accX>
+            <accY>0.88532263</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543247853" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.50395286</accX>
+            <accY>0.9670447</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543257853" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.6810174</accX>
+            <accY>8.444615</accY>
+            <accZ>1.1985906</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310543267219" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>384.0</accuracy>
+            <alt>237.0</alt>
+            <lat>51.31718158721924</lat>
+            <lon>9.46946382522583</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543267853" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>1.334794</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543277854" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>1.3075534</accY>
+            <accZ>9.79303</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543287854" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.626536</accX>
+            <accY>1.3075534</accY>
+            <accZ>9.738548</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543297855" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>1.334794</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543307856" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>1.334794</accY>
+            <accZ>9.779409</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543317856" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>1.334794</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310543327221" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>384.0</accuracy>
+            <alt>237.0</alt>
+            <lat>51.31718158721924</lat>
+            <lon>9.46946382522583</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543327856" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.626536</accX>
+            <accY>1.3075534</accY>
+            <accZ>9.684067</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543337857" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>1.3075534</accY>
+            <accZ>9.738548</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543347859" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>1.334794</accY>
+            <accZ>9.779409</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543357859" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>1.3075534</accY>
+            <accZ>9.79303</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543367860" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>1.334794</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543377860" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>1.3075534</accY>
+            <accZ>9.79303</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310543387221" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>512.0</accuracy>
+            <alt>244.0</alt>
+            <lat>51.31716549396515</lat>
+            <lon>9.46947455406189</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543387860" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>1.334794</accY>
+            <accZ>9.779409</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543397860" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.626536</accX>
+            <accY>1.3075534</accY>
+            <accZ>9.79303</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543407860" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.626536</accX>
+            <accY>1.3075534</accY>
+            <accZ>9.79303</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543417861" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.626536</accX>
+            <accY>1.334794</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543427861" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>1.334794</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543437862" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>1.3075534</accY>
+            <accZ>9.79303</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310543447221" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>512.0</accuracy>
+            <alt>247.0</alt>
+            <lat>51.317138671875</lat>
+            <lon>9.46946382522583</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543447862" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>1.334794</accY>
+            <accZ>9.724928</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543457863" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>1.3075534</accY>
+            <accZ>9.79303</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543467863" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>1.3075534</accY>
+            <accZ>9.738548</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543477863" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>1.3075534</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543487864" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>1.3075534</accY>
+            <accZ>9.684067</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543497864" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.626536</accX>
+            <accY>1.334794</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310543507222" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>768.0</accuracy>
+            <alt>248.0</alt>
+            <lat>51.31713330745697</lat>
+            <lon>9.46946382522583</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543507865" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.626536</accX>
+            <accY>1.334794</accY>
+            <accZ>9.779409</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543517866" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>1.3075534</accY>
+            <accZ>9.79303</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543527867" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>1.334794</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543537868" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.626536</accX>
+            <accY>1.3075534</accY>
+            <accZ>9.79303</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543547868" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>1.334794</accY>
+            <accZ>9.79303</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543557869" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>1.3484144</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310543567223" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>768.0</accuracy>
+            <alt>248.0</alt>
+            <lat>51.31713330745697</lat>
+            <lon>9.46946382522583</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543567869" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>1.2803127</accY>
+            <accZ>9.80665</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543577869" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>1.3211738</accY>
+            <accZ>9.820271</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543587870" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.55843425</accX>
+            <accY>1.3211738</accY>
+            <accZ>9.779409</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543597870" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.55843425</accX>
+            <accY>1.3211738</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543607871" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.626536</accX>
+            <accY>1.2803127</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543617873" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>0.05448139</accX>
+            <accY>3.0373375</accY>
+            <accZ>9.180115</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310543627223" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>512.0</accuracy>
+            <alt>246.0</alt>
+            <lat>51.31720304489136</lat>
+            <lon>9.46946918964386</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543627873" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.58567494</accX>
+            <accY>0.81722087</accY>
+            <accZ>9.901993</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543637874" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.58567494</accX>
+            <accY>0.87170225</accY>
+            <accZ>9.901993</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543647874" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.58567494</accX>
+            <accY>0.8036005</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543657874" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>0.7354988</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543667875" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>0.81722087</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543677876" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>0.7899802</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310543687223" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>192.0</accuracy>
+            <alt>254.0</alt>
+            <lat>51.31718695163727</lat>
+            <lon>9.469377994537354</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543687876" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>0.87170225</accY>
+            <accZ>9.901993</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543697877" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>0.8580819</accY>
+            <accZ>9.861132</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543707878" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.54481393</accX>
+            <accY>0.87170225</accY>
+            <accZ>9.929234</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543717879" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>0.88532263</accY>
+            <accZ>9.901993</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543727879" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>0.81722087</accY>
+            <accZ>9.901993</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543737879" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>0.87170225</accY>
+            <accZ>9.901993</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310543747279" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>384.0</accuracy>
+            <alt>255.0</alt>
+            <lat>51.31718158721924</lat>
+            <lon>9.469361901283264</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543747879" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.5720546</accX>
+            <accY>0.7218784</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543757880" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.53119355</accX>
+            <accY>0.87170225</accY>
+            <accZ>9.929234</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543767881" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.53119355</accX>
+            <accY>0.87170225</accY>
+            <accZ>9.929234</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543777882" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.51757324</accX>
+            <accY>0.6537767</accY>
+            <accZ>9.874752</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543787883" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.50395286</accX>
+            <accY>0.8308412</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543797884" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.51757324</accX>
+            <accY>0.7627395</accY>
+            <accZ>9.874752</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310543807278" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>768.0</accuracy>
+            <alt>255.0</alt>
+            <lat>51.31717622280121</lat>
+            <lon>9.469356536865234</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543807885" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.50395286</accX>
+            <accY>0.8308412</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543817886" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.50395286</accX>
+            <accY>0.8308412</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543827888" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.50395286</accX>
+            <accY>0.7627395</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543837888" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.51757324</accX>
+            <accY>0.8580819</accY>
+            <accZ>9.942854</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543847888" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.51757324</accX>
+            <accY>0.8580819</accY>
+            <accZ>9.942854</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543857889" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.51757324</accX>
+            <accY>0.8580819</accY>
+            <accZ>9.942854</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310543867279" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>1024.0</accuracy>
+            <alt>254.0</alt>
+            <lat>51.31718158721924</lat>
+            <lon>9.469367265701294</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543867889" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.51757324</accX>
+            <accY>0.87170225</accY>
+            <accZ>9.874752</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543877889" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.55843425</accX>
+            <accY>0.8308412</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543887889" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.51757324</accX>
+            <accY>0.8036005</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543897889" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.51757324</accX>
+            <accY>0.8036005</accY>
+            <accZ>9.929234</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543907889" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.51757324</accX>
+            <accY>0.8036005</accY>
+            <accZ>9.929234</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543917889" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.51757324</accX>
+            <accY>0.7354988</accY>
+            <accZ>9.942854</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310543927280" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>1024.0</accuracy>
+            <alt>255.0</alt>
+            <lat>51.31717622280121</lat>
+            <lon>9.469356536865234</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543927889" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.50395286</accX>
+            <accY>0.8308412</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543937889" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.51757324</accX>
+            <accY>0.7491191</accY>
+            <accZ>9.915613</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543947890" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.51757324</accX>
+            <accY>0.8308412</accY>
+            <accZ>9.765789</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543957890" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.50395286</accX>
+            <accY>0.7627395</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543967891" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.51757324</accX>
+            <accY>0.87170225</accY>
+            <accZ>9.929234</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543977892" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.50395286</accX>
+            <accY>0.7627395</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310543987280" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>2048.0</accuracy>
+            <alt>255.0</alt>
+            <lat>51.31717622280121</lat>
+            <lon>9.469356536865234</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543987893" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.51757324</accX>
+            <accY>0.7763598</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310543997894" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.51757324</accX>
+            <accY>0.8580819</accY>
+            <accZ>9.929234</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544007895" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.50395286</accX>
+            <accY>0.8580819</accY>
+            <accZ>9.929234</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544017895" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.51757324</accX>
+            <accY>0.7899802</accY>
+            <accZ>9.942854</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544027895" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.50395286</accX>
+            <accY>0.7627395</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544037895" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.50395286</accX>
+            <accY>0.7627395</accY>
+            <accZ>9.779409</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310544047280" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>3072.0</accuracy>
+            <alt>255.0</alt>
+            <lat>51.31717622280121</lat>
+            <lon>9.469356536865234</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544047895" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.50395286</accX>
+            <accY>0.6537767</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544057896" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.50395286</accX>
+            <accY>0.8308412</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544067896" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.51757324</accX>
+            <accY>0.8580819</accY>
+            <accZ>9.942854</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544077896" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.29964766</accX>
+            <accY>0.8580819</accY>
+            <accZ>9.929234</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544087896" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.29964766</accX>
+            <accY>0.8580819</accY>
+            <accZ>9.929234</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544097897" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.35412905</accX>
+            <accY>0.87170225</accY>
+            <accZ>9.874752</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310544107281" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>192.0</accuracy>
+            <alt>286.0</alt>
+            <lat>51.31715476512909</lat>
+            <lon>9.469512104988098</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544107898" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.29964766</accX>
+            <accY>0.8580819</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544117898" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.29964766</accX>
+            <accY>0.8308412</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544127899" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.35412905</accX>
+            <accY>0.87170225</accY>
+            <accZ>9.929234</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544137900" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.35412905</accX>
+            <accY>0.8308412</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544147900" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.35412905</accX>
+            <accY>0.8308412</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544157900" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.40861043</accX>
+            <accY>0.87170225</accY>
+            <accZ>9.874752</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310544167346" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>384.0</accuracy>
+            <alt>284.0</alt>
+            <lat>51.31716012954712</lat>
+            <lon>9.469501376152039</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544167900" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.46309182</accX>
+            <accY>0.87170225</accY>
+            <accZ>9.765789</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544177900" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.35412905</accX>
+            <accY>0.8308412</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544187901" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.35412905</accX>
+            <accY>0.8308412</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544197902" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.35412905</accX>
+            <accY>0.8308412</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544207903" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.35412905</accX>
+            <accY>0.87170225</accY>
+            <accZ>9.929234</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544217904" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.40861043</accX>
+            <accY>0.8308412</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310544227366" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>384.0</accuracy>
+            <alt>284.0</alt>
+            <lat>51.31716012954712</lat>
+            <lon>9.469501376152039</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544227904" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.35412905</accX>
+            <accY>0.88532263</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544237905" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.35412905</accX>
+            <accY>0.8308412</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544247906" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.40861043</accX>
+            <accY>0.8308412</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544257907" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.35412905</accX>
+            <accY>0.8308412</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544267907" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.35412905</accX>
+            <accY>0.87170225</accY>
+            <accZ>9.874752</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544277907" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.29964766</accX>
+            <accY>0.8308412</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310544287366" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>384.0</accuracy>
+            <alt>283.0</alt>
+            <lat>51.31715476512909</lat>
+            <lon>9.469501376152039</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544287907" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.51757324</accX>
+            <accY>0.8308412</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544297909" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.40861043</accX>
+            <accY>0.8308412</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544307909" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.46309182</accX>
+            <accY>0.88532263</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544317910" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.35412905</accX>
+            <accY>0.92618364</accY>
+            <accZ>9.929234</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544327911" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.40861043</accX>
+            <accY>0.92618364</accY>
+            <accZ>9.874752</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544337912" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-1.1441092</accX>
+            <accY>7.504812</accY>
+            <accZ>6.8782754</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310544347366" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>512.0</accuracy>
+            <alt>317.0</alt>
+            <lat>51.316784620285034</lat>
+            <lon>9.470574259757996</lon>
+            <speed>0.25</speed>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544347912" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.4903325</accX>
+            <accY>0.84446156</accY>
+            <accZ>9.915613</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544357913" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.4903325</accX>
+            <accY>0.88532263</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544367914" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.4903325</accX>
+            <accY>0.9670447</accY>
+            <accZ>9.861132</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544377914" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.4903325</accX>
+            <accY>0.92618364</accY>
+            <accZ>9.915613</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544387914" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.4903325</accX>
+            <accY>0.88532263</accY>
+            <accZ>9.724928</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544397915" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.46309182</accX>
+            <accY>0.939804</accY>
+            <accZ>9.847511</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310544407367" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>512.0</accuracy>
+            <alt>293.0</alt>
+            <lat>51.317015290260315</lat>
+            <lon>9.470166563987732</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544407915" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.46309182</accX>
+            <accY>0.9125633</accY>
+            <accZ>9.888372</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544417915" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.44947147</accX>
+            <accY>0.88532263</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544427917" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.40861043</accX>
+            <accY>0.8580819</accY>
+            <accZ>9.929234</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544437917" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.50395286</accX>
+            <accY>0.88532263</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544447917" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.40861043</accX>
+            <accY>0.92618364</accY>
+            <accZ>9.874752</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544457917" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.44947147</accX>
+            <accY>0.8308412</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310544467367" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>256.0</accuracy>
+            <alt>266.0</alt>
+            <lat>51.31714403629303</lat>
+            <lon>9.46945309638977</lon>
+            <speed>0.0</speed>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544467917" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.50395286</accX>
+            <accY>0.939804</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544477917" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.51757324</accX>
+            <accY>0.980665</accY>
+            <accZ>9.929234</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544487917" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.50395286</accX>
+            <accY>0.8308412</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544497918" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.44947147</accX>
+            <accY>0.939804</accY>
+            <accZ>9.833891</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544507918" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.51757324</accX>
+            <accY>0.92618364</accY>
+            <accZ>9.929234</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544517918" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.51757324</accX>
+            <accY>0.980665</accY>
+            <accZ>9.874752</accZ>
+         </data>
+      </sample>
+      <sample id="GPS" ts="1310544527368" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.GPSSampleData">
+            <accuracy>512.0</accuracy>
+            <alt>266.0</alt>
+            <lat>51.31714403629303</lat>
+            <lon>9.46945309638977</lon>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544527919" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.40861043</accX>
+            <accY>0.92618364</accY>
+            <accZ>9.820271</accZ>
+         </data>
+      </sample>
+      <sample id="Accelerometer" ts="1310544537919" prio="2">
+         <data class="de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData">
+            <accX>-0.44947147</accX>
+            <accY>0.9942854</accY>
+            <accZ>9.779409</accZ>
+         </data>
+      </sample>
+   </samples>
+</sampleCollection>

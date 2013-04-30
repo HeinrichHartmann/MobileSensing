@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+/*
+ * Copyright (C) 2012, Katy Hilgenberg 
+ *
+ * This file is part of the SDCFramework project.
+ *
+ * The SDCFramework is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * The SDCFramework is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with the SDCFramework.  If not, see <http://www.gnu.org/licenses/>.
+ */
+-->
+<launchConfiguration type="com.android.ide.eclipse.adt.junit.launchConfigurationType">
+<stringAttribute key="bad_container_name" value="\SDCFrameworkTestA"/>
+<stringAttribute key="com.android.ide.eclipse.adt.commandline" value=""/>
+<intAttribute key="com.android.ide.eclipse.adt.delay" value="0"/>
+<stringAttribute key="com.android.ide.eclipse.adt.instrumentation" value="de.unikassel.android.sdcframework.TestRunner"/>
+<booleanAttribute key="com.android.ide.eclipse.adt.nobootanim" value="false"/>
+<intAttribute key="com.android.ide.eclipse.adt.speed" value="0"/>
+<booleanAttribute key="com.android.ide.eclipse.adt.target" value="true"/>
+<booleanAttribute key="com.android.ide.eclipse.adt.wipedata" value="false"/>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/SDCFrameworkTest/src/de/unikassel/android/sdcframework/test/TestFrameworkConfiguration.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.ui.favoriteGroups">
+<listEntry value="org.eclipse.debug.ui.launchGroup.debug"/>
+<listEntry value="org.eclipse.debug.ui.launchGroup.run"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.junit.CONTAINER" value=""/>
+<booleanAttribute key="org.eclipse.jdt.junit.KEEPRUNNING_ATTR" value="false"/>
+<stringAttribute key="org.eclipse.jdt.junit.TESTNAME" value=""/>
+<stringAttribute key="org.eclipse.jdt.junit.TEST_KIND" value="org.eclipse.jdt.junit.loader.junit3"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="de.unikassel.android.sdcframework.test.TestFrameworkConfiguration"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="SDCFrameworkTest"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value=""/>
+</launchConfiguration>
