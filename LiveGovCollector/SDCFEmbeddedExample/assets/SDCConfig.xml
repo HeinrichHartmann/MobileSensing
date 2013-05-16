@@ -1,18 +1,14 @@
 <sdcconfig>
 	<timeProviders>
 		<provider>ntps1-1.cs.tu-berlin.de</provider>
-		<provider>ntphost.uni-koblenz.de</provider>
-		<provider>ptbtime1.ptb.de</provider>
-		<provider>ptbtime2.ptb.de</provider>
-		<provider>atom.uhr.de</provider>
 		<errorStrategy>IgnoreAndObserveSyncStates</errorStrategy>
 	</timeProviders>
 	
 	<sensors>
 	    <sensor id="GPS" enabled="true" frequency="5000" prio="Level1" />
-		<sensor id="Accelerometer" enabled="true" frequency="20" prio="Level2" />
-		<sensor id="Gyroscope" enabled="true" frequency="20" prio="Level2" />
-		<sensor id="MagneticField" enabled="true" frequency="100" prio="Level2" />
+		<sensor id="Accelerometer" enabled="true" frequency="500" prio="Level2" />
+		<sensor id="Gyroscope" enabled="true" frequency="500" prio="Level2" />
+		<sensor id="MagneticField" enabled="true" frequency="500" prio="Level2" />
 		<sensor id="Wifi" enabled="true" frequency="5000" prio="Level2" />
 		<sensor id="GSM" enabled="true" frequency="5000" prio="Level2" />
 		<sensor id="Bluetooth" enabled="true" frequency="5000" prio="Level2" />
