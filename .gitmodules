@@ -1,0 +1,9 @@
+[submodule "AppPrototypes/Android/PhoneGap1"]
+	path = AppPrototypes/Android/PhoneGap1
+	url = https://github.com/cEhlen/MobileSensingAndroidPhoneGap1
+[submodule "AppPrototypes/Android/PhoneGap2"]
+	path = AppPrototypes/Android/PhoneGap2
+	url = https://github.com/cEhlen/MobileSensingAndroidPhoneGap2
+[submodule "AppPrototypes/iOS/PhoneGap"]
+	path = AppPrototypes/iOS/PhoneGap
+	url = https://github.com/cEhlen/MobileSensingIOS
