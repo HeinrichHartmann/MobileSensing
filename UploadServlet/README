@@ -1,0 +1,28 @@
+This surflet was developed and tested with
+* Eclipse Java EE IDE for Web Developers, Version: Juno Service Release 2 in combination with a 
+* Tomcat v7.0 server and a
+* mysql Ver 14.14 Distrib 5.5.29 database.
+You find the database settings in the file MobileSensing/UploadServlet/liveandgov/WebContent/META-INF/context.xml
+
+How to deploy a new version of the servlet:
+
+1)  Change the Java code or add binary files. Commit your changes to github.
+1.1)  To provide a new version of the Android data collection app:
+      Go to the LiveAndGovCollector eclipse project and export the app as liveandgov.apk
+      Copy the new binary to the folder MobileSensing/UploadServlet/liveandgov/WebContent/static (this is inside your surflet eclipse project)
+2.) Export the surflet: Right click on the surflet project and choose Export -> WAR file
+3.) Copy the exported WAR file to the mobile-sensing server:
+    scp liveandgov.war mobile-sensing.west.uni-koblenz.de:/home/chrisschaefer/liveandgov.war
+4.) Login on the mobile-sensing server:
+    ssh mobile-sensing.west.uni-koblenz.de
+5.) Deploy the new WAR file (you have to be super user):
+    sudo cp liveandgov.war /var/lib/tomcat7/webapps/liveandgov.war
+6.) Check the changes on the live system at the URL
+    http://mobile-sensing.west.uni-koblenz.de:8080/liveandgov/
+7.) Check the logs if everything went well (logged in on the mobile-sensing server):
+    sudo tail -f /var/lib/tomcat7/logs/catalina.out
+    sudo tail -f /var/lib/tomcat7/logs/localhost_access_log.2013-05-21.txt
+
+
+
+
