@@ -13,32 +13,63 @@ To install the mobile app on your Android device please:
 Settings &gt; Security &gt; Check: Unknown Sources [x]</li>
 <li>
 Open the following link on your with your phone browser:<br>
-<a href="LiveAndGovCollector.apk">Download LiveAndGovCollector.apk</a><br/>
+<a href="static/liveandgov.apk">Download liveandgov.apk</a> or 
+<a href="http://goo.gl/IZA7P">http://goo.gl/IZA7P</a> or <br>
+<img src="http://goo.gl/lpjqy.qr">
+</li>
+<li>
+The Live+Gov Data Collection App with reduced sensor load:<br>
+<a href="static/liveandgov2.apk">Download liveandgov2.apk</a> or 
+<a href="http://goo.gl/WQhlU">http://goo.gl/WQhlU</a> or <br>
+<img src="http://goo.gl/WQhlU.qr">
 </li>
 </ol>
+Please uninstall any previously installed version beforehand.
 
 <h2>Usage</h2>
 Please record sensor data from your journeys e.g. way to work.
 <ul>
-<li>Start the SDCF service and sample recording when you start your journey</li>
+<li>Start the SDCF service and Sample Recordning when you start your journey</li>
 <li>Use the dropdown menu to specify your means of travel (whenever possible)</li>
 <li>Use the free text to add further specification e.g. service line (whenever possible)</li>
 <li>Stop recording when you arrive at work.</li>
 </ul>
-Leave the service running for a few more minutes after the recording is finished. 
-The App will upload the recorded samples as soon as a wifi connection is available. <br>
+Leave the service running for a few more minutes after the recording is finished. The App will upload the recorded samples as soon as a wifi connection is available. <br>
 You can inspect the recorded using the tools below.
+
+<h2>Data Inspection</h2>
+You can find an overview over all collected data in <a href="ShowData?uuid=1">this table</a>
 
 <h2>Bug Tracker</h2>
 Please do report any problems to our <a href="https://github.com/HeinrichHartmann/MobileSensing/issues">bug tracker</a> on github. <br>
 If you do not have an github account you can report issues by <a href="mailto:hartmann@uni-koblenz.de">email</a>.
 
-<h2>Data Inspection</h2>
-You can find an overview over all collected data in <a href="ShowData?uuid=1">this table</a><br/>
-(depending on the amount of data the computation will take some time).<br/>
+<h2>Source Code</h2>
+The source code of the application is available <a href="https://github.com/HeinrichHartmann/MobileSensing">here</a>.
 
+<h2>Andorids Rights</h2>
+The app requires a number of rights which are listed below.
+Please note, that this app will not (!) record sensible information like your
+phone number, calls, etc. nor will this app modify existing contents of your SD card.
 
-<h2>Rights</h2>
+<ul>
+<li>read phone state and identity - for recording visible GSM-cells (not Phone number, or calls!)</li>
+<li>approximate/precise location - for recording location</li>
+<li>modify or delete the contents of your USB storage - save samples to sd card</li>
+<li>change network connectivity - enable wifi for recording</li>
+<li>connect and disconnect from Wi-Fi - enable wifi for recording </li>
+<li>full network access - transfer samples to server</li>
+<li>view network connections - record visible Wi-Fi networks </li>
+<li>access Bluetooth settings - record bluetooth samples</li>
+<li>pair with bluetooth devices - not needed</li>
+<li>control vibration - for notifications</li>
+<li>prevent phone from sleeping - keep alive while recording samples</li>
+<li>mock location sources for testing - not needed</li>
+<li>modify system settings - sore application settings</li>
+<li>read battery statistics - monitor battery state</li>
+<li>test access to protected storage - not needed</li>
+</ul>
+
 
 <body>
 </html>
