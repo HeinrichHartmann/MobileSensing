@@ -7,3 +7,9 @@
 [submodule "AppPrototypes/iOS/PhoneGap"]
 	path = AppPrototypes/iOS/PhoneGap
 	url = https://github.com/cEhlen/MobileSensingIOS
+[submodule "AppPrototypes/Android/SensorData"]
+	path = AppPrototypes/Android/SensorData
+	url = https://cehlen@github.com/cEhlen/PhoneGapSensorData.git
+[submodule "AppPrototypes/Android/SensorCSV"]
+	path = AppPrototypes/Android/SensorCSV
+	url = https://cehlen@github.com/cEhlen/PhoneGapSensorCSV.git
