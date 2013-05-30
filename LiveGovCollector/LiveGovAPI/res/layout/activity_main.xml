@@ -1,0 +1,113 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity" >
+
+    <Button
+        android:id="@+id/buttonStartService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:onClick="onButtonStartServiceClick"
+        android:text="Start Service" />
+
+    <Button
+        android:id="@+id/buttonStopService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/buttonStartService"
+        android:layout_alignBottom="@+id/buttonStartService"
+        android:layout_toRightOf="@+id/buttonStartService"
+        android:onClick="onButtonStopServiceClick"
+        android:text="Stop Service" />
+
+    <Button
+        android:id="@+id/buttonSamplingOff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonStopService"
+        android:layout_below="@+id/buttonStopService"
+        android:onClick="onButtonSamplingOffClick"
+        android:text="Sampling Off" />
+
+    <Button
+        android:id="@+id/buttonStorageOn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonSamplingOn"
+        android:layout_below="@+id/buttonSamplingOn"
+        android:onClick="onButtonStorageOnClick"
+        android:text="Storage On" />
+
+    <Button
+        android:id="@+id/buttonStorageOff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonSamplingOn"
+        android:layout_toRightOf="@+id/buttonSamplingOn"
+        android:onClick="onButtonStorageOffClick"
+        android:text="Storage Off" />
+
+    <Button
+        android:id="@+id/buttonTransferOn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonStorageOn"
+        android:layout_below="@+id/buttonStorageOn"
+        android:onClick="onButtonTransferOnClick"
+        android:text="Transfer On" />
+
+    <Button
+        android:id="@+id/buttonSamplingOn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/buttonSamplingOff"
+        android:layout_alignBottom="@+id/buttonSamplingOff"
+        android:layout_alignLeft="@+id/buttonStartService"
+        android:onClick="onButtonSamplingOnClick"
+        android:text="Sampling On" />
+
+    <Button
+        android:id="@+id/buttonTransferOff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/buttonTransferOn"
+        android:layout_alignBottom="@+id/buttonTransferOn"
+        android:layout_alignLeft="@+id/buttonStorageOff"
+        android:onClick="onButtonTransferOffClick"
+        android:text="Transfer Off" />
+
+    <Button
+        android:id="@+id/buttonTriggerTransfer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:onClick="onButtonTriggerTransferClick"
+        android:text="Trigger Transfer" />
+
+    <Button
+        android:id="@+id/buttonBroadcastOn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonTransferOn"
+        android:layout_below="@+id/buttonTriggerTransfer"
+        android:onClick="onButtonBroadcastOnClick"
+        android:text="Broadcast On" />
+
+    <Button
+        android:id="@+id/buttonBroadcastOff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonTriggerTransfer"
+        android:layout_toRightOf="@+id/buttonBroadcastOn"
+        android:onClick="onButtonBroadcastOffClick"
+        android:text="Broadcast Off" />
+
+</RelativeLayout>
