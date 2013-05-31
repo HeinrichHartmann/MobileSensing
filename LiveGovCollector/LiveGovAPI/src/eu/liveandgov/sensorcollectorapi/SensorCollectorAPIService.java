@@ -1,4 +1,4 @@
-package eu.liveandgov.sdcfwrapperapi;
+package eu.liveandgov.sensorcollectorapi;
 
 import de.unikassel.android.sdcframework.app.facade.ISDCService;
 import de.unikassel.android.sdcframework.service.SDCServiceConnectionHolder;
@@ -8,7 +8,7 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
 
-public class SDCFWrapperAPIService extends Service implements
+public class SensorCollectorAPIService extends Service implements
 		SDCServiceConnectionHolder.ServiceConnectionEventReceiver {
 
 	public static final Class<?> serviceClass = ISDCService.class;
@@ -16,7 +16,7 @@ public class SDCFWrapperAPIService extends Service implements
 	private ISDCService service;
 	private static final String TAG = "SDCFWrapperAPIService";
 
-	public SDCFWrapperAPIService() {
+	public SensorCollectorAPIService() {
 		this.connectionHolder = new SDCServiceConnectionHolder(this,
 				serviceClass);
 	}

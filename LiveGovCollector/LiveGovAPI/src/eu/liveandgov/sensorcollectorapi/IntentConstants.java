@@ -1,4 +1,4 @@
-package eu.liveandgov.sdcfwrapperapi;
+package eu.liveandgov.sensorcollectorapi;
 
 public class IntentConstants {
 
