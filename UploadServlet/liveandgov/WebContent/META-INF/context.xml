@@ -11,5 +11,5 @@
         username="chrisschaefer"
         password="00chrisschaefer00"
         driverClassName="com.mysql.jdbc.Driver"
-        url="jdbc:mysql://localhost/liveandgov"/>
+        url="jdbc:mysql://localhost/liveandgov?autoReconnect=true"/>
 </Context>
