@@ -1,4 +1,5 @@
-var mysql = require('MYSQLConnection');
+var mysql = require('MYSQLConnection')
+  , restify = require('restify');
 
 // All allowed tables to access
 var tables = ['gps', 'wifi', 'gsm', 'magneticfield', 'accelerometer', 'tags', 'networklocation', 'bluetooth', 'gyroscope'];
@@ -11,6 +12,11 @@ var checkTable = function (table) {
  * @param  {Restify Server} server The restify server
  */
 var register = function (server) {
+  // Serve static files
+  server.get(/\/staic\/?.*/, restify.serveStatic({
+    directory: './static'
+  }));
+
   server.get('/devices', function (req, res, next) {
     var query = 'SELECT * FROM `devinfo`';
     mysql.getConnection(function (err, connection) {
