@@ -87,8 +87,10 @@ var register = function (server) {
     }
 
     if(limit) {
-      query += ' LIMIT ?';
-      values.push(limit);
+      limit = parseInt(limit);
+      if(limit > 0)
+        query += ' LIMIT ' + limit;
+      
     }
 
     mysql.getConnection(function (err, connection) {

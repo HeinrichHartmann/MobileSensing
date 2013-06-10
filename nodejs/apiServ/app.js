@@ -7,6 +7,8 @@ var server = restify.createServer({
   name: 'MobileSensing'
 });
 server.use(restify.queryParser());
+server.use(restify.CORS( {credentials: true} ));
+server.use(restify.fullResponse());
 
 routes(server);
 
