@@ -13,3 +13,6 @@
 [submodule "AppPrototypes/Android/SensorCSV"]
 	path = AppPrototypes/Android/SensorCSV
 	url = https://cehlen@github.com/cEhlen/PhoneGapSensorCSV.git
+[submodule "AppPrototypes/Android/TitaniumAccelerometer"]
+	path = AppPrototypes/Android/TitaniumAccelerometer
+	url = https://github.com/cEhlen/TitaniumAccelerometerSampleTest
