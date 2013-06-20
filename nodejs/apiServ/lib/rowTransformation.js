@@ -53,6 +53,11 @@ var rowSensorTransform = {
 
   'GSM': function (row, callback) {
     var result = regex['GSM'].exec(row.data);
+    if(!result) {
+      console.log('ERROR! Whoops! GSM went wrong?', row);
+      callback(true);
+      return;
+    }
     var op = result[1]
       , ne = result[2]
       , lac = result[3]
@@ -68,6 +73,11 @@ var rowSensorTransform = {
 
   'MagneticField': function (row, callback) {
     var result = regex['MagneticField'].exec(row.data);
+    if(!result) {
+      console.log('ERROR! Whoops! MagneticField went wrong?', row);
+      callback(true);
+      return;
+    }
     var x = result[1]
       , y = result[2]
       , z = result[3];
@@ -81,6 +91,11 @@ var rowSensorTransform = {
 
   'Accelerometer': function (row, callback) {
     var result = regex['Accelerometer'].exec(row.data);
+    if(!result) {
+      console.log('ERROR! Whoops! Accelerometer went wrong?', row);
+      callback(true);
+      return;
+    }
     var x = result[1]
       , y = result[2]
       , z = result[3];
@@ -116,6 +131,11 @@ var rowSensorTransform = {
 
   'Tags': function (row, callback) {
     var result = regex['Tags'].exec(row.data);
+    if(!result) {
+      console.log('ERROR! Whoops! Tags went wrong?', row);
+      callback(true);
+      return;
+    }
     var txt = result[1];
 
     var q = "INSERT INTO `tags` (`uuid`, `ts`, `txt`, `prio`, `synced`, `dataclass`)" +
@@ -128,6 +148,11 @@ var rowSensorTransform = {
   
   'NetworkLocation': function (row, callback) {
     var result = regex['NetworkLocation'].exec(row.data);
+    if(!result) {
+      console.log('ERROR! Whoops! NetworkLocation went wrong?', row);
+      callback(true);
+      return;
+    }
     var acc = result[1]
       , lat = result[2]
       , lon = result[3];
@@ -161,6 +186,11 @@ var rowSensorTransform = {
 
   'Gyroscope': function (row, callback) {
     var result = regex['Gyroscope'].exec(row.data);
+    if(!result) {
+      console.log('ERROR! Whoops! Gyroscope went wrong?', row);
+      callback(true);
+      return;
+    }
     var x = result[1]
       , y = result[2]
       , z = result[3];
