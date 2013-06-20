@@ -206,5 +206,9 @@ var rowSensorTransform = {
 
 
 module.exports = function (row, callback) {
-  rowSensorTransform[row.sensorid](row, callback);
+  if(row.sensorid !== 'TimeSyncStateChanges') {
+    rowSensorTransform[row.sensorid](row, callback);
+  } else {
+    callback();
+  }
 };
