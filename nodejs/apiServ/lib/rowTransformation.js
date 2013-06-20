@@ -44,8 +44,9 @@ var execQuery = (function () {
     queryBuffer += q;
     valueBuffer = valueBuffer.concat(values);
     bufferedQueries += 1;
-    if(bufferedQueries >= 200) {
-      queriesDone += 200;
+    if(bufferedQueries >= 100) {
+      queriesDone += 100;
+      console.log('Run query');
       execQuery();
     }
   };
