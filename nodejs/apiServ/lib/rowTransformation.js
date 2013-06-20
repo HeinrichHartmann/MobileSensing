@@ -14,27 +14,45 @@ var regex = {
 };
 
 // executes the query
-var execQuery = function (q, values, callback) {
-  mysql.getConnection(function (err, connection) {
-    connection.query(q, values, function (err, result) {
-      if(err) {
-        console.log('Error at query ', q)
-        callback(err);
-        return;
-      }
-      connection.end();
-      callback();
-    });
-  });
-};
+var execQuery = (function () {
+  var queryBuffer = '';
+  var valueBuffer = [];
+
+  var bufferedQueries = 0;
+
+  var queryCallback = function (err, result) {
+    if(err) {
+      console.log('Error while executing query ' + q);
+      console.log(err);
+      return;
+    }
+  };
+
+  return function (q, values) {
+    if(!q) {
+      mysql.getConnection(function (err, connection) {
+        connection.query(queryBuffer, valueBuffer, queryCallback);
+        queryBuffer = '';
+        valueBuffer = [];
+        bufferedQueries = 0;
+      });
+      return;
+    }
+    queryBuffer += q;
+    valueBuffer = valueBuffer.concat(values);
+    bufferedQueries += 1;
+    if(bufferedQueries >= 1000) {
+      execQuery();
+    }
+  };
+})();
 
 // Gets the data out of every row dependent of the sensorid.
 var rowSensorTransform = {
-  'GPS': function (row, callback) {
+  'GPS': function (row) {
     var result = regex['GPS'].exec(row.data);
     if(!result) {
       console.log('ERROR! Whoops! GPS went wrong?', row);
-      callback(true);
       return;
     }
     var acc = result[1]
@@ -48,14 +66,13 @@ var rowSensorTransform = {
 
     var values = [row.uuid, row.ts, acc, alt, lat, lon, speed, row.prio, row.synced, row.dataclass];
 
-    execQuery(q, values, callback);
+    execQuery(q, values);
   },
 
-  'GSM': function (row, callback) {
+  'GSM': function (row) {
     var result = regex['GSM'].exec(row.data);
     if(!result) {
       console.log('ERROR! Whoops! GSM went wrong?', row);
-      callback(true);
       return;
     }
     var op = result[2] || ''
@@ -68,14 +85,13 @@ var rowSensorTransform = {
             "VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? );"
     var values = [row.uuid, row.ts, op, lac, cid, rssi, ne, row.prio, row.synced, row.dataclass];
 
-    execQuery(q, values, callback);
+    execQuery(q, values);
   },
 
-  'MagneticField': function (row, callback) {
+  'MagneticField': function (row) {
     var result = regex['MagneticField'].exec(row.data);
     if(!result) {
       console.log('ERROR! Whoops! MagneticField went wrong?', row);
-      callback(true);
       return;
     }
     var x = result[1]
@@ -86,14 +102,13 @@ var rowSensorTransform = {
             "VALUES ( ?, ?, ?, ?, ?, ?, ?, ? );"
 
     var values = [row.uuid, row.ts, x, y, z, row.prio, row.synced, row.dataclass];
-    execQuery(q, values, callback);
+    execQuery(q, values);
   },
 
-  'Accelerometer': function (row, callback) {
+  'Accelerometer': function (row) {
     var result = regex['Accelerometer'].exec(row.data);
     if(!result) {
       console.log('ERROR! Whoops! Accelerometer went wrong?', row);
-      callback(true);
       return;
     }
     var x = result[1]
@@ -104,14 +119,13 @@ var rowSensorTransform = {
             "VALUES ( ?, ?, ?, ?, ?, ?, ?, ? );"
 
     var values = [row.uuid, row.ts, x, y, z, row.prio, row.synced, row.dataclass];
-    execQuery(q, values, callback);
+    execQuery(q, values);
   },
 
-  'Wifi': function (row, callback) {
+  'Wifi': function (row) {
     var result = regex['Wifi'].exec(row.data);
     if(!result) {
       console.log('ERROR! Whoops! WIFI went wrong?', row);
-      callback(true);
       return;
     }
     var bssid = result[1]
@@ -125,15 +139,14 @@ var rowSensorTransform = {
             "VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? );"
 
     var values = [row.uuid, row.ts, bssid, ssid, cap, connected, freq, sig, row.prio, row.synced, row.dataclass];
-    execQuery(q, values, callback);
+    execQuery(q, values);
   },
 
 
-  'Tags': function (row, callback) {
+  'Tags': function (row) {
     var result = regex['Tags'].exec(row.data);
     if(!result) {
       console.log('ERROR! Whoops! Tags went wrong?', row);
-      callback(true);
       return;
     }
     var txt = result[1];
@@ -142,15 +155,14 @@ var rowSensorTransform = {
             "VALUES ( ?, ?, ?, ?, ?, ? );"
 
     var values = [row.uuid, row.ts, txt, row.prio, row.synced, row.dataclass];
-    execQuery(q, values, callback);
+    execQuery(q, values);
   },
 
   
-  'NetworkLocation': function (row, callback) {
+  'NetworkLocation': function (row) {
     var result = regex['NetworkLocation'].exec(row.data);
     if(!result) {
       console.log('ERROR! Whoops! NetworkLocation went wrong?', row);
-      callback(true);
       return;
     }
     var acc = result[1]
@@ -161,15 +173,14 @@ var rowSensorTransform = {
             "VALUES ( ?, ?, ?, ?, ?, ?, ?, ? );"
 
     var values = [row.uuid, row.ts, acc, lat, lon, row.prio, row.synced, row.dataclass];
-    execQuery(q, values, callback);
+    execQuery(q, values);
   },
 
 
-  'Bluetooth': function (row, callback) {
+  'Bluetooth': function (row) {
     var result = regex['Bluetooth'].exec(row.data);
     if(!result) {
       console.log('ERROR! Whoops! BLUETOOTH went wrong?', row);
-      callback(true);
       return;
     }
     var address = result[1]
@@ -181,14 +192,13 @@ var rowSensorTransform = {
             "VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? );"
 
     var values = [row.uuid, row.ts, address, klass, name, rssi, row.prio, row.synced, row.dataclass];
-    execQuery(q, values, callback);
+    execQuery(q, values);
   },
 
-  'Gyroscope': function (row, callback) {
+  'Gyroscope': function (row) {
     var result = regex['Gyroscope'].exec(row.data);
     if(!result) {
       console.log('ERROR! Whoops! Gyroscope went wrong?', row);
-      callback(true);
       return;
     }
     var x = result[1]
@@ -199,16 +209,19 @@ var rowSensorTransform = {
             "VALUES ( ?, ?, ?, ?, ?, ?, ?, ? );"
 
     var values = [row.uuid, row.ts, x, y, z, row.prio, row.synced, row.dataclass];
-    execQuery(q, values, callback);
+    execQuery(q, values);
   }
 
 };
 
 
-module.exports = function (row, callback) {
-  if(row.sensorid !== 'TimeSyncStateChanges') {
-    rowSensorTransform[row.sensorid](row, callback);
-  } else {
-    callback();
+module.exports = {
+  transform: function (row) {
+    if(row.sensorid !== 'TimeSyncStateChanges') {
+      rowSensorTransform[row.sensorid](row);
+    }
+  },
+  finish: function () {
+    execQuery();
   }
 };

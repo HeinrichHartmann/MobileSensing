@@ -37,18 +37,11 @@ var changeData = function () {
     s.writable = true;
 
     s.write = function (row) {
-      rowTrans(row, function (err) {
-        if(err) {
-          console.log(err);
-        }
-        doneNr += 1;
-        if(doneNr % 1000 === 0) {
-          console.log(doneNr + 'rows done!');
-        }
-      });
+      rowTrans.transform(row);
     };
 
     s.end = function (buf) {
+      rowTrans.finish();
       deleteDataInTable();
       connection.end();
       console.log('Done');
