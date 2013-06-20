@@ -14,7 +14,7 @@ var regex = {
 };
 
 // executes the query
-var execQuery = (function () {
+var execQuery = function () {
   var queryBuffer = '';
   var valueBuffer = [];
 
@@ -52,7 +52,7 @@ var execQuery = (function () {
       execQuery();
     }
   };
-})();
+}();
 
 // Gets the data out of every row dependent of the sensorid.
 var rowSensorTransform = {
