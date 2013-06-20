@@ -6,7 +6,7 @@ var regex = {
   'GSM': /<operator>(.*)<\/operator><neighbors class='java.util.Vector'>(.*)<\/neighbors><lac>(.*)<\/lac><cid>(.*)<\/cid><rssi>(.*)<\/rssi>/,
   'MagneticField': /<fieldX>(.+\..+)<\/fieldX><fieldY>(.+\..+)<\/fieldY><fieldZ>(.+\..+)<\/fieldZ>/,
   'Accelerometer': /<accX>(.+\..+)<\/accX><accY>(.+\..+)<\/accY><accZ>(.+\..+)<\/accZ>/,
-  'Wifi': /<bssid>(.*)<\/bssid>(<ssid>(.*)<\/ssid>)?<cap>(.*)<\/cap><connected>(.*)<\/connected><freq>(.*)<\/freq><sigLevel>(.*)<\/sigLevel>/,
+  'Wifi': /<bssid>(.*)<\/bssid>(<ssid>(.*)<\/ssid>)?(<cap>(.*)<\/cap>)?<connected>(.*)<\/connected><freq>(.*)<\/freq><sigLevel>(.*)<\/sigLevel>/,
   'Tags': /<txt>(.*)<\/txt>/,
   'NetworkLocation': /<accuracy>(.*)<\/accuracy><lat>(.*)<\/lat><lon>(.*)<\/lon>/,
   'Bluetooth': /<adress>(.*)<\/adress><class>(.*)<\/class>(<name>(.*)<\/name>)?<rssi>(.*)<\/rssi>/,
@@ -101,10 +101,10 @@ var rowSensorTransform = {
     }
     var bssid = result[1]
       , ssid = result[3] || '' 
-      , cap = result[4]
-      , connected = result[5] === 'true' ? true : false
-      , freq = result[6]
-      , sig = result[7];
+      , cap = result[5] || ''
+      , connected = result[6] === 'true' ? true : false
+      , freq = result[7]
+      , sig = result[8];
 
     var q = "INSERT INTO `wifi` (`uuid`, `ts`, `bssid`, `ssid`, `cap`, `connected`, `freq`, `sigLevel`, `prio`, `synced`, `dataclass`)" +
             "VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? );"
