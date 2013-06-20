@@ -3,7 +3,7 @@ var mysql = require('MYSQLConnection');
 // Regex to get data out of the xml string
 var regex = {
   'GPS': /<accuracy>(.*)<\/accuracy><alt>(.*)<\/alt><lat>(.*)<\/lat><lon>(.*)<\/lon>(<speed>(.*)<\/speed>)?/,
-  'GSM': /<operator>(.*)<\/operator><neighbors class='java.util.Vector'>(.*)<\/neighbors><lac>(.*)<\/lac><cid>(.*)<\/cid><rssi>(.*)<\/rssi>/,
+  'GSM': /(<operator>(.*)<\/operator>)?<neighbors class=\\?'java.util.Vector\\?'>(.*)<\/neighbors><lac>(.*)<\/lac><cid>(.*)<\/cid><rssi>(.*)<\/rssi>/,
   'MagneticField': /<fieldX>(.+\..+)<\/fieldX><fieldY>(.+\..+)<\/fieldY><fieldZ>(.+\..+)<\/fieldZ>/,
   'Accelerometer': /<accX>(.+\..+)<\/accX><accY>(.+\..+)<\/accY><accZ>(.+\..+)<\/accZ>/,
   'Wifi': /<bssid>(.*)<\/bssid>(<ssid>(.*)<\/ssid>)?(<cap>(.*)<\/cap>)?<connected>(.*)<\/connected><freq>(.*)<\/freq><sigLevel>(.*)<\/sigLevel>/,
@@ -58,11 +58,11 @@ var rowSensorTransform = {
       callback(true);
       return;
     }
-    var op = result[1]
-      , ne = result[2]
-      , lac = result[3]
-      , cid = result[4]
-      , rssi = result[5];
+    var op = result[2] || ''
+      , ne = result[3]
+      , lac = result[4]
+      , cid = result[5]
+      , rssi = result[6];
 
     var q = "INSERT INTO `gsm` (`uuid`, `ts`, `operator`, `lac`, `cid`, `rssi`, `neighbors`, `prio`, `synced`, `dataclass`)" +
             "VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? );"
