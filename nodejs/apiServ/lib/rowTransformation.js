@@ -20,12 +20,15 @@ var execQuery = (function () {
 
   var bufferedQueries = 0;
 
+  var queriesDone = 0;
+
   var queryCallback = function (err, result) {
     if(err) {
       console.log('Error while executing query ' + q);
       console.log(err);
       return;
     }
+    console.log('Queries done: ' + queriesDone);
   };
 
   return function (q, values) {
@@ -41,7 +44,8 @@ var execQuery = (function () {
     queryBuffer += q;
     valueBuffer = valueBuffer.concat(values);
     bufferedQueries += 1;
-    if(bufferedQueries >= 1000) {
+    if(bufferedQueries >= 200) {
+      queriesDone += 200;
       execQuery();
     }
   };
