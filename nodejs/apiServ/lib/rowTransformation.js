@@ -33,19 +33,21 @@ var execQuery = (function () {
 
   return function (q, values) {
     if(!q) {
+      console.log('Run');
       mysql.getConnection(function (err, connection) {
         connection.query(queryBuffer, valueBuffer, queryCallback);
         queryBuffer = '';
         valueBuffer = [];
         bufferedQueries = 0;
+        console.log('Data cleared')
       });
       return;
     }
     queryBuffer += q;
     valueBuffer = valueBuffer.concat(values);
     bufferedQueries += 1;
-    if(bufferedQueries >= 100) {
-      queriesDone += 100;
+    if(bufferedQueries >= 1000) {
+      queriesDone += 1000;
       console.log('Run query');
       execQuery();
     }
