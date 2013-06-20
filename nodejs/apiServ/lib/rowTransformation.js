@@ -22,19 +22,21 @@ var execQuery = function () {
 
   var queriesDone = 0;
 
-  var queryCallback = function (err, result) {
+  var queryCallback = function (err, results) {
     if(err) {
-      console.log('Error while executing query ' + q);
+      console.log('Error while executing query');
       console.log(err);
+      connection.end();
       return;
     }
     console.log('Queries done: ' + queriesDone);
+    connection.end();
   };
 
   return function (q, values) {
     if(!q) {
-      console.log('Run');
       mysql.getConnection(function (err, connection) {
+        console.log('Running query')
         connection.query(queryBuffer, valueBuffer, queryCallback);
         queryBuffer = '';
         valueBuffer = [];
@@ -46,9 +48,8 @@ var execQuery = function () {
     queryBuffer += q;
     valueBuffer = valueBuffer.concat(values);
     bufferedQueries += 1;
-    if(bufferedQueries >= 1000) {
-      queriesDone += 1000;
-      console.log('Run query');
+    if(bufferedQueries >= 2000) {
+      queriesDone += 2000;
       execQuery();
     }
   };
