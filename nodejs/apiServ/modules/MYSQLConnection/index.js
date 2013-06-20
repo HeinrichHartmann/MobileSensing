@@ -6,7 +6,7 @@ var pool = mysql.createPool({
   database: 'liveandgov',
   user: 'root',
   password: '',
-  connectionLimit: 25
+  connectionLimit: 100
 });
 
 module.exports = pool;
