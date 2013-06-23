@@ -15,41 +15,49 @@ var regex = {
 
 // executes the query
 var execQuery = function () {
-  var queryBuffer = '';
+  var queryBuffer = [];
   var valueBuffer = [];
-
   var bufferedQueries = 0;
-
   var queriesDone = 0;
-
-  var queryCallback = function (err, results) {
-    if(err) {
-      console.log('Error while executing query');
-      console.log(err);
-      connection.end();
-      return;
-    }
-    console.log('Queries done: ' + queriesDone);
-    connection.end();
-  };
 
   return function (q, values) {
     if(!q) {
       mysql.getConnection(function (err, connection) {
-        console.log('Running query')
-        connection.query(queryBuffer, valueBuffer, queryCallback);
-        queryBuffer = '';
-        valueBuffer = [];
-        bufferedQueries = 0;
-        console.log('Data cleared')
+        if(err) {
+          console.log("Error while establishing database connection!");
+          console.log(err);
+          return;
+        }
+        if(queryBuffer === '') {
+          connection.end();
+          return;
+        }
+        var queries = '';
+        var v = [];
+        var done = 0;
+        for (var i = 0; i < 1000 && queryBuffer.length > 0 && valueBuffer.length > 0; i++) {
+          queries += queryBuffer.shift();
+          v = v.concat(valueBuffer.shift());
+          done++;
+        };
+        connection.query(queries, v, function (err, results) {
+          if(err) {
+            console.log('Error while executing query');
+            console.log(err);
+            return;
+          }
+          queriesDone += 1000;
+          console.log('Query done. ' + queriesDone);
+          connection.end();
+        });
       });
       return;
     }
-    queryBuffer += q;
-    valueBuffer = valueBuffer.concat(values);
+    queryBuffer.push(q);
+    valueBuffer.push(values);
     bufferedQueries += 1;
-    if(bufferedQueries >= 2000) {
-      queriesDone += 2000;
+    if(bufferedQueries > 1000) {
+      bufferedQueries -= 1000;
       execQuery();
     }
   };
@@ -69,8 +77,8 @@ var rowSensorTransform = {
       , lon = result[4]
       , speed = result[6] || 0;
 
-    var q = "INSERT INTO `gps` (`uuid`, `ts`, `accuracy`, `alt`, `lat`, `lon`, `speed`, `prio`, `synced`, `dataclass`)" +
-            "VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? );"
+    var q = "INSERT INTO `gps` (`uuid`, `ts`, `accuracy`, `alt`, `lat`, `lon`, `speed`, `prio`, `synced`, `dataclass`) " +
+            "VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? );\n";
 
     var values = [row.uuid, row.ts, acc, alt, lat, lon, speed, row.prio, row.synced, row.dataclass];
 
@@ -90,7 +98,7 @@ var rowSensorTransform = {
       , rssi = result[6];
 
     var q = "INSERT INTO `gsm` (`uuid`, `ts`, `operator`, `lac`, `cid`, `rssi`, `neighbors`, `prio`, `synced`, `dataclass`)" +
-            "VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? );"
+            "VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? );\n";
     var values = [row.uuid, row.ts, op, lac, cid, rssi, ne, row.prio, row.synced, row.dataclass];
 
     execQuery(q, values);
@@ -107,7 +115,7 @@ var rowSensorTransform = {
       , z = result[3];
 
     var q = "INSERT INTO `magneticfield` (`uuid`, `ts`, `fieldx`, `fieldy`, `fieldz`, `prio`, `synced`, `dataclass`)" +
-            "VALUES ( ?, ?, ?, ?, ?, ?, ?, ? );"
+            "VALUES ( ?, ?, ?, ?, ?, ?, ?, ? );\n";
 
     var values = [row.uuid, row.ts, x, y, z, row.prio, row.synced, row.dataclass];
     execQuery(q, values);
@@ -124,7 +132,7 @@ var rowSensorTransform = {
       , z = result[3];
 
     var q = "INSERT INTO `accelerometer` (`uuid`, `ts`, `accx`, `accy`, `accz`, `prio`, `synced`, `dataclass`)" +
-            "VALUES ( ?, ?, ?, ?, ?, ?, ?, ? );"
+            "VALUES ( ?, ?, ?, ?, ?, ?, ?, ? );\n";
 
     var values = [row.uuid, row.ts, x, y, z, row.prio, row.synced, row.dataclass];
     execQuery(q, values);
@@ -144,7 +152,7 @@ var rowSensorTransform = {
       , sig = result[8];
 
     var q = "INSERT INTO `wifi` (`uuid`, `ts`, `bssid`, `ssid`, `cap`, `connected`, `freq`, `sigLevel`, `prio`, `synced`, `dataclass`)" +
-            "VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? );"
+            "VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? );\n";
 
     var values = [row.uuid, row.ts, bssid, ssid, cap, connected, freq, sig, row.prio, row.synced, row.dataclass];
     execQuery(q, values);
@@ -160,7 +168,7 @@ var rowSensorTransform = {
     var txt = result[1];
 
     var q = "INSERT INTO `tags` (`uuid`, `ts`, `txt`, `prio`, `synced`, `dataclass`)" +
-            "VALUES ( ?, ?, ?, ?, ?, ? );"
+            "VALUES ( ?, ?, ?, ?, ?, ? );\n";
 
     var values = [row.uuid, row.ts, txt, row.prio, row.synced, row.dataclass];
     execQuery(q, values);
@@ -178,7 +186,7 @@ var rowSensorTransform = {
       , lon = result[3];
 
     var q = "INSERT INTO `networklocation` (`uuid`, `ts`, `accuracy`, `lat`, `lon`, `prio`, `synced`, `dataclass`)" +
-            "VALUES ( ?, ?, ?, ?, ?, ?, ?, ? );"
+            "VALUES ( ?, ?, ?, ?, ?, ?, ?, ? );\n";
 
     var values = [row.uuid, row.ts, acc, lat, lon, row.prio, row.synced, row.dataclass];
     execQuery(q, values);
@@ -197,7 +205,7 @@ var rowSensorTransform = {
       , rssi = result[5];
 
     var q = "INSERT INTO `bluetooth` (`uuid`, `ts`, `address`, `class`, `name`, `rssi`, `prio`, `synced`, `dataclass`)" +
-            "VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? );"
+            "VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? );\n";
 
     var values = [row.uuid, row.ts, address, klass, name, rssi, row.prio, row.synced, row.dataclass];
     execQuery(q, values);
@@ -214,7 +222,7 @@ var rowSensorTransform = {
       , z = result[3];
 
     var q = "INSERT INTO `gyroscope` (`uuid`, `ts`, `angspeedx`, `angspeedy`, `angspeedz`, `prio`, `synced`, `dataclass`)" +
-            "VALUES ( ?, ?, ?, ?, ?, ?, ?, ? );"
+            "VALUES ( ?, ?, ?, ?, ?, ?, ?, ? );\n";
 
     var values = [row.uuid, row.ts, x, y, z, row.prio, row.synced, row.dataclass];
     execQuery(q, values);
