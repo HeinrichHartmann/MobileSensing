@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="eu.liveandgov.sensorcollectorapi"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+<!--         <activity
+            android:name="eu.liveandgov.sensorcollectorapi.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> -->
+        <service android:name="SensorCollectorAPIService">
+            <intent-filter>
+                <action android:name="eu.liveandgov.sensorcollectorapi.intent.action.SERVICE_START" />
+                <action android:name="eu.liveandgov.sensorcollectorapi.intent.action.SERVICE_STOP" />
+                <action android:name="eu.liveandgov.sensorcollectorapi.intent.action.SAMPLING_ENABLE" />
+                <action android:name="eu.liveandgov.sensorcollectorapi.intent.action.SAMPLING_DISABLE" />
+                <action android:name="eu.liveandgov.sensorcollectorapi.intent.action.SAMPLESTORAGE_ENABLE" />
+                <action android:name="eu.liveandgov.sensorcollectorapi.intent.action.SAMPLESTORAGE_DISABLE" />
+                <action android:name="eu.liveandgov.sensorcollectorapi.intent.action.SAMPLETRANSFER_ENABLE" />
+                <action android:name="eu.liveandgov.sensorcollectorapi.intent.action.SAMPLETRANSFER_DISABLE" />
+                <action android:name="eu.liveandgov.sensorcollectorapi.intent.action.SAMPLETRANSFER_TRIGGER" />
+                <action android:name="eu.liveandgov.sensorcollectorapi.intent.action.SAMPLEBROADCAST_ENABLE" />
+                <action android:name="eu.liveandgov.sensorcollectorapi.intent.action.SAMPLEBROADCAST_DISABLE" />
+<!--            <action android:name="eu.liveandgov.sensorcollectorapi.intent.action.CHANGE_CONFIG" /> -->
+                <action android:name="eu.liveandgov.sensorcollectorapi.intent.action.GET_STATUS" />
+                <action android:name="eu.liveandgov.sensorcollectorapi.intent.action.ANNOTATE" />
+                <action android:name="eu.liveandgov.sensorcollectorapi.intent.action.LOGGING_ENABLE" />
+                <action android:name="eu.liveandgov.sensorcollectorapi.intent.action.LOGGING_DISABLE" />                
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>
