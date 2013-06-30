@@ -37,21 +37,26 @@ var changeData = function () {
         return;
       }
 
+      var stratNumber = doneNr;
+
       // Stream creations
       var s = new Stream;
       s.writable = true;
 
       s.write = function (row) {
+        doneNr += 1;
         rowTrans.transform(row);
       };
 
       s.end = function (buf) {
-        rowTrans.finish();
-        //deleteDataInTable();
-        console.log('Done Page ' + page);
+        if(doneNr !== stratNumber) {
+          rowTrans.finish();
+          //deleteDataInTable();
+          console.log('Done Page ' + page);
+          pageNr += 1;
+          startQuery(pageNr);
+        }
         connection.end();
-        pageNr += 1;
-        startQuery(pageNr);
       };
       connection.query('SELECT * FROM `samples` LIMIT ?, ?', [page * rowsPerPage, rowsPerPage])
         .stream({ highWaterMark: 80 })
