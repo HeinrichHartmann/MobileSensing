@@ -51,10 +51,12 @@ var changeData = function () {
       s.end = function (buf) {
         if(doneNr !== stratNumber) {
           rowTrans.finish();
-          //deleteDataInTable();
+          //
           console.log('Done Page ' + page);
           pageNr += 1;
           startQuery(pageNr);
+        } else {
+          deleteDataInTable();
         }
         connection.end();
       };
@@ -69,8 +71,8 @@ var changeData = function () {
 
 module.exports = function () {
   console.log('Cron started');
-  //new cronJob('*/5 * * * *', function () {
+  new cronJob('*/5 * * * *', function () {
     console.log('Starting cron to clear data.')
     changeData();
-  //}, null, true);
+  }, null, true);
 };
