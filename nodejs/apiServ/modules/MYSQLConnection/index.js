@@ -2,11 +2,12 @@
 var mysql = require('mysql');
 
 var pool = mysql.createPool({
-  host: '192.168.1.22',
+  host: 'localhost',
   database: 'liveandgov',
-  user: 'root',
-  password: '',
-  connectionLimit: 100
+  user: 'chrisschaefer',
+  password: '00chrisschaefer00',
+  connectionLimit: 100,
+  multipleStatements: true
 });
 
 module.exports = pool;

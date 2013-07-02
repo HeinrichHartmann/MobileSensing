@@ -1,11 +1,21 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
   label UUID:
   select.uuid
+  label Timestamp:
+  input(type="text", placeholder="From").from
+  input(type="text", placeholder="To").to
+  input(type="text", placeholder="Limit").limit
+  button(type="button").go Go
+  p Acceleromete
+    span.accCount
   .acc.plot
+  p Magnetometer
+    span.magCount
   .mag.plot
+  p Gyroscope
+    span.gyroCount
   .gyro.plot
+  p GPS
   .gps

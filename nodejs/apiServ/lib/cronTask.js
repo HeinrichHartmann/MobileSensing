@@ -3,6 +3,8 @@ var mysql = require('MYSQLConnection')
   , cronJob = require('cron').CronJob
   , Stream = require('stream');
 
+var rowsPerPage = 50000;
+
 var deleteDataInTable = function () {
   mysql.getConnection(function (err, connection) {
     if(err) {
@@ -25,38 +27,52 @@ var changeData = function () {
   console.log('Data transformation started..');
   var concurrentQueries = 0;
   var doneNr = 0;
+  var pageNr = 0;
 
-  mysql.getConnection(function (err, connection) {
-    if(err) {
-      console.log('Error while getting connection to databse.', err);
-      return;
-    }
+  var startQuery = function (page) {
+    console.log('Start Page ' + page)
+    mysql.getConnection(function (err, connection) {
+      if(err) {
+        console.log('Error while getting connection to databse.', err);
+        return;
+      }
 
-    // Stream creations
-    var s = new Stream;
-    s.writable = true;
+      var stratNumber = doneNr;
 
-    s.write = function (row) {
-      rowTrans.transform(row);
-    };
+      // Stream creations
+      var s = new Stream;
+      s.writable = true;
 
-    s.end = function (buf) {
-      rowTrans.finish();
-      deleteDataInTable();
-      connection.end();
-      console.log('Done');
-    };
+      s.write = function (row) {
+        doneNr += 1;
+        rowTrans.transform(row);
+      };
 
-    connection.query('SELECT * FROM `samples`')
-      .stream({ highWaterMark: 80 })
-      .pipe(s);
-  });
+      s.end = function (buf) {
+        if(doneNr !== stratNumber) {
+          rowTrans.finish();
+          //
+          console.log('Done Page ' + page);
+          pageNr += 1;
+          startQuery(pageNr);
+        } else {
+          deleteDataInTable();
+        }
+        connection.end();
+      };
+      connection.query('SELECT * FROM `samples` LIMIT ?, ?', [page * rowsPerPage, rowsPerPage])
+        .stream({ highWaterMark: 80 })
+        .pipe(s);
+    });
+  };
+
+  startQuery(pageNr);
 };
 
 module.exports = function () {
   console.log('Cron started');
-  //new cronJob('*/5 * * * *', function () {
+  new cronJob('*/5 * * * *', function () {
     console.log('Starting cron to clear data.')
     changeData();
-  //}, null, true);
+  }, null, true);
 };
