@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+ * Copyright (C) 2012, Katy Hilgenberg.
+ * Special acknowledgments to: Knowledge & Data Engineering Group, University of Kassel (http://www.kde.cs.uni-kassel.de).
+ * Contact: sdcf@cs.uni-kassel.de
+ *
+ * This file is part of the SDCFramework (Sensor Data Collection Framework) project.
+ *
+ * The SDCFramework is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * The SDCFramework is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with the SDCFramework.  If not, see <http://www.gnu.org/licenses/>.
+ */
+-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="sdc_app_name">SDC Service</string>
+    <string name="pref_key_version_screen">pref_key_version</string>
+    <string name="title_version">Version</string>
+    <string name="sdc_description" tools:ignore="UnusedResources">Sensor Data Collection and Transmission Service</string>
+    <string name="sdc_preference_activity_label" tools:ignore="UnusedResources">SDCService Preferences</string>
+    <string name="sdc_controller_activity_label" tools:ignore="UnusedResources">SDCService Controller Activity</string>
+    <string name="sdc_file_browser_activity_label">SDCService File Selection</string>
+    <string name="sdc_service_name">SDCService</string>
+    <string name="sdc_service_label">SDCService</string>
+    <string name="sdc_service_description">Sensor Data Collection Service</string>
+    <string name="sdc_service_started" tools:ignore="UnusedResources">SDCService started</string>
+    <string name="sdc_start_button_text">start service</string>
+    <string name="sdc_stop_button_text">stop service</string>
+    <string name="sdc_config_file_name">SDCConfig.xml</string>
+    <string name="sdc_database_name">SDCSampleDatabase</string>
+    <string name="sdc_schedule_service_label">SDCF Scheduler Service</string>
+    <string name="sdc_schedule_service_description">SDCF Scheduler Service</string>
+    <string name="pref_category_sensor_config">Sensor configuration</string>
+    <string name="pref_key_sensor_config">sensor_preferences</string>
+    <string name="sum_sensor_config">Select and configure sensors</string>
+    <string name="pref_category_single_sensor_config">Preferences for</string>
+    <string name="sum_single_sensor_config">Configure preferences for</string>
+    <string name="titel_sensor_enabled_checkbox">Enable</string>
+    <string name="sum_sensor_enabled_checkbox">Enable sample collection</string>
+    <string name="titel_sensor_sample_prio_list">Select priority</string>
+    <string name="sum_sensor_sample_prio_list">Select sample transmission priority</string>
+    <string name="titel_sensor_frequency_edit">Edit frequency</string>
+    <string name="sum_sensor_frequency_edit">Set sample frequency in milliseconds</string>
+    <string name="pref_key_service_config">service_preferences</string>
+    <string name="pref_category_service_config">Service configuration</string>
+    <string name="sum_service_config">Configure service settings</string>
+    <string name="pref_category_logging_config">Log configuration</string>
+    <string name="titel_service_loglevel_list">Select log level</string>
+    <string name="sum_service_loglevel_list">Select the log level for the service</string>
+    <string name="pref_key_db_config">database_configuration</string>
+    <string name="title_db_config">Database settings</string>
+    <string name="sum_db_config">Configuration of the database full strategy and the maximum size limit</string>
+    <string name="pref_category_db_config">Persistent storage configuration</string>
+    <string name="pref_category_db_size">Maximum database size configuration</string>
+    <string name="titel_db_size_edit">Edit database size limit</string>
+    <string name="sum_db_size_edit">Set the maximum database size in KBytes</string>
+    <string name="pref_category_db_full_strategy">Database full strategy configuration</string>
+    <string name="titel_db_full_strategy_selection">Select strategy</string>
+    <string name="sum_db_full_strategy_selection">Select the combined strategy to be applied in case of database size limit exceedance</string>
+    <string name="titel_db_full_waittime_edit">Edit time to wait</string>
+    <string name="sum_db_full_waittime_edit">Initial time to wait in milliseconds if a database size limit overrun occurs</string>
+    <string name="titel_db_full_delete_prio_flag">Delete lowest priority first</string>
+    <string name="sum_db_full_delete_prio_flag">If checked, the samples will be selected first by priority and second by age ( normally just the oldest samples are selected )</string>
+    <string name="titel_db_full_recordcount_edit">Record count to delete </string>
+    <string name="sum_db_full_recordcount_edit">Edit the record count to delete for the case of a database size limit exceedance with the deletion strategy applied</string>
+    <string name="pref_category_broadcast_config">Sample broadcast configuration</string>
+    <string name="titel_broadcast_enabled_checkbox">Enable broadcasts</string>
+    <string name="sum_broadcast_enabled_checkbox">Enable sample broadcasting</string>
+    <string name="title_broadcast_frequency_edit">Edit broadcast frequency</string>
+    <string name="sum_broadcast_frequency_edit">Edit the sample broadcast interval in milliseconds</string>
+    <string name="titel_storage_enabled_checkbox">Enable storage</string>
+    <string name="sum_storage_enabled_checkbox">Enable persistent storage of samples</string>
+    <string name="pref_category_transfer_config">Sample transmission settings</string>
+    <string name="titel_transfer_enabled_checkbox">Enable sample transfer</string>
+    <string name="sum_transfer_enabled_checkbox">Enable transmission of stored samples to remote host</string>
+    <string name="pref_key_transfer_config">transfer_settings</string>
+    <string name="title_transfer_config">Transfer settings</string>
+    <string name="sum_transfer_config">Configuration of the transfer settings</string>
+    <string name="pref_category_host_config">Host configuration</string>
+    <string name="pref_key_host_config">host_config</string>
+    <string name="title_host_config">Host configuration</string>
+    <string name="sum_host_config">Configure remote URL and authentication data</string>
+    <string name="titel_url_edit">Edit URL</string>
+    <string name="sum_url_edit">The URL for the file transfer</string>
+    <string name="title_username_edit">Edit user name</string>
+    <string name="sum_username_edit">The user name for authentication at remote host</string>
+    <string name="title_password_edit">Edit password</string>
+    <string name="sum_password_edit">The user password for authentication at remote host</string>
+    <string name="pref_category_transmission_config">General transmission settings</string>
+    <string name="titel_min_samples_to_transfer_edit">Edit sample minimum</string>
+    <string name="sum_min_samples_to_transfer_edit">The minimum of samples to transfer to the remote host</string>
+    <string name="titel_max_samples_to_transfer_edit">Edit sample maximum</string>
+    <string name="sum_max_samples_to_transfer_edit">The maximum of samples to transfer to the remote host</string>
+    <string name="titel_min_transfer_frequency_edit">Edit frequency minimum</string>
+    <string name="sum_min_transfer_frequency_edit">The minimal frequency in seconds for repeated sample transfers</string>
+    <string name="titel_archive_type_selection">Select archive type</string>
+    <string name="sum_archive_type_selection">Select the archive type used to pack the data before transmission</string>
+    <string name="titel_encryption_enabled_checkbox">Encrypt archive</string>
+    <string name="sum_encryption_enabled_checkbox">Does enable RSA encryption for data transfer</string>
+    <string name="titel_transfer_strategy_selection">Select connection strategy</string>
+    <string name="sum_transfer_strategy_selection">Select the connection strategy used for transmission</string>
+    <string name="str_preferences">Preferences</string>
+    <string name="str_clear_log">Clear log</string>
+    <string name="str_clear_schedule">Clear Schedule</string>
+    <string name="str_clear_database">Reset Database</string>
+    <string name="pref_category_timeprovider_config">NTP time provider configuration</string>
+    <string name="titel_timeprovider_edit">Set  NTP providers</string>
+    <string name="sum_timeprovider_edit">Edit NTP time providers as semicolon separated list.</string>
+    <string name="title_uuid">Generated Unique Identifier</string>
+    <string name="pref_key_uuid_screen">key_uuid_screen</string>
+    <string name="sum_service_device_info">View the device information for transfer.</string>
+    <string name="pref_category_device_info">Device Information</string>
+    <string name="pref_key_device_info">key_device_info</string>
+    <string name="title_device">Device</string>
+    <string name="title_manufacturer">Manufacturer</string>
+    <string name="title_model">Model</string>
+    <string name="title_identifier">Identifier</string>
+    <string name="title_os_version">Android Version</string>
+    <string name="title_fingerprint">OS Fingerprint</string>
+    <string name="titel_sampling_enabled_checkbox">Enable Sampling</string>
+    <string name="sum_sampling_enabled_checkbox">Enables or disables the core sampling task.</string>
+    <string name="titel_sample_loc_fix_enabled_checkbox">Samples with location</string>
+    <string name="sum_sample_loc_fix_enabled_checkbox">If enabled, current location is added to each sample</string>
+    <string name="pref_category_sample_related_config">Configure Sample Creation</string>
+    <string name="titel_sync_err_strategy_list">Sync Error Strategy</string>
+    <string name="sum_sync_err_strategy_list">Strategy for time provider synchronization errors at runtime</string>
+    <string name="navigate_to_parent_dir">.. (parent directory)</string>
+    <string name="str_load_defaults">Load Settings from File</string>
+    <string name="str_choose">Choose</string>
+    <string name="str_external_config">Configuration by Files</string>
+    <string name="str_load_pubkey">Load RSA public key</string>
+    <string name="str_ok">OK</string>
+    <string name="str_unknown">Unknown</string>
+    <string name="str_scheduler_title">SDCF Scheduler</string>
+    <string name="str_add_entry">Add Entry</string>
+    <string name="str_choose_weekday">Select Weekday</string>
+    <string name="str_choose_action">Select Action</string>
+    <string name="str_select_start_time">Set Start Time</string>
+    <string name="str_save">Save</string>
+    <string name="str_delete_entry">delete</string>
+    <string name="str_edit_entry">edit</string>
+    <string name="pref_key_scheduler">service_scheduler_preferences</string>
+    <string name="pref_category_scheduler">Service Scheduler</string>
+    <string name="sum_scheduler">Configure a weekly service runtime schedule</string>
+    <string name="str_trigger_transfer">Trigger Transfer</string>
+</resources>

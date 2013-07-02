@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/addEntry"
+        android:icon="@drawable/ic_menu_add"
+        android:title="@string/str_add_entry">
+    </item>
+    
+    <item
+        android:id="@+id/saveSchedule"
+        android:icon="@drawable/ic_menu_save"
+        android:title="@string/str_save">
+    </item>
+    
+    <item
+        android:id="@+id/clearSchedule"
+        android:icon="@drawable/ic_menu_delete"
+        android:title="@string/str_clear_schedule">
+    </item>
+
+</menu>

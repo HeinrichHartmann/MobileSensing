@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="HandlerLeak">
+        <ignore path="src/de/unikassel/android/sdcframework/app/SDCServiceController.java" />
+    </issue>
+    <issue id="IconMissingDensityFolder" severity="ignore" />
+    <issue id="InvalidPackage" severity="ignore" />
+    <issue id="Registered" severity="ignore" />
+    <issue id="UnusedResources">
+        <ignore path="res/layout/sdc_service_controller.xml" />
+        <ignore path="res/menu/optionmenu.xml" />
+        <ignore path="res/values/colors.xml" />
+        <ignore path="res/values/strings.xml" />
+        <ignore path="res/values/strings.xml" />
+    </issue>
+</lint>

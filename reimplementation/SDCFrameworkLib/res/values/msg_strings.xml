@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+ * Copyright (C) 2012, Katy Hilgenberg.
+ * Special acknowledgments to: Knowledge & Data Engineering Group, University of Kassel (http://www.kde.cs.uni-kassel.de).
+ * Contact: sdcf@cs.uni-kassel.de
+ *
+ * This file is part of the SDCFramework (Sensor Data Collection Framework) project.
+ *
+ * The SDCFramework is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * The SDCFramework is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with the SDCFramework.  If not, see <http://www.gnu.org/licenses/>.
+ */
+-->
+<resources>
+    <string name="msg_wifi_disabled">Unable to take Wifi samples!\nPlease activate WLAN!</string>
+    <string name="msg_Bluetooth_disabled">Unable to take Bluetooth samples!\nPlease turn
+		Bluetooth on!</string>
+    <string name="msg_gsm_unavailable">Unable to take GSM samples!\nGSM unavailable!</string>
+    <string name="msg_gps_disabled">Unable to take GPSsamples!\nPlease activate GPS! </string>
+    <string name="msg_netloc_disabled">Unable to take network location samples!\nPlease activate WLAN location tracking!</string>
+    <string name="err_enable_device">Failed to enable device scanning for </string>
+    <string name="err_device_creation">Failed to create device for identifier </string>
+	<string name="err_external_config_deserialization">Deserialization failed for external configuration file!\nReason: %1$s</string>
+	<string name="err_external_config_invalid_params">Unable to update defaults with external configuration file!\nReason: %1$s</string>
+	<string name="err_external_file_copy">Failed to copy file %1$s!</string>
+	<string name="err_saving_schedule">Failed to save weekly schedule!\nReason: %1$s</string>
+	<string name="err_invalid_schedule">Invalid weekly schedule!\nReason: Entry %1$s at %2$s</string>
+</resources>
