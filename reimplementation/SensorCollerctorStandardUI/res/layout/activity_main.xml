@@ -11,8 +11,15 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/livegovlogo" />
 
         <ToggleButton
             android:id="@+id/serviceToggleButton"
@@ -23,14 +30,29 @@
             android:textOff="Start Service"
             android:textOn="Stop Service" />
 
-        <ToggleButton
-            android:id="@+id/recordingToggleButton"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onRecordingToggleButtonClick"
-            android:text="ToggleButton"
-            android:textOff="Start Recording"
-            android:textOn="Stop Recording and Transfer Data" />
+            android:layout_height="wrap_content" >
+
+            <ToggleButton
+                android:id="@+id/recordingToggleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/recordingProgressBar"
+                android:onClick="onRecordingToggleButtonClick"
+                android:text="ToggleButton"
+                android:textOff="Start Recording"
+                android:textOn="Stop Recording and Transfer Data" />
+
+            <ProgressBar
+                android:id="@+id/recordingProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true" />
+
+        </RelativeLayout>
 
         <Button
             android:id="@+id/transferButton"
@@ -78,7 +100,10 @@
         <TextView
             android:id="@+id/logTextView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="150dp"
+            android:maxHeight="150dp"
+            android:focusable="true"
+            android:scrollbars="vertical"
             android:text="" />
 
     </LinearLayout>

@@ -244,7 +244,6 @@ public class SensorCollectorAPIService extends Service implements
 			Intent loggingIntent = new Intent(IntentConstants.ACTION_LOG);
 			loggingIntent.putExtra("message", event.getMessage());
 			getApplicationContext().sendBroadcast(loggingIntent);
-
 		}
 
 	}

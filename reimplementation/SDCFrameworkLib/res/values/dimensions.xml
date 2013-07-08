@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="btnCornerRadius">10dp</dimen>
+    <dimen name="btnBorderWidth">2dp</dimen>
+    
+    <dimen name="listItemSpacing">5dp</dimen>
+    <dimen name="cellBorder">2dp</dimen> 
+    <dimen name="gridSpacing">2dp</dimen> 
+    <dimen name="minCellHeight">118dp</dimen> 
+</resources>

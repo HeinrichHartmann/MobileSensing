@@ -14,6 +14,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ToggleButton;
@@ -22,6 +23,7 @@ public class MainActivity extends Activity {
 
 	private ToggleButton serviceToggleButton;
 	private ToggleButton recordingToggleButton;
+	private ProgressBar recordingProgressBar;
 	private Button transferButton;
 	private Spinner annotationSpinner;
 	private EditText annotationText;
@@ -43,7 +45,11 @@ public class MainActivity extends Activity {
 		// Setup Recording Toggle Button
 		recordingToggleButton = (ToggleButton) findViewById(R.id.recordingToggleButton);
 		recordingToggleButton.setEnabled(false);
-
+		
+		// Setup Recording Progress Bar
+		recordingProgressBar = (ProgressBar) findViewById(R.id.recordingProgressBar);
+		recordingProgressBar.setVisibility(View.INVISIBLE);
+		
 		// Setup Transfer Button
 		transferButton = (Button) findViewById(R.id.transferButton);
 		transferButton.setEnabled(false);
@@ -81,7 +87,7 @@ public class MainActivity extends Activity {
 
 		// Setup Log Text View
 		logTextView = (TextView) findViewById(R.id.logTextView);
-		logTextView.setSingleLine(false);
+//		logTextView.setSingleLine(false);
 		logTextView.setMovementMethod(new ScrollingMovementMethod());
 
 		// Setup Broadcast Receiver
@@ -179,6 +185,7 @@ public class MainActivity extends Activity {
 			transferButton.setEnabled(true);
 		} else {
 			recordingToggleButton.setEnabled(false);
+			recordingProgressBar.setVisibility(View.INVISIBLE);
 			serviceToggleButton.setChecked(false);
 			transferButton.setEnabled(false);
 			annotationSpinner.setEnabled(false);
@@ -192,12 +199,14 @@ public class MainActivity extends Activity {
 			annotationSpinner.setEnabled(true);
 			annotationText.setEnabled(true);
 			sendButton.setEnabled(true);
+			recordingProgressBar.setVisibility(View.VISIBLE);
 		} else {
 			serviceToggleButton.setEnabled(true);
 			recordingToggleButton.setChecked(false);
 			annotationSpinner.setEnabled(false);
 			annotationText.setEnabled(false);
 			sendButton.setEnabled(false);
+			recordingProgressBar.setVisibility(View.INVISIBLE);
 		}
 
 	}
@@ -208,9 +217,7 @@ public class MainActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
+		return false;
 	}
 
 }

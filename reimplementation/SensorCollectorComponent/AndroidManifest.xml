@@ -6,8 +6,40 @@
 
     <uses-sdk
         android:minSdkVersion="8"
-        android:targetSdkVersion="17" />
+        android:targetSdkVersion="8" />
 
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.WAKE_LOCK" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.BLUETOOTH" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.VIBRATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.BATTERY_STATS" />
+    
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -41,6 +73,49 @@
                 <action android:name="eu.liveandgov.sensorcollectorapi.intent.action.LOGGING_DISABLE" />                
             </intent-filter>
         </service>
+        
+        <service
+            android:name="de.unikassel.android.sdcframework.app.scheduler.ScheduleService">
+<!--             android:description="@string/sdc_schedule_service_description"
+            android:icon="@drawable/icon"
+            android:label="@string/sdc_schedule_service_label"> -->
+            <intent-filter>
+                <action android:name="de.unikassel.android.sdcframework.intent.action.sdcfScheduledAction"/>
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="de.unikassel.android.sdcframework.app.SDCServiceImpl">
+<!--             android:description="@string/sdc_service_description"
+            android:exported="true"
+            android:icon="@drawable/icon"
+            android:label="@string/sdc_service_label" > -->
+            <intent-filter>
+                <action android:name="de.unikassel.android.sdcframework.app.facade.ISDCService"/>
+            </intent-filter>
+        </service>
+        
+        <provider
+            android:name="de.unikassel.android.sdcframework.provider.TwitterProvider"
+            android:authorities="de.unikassel.android.sdcframework.provider.twitterprovider"
+            android:enabled="true"
+            android:exported="true" >
+        </provider>
+        
+        <provider
+            android:name="de.unikassel.android.sdcframework.provider.AudioProvider"
+            android:authorities="de.unikassel.android.sdcframework.provider.sndrecordlocprovider"
+            android:enabled="true"
+            android:exported="true" >
+        </provider>
+        
+        <provider
+            android:name="de.unikassel.android.sdcframework.provider.TagProvider"
+            android:authorities="de.unikassel.android.sdcframework.provider.tagsprovider"
+            android:enabled="true"
+            android:exported="true" >
+        </provider>
+        
     </application>
 
 </manifest>
