@@ -8,6 +8,8 @@ block content
   input(type="text", placeholder="To").to
   input(type="text", placeholder="Limit").limit
   button(type="button").go Go
+  p GPS
+  .gps#map
   p Acceleromete
     span.accCount
   .acc.plot
@@ -17,5 +19,38 @@ block content
   p Gyroscope
     span.gyroCount
   .gyro.plot
-  p GPS
-  .gps
+  p Tags
+  table(border="1").tags
+    thead
+      tr
+        th Time
+        th Text
+  p Wifi
+  table(border="1").wifi
+    thead
+      tr
+        th Time
+        th BSSID
+        th SSID
+        th cap
+        th connected
+        th Frequency
+        th Signal Level
+  p GSM
+  table(border="1").gsm
+    thead
+      tr
+        th Time
+        th Operator
+        th lac
+        th cid
+        th rssi
+  p Bluetooth
+  table(border="1").bluetooth
+    thead
+      tr
+        th Time
+        th Address
+        th Class
+        th Name
+        th rssi

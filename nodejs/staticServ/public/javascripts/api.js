@@ -6,8 +6,14 @@
     $('.from').datetimepicker();
     $('.to').datetimepicker();
 
+    var map = new Map('map');
+
     var sortFunc = function (a, b) {
       return (a[0]-b[0]);
+    };
+
+    var sortByTS = function (a, b) {
+      return a.ts - b.ts;
     };
 
     // Get all UUIDS
@@ -31,7 +37,7 @@
     var addLimit = function () {
       var limit = $('.limit').val();
       if(!limit || limit === 0) {
-        return '';
+        return 'limit=500';
       }
       return 'limit=' + limit;
     };
@@ -51,7 +57,7 @@
       }
     };
 
-    function showTooltip(x, y, contents) {
+    var showTooltip = function (x, y, contents) {
       $("<div id='tooltip'>" + contents + "</div>").css({
         position: "absolute",
         display: "none",
@@ -62,7 +68,7 @@
         "background-color": "#fee",
         opacity: 0.80
       }).appendTo("body").fadeIn(200);
-    }
+    };
 
     var hover = function (event, pos, item) {  
       if (item) {
@@ -75,7 +81,7 @@
           y = item.datapoint[1].toFixed(2);
 
           showTooltip(item.pageX, item.pageY,
-              item.series.label + " of " + x + " = " + y);
+              item.series.label + " of " + new Date(parseInt(x)) + " = " + y);
         }
       } else {
         $("#tooltip").remove();
@@ -85,17 +91,21 @@
 
     var previousPoint = null;
 
+    var zoomFunctions = [];
+    var zoomEvent = function (event, ranges) {
+      for (var i = zoomFunctions.length - 1; i >= 0; i--) {
+        zoomFunctions[i](event, ranges);
+      };
+    };
+
     var getData = function (foo) {
       var uuid = $('.uuid').val();
       
       // Gps
       $.ajax({
-        url: apiUrl + '/' + uuid + '/gps?limit=10&' + addTimeRange()
+        url: apiUrl + '/' + uuid + '/gps?limit=10000&' + addTimeRange()
       }).done(function (data) {
-        var $gps = $('.gps');
-        $.each(data, function (id, item) {
-          $gps.append('<p>acc:' + item.accuracy + '; alt: ' + item.alt + '; lon: ' + item.lon + '; lat: ' + item.lat + ';</p>');
-        }); 
+        map.reset(data);
       });
 
       // Acc
@@ -121,14 +131,15 @@
           { label: 'Y', data: y },
           { label: 'Z', data: z }
         ];
-        $acc.bind("plotselected", function (event, ranges) {
-            plot = $.plot($acc, plotData, $.extend(true, {}, options, {
-              xaxis: {
-                min: ranges.xaxis.from,
-                max: ranges.xaxis.to
-              }
-            }));
+        zoomFunctions.push(function (event, ranges) {
+          plot = $.plot($acc, plotData, $.extend(true, {}, options, {
+            xaxis: {
+              min: ranges.xaxis.from,
+              max: ranges.xaxis.to
+            }
+          }));
         });
+        $acc.bind("plotselected", zoomEvent);
         var plot = $.plot($acc, plotData, options);
         $(".acc").bind("plothover", hover);
       });
@@ -156,7 +167,7 @@
           { label: 'Y', data: y },
           { label: 'Z', data: z }
         ];
-        $mag.bind("plotselected", function (event, ranges) {
+        zoomFunctions.push(function (event, ranges) {
             plot = $.plot($mag, plotData, $.extend(true, {}, options, {
               xaxis: {
                 min: ranges.xaxis.from,
@@ -164,6 +175,7 @@
               }
             }));
         });
+        $mag.bind("plotselected", zoomEvent);
         var plot = $.plot($mag, plotData, options);
         $(".mag").bind("plothover", hover);
       });
@@ -191,7 +203,7 @@
           { label: 'Y', data: y },
           { label: 'Z', data: z }
         ];
-        $gyro.bind("plotselected", function (event, ranges) {
+        zoomFunctions.push(function (event, ranges) {
             plot = $.plot($gyro, plotData, $.extend(true, {}, options, {
               xaxis: {
                 min: ranges.xaxis.from,
@@ -199,8 +211,57 @@
               }
             }));
         });
+        $gyro.bind("plotselected", zoomEvent);
         var plot = $.plot($gyro, plotData, options);
         $(".gyro").bind("plothover", hover);
+      });
+
+      // Tags
+      $.ajax({
+        url: apiUrl + '/' + uuid + '/tags?' + addTimeRange() + '&' + addLimit()
+      }).done(function (data) {
+        $tags = $('.tags');
+        $('.tags tr').remove();
+        data.sort(sortByTS);
+        $.each(data, function (id, item) {
+          $tags.append('<tr><td>' + new Date(item.ts) + '</td><td>' + item.txt + '</td></tr>');
+        });
+      });
+
+      // Wifi
+      $.ajax({
+        url: apiUrl + '/' + uuid + '/wifi?' + addTimeRange() + '&' + addLimit()
+      }).done(function (data) {
+        $tags = $('.wifi');
+        $('.wifi tr').remove();
+        data.sort(sortByTS);
+        $.each(data, function (id, item) {
+          $tags.append('<tr><td>' + new Date(item.ts) + '</td><td>' + item.bssid + '</td><td>' + item.ssid + '</td><td>' + item.cap + '</td><td>' + item.connected + '</td><td>' + item.freq + '</td><td>' + item.sigLevel + '</td></tr>');
+        });
+      });
+
+      // gsm
+      $.ajax({
+        url: apiUrl + '/' + uuid + '/gsm?' + addTimeRange() + '&' + addLimit()
+      }).done(function (data) {
+        $tags = $('.gsm');
+        $('.gsm tr').remove();
+        data.sort(sortByTS);
+        $.each(data, function (id, item) {
+          $tags.append('<tr><td>' + new Date(item.ts) + '</td><td>' + item.operator + '</td><td>' + item.lac + '</td><td>' + item.cid + '</td><td>' + item.rssi + '</td></tr>');
+        });
+      });
+
+      // Bluetooth
+      $.ajax({
+        url: apiUrl + '/' + uuid + '/bluetooth?' + addTimeRange() + '&' + addLimit()
+      }).done(function (data) {
+        $tags = $('.bluetooth');
+        $('.bluetooth tr').remove();
+        data.sort(sortByTS);
+        $.each(data, function (id, item) {
+          $tags.append('<tr><td>' + new Date(item.ts) + '</td><td>' + item.address + '</td><td>' + item.class + '</td><td>' + item.name + '</td><td>' + item.rssi + '</td></tr>');
+        });
       });
 
     };

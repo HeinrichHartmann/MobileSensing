@@ -11,3 +11,7 @@ a {
   width: 1094px;
   height: 500px;
 }
+
+#map {
+	height: 500px;
+}
