@@ -103,6 +103,7 @@ public class SensorCollectorAPIService extends Service implements
 		Intent intent = new Intent(serviceClass.getName());
 		getApplicationContext().startService(intent);
 		connectionHolder.onCreate(this);
+		Logger.getInstance().registerEventObserver(this);
 	}
 
 	public void stopSDCFService() {

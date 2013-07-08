@@ -51,15 +51,29 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true" />
-
         </RelativeLayout>
 
-        <Button
-            android:id="@+id/transferButton"
+        <RelativeLayout
+            android:id="@+id/RelativeLayout1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onTransferButtonClick"
-            android:text="Transfer samples" />
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/transferButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/transferProgressBar"
+                android:onClick="onTransferButtonClick"
+                android:text="Transfer samples" />
+
+            <ProgressBar
+                android:id="@+id/transferProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true" />
+
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/textView1"
@@ -94,16 +108,15 @@
                 android:layout_alignParentTop="true"
                 android:onClick="onSendButtonClick"
                 android:text="Send" />
-
         </RelativeLayout>
 
         <TextView
             android:id="@+id/logTextView"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:maxHeight="150dp"
             android:focusable="true"
             android:scrollbars="vertical"
+            android:singleLine="false"
             android:text="" />
 
     </LinearLayout>
