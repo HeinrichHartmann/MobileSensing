@@ -436,31 +436,32 @@ public final class TimeProvider
    */
   private final boolean syncTime( Context context )
   {
-    android.net.SntpClient sntpClient = new SntpClient();
-    
-    for ( String provider : getProviders() )
-    {
-      // after a wake up we do often fail with a route to host, even if network
-      // is connected
-      // thus we do force a route to host request here
-      if ( !ConnectivityWrapperImpl.getInstance().testHostReachability(
-          context, provider ) )
-        Logger.getInstance().debug( this, "No route to host: " + provider );
-      
-      if ( sntpClient.requestTime( provider, 5000 ) )
-      {
-        long phoneTime = System.currentTimeMillis();
-        long now =
-            sntpClient.getNtpTime() + SystemClock.elapsedRealtime()
-                - sntpClient.getNtpTimeReference();
-        setOffset( phoneTime - now );
-        lastUpdateTs.set( getTimeStamp() );
-        synced.compareAndSet( false, true );
-        break;
-      }
-    }
-    
-    return synced.get();
+    return false; // hack
+//    android.net.SntpClient sntpClient = new SntpClient();
+//    
+//    for ( String provider : getProviders() )
+//    {
+//      // after a wake up we do often fail with a route to host, even if network
+//      // is connected
+//      // thus we do force a route to host request here
+//      if ( !ConnectivityWrapperImpl.getInstance().testHostReachability(
+//          context, provider ) )
+//        Logger.getInstance().debug( this, "No route to host: " + provider );
+//      
+//      if ( sntpClient.requestTime( provider, 5000 ) )
+//      {
+//        long phoneTime = System.currentTimeMillis();
+//        long now =
+//            sntpClient.getNtpTime() + SystemClock.elapsedRealtime()
+//                - sntpClient.getNtpTimeReference();
+//        setOffset( phoneTime - now );
+//        lastUpdateTs.set( getTimeStamp() );
+//        synced.compareAndSet( false, true );
+//        break;
+//      }
+//    }
+//    
+//    return synced.get();
   }
   
   /**

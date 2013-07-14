@@ -494,6 +494,10 @@ public class TransferManagerImpl
           if ( waitTime <= 0L )
           {
             // collect available samples
+            Logger.getInstance().info(this, "Preparation started.\n"+
+                "Preparing samples: " + gatheringController.getAvailableSampleCount() + "\n" +
+                "Remaining samples: " + (dbManager.getRecordCountInDatabase() - gatheringController.getAvailableSampleCount()) 
+            );
             doPickSamplesFromDatabase();
             currentState.set( PREPARATION );
           }
@@ -514,11 +518,13 @@ public class TransferManagerImpl
         }
         case TRANSMISSION:
         {
+          Logger.getInstance().info(this, "Transmission started. File size: " + FileUtils.fileFromPath( fileManager.getCurrentArchive() ).length() / 1024 + "kb");
           // transfer archive
           if ( doTransferArchive() )
           {
             // prepare next transfer cycle
             currentState.set( INIT );
+            Logger.getInstance().info(this, "Transmission ended successfully.");
           }
           else
           {
@@ -568,8 +574,8 @@ public class TransferManagerImpl
          context ) )
     {
       // no Internet connection available
-      Logger.getInstance().warning( this,
-          "Upload failed! Waiting for available connection." );
+      // Logger.getInstance().warning( this, "Upload failed! Waiting for available connection." );
+      Logger.getInstance().warning( this, "Transmission ended with error. Waiting for available connection +" + CONNECTION_WAKE_UP_TIME / 1000 + "s.");
       
       // wait for connectivity
       try
@@ -599,7 +605,8 @@ public class TransferManagerImpl
     }
     else
     {
-      Logger.getInstance().warning( this, "Upload failed! Protocol error." );
+      //Logger.getInstance().warning( this, "Upload failed! Protocol error." );
+      Logger.getInstance().warning( this, "Transmission ended with error. No internet connection. Retry in " + WAIT_TIME_FOR_CONFIG_CHANGES / 1000 + "s.");
       
       // wait URL setting changed
       synchronized ( protocolWaitLock )

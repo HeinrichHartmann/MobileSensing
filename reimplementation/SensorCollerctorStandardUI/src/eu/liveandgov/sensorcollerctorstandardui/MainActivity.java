@@ -6,9 +6,12 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.text.Selection;
+import android.text.Spannable;
 import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
@@ -25,6 +28,7 @@ public class MainActivity extends Activity {
 	private ToggleButton recordingToggleButton;
 	private ProgressBar recordingProgressBar;
 	private Button transferButton;
+	private ProgressBar transferProgressBar;
 	private Spinner annotationSpinner;
 	private EditText annotationText;
 	private Button sendButton;
@@ -32,12 +36,16 @@ public class MainActivity extends Activity {
 
 	private BroadcastReceiver universalBroadcastReceiver;
 
-	private boolean isRunning, isRecording;
+	private boolean isRunning, isRecording, isTransfering;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		// Prevent keyboard automatically popping up
+		getWindow().setSoftInputMode(
+				WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
 		// Setup Service Toggle Button
 		serviceToggleButton = (ToggleButton) findViewById(R.id.serviceToggleButton);
@@ -45,14 +53,18 @@ public class MainActivity extends Activity {
 		// Setup Recording Toggle Button
 		recordingToggleButton = (ToggleButton) findViewById(R.id.recordingToggleButton);
 		recordingToggleButton.setEnabled(false);
-		
+
 		// Setup Recording Progress Bar
 		recordingProgressBar = (ProgressBar) findViewById(R.id.recordingProgressBar);
 		recordingProgressBar.setVisibility(View.INVISIBLE);
-		
+
 		// Setup Transfer Button
 		transferButton = (Button) findViewById(R.id.transferButton);
 		transferButton.setEnabled(false);
+
+		// Setup Transfer Progress Bar
+		transferProgressBar = (ProgressBar) findViewById(R.id.transferProgressBar);
+		transferProgressBar.setVisibility(View.INVISIBLE);
 
 		// Setup Annotation Spinner
 		annotationSpinner = (Spinner) findViewById(R.id.annotationSpinner);
@@ -87,7 +99,7 @@ public class MainActivity extends Activity {
 
 		// Setup Log Text View
 		logTextView = (TextView) findViewById(R.id.logTextView);
-//		logTextView.setSingleLine(false);
+		// logTextView.setSingleLine(false);
 		logTextView.setMovementMethod(new ScrollingMovementMethod());
 
 		// Setup Broadcast Receiver
@@ -208,11 +220,29 @@ public class MainActivity extends Activity {
 			sendButton.setEnabled(false);
 			recordingProgressBar.setVisibility(View.INVISIBLE);
 		}
-
+		if (isTransfering) {
+			transferProgressBar.setVisibility(View.VISIBLE);
+		} else {
+			transferProgressBar.setVisibility(View.INVISIBLE);
+		}
 	}
 
 	private void addLogEntry(String message) {
 		logTextView.append(message + "\n");
+		if (message.startsWith("TransferManagerImpl: Preparation started")
+				|| message
+						.startsWith("TransferManagerImpl: Transmission started")) {
+			isTransfering = true;
+			updateButtons();
+		} else if (message
+				.startsWith("TransferManagerImpl: Transmission ended")) {
+			isTransfering = false;
+			updateButtons();
+		}
+		// scroll to end
+		logTextView.setSelected(true);
+		Spannable textDisplayed = (Spannable) logTextView.getText();
+		Selection.setSelection(textDisplayed, textDisplayed.length());
 	}
 
 	@Override
