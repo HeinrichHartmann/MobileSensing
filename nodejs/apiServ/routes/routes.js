@@ -7,6 +7,78 @@ var checkTable = function (table) {
   return tables.indexOf(table) >= 0;
 };
 
+var getCountFunction = function (table) {
+  return function (req, res, next) {
+    var query = 'SELECT COUNT(*) FROM `' + table + '` WHERE `uuid` = ?';
+    mysql.getConnection(function (err, connection) {
+      if(err) {
+        res.send(500, 'Database connection error!' +  err);
+        next();
+        connection.end();
+        return;
+      }
+      connection.query(query, [req.params.uuid], function (err, result) {
+        if(err) {
+          res.send(500, 'Database connection error!' +  err);
+          next();
+          connection.end();
+          return;
+        }
+        res.send(result);
+        next();
+        connection.end();
+      });
+    });
+  };
+};
+
+var getDataFunction = function (table) {
+  return function (req, res, next) {
+    var query = 'SELECT * FROM `' + table + '` WHERE `uuid` = ?'
+      , values = [req.params.uuid]
+      , from = req.query.from
+      , to = req.query.to
+      , limit = req.query.limit;
+
+    if(from) {
+      query += ' AND `ts` >= ?';
+      values.push(from);
+    }
+
+    if(to) {
+      query += ' AND `ts` <= ?';
+      values.push(to);
+    }
+
+    if(limit) {
+      limit = parseInt(limit);
+      if(limit > 0)
+        query += ' LIMIT ' + limit;
+      
+    }
+
+    mysql.getConnection(function (err, connection) {
+        if(err) {
+          res.send(500, 'Database connection error!' +  err);
+          next();
+          connection.end();
+          return;
+        }
+        connection.query(query, values, function (err, results) {
+          if(err) {
+            res.send(500, 'Database connection error!' +  err);
+            next();
+            connection.end();
+            return;
+          }
+          res.send(results);
+          next();
+          connection.end();
+        });
+    });
+  };
+};
+
 /**
  * Registers all routes we need with the server
  * @param  {Restify Server} server The restify server
@@ -61,58 +133,12 @@ var register = function (server) {
     });
   });
 
-  /**
-   * Handler for all the resources we can get for a UUID.
-   */
-  server.get(/([\d]+)\/(.*)/, function (req, res, next) {
-    if(!checkTable(req.params[1])) {
-      next();
-      return;
-    }
+  // Register the Row count and data function for every table
+  for (var i = tables.length - 1; i >= 0; i--) {
+    server.get('/'+tables[i]+'/:uuid/count', getCountFunction(tables[i]));
+    server.get('/'+tables[i]+'/:uuid', getDataFunction(tables[i]));
+  };
 
-    var query = 'SELECT * FROM `' + req.params[1] + '` WHERE `uuid` = ?'
-      , values = [req.params[0]]
-      , from = req.query.from
-      , to = req.query.to
-      , limit = req.query.limit;
-
-    if(from) {
-      query += ' AND `ts` >= ?';
-      values.push(from);
-    }
-
-    if(to) {
-      query += ' AND `ts` <= ?';
-      values.push(to);
-    }
-
-    if(limit) {
-      limit = parseInt(limit);
-      if(limit > 0)
-        query += ' LIMIT ' + limit;
-      
-    }
-
-    mysql.getConnection(function (err, connection) {
-        if(err) {
-          res.send(500, 'Database connection error!' +  err);
-          next();
-          connection.end();
-          return;
-        }
-        connection.query(query, values, function (err, results) {
-          if(err) {
-            res.send(500, 'Database connection error!' +  err);
-            next();
-            connection.end();
-            return;
-          }
-          res.send(results);
-          next();
-          connection.end();
-        });
-    });
-  });
 };
 
 module.exports = register;

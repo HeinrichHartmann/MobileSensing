@@ -20,11 +20,23 @@
     $.ajax({
       url: apiUrl + '/devices'
     }).done(function (data) {
-      var uuid = $('.uuid');
+      //var uuid = $('.uuid');
       $.each(data, function (id, item) {
-        uuid.append('<option value="' + item.uuid + '">' + item.uuid + ' ( ' + item.device + ' )' + '</option>');
+        //uuid.append('<option value="' + item.uuid + '">' + item.uuid + ' ( <span id="gpsCount' + item.uuid + '"></span> )' + '</option>');
+        getGpsCount(item.uuid);
       });
     });
+
+    var getGpsCount = function (uuid) {
+      var $uuid = $('.uuid');
+      $.ajax({
+        url: apiUrl + '/gps/' + uuid + '/count'
+      }).done(function (data) {
+        if(data[0]["COUNT(*)"] && data[0]["COUNT(*)"] !== 0) {
+          $uuid.append('<option value="' + uuid + '">' + uuid + ' Samples: ' + data[0]["COUNT(*)"] + '</option>');
+        }
+      });
+    };
 
     var addTimeRange = function () {
       var from = Date.parse($('.from').val());
@@ -103,14 +115,14 @@
       
       // Gps
       $.ajax({
-        url: apiUrl + '/' + uuid + '/gps?limit=10000&' + addTimeRange()
+        url: apiUrl + '/gps/' + uuid + '?limit=10000&' + addTimeRange()
       }).done(function (data) {
         map.reset(data);
       });
 
       // Acc
       $.ajax({
-        url: apiUrl + '/' + uuid + '/accelerometer?' + addTimeRange() + '&' + addLimit()
+        url: apiUrl + '/accelerometer/' + uuid + '?' + addTimeRange() + '&' + addLimit()
       }).done(function (data) {
         var $acc = $('.acc');
         $('.magCount').val(data.length);
@@ -146,7 +158,7 @@
 
       // Mag
       $.ajax({
-        url: apiUrl + '/' + uuid + '/magneticfield?' + addTimeRange() + '&' + addLimit()
+        url: apiUrl + '/magneticfield/' + uuid + '?' + addTimeRange() + '&' + addLimit()
       }).done(function (data) {
         var $mag = $('.mag');
         $('.magCount').val(data.length);
@@ -182,7 +194,7 @@
 
       // Gyro
       $.ajax({
-        url: apiUrl + '/' + uuid + '/gyroscope?' + addTimeRange() + '&' + addLimit()
+        url: apiUrl + '/gyroscope/' + uuid + '?' + addTimeRange() + '&' + addLimit()
       }).done(function (data) {
         var $gyro = $('.gyro');
         $('.gyroCount').val(data.length);
@@ -218,7 +230,7 @@
 
       // Tags
       $.ajax({
-        url: apiUrl + '/' + uuid + '/tags?' + addTimeRange() + '&' + addLimit()
+        url: apiUrl + '/tags/' + uuid + '?' + addTimeRange() + '&' + addLimit()
       }).done(function (data) {
         $tags = $('.tags');
         $('.tags tr').remove();
@@ -230,7 +242,7 @@
 
       // Wifi
       $.ajax({
-        url: apiUrl + '/' + uuid + '/wifi?' + addTimeRange() + '&' + addLimit()
+        url: apiUrl + '/wifi/' + uuid + '?' + addTimeRange() + '&' + addLimit()
       }).done(function (data) {
         $tags = $('.wifi');
         $('.wifi tr').remove();
@@ -242,7 +254,7 @@
 
       // gsm
       $.ajax({
-        url: apiUrl + '/' + uuid + '/gsm?' + addTimeRange() + '&' + addLimit()
+        url: apiUrl + '/gsm/' + uuid + '?' + addTimeRange() + '&' + addLimit()
       }).done(function (data) {
         $tags = $('.gsm');
         $('.gsm tr').remove();
@@ -254,7 +266,7 @@
 
       // Bluetooth
       $.ajax({
-        url: apiUrl + '/' + uuid + '/bluetooth?' + addTimeRange() + '&' + addLimit()
+        url: apiUrl + '/bluetooth/' + uuid + '?' + addTimeRange() + '&' + addLimit()
       }).done(function (data) {
         $tags = $('.bluetooth');
         $('.bluetooth tr').remove();

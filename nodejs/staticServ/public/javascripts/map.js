@@ -55,9 +55,19 @@
 
 	Map.prototype.doPolylines = function() {
 		for (var i = this._latLon.length - 1; i >= 0; i--) {
-			L.polyline(this._latLon[i]).addTo(this._map);
+			var randColor = getRandomColor();
+			L.polyline(this._latLon[i], {color: randColor}).addTo(this._map);
 		};
 	};
 
 	window.Map = Map;
+
+	var getRandomColor = function () {
+		var letters = '0123456789ABCDEF'.split('');
+		var color = '#';
+		for (var i = 0; i < 6; i++) {
+			color += letters[Math.round(Math.random() * 15)];
+		};
+		return color;
+	};
 })();
