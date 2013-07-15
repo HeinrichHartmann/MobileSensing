@@ -125,7 +125,7 @@
         url: apiUrl + '/accelerometer/' + uuid + '?' + addTimeRange() + '&' + addLimit()
       }).done(function (data) {
         var $acc = $('.acc');
-        $('.magCount').val(data.length);
+        $('.accCount').html(data.length);
         var x = [];
         var y = [];
         var z = [];
@@ -161,7 +161,7 @@
         url: apiUrl + '/magneticfield/' + uuid + '?' + addTimeRange() + '&' + addLimit()
       }).done(function (data) {
         var $mag = $('.mag');
-        $('.magCount').val(data.length);
+        $('.magCount').html(data.length);
         var x = [];
         var y = [];
         var z = [];
@@ -197,7 +197,7 @@
         url: apiUrl + '/gyroscope/' + uuid + '?' + addTimeRange() + '&' + addLimit()
       }).done(function (data) {
         var $gyro = $('.gyro');
-        $('.gyroCount').val(data.length);
+        $('.gyroCount').html(data.length);
         var x = [];
         var y = [];
         var z = [];
