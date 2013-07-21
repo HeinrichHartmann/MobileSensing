@@ -144,14 +144,15 @@ var register = function (server) {
   };
 
   // tags next to Timestamp
-  server.get('/tags/:uuid/nextTo/:ts/variance/:variance', function (req, res, next) {
-    var selectNearestTag = "SELECT Abs(ts - ?) AS a, "
-                         + "       txt "
-                         + "FROM   `tags` "
-                         + "WHERE  `uuid` = ? "
-                         + "AND `ts` BETWEEN ? AND ? "
-                         + "ORDER BY a"
-                         + "LIMIT 1";
+  server.get('/tags/:uuid/nearestTo/:ts/variance/:variance', function (req, res, next) {
+    var selectNearestTag = "SELECT ABS( ts - ? ) AS a, txt "
+                         + " FROM  `tags` "
+                         + " WHERE  `uuid` = ? "
+                         + " AND  `ts` "
+                         + "   BETWEEN ? "
+                         + "   AND ? "
+                         + " ORDER BY a "
+                         + "  LIMIT 1";
     var values = [req.params.ts, req.params.uuid, req.params.ts - req.params.variance, req.params.ts + req.params.variance];
     mysql.getConnection(function (err, connection) {
       if(err) {
