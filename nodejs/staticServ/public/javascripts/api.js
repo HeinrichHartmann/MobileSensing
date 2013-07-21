@@ -32,8 +32,15 @@
       $.ajax({
         url: apiUrl + '/gps/' + uuid + '/count'
       }).done(function (data) {
+        if(uuid === 19) {
+          $uuid.append('<option value="' + uuid + '" selected>' + uuid + ' Samples: ' + data[0]["COUNT(*)"] + '</option>');
+          getData();
+          return;
+        }
         if(data[0]["COUNT(*)"] && data[0]["COUNT(*)"] !== 0) {
           $uuid.append('<option value="' + uuid + '">' + uuid + ' Samples: ' + data[0]["COUNT(*)"] + '</option>');
+        } else {
+          $uuid.append('<option value="' + uuid + '">' + uuid + ' No GPS samples!</option>');
         }
       });
     };
@@ -110,7 +117,8 @@
       };
     };
 
-    var getData = function (foo) {
+    var getData = function () {
+      zoomFunctions = [];
       var uuid = $('.uuid').val();
       
       // Gps
