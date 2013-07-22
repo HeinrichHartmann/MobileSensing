@@ -1,56 +1,128 @@
-extends layout
-
-block content
-  label UUID:
-  select.uuid
-  label Timestamp:
-  input(type="text", placeholder="From").from
-  input(type="text", placeholder="To").to
-  input(type="text", placeholder="Limit").limit
-  button(type="button").go Go
-  p GPS
-  .gps#map
-  p Acceleromete
-    span.accCount
-  .acc.plot
-  p Magnetometer
-    span.magCount
-  .mag.plot
-  p Gyroscope
-    span.gyroCount
-  .gyro.plot
-  p Tags
-  table(border="1").tags
-    thead
-      tr
-        th Time
-        th Text
-  p Wifi
-  table(border="1").wifi
-    thead
-      tr
-        th Time
-        th BSSID
-        th SSID
-        th cap
-        th connected
-        th Frequency
-        th Signal Level
-  p GSM
-  table(border="1").gsm
-    thead
-      tr
-        th Time
-        th Operator
-        th lac
-        th cid
-        th rssi
-  p Bluetooth
-  table(border="1").bluetooth
-    thead
-      tr
-        th Time
-        th Address
-        th Class
-        th Name
-        th rssi
+doctype 5
+html
+  head
+    title Live+Gov Data Inspector
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet", type="text/css", href="/stylesheets/bootstrap.min.css")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.css')
+  body
+    div.navbar.navbar-inverse.navbar-fixed-top
+      div.navbar-inner
+        div.container-fluid
+          a.brand(href="#")
+            img.logo(src="http://liveandgov.eu/wp-content/uploads/2013/03/livegov-logo3.jpg", alt="Live+Gov")
+          div.nav-collapse.collapse
+            ul.nav
+              li
+                a(href="#form") Input
+              li
+                a(href="#gps") Map
+              li
+                a(href="#acc") Accelerometer
+              li
+                a(href="#mag") Magnetometer
+              li
+                a(href="#gyro") Gyroscope
+              li
+                a(href="#tags") Tags
+              li
+                a(href="#wifi") Wifi
+              li
+                a(href="#gsm") GSM
+              li
+                a(href="#bluetooth") Bluetooth
+    div.container-fluid.cont
+      div.row-fluid
+        div.span-12
+          h3#form Input
+          form.form-inline
+            label UUID:
+            select.uuid
+            label &nbsp;Routes:
+            select.routes
+      div.row-fluid
+        div.span-12
+          h3#gps GPS
+          div.gps#map.well.well-large
+      div.row-fluid
+        div.span-12
+          h3#acc Accelerometer
+          p Count: 
+            span.accCount
+          div.acc.plot.well.well-large
+      div.row-fluid
+        div.span-12
+          h3#mag Magnetometer
+          p Count: 
+            span.magCount
+          div.mag.plot.well.well-large
+      div.row-fluid
+        div.span-12
+          h3#gyro Gyroscope
+          p Count: 
+            span.gyroCount
+          div.gyro.plot.well.well-large
+      div.row-fluid
+        div.span-12
+          h3#tags Tags
+          p Count: 
+            span.tagsCount
+          table.table.table-bordered.table-striped.tags
+            thead
+              tr
+                th Time
+                th Text
+            tbody
+      div.row-fluid
+        div.span-12
+          h3#wifi Wifi
+          p Count: 
+            span.wifiCount
+          table.table.table-bordered.table-striped.wifi
+            thead
+              tr
+                th Time
+                th BSSID
+                th SSID
+                th cap
+                th connected
+                th Frequency
+                th Signal Level
+            tbody
+      div.row-fluid
+        div.span-12
+          h3#gsm GSM
+          p Count: 
+            span.gsmCount
+          table.table.table-bordered.table-striped.gsm
+            thead
+              tr
+                th Time
+                th Operator
+                th lac
+                th cid
+                th rssi
+            tbody
+      div.row-fluid
+        div.span-12
+          h3#bluetooth Bluetooth
+          p Count: 
+            span.bluetoothCount
+          table.table.table-bordered.table-striped.bluetooth
+            thead
+              tr
+                th Time
+                th Address
+                th Class
+                th Name
+                th rssi
+            tbody
+    script(type="text/javascript", src="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.js")
+    script(type="text/javascript", src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
+    script(type="text/javascript", src="javascripts/bootstrap.min.js")
+    script(type="text/javascript", src="javascripts/jquery.flot.js")
+    script(type="text/javascript", src="javascripts/jquery.flot.time.min.js")
+    script(type="text/javascript", src="javascripts/jquery.flot.selection.min.js")
+    script(type="text/javascript", src="javascripts/map.js")
+    script(type="text/javascript", src="javascripts/sensors.js")

@@ -1,7 +1,7 @@
 var restify = require('restify')
   , routes = require('./routes/routes');
 
-require('./lib/cronTask')();
+//require('./lib/cronTask')();
 
 var server = restify.createServer({
   name: 'MobileSensing'

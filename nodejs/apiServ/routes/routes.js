@@ -8,7 +8,7 @@ var checkTable = function (table) {
 };
 
 var sendDatabaseError = function(err, res) {
-  res.send(500, "Database error!" + err);
+  res.send(500, "Database error! " + err);
 }
 
 var getCountFunction = function (table) {
@@ -75,10 +75,50 @@ var getDataFunction = function (table) {
             connection.end();
             return;
           }
+          for (var i = results.length - 1; i >= 0; i--) {
+            delete results[i]["prio"];
+            delete results[i]["synced"];
+            delete results[i]["dataclass"];
+          };
           res.send(results);
           next();
           connection.end();
         });
+    });
+  };
+};
+
+var getNearestFunction = function (table, extraFields) {
+  return function (req, res, next) {
+    var selectNearestTag = "SELECT ABS( ts - ? ) AS a, "
+                         + extraFields + " "
+                         + " FROM  `" + table + "` "
+                         + " WHERE  `uuid` = ? "
+                         + " AND  `ts` "
+                         + "   BETWEEN ? "
+                         + "   AND ? "
+                         + " ORDER BY a "
+                         + "  LIMIT 1";
+    var values = [req.params.ts, req.params.uuid, parseInt(req.params.ts) - parseInt(req.params.variance), parseInt(req.params.ts) + parseInt(req.params.variance)];
+    mysql.getConnection(function (err, connection) {
+      if(err) {
+        console.log("CONNECTIONS");
+        sendDatabaseError(err, res);
+        connection.end();
+        next();
+        return;
+      }
+      connection.query(selectNearestTag, values, function(err, result) {
+        if(err) {
+          sendDatabaseError(err, res);
+          connection.end();
+          next();
+          return;
+        }
+        res.send(result);
+        connection.end();
+        next();
+      });
     });
   };
 };
@@ -144,36 +184,8 @@ var register = function (server) {
   };
 
   // tags next to Timestamp
-  server.get('/tags/:uuid/nearestTo/:ts/variance/:variance', function (req, res, next) {
-    var selectNearestTag = "SELECT ABS( ts - ? ) AS a, txt "
-                         + " FROM  `tags` "
-                         + " WHERE  `uuid` = ? "
-                         + " AND  `ts` "
-                         + "   BETWEEN ? "
-                         + "   AND ? "
-                         + " ORDER BY a "
-                         + "  LIMIT 1";
-    var values = [req.params.ts, req.params.uuid, req.params.ts - req.params.variance, req.params.ts + req.params.variance];
-    mysql.getConnection(function (err, connection) {
-      if(err) {
-        sendDatabaseError(err, res);
-        connection.end();
-        next();
-        return;
-      }
-      connection.query(selectNearestTag, values, function(err, result) {
-        if(err) {
-          sendDatabaseError(err, res);
-          connection.end();
-          next();
-          return;
-        }
-        res.send(result);
-        connection.end();
-        next();
-      });
-    });
-  });
+  server.get('/tags/:uuid/nearestTo/:ts/variance/:variance', getNearestFunction('tags', ' txt '));
+  server.get('/gps/:uuid/nearestTo/:ts/variance/:variance', getNearestFunction('gps', ' lat, lon '))
 
 };
 
