@@ -1,6 +1,7 @@
 (function () {
-	//var apiUrl = "http://mobile-sensing.west.uni-koblenz.de:8888"
-	var apiUrl = "http://localhost:8888"
+	var apiUrl = "http://mobile-sensing.west.uni-koblenz.de:8888";
+
+	//var apiUrl = "http://localhost:8888"
 	var getLatLon = function (value) {
 		return new L.LatLng(value.lat, value.lon);
 	};

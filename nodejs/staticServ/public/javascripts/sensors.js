@@ -1,6 +1,6 @@
 (function () {
- 	//var apiUrl = "http://mobile-sensing.west.uni-koblenz.de:8888"
-	var apiUrl = "http://localhost:8888"
+ 	var apiUrl = "http://mobile-sensing.west.uni-koblenz.de:8888";
+	
  	$('.insertData').click(function () {
  		$.ajax({
  			url: apiUrl + '/importData'
