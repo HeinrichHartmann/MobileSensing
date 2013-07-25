@@ -1,5 +1,5 @@
 {
-  "name": "MobileSensing",
+  "name": "mobilesensing",
   "version": "0.0.0",
   "main": "app.js",
   "scripts": {
@@ -7,7 +7,6 @@
   },
   "author": "Christoph Ehlen",
   "dependencies" : {
-    "MYSQLConnection": "0.0.x",
     "restify": "x",
     "cron": "1.0.1"
   }

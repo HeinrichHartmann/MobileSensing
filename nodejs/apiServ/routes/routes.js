@@ -1,5 +1,6 @@
 var mysql = require('MYSQLConnection')
-  , restify = require('restify');
+  , restify = require('restify')
+  , cronTask = require('../lib/cronTask');
 
 // All allowed tables to access
 var tables = ['gps', 'wifi', 'gsm', 'magneticfield', 'accelerometer', 'tags', 'networklocation', 'bluetooth', 'gyroscope'];
@@ -185,7 +186,12 @@ var register = function (server) {
 
   // tags next to Timestamp
   server.get('/tags/:uuid/nearestTo/:ts/variance/:variance', getNearestFunction('tags', ' txt '));
-  server.get('/gps/:uuid/nearestTo/:ts/variance/:variance', getNearestFunction('gps', ' lat, lon '))
+  server.get('/gps/:uuid/nearestTo/:ts/variance/:variance', getNearestFunction('gps', ' lat, lon '));
+
+  server.get('/importData', function (req, res, next) {
+    cronTask.changeData();
+    res.send(200, "Importing data.");
+  });
 
 };
 

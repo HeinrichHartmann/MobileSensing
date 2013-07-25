@@ -1,5 +1,5 @@
 {
-  "name": "MYSQLConnection",
+  "name": "mysqlconnection",
   "version": "0.0.0",
   "description": "Starts a connection to the MySQL Server",
   "main": "index.js",

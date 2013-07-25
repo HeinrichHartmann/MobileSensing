@@ -1,6 +1,6 @@
 (function () {
-	var apiUrl = "http://mobile-sensing.west.uni-koblenz.de:8888"
-
+	//var apiUrl = "http://mobile-sensing.west.uni-koblenz.de:8888"
+	var apiUrl = "http://localhost:8888"
 	var getLatLon = function (value) {
 		return new L.LatLng(value.lat, value.lon);
 	};
@@ -22,11 +22,20 @@
 
 	Map.prototype.reset = function(data) {
 		this.clearMap();
+		if(data.length === 0) {
+    	// Get the last 6 Month
+    	var start = new Date(new Date().getTime() - 60*60*24*30*6*1000).getTime();
+    	// End is now
+    	var end = new Date().getTime();
+    	// We force a limit here to a default 10000
+    	window.updateSensors(start, end, 10000);
+    	return;
+    }
 		this._map.setView(getLatLon(data[0]), 13);
 		this._data = data.sort(sortByTimestamp);
-        this.createRoutes(100000);
-        this.clearRouteDropdown();
-        this.doPolylines();
+    this.createRoutes(100000);
+    this.clearRouteDropdown();
+    this.doPolylines();
 	};
 
 	Map.prototype.clearMap = function() {
@@ -98,7 +107,7 @@
 			if(num === -1) {
 				// Show all
 				self.clearMap();
-	        	self.doPolylines();
+	      self.doPolylines();
 			} else {
 				self.clearMap();
 				self._routes[num].draw(self._map);

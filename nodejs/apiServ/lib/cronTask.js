@@ -69,10 +69,14 @@ var changeData = function () {
   startQuery(pageNr);
 };
 
-module.exports = function () {
-  console.log('Cron started');
-  new cronJob('*/5 * * * *', function () {
-    console.log('Starting cron to clear data.')
-    changeData();
-  }, null, true);
+module.exports = {
+  cron: function () {
+    console.log('Cron started');
+    new cronJob('*/5 * * * *', function () {
+      console.log('Starting cron to clear data.')
+      changeData();
+    }, null, true);
+  },
+
+  changeData: changeData
 };

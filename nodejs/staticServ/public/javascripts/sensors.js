@@ -1,5 +1,13 @@
 (function () {
- 	var apiUrl = "http://mobile-sensing.west.uni-koblenz.de:8888"
+ 	//var apiUrl = "http://mobile-sensing.west.uni-koblenz.de:8888"
+	var apiUrl = "http://localhost:8888"
+ 	$('.insertData').click(function () {
+ 		$.ajax({
+ 			url: apiUrl + '/importData'
+ 		}).done(function (data) {
+ 			$('.insertDataLabel').html("Importing data... This task should be done in a few seconds.");
+ 		});
+ 	});
 
  	var scrollTo = function (hash) {
  		location.hash = '';
