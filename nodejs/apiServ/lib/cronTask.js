@@ -23,7 +23,7 @@ var deleteDataInTable = function () {
 };
 
 // Querys the database for all rows in `samples` and does some transformation on them
-var changeData = function () {
+var changeData = function (cb) {
   console.log('Data transformation started..');
   var concurrentQueries = 0;
   var doneNr = 0;
@@ -56,6 +56,9 @@ var changeData = function () {
           pageNr += 1;
           startQuery(pageNr);
         } else {
+          if(cb) {
+            cb();
+          }
           deleteDataInTable();
         }
         connection.end();

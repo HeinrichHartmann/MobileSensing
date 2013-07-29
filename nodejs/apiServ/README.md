@@ -129,11 +129,11 @@ The accelerometer sensor uses the same API as the GPS Sensor except it has no ac
 Accelerometer object:
 ```JSON
 {
-  uuid: Number,     -> The device uuid
-  ts: Number,       -> Timestamp at which the recording took place
-  accx: Number,     -> X axis
-  accy: Number,     -> Y axis
-  accz: Number      -> Z Axis
+  "uuid": Number,     -> The device uuid
+  "ts": Number,       -> Timestamp at which the recording took place
+  "accx": Number,     -> X axis
+  "accy": Number,     -> Y axis
+  "accz": Number      -> Z Axis
 }
 ```
 

@@ -89,6 +89,36 @@ var getDataFunction = function (table) {
   };
 };
 
+var getNewestFunction = function (table) {
+  return function (req, res, next) {
+    var query = 'SELECT MAX(TS) FROM `' + table + '` WHERE `uuid` = ?';
+    var values = [req.params.uuid];
+
+    mysql.getConnection(function (err, connection) {
+      if(err) {
+        sendDatabaseError(err, res);
+        connection.end();
+        next();
+        return;
+      }
+      connection.query(query, values, function (err, results) {
+        if(err) {
+          sendDatabaseError(err, res);
+          connection.end();
+          next();
+          return;
+        }
+        var max = {
+          ts: results[0]["MAX(TS)"]
+        };
+        res.send(max);
+        connection.end();
+        next();
+      });
+    });
+  };
+};
+
 var getNearestFunction = function (table, extraFields) {
   return function (req, res, next) {
     var selectNearestTag = "SELECT ABS( ts - ? ) AS a, "
@@ -182,6 +212,7 @@ var register = function (server) {
   for (var i = tables.length - 1; i >= 0; i--) {
     server.get('/'+tables[i]+'/:uuid/count', getCountFunction(tables[i]));
     server.get('/'+tables[i]+'/:uuid', getDataFunction(tables[i]));
+    server.get('/'+tables[i]+'/:uuid/lastUpdate', getNewestFunction(tables[i]));
   };
 
   // tags next to Timestamp
@@ -189,8 +220,9 @@ var register = function (server) {
   server.get('/gps/:uuid/nearestTo/:ts/variance/:variance', getNearestFunction('gps', ' lat, lon '));
 
   server.get('/importData', function (req, res, next) {
-    cronTask.changeData();
-    res.send(200, "Importing data.");
+    cronTask.changeData(function () {
+      res.send(200, "Importing data.");
+    });
   });
 
 };

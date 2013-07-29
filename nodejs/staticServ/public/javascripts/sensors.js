@@ -1,12 +1,14 @@
 (function () {
  	var apiUrl = "http://mobile-sensing.west.uni-koblenz.de:8888";
-	
+
  	$('.insertData').click(function () {
+ 		$('.insertDataLabel').html("Importing data... This task should be done in a few seconds.");
  		$.ajax({
  			url: apiUrl + '/importData'
  		}).done(function (data) {
- 			$('.insertDataLabel').html("Importing data... This task should be done in a few seconds.");
+ 			$('.insertDataLabel').html("Done importing data.");
  		});
+ 		fillUUID();
  	});
 
  	var scrollTo = function (hash) {
@@ -15,30 +17,57 @@
  	};
  
  	var fillUUID = function () {
+ 		$('.uuid')
+			.find('option')
+			.remove()
+			.end();
  		$.ajax({
 	    	url: apiUrl + '/devices'
 	    }).done(function (data) {
 	    	$.each(data, function (id, item) {
-	       		getGpsCount(item.uuid);
+	       		getGpsCount(item);
 	    	});
 	    });
  	};
 
- 	var getGpsCount = function (uuid) {
+ 	var updateLastUpdate = function (item) {
+ 		var maxTs = 0;
+ 		var updateLabelHtml = $("#option-"+item.uuid).html();
+ 		var sensors = ['gps', 'wifi', 'gsm', 'magneticfield', 'accelerometer', 'tags', 'networklocation', 'bluetooth', 'gyroscope'];
+ 		for (var i = 0; i < sensors.length; i++) {
+ 			$.ajax({
+ 				url: apiUrl + '/' + sensors[i] + '/' + item.uuid + '/lastUpdate'
+ 			}).done(function (data) {
+ 				if(data && data.ts && data.ts > maxTs) {
+ 					maxTs = data.ts;
+ 					var d = new Date(maxTs);
+ 					try {
+ 						$("#option-" + item.uuid).html(updateLabelHtml.replace("??", d));
+ 					} catch(err) {
+ 						console.log(item);
+ 					}
+ 				}
+ 			});
+ 		};
+ 	};
+
+ 	var getGpsCount = function (item) {
       var $uuid = $('.uuid');
       $.ajax({
-        url: apiUrl + '/gps/' + uuid + '/count'
+        url: apiUrl + '/gps/' + item.uuid + '/count'
       }).done(function (data) {
-        if(uuid === 19) {
-          $uuid.append('<option value="' + uuid + '" selected>' + uuid + ' Samples: ' + data[0]["COUNT(*)"] + '</option>');
+        if(item.uuid === 19) {
+          $uuid.append('<option value="' + item.uuid + '" id="option-' + item.uuid + '" selected>' + item.model + ' | ' + item.uuid + ' | Samples: ' + data[0]["COUNT(*)"] + ' | Last Update: ??</option>');
           onUUIDChange();
+          updateLastUpdate(item);
           return;
         }
         if(data[0]["COUNT(*)"] && data[0]["COUNT(*)"] !== 0) {
-          $uuid.append('<option value="' + uuid + '">' + uuid + ' Samples: ' + data[0]["COUNT(*)"] + '</option>');
+          $uuid.append('<option value="' + item.uuid + '" id="option-' + item.uuid + '">' + item.model + ' | ' + item.uuid + ' | Samples: ' + data[0]["COUNT(*)"] + ' | Last Update: ??</option>');
         } else {
-          $uuid.append('<option value="' + uuid + '">' + uuid + ' No GPS samples!</option>');
+          $uuid.append('<option value="' + item.uuid + '" id="option-' + item.uuid + '">' + item.model + ' | ' + item.uuid + ' | No GPS samples! | Last Update: ??</option>');
         }
+        updateLastUpdate(item);
       });
     };
 
