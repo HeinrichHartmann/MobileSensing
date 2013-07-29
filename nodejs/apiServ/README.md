@@ -11,17 +11,19 @@ Device Information
 It is possible to get all registered devices using a request to http://mobile-sensing.west.uni-koblenz.de:8888/devices .
 The JSON return is a Array of Device objects.
 A device object is of the following format:
+```JSON
 {
-  uuid: Number,           -> This number is used everywhere to reference this device
-  textuuid: String,       -> 
-  device: String,         ->
-  fingerprint: String,    ->
-  id: String,             ->
-  manufacturer: String,   -> The device manufacturer
-  model: String,          -> The device model
-  product: String,        -> 
-  androidVersion: String  -> The android os version
+  "uuid": Number,           -> This number is used everywhere to reference this device
+  "textuuid": String,       -> 
+  "device": String,         ->
+  "fingerprint": String,    ->
+  "id": String,             ->
+  "manufacturer": String,   -> The device manufacturer
+  "model": String,          -> The device model
+  "product": String,        -> 
+  "androidVersion": String  -> The android os version
 }
+```
 
 ```bash
 $ curl http://mobile-sensing.west.uni-koblenz.de:8888/devices
@@ -44,15 +46,17 @@ GPS
 ---
 
 GPS Object:
+```JSON
 {
-  uuid: Number,     -> The device uuid
-  ts: Number,       -> Timestamp at which the recording took place
-  accuracy: Number, -> The accuracy of the recording
-  alt: Number,      -> Altitude
-  lat: Number,      -> Latitude
-  lon: Number,      -> Longitude
-  speed: Number,    -> Speed
+  "uuid": Number,     -> The device uuid
+  "ts": Number,       -> Timestamp at which the recording took place
+  "accuracy": Number, -> The accuracy of the recording
+  "alt": Number,      -> Altitude
+  "lat": Number,      -> Latitude
+  "lon": Number,      -> Longitude
+  "speed": Number,    -> Speed
 }
+```
 
 ### List
 Link: http://mobile-sensing.west.uni-koblenz.de:8888/gps/:uuid
@@ -92,9 +96,9 @@ This returns the nearest element to a given timestamp with a given variance.
 The returned object is of the following format
 ```JSON
 {
-  a: Number,    -> The absolute difference from the timestamp
-  lat: Number,  -> Latitude
-  lon: Number   -> Longitude
+  "a": Number,    //-> The absolute difference from the timestamp
+  "lat": Number,  //-> Latitude
+  "lon": Number   //-> Longitude
 }
 ```
 ```bash
@@ -108,19 +112,22 @@ Accelerometer
 Link: http://mobile-sensing.west.uni-koblenz.de:8888/accelerometer/:uuid
 The accelerometer sensor uses the same API as the GPS Sensor except it has no access to the `nearestTo` route.
 Accelerometer object:
+```JSON
 {
-  uuid: Number,     -> The device uuid
-  ts: Number,       -> Timestamp at which the recording took place
-  accx: Number,     -> X axis
-  accy: Number,     -> Y axis
-  accz: Number      -> Z Axis
+  "uuid": Number,     -> The device uuid
+  "ts": Number,       -> Timestamp at which the recording took place
+  "accx": Number,     -> X axis
+  "accy": Number,     -> Y axis
+  "accz": Number      -> Z Axis
 }
+```
 
 Magnetometer
 ------------
 Link: http://mobile-sensing.west.uni-koblenz.de:8888/magnetometer/:uuid
 The accelerometer sensor uses the same API as the GPS Sensor except it has no access to the `nearestTo` route.
 Accelerometer object:
+```JSON
 {
   uuid: Number,     -> The device uuid
   ts: Number,       -> Timestamp at which the recording took place
@@ -128,6 +135,6 @@ Accelerometer object:
   accy: Number,     -> Y axis
   accz: Number      -> Z Axis
 }
-
+```
 
 
