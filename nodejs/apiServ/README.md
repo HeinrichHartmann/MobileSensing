@@ -90,11 +90,13 @@ Link: http://mobile-sensing.west.uni-koblenz.de:8888/gps/:uuid/nearestTo/:ts/var
 
 This returns the nearest element to a given timestamp with a given variance.
 The returned object is of the following format
+```JSON
 {
   a: Number,    -> The absolute difference from the timestamp
   lat: Number,  -> Latitude
   lon: Number   -> Longitude
 }
+```
 ```bash
 $ curl http://mobile-sensing.west.uni-koblenz.de:8888/gps/6/nearestTo/1366837073797/variance/100
 
