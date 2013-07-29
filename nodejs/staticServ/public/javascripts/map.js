@@ -28,6 +28,7 @@
     	var start = new Date(new Date().getTime() - 60*60*24*30*6*1000).getTime();
     	// End is now
     	var end = new Date().getTime();
+    	this.clearRouteDropdown();
     	// We force a limit here to a default 10000
     	window.updateSensors(start, end, 10000);
     	return;
@@ -142,14 +143,7 @@
 	window.Map = Map;
 
 	var getRandomColor = function () {
-		var letters = '0123456789ABCDEF'.split('');
-		var color = '#';
-		for (var i = 0; i < 6; i++) {
-			color += letters[Math.round(Math.random() * 15)];
-		};
 		return "blue";
-		return color;
-
 	};
 
 	// =====================
