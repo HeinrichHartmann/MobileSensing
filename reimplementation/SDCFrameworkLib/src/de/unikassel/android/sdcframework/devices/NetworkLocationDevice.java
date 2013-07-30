@@ -27,6 +27,7 @@ import de.unikassel.android.sdcframework.data.independent.NetworkLocationSampleD
 import de.unikassel.android.sdcframework.data.independent.SampleData;
 import de.unikassel.android.sdcframework.devices.facade.SampleProvidingSensorDevice;
 import de.unikassel.android.sdcframework.devices.facade.SensorDeviceIdentifier;
+import de.unikassel.android.sdcframework.util.Logger;
 
 /**
  * Implementation of the network location sensor device using the location
@@ -61,6 +62,7 @@ public final class NetworkLocationDevice
   @Override
   protected SampleData getCurrentSampleData()
   {
+    Logger.getInstance().info(this, "Latitude="+getLocationData().getLatitude()+": Longitude="+getLocationData().getLongitude());
     return new NetworkLocationSampleData( getLocationData() );
   }
   

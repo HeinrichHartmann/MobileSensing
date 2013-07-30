@@ -6,7 +6,7 @@
 	
 	<sensors>
 	    <sensor id="GPS" enabled="true" frequency="5000" prio="Level1" />
-		<sensor id="Accelerometer" enabled="true" frequency="500" prio="Level2" />
+		<sensor id="Accelerometer" enabled="true" frequency="1000" prio="Level2" />
 		<sensor id="Gyroscope" enabled="true" frequency="500" prio="Level2" />
 		<sensor id="MagneticField" enabled="true" frequency="500" prio="Level2" />
 		<sensor id="Wifi" enabled="true" frequency="5000" prio="Level2" />

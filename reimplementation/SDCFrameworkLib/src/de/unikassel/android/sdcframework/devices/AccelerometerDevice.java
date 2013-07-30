@@ -24,9 +24,11 @@ import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorManager;
+import android.util.Log;
 import de.unikassel.android.sdcframework.data.independent.AccelerometerSampleData;
 import de.unikassel.android.sdcframework.data.independent.SampleData;
 import de.unikassel.android.sdcframework.devices.facade.SensorDeviceIdentifier;
+import de.unikassel.android.sdcframework.util.Logger;
 
 /**
  * Implementation of the accelerometer sensor device.
@@ -75,7 +77,8 @@ public class AccelerometerDevice
   @Override
   protected final synchronized SampleData getCurrentSampleData()
   {
-    return currentSampleData;
+    Logger.getInstance().info( this, "x="+currentSampleData.getAccelerationX()+"; y="+currentSampleData.getAccelerationY()+"; z="+currentSampleData.getAccelerationZ() );
+    return currentSampleData;    
   }
   
   /*

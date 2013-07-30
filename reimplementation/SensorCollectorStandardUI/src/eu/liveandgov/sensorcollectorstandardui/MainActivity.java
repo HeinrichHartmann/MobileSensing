@@ -1,5 +1,6 @@
-package eu.liveandgov.sensorcollerctorstandardui;
+package eu.liveandgov.sensorcollectorstandardui;
 
+import eu.liveandgov.sensorcollectorstandardui.R;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -37,6 +38,7 @@ public class MainActivity extends Activity {
 	private BroadcastReceiver universalBroadcastReceiver;
 
 	private boolean isRunning, isRecording, isTransfering;
+	private boolean firstSel = true;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -75,9 +77,13 @@ public class MainActivity extends Activity {
 		annotationSpinner.setAdapter(adapter);
 		annotationSpinner
 				.setOnItemSelectedListener(new OnItemSelectedListener() {
-					@Override
+					@Override					
 					public void onItemSelected(AdapterView<?> parent,
 							View view, int position, long id) {
+						if (firstSel) {
+							firstSel = false;
+							return;
+						}
 						String annotation = annotationSpinner.getSelectedItem()
 								.toString();
 						sendAnnotation("Activity: " + annotation);

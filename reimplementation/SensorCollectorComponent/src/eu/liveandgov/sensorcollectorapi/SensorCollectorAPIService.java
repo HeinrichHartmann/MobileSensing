@@ -177,6 +177,10 @@ public class SensorCollectorAPIService extends Service implements
 		values.put(TagProviderData.TEXT, tag);
 		getContentResolver().insert(
 				TagProviderData.getInstance().getContentUri(), values);
+		
+		Intent loggingIntent = new Intent(IntentConstants.ACTION_LOG);
+		loggingIntent.putExtra("message", "Annotation recorded: " + tag);
+		getApplicationContext().sendBroadcast(loggingIntent);
 	}
 
 	public void broadcastStatus() {

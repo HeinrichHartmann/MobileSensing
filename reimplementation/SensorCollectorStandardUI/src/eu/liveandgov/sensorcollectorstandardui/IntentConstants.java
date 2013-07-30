@@ -1,4 +1,4 @@
-package eu.liveandgov.sensorcollerctorstandardui;
+package eu.liveandgov.sensorcollectorstandardui;
 
 public class IntentConstants {
 
