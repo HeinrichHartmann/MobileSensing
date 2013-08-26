@@ -2,12 +2,22 @@
 var mysql = require('mysql');
 
 var pool = mysql.createPool({
-  host: 'localhost',
+  host: '192.168.1.51',
   database: 'liveandgov',
-  user: 'chrisschaefer',
-  password: '00chrisschaefer00',
+  user: 'root',
+  password: '',
   connectionLimit: 100,
   multipleStatements: true
 });
 
-module.exports = pool;
+var routesPool = mysql.createPool({
+  host: '192.168.1.51',
+  database: 'helsinki',
+  user: 'root',
+  password: ''
+});
+
+var p = pool;
+p.routes = routesPool;
+
+module.exports = p;

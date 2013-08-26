@@ -1,5 +1,5 @@
 (function () {
- 	var apiUrl = "http://mobile-sensing.west.uni-koblenz.de:8888";
+ 	var apiUrl = "http://localhost:8888";
 	
  	$('.insertData').click(function () {
  		$.ajax({
@@ -284,16 +284,16 @@
 		var uuid = $('.uuid').val();
 
 		// Gps
-	    $.ajax({
-	        url: apiUrl + '/gps/' + uuid
-	    }).done(function (data) {
-	        map.reset(data);
-	    });
+    $.ajax({
+      url: apiUrl + '/gps/' + uuid
+    }).done(function (data) {
+      map.reset(data);
+    });
 	};
 
  	// Init
  	fillUUID();
-	var map = new Map('map');
+	window.map = new Map('map');
 	$('.uuid').change(onUUIDChange);
 
 

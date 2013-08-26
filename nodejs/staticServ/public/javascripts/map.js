@@ -1,10 +1,15 @@
 (function () {
-	var apiUrl = "http://mobile-sensing.west.uni-koblenz.de:8888";
+	var apiUrl = "http://localhost:8888";
 
 	//var apiUrl = "http://localhost:8888"
 	var getLatLon = function (value) {
 		return new L.LatLng(value.lat, value.lon);
 	};
+
+	var getLatLonFromKKJ = function (x, y) {
+		var laLo = Convert.KKJToWGS(x, y);
+		return new L.LatLng(laLo.lat, laLo.lon);
+	}
 
 	var sortByTimestamp = function (a, b) {
 		return a.ts - b.ts;
@@ -137,6 +142,46 @@
 			this._map.removeLayer(this._markers[i]);
 			this._markers.pop();
 		};
+	};
+
+	Map.prototype.drawRoute = function (id, start, stop) {
+		var self = this;
+		$.ajax({
+			url: apiUrl + '/routes/' + id + '/route'
+		})
+		.done(function (data) {
+			var polyline = [];
+			$.each(data, function (index, point) {
+				var latLon = getLatLonFromKKJ(point.x, point.y)
+				console.log(point.stopCode);
+				if(point.type === 'P') {
+					console.log('Add marker');
+					var marker = L.marker(latLon).addTo(self._map);
+					self.getStopInfo(point.stopCode, marker, start === point.stopCode, stop === point.stopCode);
+				}
+				polyline.push(latLon);
+			});
+			L.polyline(polyline, {color: 'green'}).addTo(self._map);
+		});
+	};
+
+	Map.prototype.getStopInfo = function(stopCode, marker, start, stop) {
+		console.log(stopCode);
+		$.ajax({
+			url: apiUrl + '/stops/' + stopCode
+		})
+		.done(function (data) {
+			var popup = "";
+			if(start) {
+				"<b>Start Dir 1</b>"
+			}
+			if(stop) {
+				"<b>Start Dir 2</b>"
+			}
+			var foo = popup + ' ' + data.stopName + ' ' + stopCode;
+			console.log(foo);
+			marker.bindPopup(foo);
+		});
 	};
 
 	window.Map = Map;
